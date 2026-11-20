@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* EdvoNest Official Brand Palette */
+    --color-primary-blue: #086a92;
+    --color-teal: #008c91;
+    --color-green: #35b84a;
+    --color-light-green: #eaf8ec;
+    --color-light-blue: #eaf5f8;
+    --color-bg-app: #f7fafa;
+    --color-dark-text: #17313a;
+    --color-muted-text: #6b7c83;
+    --color-border: #e4eaec;
+    --color-card-bg: #ffffff;
+
+    --bg-app: #f7fafa;
+    --card-bg: #ffffff;
+    --text-main: #17313a;
+    --text-muted: #6b7c83;
+    --border-color: #e4eaec;
+  }
+
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Clean Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
 }
+::-webkit-scrollbar-track {
+  background: #f1f5f7;
+}
+::-webkit-scrollbar-thumb {
+  background: #c8d5d9;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9db2b8;
+}
+
+/* Print Styles for Report Cards, Receipts, ID Cards, Payslips */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+  }
+  @page {
+    margin: 1cm;
+  }
+}
+
+/* Subtle Professional Animations */
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+.animate-float {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-reverse 7s ease-in-out infinite 1s;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+

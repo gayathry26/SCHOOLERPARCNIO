@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#086A92" />
+      <stop offset="100%" stopColor="#0F4C68" />
+    </linearGradient>
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#35B84A" />
+      <stop offset="60%" stopColor="#22C55E" />
+      <stop offset="100%" stopColor="#008C91" />
+    </linearGradient>
+    <linearGradient id="headGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#00A3A9" />
+      <stop offset="100%" stopColor="#FFFFFF" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded squircle -->
+  <rect width="192" height="192" rx="42" fill="url(#bgGrad)" />
+
+  <!-- Logo Graphics Centered (Scale ~0.7) -->
+  <g transform="translate(26, 26) scale(0.7)">
+    <!-- Graduation Cap Top Diamond -->
+    <path d="M100 26 L174 54 L100 82 L26 54 Z" fill="url(#capGrad)" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.3))" />
+    <!-- Cap Neck -->
+    <path d="M62 68 L100 83 L138 68 L143 78 C143 91 124 101 100 101 C76 101 57 91 57 78 Z" fill="#007B80" />
+    <!-- Cap Central Button -->
+    <circle cx="100" cy="54" r="5" fill="#FFFFFF" />
+    <!-- Tassel -->
+    <path d="M100 54 Q154 62 154 84 L154 98" stroke="#35B84A" stroke-width="4" stroke-linecap="round" fill="none" />
+    <rect x="151" y="96" width="7" height="14" rx="3.5" fill="#35B84A" />
+
+    <!-- Graduate Head -->
+    <circle cx="100" cy="98" r="20" fill="url(#headGrad)" />
+
+    <!-- Open Book & Wings -->
+    <path d="M100 172 C96 150 78 120 40 105 C60 118 78 138 85 160 Z" fill="#38BDF8" />
+    <path d="M100 172 C104 150 122 120 160 105 C140 118 122 138 115 160 Z" fill="#35B84A" />
+    <path d="M100 162 C90 135 65 112 24 116 C48 102 78 108 96 142 Z" fill="#22D3EE" />
+    <path d="M100 162 C110 135 135 112 176 116 C152 102 122 108 104 142 Z" fill="#4ADE80" />
+  </g>
+</svg>
