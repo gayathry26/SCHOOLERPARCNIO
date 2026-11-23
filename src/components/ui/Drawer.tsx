@@ -47,14 +47,14 @@ export const Drawer: React.FC<DrawerProps> = ({
       >
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#E4EAEC] bg-[#F7FAFA]">
           <div>
-            <h3 className="text-sm font-bold text-[#17313A]">{title}</h3>
-            {subtitle && <p className="text-[11px] text-[#6B7C83] mt-0.5">{subtitle}</p>}
+            <h3 className="text-base sm:text-lg font-bold text-[#17313A]">{title}</h3>
+            {subtitle && <p className="text-xs sm:text-sm text-[#4A5D65] mt-0.5">{subtitle}</p>}
           </div>
           <button
             onClick={onClose}
             className="p-1.5 text-[#6B7C83] hover:text-[#17313A] hover:bg-[#E4EAEC] rounded-lg transition-colors cursor-pointer"
           >
-            <X className="w-4 h-4" />
+            <X className="w-5 h-5" />
           </button>
         </div>
         <div className="p-6 overflow-y-auto flex-1">{children}</div>

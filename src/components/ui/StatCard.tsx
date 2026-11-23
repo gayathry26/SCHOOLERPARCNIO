@@ -52,9 +52,9 @@ export const StatCard: React.FC<StatCardProps> = ({
     <Card hoverEffect className="relative overflow-hidden p-4 sm:p-5 flex flex-col justify-between">
       <div className="flex items-start justify-between gap-3">
         <div className="space-y-1">
-          <p className="text-xs font-semibold text-[#6B7C83] tracking-wide">{title}</p>
-          <p className="text-2xl sm:text-3xl font-bold text-[#17313A] tracking-tight">{value}</p>
-          {displaySubtitle && <p className="text-[11px] text-[#6B7C83] leading-snug">{displaySubtitle}</p>}
+          <p className="text-xs sm:text-sm font-semibold text-[#6B7C83] tracking-wide">{title}</p>
+          <p className="text-2xl sm:text-3xl font-black text-[#17313A] tracking-tight">{value}</p>
+          {displaySubtitle && <p className="text-xs text-[#6B7C83] leading-snug">{displaySubtitle}</p>}
         </div>
         <div className={clsx('p-2.5 rounded-xl shrink-0 flex items-center justify-center', iconVariants[variant] || iconVariants.blue)}>
           {icon}
@@ -62,7 +62,7 @@ export const StatCard: React.FC<StatCardProps> = ({
       </div>
 
       {trendObj && (
-        <div className="mt-3 pt-2.5 border-t border-[#E4EAEC] flex items-center gap-1.5 text-[11px] font-medium">
+        <div className="mt-3 pt-2.5 border-t border-[#E4EAEC] flex items-center gap-1.5 text-xs font-medium">
           {trendObj.isPositive ? (
             <span className="flex items-center text-[#16A34A] font-bold">
               <ArrowUpRight className="w-3.5 h-3.5 mr-0.5" />

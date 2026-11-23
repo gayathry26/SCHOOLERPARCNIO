@@ -93,13 +93,13 @@ export const FeaturesSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
-          <span className="text-xs font-bold text-[#086A92] uppercase tracking-wider bg-[#EAF5F8] px-3 py-1 rounded-full border border-[#c0e3ed]">
+          <span className="text-xs sm:text-sm font-bold text-[#086A92] uppercase tracking-wider bg-[#EAF5F8] px-3.5 py-1.5 rounded-full border border-[#c0e3ed]">
             Integrated School Operations
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-[#17313A] tracking-tight">
             Designed for Real School Workflows
           </h2>
-          <p className="text-xs sm:text-sm text-[#6B7C83] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#4A5D65] leading-relaxed">
             Every feature in EdvoNest is built to eliminate bureaucratic friction and give administrators, teachers, and parents instant clarity.
           </p>
         </div>
@@ -116,43 +116,43 @@ export const FeaturesSection: React.FC = () => {
                 <div className="space-y-4">
                   {/* Card Header */}
                   <div className="flex items-center justify-between">
-                    <div className={`w-11 h-11 rounded-xl ${f.bg} ${f.color} flex items-center justify-center shrink-0`}>
-                      <Icon className="w-5 h-5" />
+                    <div className={`w-12 h-12 rounded-xl ${f.bg} ${f.color} flex items-center justify-center shrink-0`}>
+                      <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-[10px] font-bold text-[#086A92] bg-[#EAF5F8] px-2 py-0.5 rounded-full border border-[#c0e3ed]">
+                    <span className="text-xs font-bold text-[#086A92] bg-[#EAF5F8] px-2.5 py-1 rounded-full border border-[#c0e3ed]">
                       {f.badge}
                     </span>
                   </div>
 
                   <div>
-                    <span className="text-[10.5px] uppercase tracking-wider text-[#6B7C83] font-mono block">
+                    <span className="text-xs uppercase tracking-wider text-[#4A5D65] font-mono font-semibold block">
                       {f.category}
                     </span>
-                    <h3 className="text-base font-bold text-[#17313A] mt-0.5 group-hover:text-[#086A92] transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-[#17313A] mt-1 group-hover:text-[#086A92] transition-colors">
                       {f.title}
                     </h3>
-                    <p className="text-xs text-[#6B7C83] leading-relaxed mt-2">
+                    <p className="text-sm sm:text-base text-[#4A5D65] leading-relaxed mt-2">
                       {f.description}
                     </p>
                   </div>
 
                   {/* Bullet Points */}
-                  <ul className="space-y-1.5 pt-2 border-t border-[#E4EAEC]/60 text-xs">
+                  <ul className="space-y-2 pt-3 border-t border-[#E4EAEC]/60 text-sm">
                     {f.points.map((pt, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-slate-700 font-medium">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#35B84A] shrink-0" />
+                      <li key={idx} className="flex items-center gap-2.5 text-slate-700 font-medium">
+                        <CheckCircle2 className="w-4 h-4 text-[#35B84A] shrink-0" />
                         <span>{pt}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-5 mt-4 border-t border-[#E4EAEC]/60 flex items-center justify-between text-xs">
-                  <span className="text-[#086A92] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                <div className="pt-5 mt-4 border-t border-[#E4EAEC]/60 flex items-center justify-between text-sm">
+                  <span className="text-[#086A92] font-bold flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
                     <span>Explore Workflow</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-4 h-4" />
                   </span>
-                  <span className="text-[10px] text-slate-400 font-mono">Live in v2.4</span>
+                  <span className="text-xs text-slate-500 font-mono font-medium">Live in v2.4</span>
                 </div>
               </div>
             );

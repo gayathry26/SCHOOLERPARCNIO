@@ -179,11 +179,11 @@ export function DataTable<T extends Record<string, any>>({
 
       {/* Table grid */}
       <div className="overflow-x-auto">
-        <table className="w-full text-left text-xs text-[#17313A]">
-          <thead className="bg-[#F7FAFA] text-[11px] font-bold text-[#6B7C83] border-b border-[#E4EAEC] tracking-wider uppercase">
+        <table className="w-full text-left text-sm text-[#17313A]">
+          <thead className="bg-[#F7FAFA] text-xs font-bold text-[#4A5D65] border-b border-[#E4EAEC] tracking-wider uppercase">
             <tr>
               {selectable && (
-                <th className="px-4 py-3 w-10">
+                <th className="px-4 py-3.5 w-10">
                   <input
                     type="checkbox"
                     onChange={handleSelectAll}
@@ -195,7 +195,7 @@ export function DataTable<T extends Record<string, any>>({
               {columns.map((col) => (
                 <th
                   key={col.key}
-                  className={`px-4 py-3 ${
+                  className={`px-4 py-3.5 ${
                     col.sortable !== false ? 'cursor-pointer hover:bg-[#EAF5F8]/50 select-none' : ''
                   }`}
                   onClick={() => col.sortable !== false && handleSort(col.key)}
@@ -203,7 +203,7 @@ export function DataTable<T extends Record<string, any>>({
                   <div className="flex items-center gap-1.5">
                     <span>{col.header}</span>
                     {col.sortable !== false && (
-                      <ArrowUpDown className="w-3.5 h-3.5 text-[#6B7C83]" />
+                      <ArrowUpDown className="w-4 h-4 text-[#6B7C83]" />
                     )}
                   </div>
                 </th>
@@ -232,7 +232,7 @@ export function DataTable<T extends Record<string, any>>({
                     }`}
                   >
                     {selectable && (
-                      <td className="px-4 py-3">
+                      <td className="px-4 py-3.5">
                         <input
                           type="checkbox"
                           checked={isSelected}
@@ -242,7 +242,7 @@ export function DataTable<T extends Record<string, any>>({
                       </td>
                     )}
                     {columns.map((col) => (
-                      <td key={col.key} className="px-4 py-3 text-[#17313A]">
+                      <td key={col.key} className="px-4 py-3.5 text-[#17313A]">
                         {col.render ? col.render(row) : (row[col.key] ?? '-')}
                       </td>
                     ))}
@@ -255,7 +255,7 @@ export function DataTable<T extends Record<string, any>>({
       </div>
 
       {/* Pagination Footer */}
-      <div className="p-3 border-t border-[#E4EAEC] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#6B7C83] bg-[#F7FAFA]">
+      <div className="p-3.5 border-t border-[#E4EAEC] flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[#4A5D65] bg-[#F7FAFA]">
         <div className="flex items-center gap-2">
           <span>Rows per page:</span>
           <select
@@ -264,7 +264,7 @@ export function DataTable<T extends Record<string, any>>({
               setPageSize(Number(e.target.value));
               setCurrentPage(1);
             }}
-            className="bg-white border border-[#E4EAEC] rounded-md px-2 py-1 text-xs text-[#17313A] focus:outline-none focus:ring-1 focus:ring-[#086A92]"
+            className="bg-white border border-[#E4EAEC] rounded-md px-2.5 py-1 text-sm text-[#17313A] focus:outline-none focus:ring-1 focus:ring-[#086A92]"
           >
             <option value={10}>10</option>
             <option value={25}>25</option>
@@ -277,25 +277,25 @@ export function DataTable<T extends Record<string, any>>({
           </span>
         </div>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2">
           <Button
             variant="outline"
-            size="xs"
+            size="sm"
             disabled={currentPage <= 1}
             onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
           >
-            <ChevronLeft className="w-3.5 h-3.5" />
+            <ChevronLeft className="w-4 h-4" />
           </Button>
-          <span className="px-2 font-semibold text-[#17313A]">
+          <span className="px-2 font-semibold text-[#17313A] text-sm">
             Page {currentPage} of {totalPages}
           </span>
           <Button
             variant="outline"
-            size="xs"
+            size="sm"
             disabled={currentPage >= totalPages}
             onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
           >
-            <ChevronRight className="w-3.5 h-3.5" />
+            <ChevronRight className="w-4 h-4" />
           </Button>
         </div>
       </div>

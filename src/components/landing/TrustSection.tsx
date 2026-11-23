@@ -55,32 +55,32 @@ export const TrustSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white border-y border-[#E4EAEC] py-10 relative">
+    <section className="bg-white border-y border-[#E4EAEC] py-14 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-xl mx-auto mb-8 space-y-1">
-          <p className="text-[11px] font-bold uppercase tracking-widest text-[#086A92]">
+        <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+          <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#086A92]">
             Verified School &amp; Technology Standards
           </p>
-          <h2 className="text-xl sm:text-2xl font-black text-[#17313A]">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#17313A]">
             Built with Institutional Integrity &amp; Zero Compromises
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
           {trustMetrics.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl p-4 transition-all duration-200 hover:border-[#cbd7da] hover:shadow-2xs space-y-2"
+                className="bg-[#F7FAFA] border border-[#E4EAEC] rounded-2xl p-5 transition-all duration-200 hover:border-[#cbd7da] hover:shadow-2xs space-y-3"
               >
-                <div className={`w-9 h-9 rounded-lg ${item.bg} ${item.color} flex items-center justify-center shrink-0`}>
-                  <Icon className="w-4 h-4" />
+                <div className={`w-10 h-10 rounded-xl ${item.bg} ${item.color} flex items-center justify-center shrink-0`}>
+                  <Icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-[#17313A]">{item.metric}</h3>
-                  <p className="text-[11px] font-semibold text-[#086A92] mt-0.5">{item.detail}</p>
-                  <p className="text-[10.5px] text-[#6B7C83] mt-1 leading-snug">
+                  <h3 className="text-base font-bold text-[#17313A]">{item.metric}</h3>
+                  <p className="text-xs sm:text-sm font-bold text-[#086A92] mt-0.5">{item.detail}</p>
+                  <p className="text-xs sm:text-sm text-[#4A5D65] mt-1.5 leading-relaxed">
                     {item.description}
                   </p>
                 </div>

@@ -57,7 +57,7 @@ export const ActivityFeed: React.FC<ActivityFeedProps> = ({
             shape="circle"
           />
 
-          <div className="min-w-0 flex-1 space-y-0.5 text-xs">
+          <div className="min-w-0 flex-1 space-y-1 text-sm">
             <div className="flex items-center justify-between gap-2 flex-wrap">
               <p className="text-slate-800 leading-snug">
                 <strong className="font-bold text-slate-900">{item.actorName}</strong>{' '}
@@ -65,13 +65,13 @@ export const ActivityFeed: React.FC<ActivityFeedProps> = ({
                 {item.target && <strong className="text-slate-900 font-semibold">{item.target}</strong>}
               </p>
 
-              <span className="text-[10px] text-slate-400 font-mono shrink-0">
+              <span className="text-xs text-slate-400 font-mono shrink-0">
                 {formatDate(item.timestamp, 'dd MMM, hh:mm a')}
               </span>
             </div>
 
             {item.description && (
-              <p className="text-[11px] text-slate-500 leading-relaxed line-clamp-2">
+              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed line-clamp-2">
                 {item.description}
               </p>
             )}
@@ -83,7 +83,7 @@ export const ActivityFeed: React.FC<ActivityFeedProps> = ({
                 </Badge>
               )}
               {item.actorRole && (
-                <span className="text-[10px] text-slate-400 font-mono">
+                <span className="text-xs text-slate-400 font-mono">
                   {item.actorRole.replace(/_/g, ' ')}
                 </span>
               )}

@@ -22,17 +22,17 @@ export const EdvoNestLogo: React.FC<EdvoNestLogoProps> = ({
   };
 
   const textSizes = {
-    sm: 'text-base',
-    md: 'text-xl',
-    lg: 'text-2xl sm:text-3xl',
-    xl: 'text-3xl sm:text-4xl',
+    sm: 'text-lg',
+    md: 'text-2xl',
+    lg: 'text-3xl sm:text-4xl',
+    xl: 'text-4xl sm:text-5xl',
   };
 
   const tagSizes = {
-    sm: 'text-[7px] tracking-[0.18em]',
-    md: 'text-[8.5px] tracking-[0.2em]',
-    lg: 'text-[10px] tracking-[0.22em]',
-    xl: 'text-xs tracking-[0.24em]',
+    sm: 'text-[9.5px] tracking-[0.16em]',
+    md: 'text-[11px] tracking-[0.18em]',
+    lg: 'text-xs tracking-[0.2em]',
+    xl: 'text-sm tracking-[0.22em]',
   };
 
   const { w, h } = iconSizes[size];

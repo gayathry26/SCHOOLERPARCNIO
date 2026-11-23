@@ -112,14 +112,14 @@ export const SmartStatCard: React.FC<SmartStatCardProps> = ({
       {/* Progress Bar (if provided) */}
       {progress && (
         <div className="mt-3 space-y-1">
-          <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+          <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
             <div
               className={`h-full rounded-full transition-all duration-500 ${progress.color || theme.barBg}`}
               style={{ width: `${Math.min(100, Math.max(0, progress.value))}%` }}
             />
           </div>
           {progress.targetLabel && (
-            <span className="text-[10px] text-slate-400 font-medium block">
+            <span className="text-xs text-slate-500 font-medium block">
               {progress.targetLabel}
             </span>
           )}
@@ -130,12 +130,12 @@ export const SmartStatCard: React.FC<SmartStatCardProps> = ({
       {(trend || subtitle) && (
         <div className="flex items-center justify-between gap-2 mt-3 pt-2.5 border-t border-slate-100 text-xs">
           {subtitle && (
-            <span className="text-slate-500 text-[11px] font-medium truncate">{subtitle}</span>
+            <span className="text-slate-500 text-xs font-medium truncate">{subtitle}</span>
           )}
 
           {trend && (
             <div
-              className={`inline-flex items-center gap-1 font-bold text-[11px] px-1.5 py-0.5 rounded-md shrink-0 ${
+              className={`inline-flex items-center gap-1 font-bold text-xs px-2 py-0.5 rounded-md shrink-0 ${
                 trend.isNeutral
                   ? 'bg-slate-100 text-slate-600'
                   : trend.isPositive
@@ -144,14 +144,14 @@ export const SmartStatCard: React.FC<SmartStatCardProps> = ({
               }`}
             >
               {trend.isNeutral ? (
-                <Minus className="w-3 h-3" />
+                <Minus className="w-3.5 h-3.5" />
               ) : trend.isPositive ? (
-                <ArrowUpRight className="w-3 h-3 stroke-[2.5]" />
+                <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
               ) : (
-                <ArrowDownRight className="w-3 h-3 stroke-[2.5]" />
+                <ArrowDownRight className="w-3.5 h-3.5 stroke-[2.5]" />
               )}
               <span>{trend.value}</span>
-              {trend.label && <span className="font-normal text-[10px] opacity-80">{trend.label}</span>}
+              {trend.label && <span className="font-normal text-xs opacity-85">{trend.label}</span>}
             </div>
           )}
         </div>

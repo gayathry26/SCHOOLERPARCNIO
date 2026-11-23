@@ -57,27 +57,27 @@ export const Timeline: React.FC<TimelineProps> = ({
           </div>
 
           {/* Timeline item card */}
-          <div className="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-[#086A92] hover:shadow-2xs transition-all text-xs space-y-1.5">
+          <div className="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-[#086A92] hover:shadow-2xs transition-all text-xs sm:text-sm space-y-1.5">
             <div className="flex items-center justify-between gap-2 flex-wrap">
               <div className="flex items-center gap-2">
-                <span className="font-bold text-slate-900 text-sm">{item.title}</span>
+                <span className="font-bold text-slate-900 text-sm sm:text-base">{item.title}</span>
                 {item.category && (
                   <Badge variant={item.badgeVariant || 'blue'} size="xs">
                     {item.category}
                   </Badge>
                 )}
               </div>
-              <span className="text-[10px] text-slate-400 font-mono">
+              <span className="text-xs text-slate-400 font-mono">
                 {formatDate(item.date)}
               </span>
             </div>
 
             {item.description && (
-              <p className="text-slate-600 leading-relaxed text-xs">{item.description}</p>
+              <p className="text-slate-600 leading-relaxed text-xs sm:text-sm">{item.description}</p>
             )}
 
             {(item.authorName || item.action) && (
-              <div className="flex items-center justify-between pt-1 border-t border-slate-100 text-[11px]">
+              <div className="flex items-center justify-between pt-1 border-t border-slate-100 text-xs sm:text-sm">
                 {item.authorName ? (
                   <span className="text-slate-500">
                     By <strong className="text-slate-700">{item.authorName}</strong>

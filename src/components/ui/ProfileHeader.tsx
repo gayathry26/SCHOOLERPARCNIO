@@ -88,18 +88,18 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             </div>
 
             {subtitle && (
-              <div className="text-xs text-slate-600 font-medium">
+              <div className="text-sm text-slate-600 font-medium">
                 {subtitle}
               </div>
             )}
 
             {metaTags.length > 0 && (
-              <div className="flex items-center gap-4 text-[11px] text-slate-500 pt-0.5 flex-wrap">
+              <div className="flex items-center gap-4 text-xs sm:text-sm text-slate-500 pt-0.5 flex-wrap">
                 {metaTags.map((tag, i) => {
                   const TagIcon = tag.icon;
                   return (
-                    <span key={i} className="flex items-center gap-1">
-                      <TagIcon className={`w-3.5 h-3.5 ${tag.colorClass || 'text-slate-400'}`} />
+                    <span key={i} className="flex items-center gap-1.5">
+                      <TagIcon className={`w-4 h-4 ${tag.colorClass || 'text-slate-400'}`} />
                       <span>{tag.text}</span>
                     </span>
                   );
@@ -114,10 +114,10 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
           {qrDataUrl && (
             <div className="flex items-center gap-2.5">
               <div className="text-left lg:text-right">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block">
                   Gate Verification
                 </span>
-                <p className="text-xs font-bold text-slate-900">Encrypted QR</p>
+                <p className="text-xs sm:text-sm font-bold text-slate-900">Encrypted QR</p>
               </div>
               <img
                 src={qrDataUrl}

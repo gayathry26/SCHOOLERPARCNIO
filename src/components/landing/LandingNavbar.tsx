@@ -37,24 +37,24 @@ export const LandingNavbar: React.FC = () => {
   return (
     <>
       {/* Top Notification Strip */}
-      <div className="bg-[#086A92] text-white text-xs py-2 px-4 border-b border-[#065575] relative z-40">
+      <div className="bg-[#086A92] text-white text-xs sm:text-sm py-2 px-4 border-b border-[#065575] relative z-40">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-          <div className="flex items-center gap-4 text-[11px] sm:text-xs">
-            <span className="flex items-center gap-1.5 font-medium">
-              <Phone className="w-3.5 h-3.5 text-[#35B84A]" /> +91 11 4982 3000
+          <div className="flex items-center gap-5 text-xs sm:text-sm">
+            <span className="flex items-center gap-2 font-medium">
+              <Phone className="w-4 h-4 text-[#35B84A]" /> +91 11 4982 3000
             </span>
-            <span className="hidden md:flex items-center gap-1.5 font-medium">
-              <Mail className="w-3.5 h-3.5 text-[#35B84A]" /> admissions@edvonest-academy.edu.in
+            <span className="hidden md:flex items-center gap-2 font-medium">
+              <Mail className="w-4 h-4 text-[#35B84A]" /> admissions@edvonest-academy.edu.in
             </span>
           </div>
 
-          <div className="flex items-center gap-3 text-[11px] sm:text-xs">
-            <span className="bg-white/10 px-2 py-0.5 rounded text-[#EAF5F8] font-bold border border-white/20">
+          <div className="flex items-center gap-3 text-xs sm:text-sm">
+            <span className="bg-white/10 px-2.5 py-1 rounded-md text-[#EAF5F8] font-bold border border-white/20">
               CBSE Affiliation #89410
             </span>
             <Link
               href="/login"
-              className="bg-[#35B84A] hover:bg-[#2da040] text-white font-bold px-2.5 py-0.5 rounded text-[11px] transition-colors shadow-2xs"
+              className="bg-[#35B84A] hover:bg-[#2da040] text-white font-bold px-3 py-1 rounded-md text-xs sm:text-sm transition-colors shadow-2xs"
             >
               Staff &amp; Student Portal &rarr;
             </Link>
@@ -70,14 +70,14 @@ export const LandingNavbar: React.FC = () => {
             : 'bg-white border-b border-[#E4EAEC]'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center">
             <EdvoNestLogo variant="full" size="md" showTagline={true} />
           </Link>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden lg:flex items-center gap-7 text-xs font-semibold text-[#6B7C83]">
+          <nav className="hidden lg:flex items-center gap-8 text-sm sm:text-base font-semibold text-[#4A5D65]">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -93,16 +93,16 @@ export const LandingNavbar: React.FC = () => {
           {/* Desktop Actions */}
           <div className="hidden sm:flex items-center gap-3">
             <a href="#admissions">
-              <Button variant="outline" size="sm" className="text-xs">
+              <Button variant="outline" size="md" className="text-sm font-semibold">
                 Enquire Now
               </Button>
             </a>
             <Link href="/login">
               <Button
                 variant="primary"
-                size="sm"
-                className="text-xs font-bold"
-                rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
+                size="md"
+                className="text-sm font-bold"
+                rightIcon={<ArrowRight className="w-4 h-4" />}
               >
                 ERP Login
               </Button>
@@ -122,7 +122,7 @@ export const LandingNavbar: React.FC = () => {
         {/* Mobile Dropdown Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-white border-b border-[#E4EAEC] px-4 py-4 space-y-3 shadow-lg animate-in slide-in-from-top-2 duration-200">
-            <nav className="flex flex-col space-y-2 text-sm font-semibold text-[#17313A]">
+            <nav className="flex flex-col space-y-2 text-base font-semibold text-[#17313A]">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
@@ -137,12 +137,12 @@ export const LandingNavbar: React.FC = () => {
 
             <div className="pt-3 border-t border-[#E4EAEC] flex flex-col gap-2">
               <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button variant="primary" size="md" className="w-full font-bold">
+                <Button variant="primary" size="md" className="w-full font-bold text-sm">
                   ERP Portal Login &rarr;
                 </Button>
               </Link>
               <a href="#admissions" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button variant="outline" size="md" className="w-full">
+                <Button variant="outline" size="md" className="w-full text-sm">
                   Online Admission Enquiry
                 </Button>
               </a>
