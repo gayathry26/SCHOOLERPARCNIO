@@ -41,6 +41,7 @@ import {
   PanelLeftClose,
   PanelLeftOpen,
   Layers,
+  BedDouble,
 } from 'lucide-react';
 import { UserRole } from '@/lib/auth';
 import { EdvoNestLogo } from '@/components/ui/EdvoNestLogo';
@@ -112,6 +113,7 @@ const NAVIGATION_GROUPS: NavCategory[] = [
       { label: 'Live Transport GPS', href: '/dashboard/transport', icon: Bus, module: 'TRANSPORT', description: 'Real-time school bus GPS tracking and manifests' },
       { label: 'Campus Safety & Passes', href: '/dashboard/campus-safety', icon: Shield, module: 'CAMPUS_SAFETY', description: 'Gate passes, visitor logs, and incident registers' },
       { label: 'Health Clinic Logs', href: '/dashboard/health', icon: HeartPulse, module: 'HEALTH_CLINIC', description: 'Student medical checkups and clinic visit logs' },
+      { label: 'Hostel & Residence', href: '/dashboard/hostel', icon: BedDouble, module: 'HOSTEL', description: 'Dormitories, bed allocations, roll-calls, and gate outpasses' },
     ],
   },
   {

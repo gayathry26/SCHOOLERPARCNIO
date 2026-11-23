@@ -300,6 +300,9 @@ model StudentProfile {
   concessions        StudentFeeConcession[]
   feeReminders       FeeReminderLog[]
   ptmBookings        PtmBooking[]
+  hostelAllocations  HostelBedAllocation[]
+  hostelAttendances  HostelAttendance[]
+  hostelOutpasses    HostelOutpass[]
 }
 
 model TeacherProfile {
@@ -2053,3 +2056,92 @@ model SubscriptionInvoice {
 
   school         School    @relation(fields: [schoolId], references: [id], onDelete: Cascade)
 }
+
+// -------------------------------------------------------------
+// MODULE: HOSTEL MANAGEMENT
+// -------------------------------------------------------------
+
+model HostelBuilding {
+  id          String   @id @default(cuid())
+  name        String
+  code        String   @unique
+  type        String   @default("BOYS") // BOYS, GIRLS, COED
+  capacity    Int      @default(120)
+  wardenName  String?  @default("Mr. Vikram Singh")
+  wardenPhone String?  @default("+91 98765 43210")
+  address     String?  @default("North Campus Hostel Block")
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  rooms       HostelRoom[]
+  attendances HostelAttendance[]
+}
+
+model HostelRoom {
+  id           String   @id @default(cuid())
+  buildingId   String
+  roomNumber   String
+  floor        Int      @default(1)
+  capacity     Int      @default(4)
+  occupiedBeds Int      @default(0)
+  roomType     String   @default("NON_AC") // AC, NON_AC, ATTACHED_BATH
+  monthlyFee   Float    @default(6500)
+  status       String   @default("AVAILABLE") // AVAILABLE, FULL, MAINTENANCE
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  building    HostelBuilding        @relation(fields: [buildingId], references: [id], onDelete: Cascade)
+  allocations HostelBedAllocation[]
+
+  @@unique([buildingId, roomNumber])
+}
+
+model HostelBedAllocation {
+  id            String    @id @default(cuid())
+  roomId        String
+  studentId     String
+  bedNumber     String    @default("Bed 1")
+  allocatedDate DateTime  @default(now())
+  vacateDate    DateTime?
+  status        String    @default("ACTIVE") // ACTIVE, VACATED, SUSPENDED
+  monthlyRent   Float     @default(6500)
+  depositPaid   Float     @default(10000)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  room    HostelRoom     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  student StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+model HostelAttendance {
+  id           String   @id @default(cuid())
+  buildingId   String
+  studentId    String
+  date         DateTime @default(now())
+  status       String   @default("PRESENT") // PRESENT, ABSENT, ON_LEAVE, OUTPASS
+  remarks      String?
+  recordedById String?
+  createdAt    DateTime @default(now())
+
+  building HostelBuilding @relation(fields: [buildingId], references: [id], onDelete: Cascade)
+  student  StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+model HostelOutpass {
+  id                 String    @id @default(cuid())
+  studentId          String
+  destination        String
+  purpose            String
+  departureTime      DateTime
+  expectedReturnTime DateTime
+  actualReturnTime   DateTime?
+  status             String    @default("PENDING") // PENDING, APPROVED, REJECTED, RETURNED, OVERDUE
+  approvedBy         String?
+  parentConsentGiven Boolean   @default(true)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  student StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
+
