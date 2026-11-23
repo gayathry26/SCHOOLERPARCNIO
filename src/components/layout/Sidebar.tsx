@@ -68,7 +68,7 @@ const NAVIGATION_GROUPS: NavCategory[] = [
   {
     name: 'OVERVIEW',
     items: [
-      { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard, module: 'DASHBOARD', description: 'Institutional overview, KPIs, and role-tailored alerts' },
+      { label: 'Executive Dashboard', href: '/dashboard', icon: LayoutDashboard, module: 'DASHBOARD', description: 'Institutional overview, KPIs, and role-tailored alerts' },
       { label: 'Events & Calendar', href: '/dashboard/events', icon: CalendarDays, module: 'EVENTS', description: 'Annual events, sports day, term dates, and holidays' },
       { label: 'Communication Hub', href: '/dashboard/communication', icon: MessageSquareText, module: 'COMMUNICATION', description: 'Broadcast circulars, notices to parents, and SMS alerts' },
     ],
@@ -88,59 +88,57 @@ const NAVIGATION_GROUPS: NavCategory[] = [
     ],
   },
   {
-    name: 'STUDENTS',
+    name: 'ADMINISTRATION',
     items: [
-      { label: 'Student Directory', href: '/dashboard/students', icon: GraduationCap, module: 'STUDENTS', description: 'Student profiles, admission details, and parent contacts' },
       { label: 'Admissions CRM', href: '/dashboard/admissions', icon: UserPlus, module: 'ADMISSIONS', description: 'Enquiry pipeline and online application tracking' },
-      { label: 'Student Portfolio', href: '/dashboard/portfolio', icon: Compass, module: 'STUDENT_PORTFOLIO', description: 'Co-curricular awards, athletic merits, and skill badges' },
-      { label: 'Lifecycle & Promotion', href: '/dashboard/lifecycle', icon: RefreshCw, module: 'LIFECYCLE', badge: 'Pro', badgeColor: 'bg-[#EAF5F8] text-[#086A92] border-[#c0e3ed]', description: 'Year-end grade promotions and section transfers' },
-      { label: 'Certificates & TC', href: '/dashboard/certificates', icon: Award, module: 'CERTIFICATES', description: 'Transfer Certificates and bonafide letters' },
+      { label: 'Student Directory', href: '/dashboard/students', icon: GraduationCap, module: 'STUDENTS', description: 'Student profiles, admission details, and parent contacts' },
+      { label: 'Staff Directory & HR', href: '/dashboard/hr', icon: Users, module: 'HR_MANAGEMENT', description: 'Faculty directory, payroll slips, and leave management' },
+      { label: 'Staff Lifecycle', href: '/dashboard/lifecycle', icon: RefreshCw, module: 'LIFECYCLE', badge: 'Pro', badgeColor: 'bg-[#EAF5F8] text-[#086A92] border-[#c0e3ed]', description: 'Permanent profiles, year-wise teaching allocations and audit trail' },
       { label: 'ID Card Studio', href: '/dashboard/id-cards', icon: Contact, roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN'], description: 'Print student, faculty, and visitor smart ID cards' },
+      { label: 'Certificates & TC', href: '/dashboard/certificates', icon: Award, module: 'CERTIFICATES', description: 'Transfer Certificates and bonafide letters' },
     ],
   },
   {
     name: 'FINANCE',
     items: [
-      { label: 'Fee Management', href: '/dashboard/fees', icon: DollarSign, module: 'FEES_FINANCE', description: 'Collect student fees, offline receipts, and track dues' },
+      { label: 'Fee Counter & Dues', href: '/dashboard/fees', icon: DollarSign, module: 'FEES_FINANCE', description: 'Collect student fees, offline receipts, and track dues' },
       { label: 'Expenses & Ledger', href: '/dashboard/finance', icon: Receipt, module: 'FEES_FINANCE', roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'ACCOUNTANT', 'PRINCIPAL'], description: 'Income, expense ledgers, and vendor purchase records' },
-      { label: 'Asset Inventory', href: '/dashboard/inventory', icon: Boxes, module: 'INVENTORY', description: 'Classroom equipment and campus inventory' },
+      { label: 'Inventory & Procurement', href: '/dashboard/inventory', icon: Boxes, module: 'INVENTORY', description: 'Classroom equipment, purchase approvals, and assets' },
     ],
   },
   {
-    name: 'STAFF',
+    name: 'CAMPUS SAFETY',
     items: [
-      { label: 'Staff Directory & HR', href: '/dashboard/hr', icon: Users, module: 'HR_MANAGEMENT', description: 'Faculty directory, payroll slips, and leave management' },
+      { label: 'Live Transport GPS', href: '/dashboard/transport', icon: Bus, module: 'TRANSPORT', description: 'Real-time school bus GPS tracking and manifests' },
+      { label: 'Campus Safety & Passes', href: '/dashboard/campus-safety', icon: Shield, module: 'CAMPUS_SAFETY', description: 'Gate passes, visitor logs, and incident registers' },
+      { label: 'Health Clinic Logs', href: '/dashboard/health', icon: HeartPulse, module: 'HEALTH_CLINIC', description: 'Student medical checkups and clinic visit logs' },
     ],
   },
   {
-    name: 'CAMPUS',
+    name: 'STAKEHOLDERS',
     items: [
-      { label: 'Live Transport', href: '/dashboard/transport', icon: Bus, module: 'TRANSPORT', description: 'Real-time school bus GPS tracking and manifests' },
-      { label: 'Digital Library', href: '/dashboard/library', icon: Library, module: 'LIBRARY', description: 'Book catalog, ISBN lookup, and borrowing records' },
-      { label: 'Health Clinic', href: '/dashboard/health', icon: HeartPulse, module: 'HEALTH_CLINIC', description: 'Student medical checkups and clinic visit logs' },
-      { label: 'Campus Safety & Visitors', href: '/dashboard/campus-safety', icon: Shield, module: 'CAMPUS_SAFETY', description: 'Gate passes, visitor logs, and incident registers' },
-      { label: 'Multi-Campus Network', href: '/dashboard/multi-campus', icon: Building2, module: 'MULTI_CAMPUS', description: 'Inter-branch synchronization and network reporting' },
-    ],
-  },
-  {
-    name: 'COMMUNICATION',
-    items: [
-      { label: 'Announcements & Chat', href: '/dashboard/communication', icon: MessageSquareText, module: 'COMMUNICATION', description: 'Notice board and two-way parent messaging' },
-      { label: 'PTM & Appointments', href: '/dashboard/ptm', icon: Users, module: 'PTM_MANAGEMENT', badge: 'Active', badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200', description: 'Parent-teacher conferences, slot booking, and follow-up notes' },
       { label: 'Parent Portal', href: '/dashboard/parent-portal', icon: HeartHandshake, module: 'PARENT_PORTAL', roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PARENT'], description: 'Wards academic progress, fee receipts, and bus alerts' },
-      { label: 'School Calendar', href: '/dashboard/events', icon: CalendarDays, module: 'EVENTS', description: 'Monthly calendar view with academic checkpoints' },
+      { label: 'Student Portfolio', href: '/dashboard/portfolio', icon: Compass, module: 'STUDENT_PORTFOLIO', description: 'Co-curricular awards, athletic merits, and skill badges' },
+      { label: 'PTM & Appointments', href: '/dashboard/ptm', icon: Users, module: 'PTM_MANAGEMENT', badge: 'Active', badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200', description: 'Parent-teacher conferences, slot booking, and follow-up notes' },
+      { label: 'Digital Library', href: '/dashboard/library', icon: Library, module: 'LIBRARY', description: 'Book catalog, ISBN lookup, and borrowing records' },
+    ],
+  },
+  {
+    name: 'REPORTS & ANALYTICS',
+    items: [
+      { label: 'Executive Reports', href: '/dashboard/reports', icon: BarChart3, module: 'REPORTS', description: 'Annual regulatory reports, audits, and exports' },
+      { label: 'System Audit Trail', href: '/dashboard/audit-logs', icon: ShieldCheck, module: 'AUDIT_LOGS', description: 'Security audit logs and compliance history' },
+      { label: 'Command Centre HQ', href: '/dashboard/command-centre', icon: Compass, module: 'COMMAND_CENTRE', badge: 'HQ', badgeColor: 'bg-[#FEF3C7] text-[#D97706] border-[#FDE68A]', description: 'Executive operational cockpit and campus health' },
+      { label: 'Multi-Campus Network', href: '/dashboard/multi-campus', icon: Building2, module: 'MULTI_CAMPUS', description: 'Inter-branch synchronization and network reporting' },
     ],
   },
   {
     name: 'SETTINGS',
     items: [
-      { label: 'UI Component Library', href: '/dashboard/components-showcase', icon: Layers, module: 'SETTINGS', badge: '16 Primitives', badgeColor: 'bg-sky-100 text-[#086A92] border-sky-200', description: 'Design system primitives and interactive showcase' },
-      { label: 'School Onboarding Wizard', href: '/dashboard/onboarding', icon: Sparkles, module: 'SETTINGS', roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL'], badge: 'Setup', badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200', description: 'Guided 10-step institutional lifecycle setup wizard' },
       { label: 'School Settings', href: '/dashboard/settings', icon: Settings, module: 'SETTINGS', description: 'School profile, CBSE affiliation, and grading rules' },
+      { label: 'Onboarding Wizard', href: '/dashboard/onboarding', icon: Sparkles, module: 'SETTINGS', roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL'], badge: 'Setup', badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200', description: 'Guided 10-step institutional lifecycle setup wizard' },
       { label: 'Platform SaaS Admin', href: '/dashboard/platform-admin', icon: Building2, module: 'PLATFORM_ADMIN', roles: ['SUPER_ADMIN'], badge: 'SaaS', badgeColor: 'bg-purple-100 text-purple-700 border-purple-200', description: 'Tenant management and subscription configurations' },
-      { label: 'System Audit Trail', href: '/dashboard/audit-logs', icon: ShieldCheck, module: 'AUDIT_LOGS', description: 'Security audit logs and compliance history' },
-      { label: 'Command Centre HQ', href: '/dashboard/command-centre', icon: Compass, module: 'COMMAND_CENTRE', badge: 'HQ', badgeColor: 'bg-[#FEF3C7] text-[#D97706] border-[#FDE68A]', description: 'Executive operational cockpit and campus health' },
-      { label: 'Executive Reports', href: '/dashboard/reports', icon: BarChart3, module: 'REPORTS', description: 'Annual regulatory reports, audits, and exports' },
+      { label: 'UI Component Library', href: '/dashboard/components-showcase', icon: Layers, module: 'SETTINGS', badge: 'Design System', badgeColor: 'bg-sky-100 text-[#086A92] border-sky-200', description: 'Design system primitives and interactive showcase' },
     ],
   },
 ];

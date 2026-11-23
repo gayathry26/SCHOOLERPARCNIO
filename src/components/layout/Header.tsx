@@ -62,10 +62,10 @@ export const Header: React.FC<HeaderProps> = ({ user, onOpenDrawer }) => {
           <EdvoNestLogo variant="icon-only" size="sm" />
         </div>
 
-        <div className="hidden lg:flex items-center gap-2 px-2.5 py-1 bg-[#F7FAFA] border border-[#E4EAEC] rounded-lg text-xs font-semibold text-[#17313A]">
-          <Calendar className="w-3.5 h-3.5 text-[#086A92]" />
-          <span>Active Session:</span>
-          <span className="font-bold text-[#086A92]">2025–2026</span>
+        <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl text-xs font-semibold text-[#17313A] shadow-2xs">
+          <Calendar className="w-4 h-4 text-[#086A92]" />
+          <span className="text-[#6B7C83]">Session:</span>
+          <span className="font-bold text-[#086A92]">2026–2027 (CBSE)</span>
           <span className="w-2 h-2 rounded-full bg-[#35B84A] animate-pulse" />
         </div>
 

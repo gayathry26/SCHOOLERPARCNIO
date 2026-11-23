@@ -57,30 +57,30 @@ export const PrincipalDashboardView: React.FC<PrincipalDashboardProps> = ({
   return (
     <div className="space-y-6">
       {/* Principal Executive Briefing Banner */}
-      <div className="bg-gradient-to-r from-[#086A92] via-[#008C91] to-[#35B84A] text-white p-5 rounded-2xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div className="space-y-1">
+      <div className="bg-gradient-to-r from-[#086A92] via-[#008C91] to-[#35B84A] text-white p-6 rounded-3xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="space-y-1.5">
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-xs">
-              Executive Briefing
+            <span className="px-3 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-xs">
+              Executive Command Briefing
             </span>
-            <span className="text-xs text-white/80">• Academic Session 2025–2026</span>
+            <span className="text-xs sm:text-sm text-white/90">• Session 2026–2027 • CBSE #89410</span>
           </div>
-          <h2 className="text-lg sm:text-xl font-black">
-            Institutional Academics &amp; Faculty Command
+          <h2 className="text-xl sm:text-2xl font-black text-white">
+            Institutional Academics &amp; Campus Oversight
           </h2>
-          <p className="text-xs text-white/90 max-w-xl">
-            Overall campus attendance is holding strong at <span className="font-bold text-[#FDE68A]">{attendanceRate}%</span> with 45 active classes and zero pending safety escalations.
+          <p className="text-sm text-white/95 max-w-xl leading-relaxed">
+            Overall campus morning attendance is holding strong at <span className="font-bold text-[#FDE68A]">{attendanceRate}%</span> with 45 active class registers verified and 100% cloud disaster backups synced.
           </p>
         </div>
 
-        <div className="flex items-center gap-2.5 shrink-0 flex-wrap">
+        <div className="flex items-center gap-3 shrink-0 flex-wrap">
           <Link href="/dashboard/academic-intelligence">
-            <Button variant="outline" size="sm" className="bg-white text-[#086A92] hover:bg-white/90 border-transparent font-bold">
+            <Button variant="outline" size="md" className="bg-white text-[#086A92] hover:bg-white/90 border-transparent font-bold text-sm">
               Academic Intelligence
             </Button>
           </Link>
           <Link href="/dashboard/command-centre">
-            <Button variant="secondary" size="sm" className="bg-[#17313A] text-white hover:bg-[#17313A]/90 border-transparent font-bold">
+            <Button variant="secondary" size="md" className="bg-[#17313A] text-white hover:bg-[#17313A]/90 border-transparent font-bold text-sm">
               Command HQ
             </Button>
           </Link>

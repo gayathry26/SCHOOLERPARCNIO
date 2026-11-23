@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   UserCheck,
   GraduationCap,
@@ -18,10 +19,14 @@ import {
   AlertCircle,
   ShieldCheck,
   ArrowLeft,
+  Eye,
+  EyeOff,
+  BrainCircuit,
+  Compass,
+  Zap,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { EdvoNestLogo } from '@/components/ui/EdvoNestLogo';
-import { SchoolArchitectureDiagram } from '@/components/ui/SchoolArchitectureDiagram';
 
 interface DemoAccount {
   role: string;
@@ -41,7 +46,7 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     email: 'admin@edvonest.com',
     pass: 'password123',
     icon: UserCheck,
-    desc: 'Full Operations & System Admin',
+    desc: 'System Configuration & Records',
     badgeBg: 'bg-[#EAF5F8]',
     iconColor: 'text-[#086A92]',
   },
@@ -61,7 +66,7 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     email: 'teacher.math@edvonest.com',
     pass: 'password123',
     icon: BookOpen,
-    desc: 'Lesson Plans, Marks & Attendance',
+    desc: '1-Tap Register & Gradebook',
     badgeBg: 'bg-[#E0F5F5]',
     iconColor: 'text-[#008C91]',
   },
@@ -71,7 +76,7 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     email: 'accountant@edvonest.com',
     pass: 'password123',
     icon: DollarSign,
-    desc: 'Fee Invoices & Vouchers',
+    desc: 'Counter Fees & Instant Receipts',
     badgeBg: 'bg-[#FEF3C7]',
     iconColor: 'text-[#B45309]',
   },
@@ -81,7 +86,7 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     email: 'parent1@edvonest.com',
     pass: 'password123',
     icon: HeartHandshake,
-    desc: 'Child Progress, Fees & Bus ETA',
+    desc: 'Ward Progress & Bus GPS ETA',
     badgeBg: 'bg-[#F3E8FF]',
     iconColor: 'text-[#7E22CE]',
   },
@@ -91,7 +96,7 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     email: 'student1@edvonest.com',
     pass: 'password123',
     icon: User,
-    desc: 'Class 10-A, AI Tutoring & Tests',
+    desc: 'Class 10-A, Timetable & AI Tutor',
     badgeBg: 'bg-[#EAF5F8]',
     iconColor: 'text-[#086A92]',
   },
@@ -100,6 +105,8 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
 export default function LoginPage() {
   const [email, setEmail] = useState('admin@edvonest.com');
   const [password, setPassword] = useState('password123');
+  const [showPassword, setShowPassword] = useState(false);
+  const [activePillar, setActivePillar] = useState<'academics' | 'safety' | 'finance' | 'community'>('academics');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
@@ -158,24 +165,72 @@ export default function LoginPage() {
     }
   };
 
+  const pillars = [
+    {
+      id: 'academics',
+      title: 'Academic Intelligence',
+      badge: 'Modules A–D',
+      icon: BrainCircuit,
+      color: 'text-[#75D7D1]',
+      desc: 'Predictive performance analytics, CBSE/ICSE syllabus pacing, and automated term gradebooks.',
+      metric: '94.8% Syllabus On-Track',
+    },
+    {
+      id: 'safety',
+      title: 'Campus Safety & Fleet',
+      badge: 'Modules E–G',
+      icon: ShieldCheck,
+      color: 'text-emerald-400',
+      desc: 'Live school bus GPS tracking with parent arrival notifications and RFID/QR gate passes.',
+      metric: '12/12 Live GPS Routes',
+    },
+    {
+      id: 'finance',
+      title: 'Financial Operations',
+      badge: 'Modules H–L',
+      icon: DollarSign,
+      color: 'text-teal-300',
+      desc: 'Counter collections, automated UPI receipt generation, and annual audit cash balancing.',
+      metric: '₹ 48.5L Fee Realized',
+    },
+    {
+      id: 'community',
+      title: 'Parent & Student Hub',
+      badge: 'Modules I–N',
+      icon: Compass,
+      color: 'text-amber-300',
+      desc: 'Mobile-first ward tracking, homework pacing, digital certificates, and PTM booking.',
+      metric: '1,248 Active Profiles',
+    },
+  ] as const;
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#EAF5F8]/40 via-[#F7FAFA] to-[#EAF8EC]/30 flex flex-col justify-center py-6 sm:py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl w-full mx-auto space-y-5">
-        {/* Sleek Top Navigation Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white/90 backdrop-blur-md px-6 py-3.5 rounded-2xl border border-[#E4EAEC] shadow-2xs">
-          <Link href="/" className="hover:opacity-90 transition-opacity">
+    <div className="min-h-screen bg-[#081820] text-slate-100 flex flex-col justify-center py-6 sm:py-10 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Cinematic Ambient Glows */}
+      <div className="absolute top-0 -left-40 w-[600px] h-[600px] bg-[#086A92]/25 rounded-full filter blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 -right-40 w-[600px] h-[600px] bg-[#008C91]/20 rounded-full filter blur-[150px] pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-pattern-dark opacity-15 pointer-events-none" />
+
+      <div className="max-w-7xl w-full mx-auto space-y-6 relative z-10">
+        {/* Top Floating Glass Navigation Strip */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/5 backdrop-blur-xl px-6 py-4 rounded-3xl border border-white/10 shadow-2xl">
+          <Link href="/" className="flex items-center brightness-125 hover:opacity-90 transition-opacity">
             <EdvoNestLogo variant="full" size="md" showTagline={true} />
           </Link>
 
           <div className="flex items-center gap-3">
-            <div className="hidden md:flex items-center gap-2 text-xs font-semibold text-[#17313A] bg-[#F7FAFA] px-3.5 py-1.5 rounded-full border border-[#E4EAEC]">
+            <div className="hidden md:flex items-center gap-2 text-xs font-semibold text-slate-300 bg-white/5 px-3.5 py-1.5 rounded-full border border-white/10">
               <span className="w-2 h-2 rounded-full bg-[#35B84A] animate-pulse" />
-              <span className="text-[#6B7C83]">Institutional Cloud OS:</span>
-              <span className="text-[#086A92] font-bold">CBSE &amp; ICSE Certified (#89410)</span>
+              <span className="text-slate-400">Institutional Cloud OS:</span>
+              <span className="text-[#75D7D1] font-bold">CBSE &amp; ICSE Certified (#89410)</span>
             </div>
 
             <Link href="/">
-              <Button variant="outline" size="sm" className="text-xs sm:text-sm font-semibold gap-1.5">
+              <Button
+                variant="outline"
+                size="sm"
+                className="text-xs sm:text-sm font-semibold gap-1.5 bg-white/10 hover:bg-white/20 text-white border-white/15 cursor-pointer"
+              >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back to Home</span>
               </Button>
@@ -183,48 +238,99 @@ export default function LoginPage() {
           </div>
         </div>
 
-        {/* Main 2-Column Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          {/* LEFT: Operating System Architecture Showcase */}
-          <div className="lg:col-span-7 bg-white rounded-3xl border border-[#E4EAEC] p-6 sm:p-8 shadow-sm flex flex-col justify-between space-y-6">
-            <SchoolArchitectureDiagram />
+        {/* Main 2-Column Split Master Card */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          {/* LEFT: Cinematic Architectural System Ecosystem */}
+          <div className="lg:col-span-7 bg-gradient-to-br from-[#0B2632] via-[#081820] to-[#17313A] rounded-3xl border border-white/15 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col justify-between space-y-6 relative overflow-hidden">
+            {/* Top Ecosystem Header */}
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-bold text-[#75D7D1]">
+                <Sparkles className="w-3.5 h-3.5 text-[#35B84A]" />
+                <span>Connected School Intelligence Fabric</span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+                Architectural elegance for modern school operations.
+              </h2>
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+                One unified institutional identity connecting classroom gradebooks, morning attendance registers, bus GPS routes, and counter fees.
+              </p>
+            </div>
 
-            {/* Quick Benefits Trust Band */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-[#E4EAEC]">
-              <div className="bg-[#F7FAFA] p-3 rounded-xl border border-[#E4EAEC] flex items-center gap-2.5">
+            {/* 4 Interactive System Pillars */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {pillars.map((pil) => {
+                const PIcon = pil.icon;
+                const isSelected = activePillar === pil.id;
+
+                return (
+                  <button
+                    key={pil.id}
+                    type="button"
+                    onClick={() => setActivePillar(pil.id)}
+                    className={`text-left p-4 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
+                      isSelected
+                        ? 'bg-white/15 border-cyan-400 shadow-xl ring-2 ring-cyan-400/30'
+                        : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <div className={`p-2 rounded-xl bg-white/10 ${pil.color}`}>
+                          <PIcon className="w-5 h-5" />
+                        </div>
+                        <span className="text-[11px] font-mono font-bold text-slate-300 bg-black/20 px-2 py-0.5 rounded-md">
+                          {pil.badge}
+                        </span>
+                      </div>
+                      <h4 className="text-sm sm:text-base font-bold text-white">{pil.title}</h4>
+                      <p className="text-xs text-slate-300 mt-1 line-clamp-2 leading-relaxed">
+                        {pil.desc}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 mt-3 border-t border-white/10 flex items-center justify-between text-xs">
+                      <span className={`font-bold ${pil.color}`}>{pil.metric}</span>
+                      <span className="text-emerald-400 font-bold">● Active</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Bottom 3 Trust Badges */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-5 border-t border-white/10 text-xs text-slate-300">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/10">
                 <CheckCircle2 className="w-4 h-4 text-[#35B84A] shrink-0" />
-                <span className="text-xs sm:text-sm font-semibold text-[#17313A]">Zero IT Setup Needed</span>
+                <span className="font-semibold">Zero IT Setup Needed</span>
               </div>
-              <div className="bg-[#F7FAFA] p-3 rounded-xl border border-[#E4EAEC] flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#086A92] shrink-0" />
-                <span className="text-xs sm:text-sm font-semibold text-[#17313A]">100% Granular RBAC</span>
+              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/10">
+                <CheckCircle2 className="w-4 h-4 text-[#75D7D1] shrink-0" />
+                <span className="font-semibold">100% Granular RBAC</span>
               </div>
-              <div className="bg-[#F7FAFA] p-3 rounded-xl border border-[#E4EAEC] flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#008C91] shrink-0" />
-                <span className="text-xs sm:text-sm font-semibold text-[#17313A]">Live Instant Audit Logs</span>
+              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/10">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span className="font-semibold">Live Instant Audit Logs</span>
               </div>
             </div>
           </div>
 
-          {/* RIGHT: High-Converting, Clean Sign In Card */}
-          <div className="lg:col-span-5 bg-white rounded-3xl border border-[#E4EAEC] p-6 sm:p-8 shadow-sm flex flex-col justify-between space-y-6">
+          {/* RIGHT: Minimal, High-Precision Sign-In Card */}
+          <div className="lg:col-span-5 bg-white text-[#17313A] rounded-3xl border border-[#E4EAEC] p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col justify-between space-y-6">
             <div>
               {/* Header */}
-              <div className="mb-5 pb-4 border-b border-[#E4EAEC] flex items-center justify-between">
+              <div className="mb-6 pb-4 border-b border-[#E4EAEC] flex items-center justify-between">
                 <div>
-                  <h2 className="text-xl sm:text-2xl font-black text-[#17313A]">
-                    Sign In to EdvoNest
-                  </h2>
+                  <h3 className="text-2xl sm:text-3xl font-black text-[#17313A]">Sign In</h3>
                   <p className="text-sm text-[#4A5D65] mt-0.5">
-                    Select a role below or enter credentials
+                    Select a 1-click role below or enter credentials
                   </p>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-[#EAF8EC] text-[#35B84A] flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-2xl bg-[#EAF8EC] text-[#35B84A] flex items-center justify-center shrink-0 shadow-2xs">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
               </div>
 
-              {/* Login Form */}
+              {/* Form */}
               <form onSubmit={handleLogin} className="space-y-4">
                 {error && (
                   <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-xl text-rose-700 text-sm font-semibold flex items-start gap-2.5">
@@ -262,13 +368,20 @@ export default function LoginPage() {
                   <div className="relative">
                     <Lock className="w-5 h-5 text-[#6B7C83] absolute left-3.5 top-1/2 -translate-y-1/2" />
                     <input
-                      type="password"
+                      type={showPassword ? 'text' : 'password'}
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="w-full pl-11 pr-4 py-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl text-sm sm:text-base text-[#17313A] placeholder-[#6B7C83] focus:bg-white focus:outline-none focus:border-[#086A92] focus:ring-2 focus:ring-[#086A92]/20 font-medium transition-all"
+                      className="w-full pl-11 pr-11 py-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl text-sm sm:text-base text-[#17313A] placeholder-[#6B7C83] focus:bg-white focus:outline-none focus:border-[#086A92] focus:ring-2 focus:ring-[#086A92]/20 font-medium transition-all"
                       placeholder="••••••••"
                     />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
+                    >
+                      {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
                   </div>
                 </div>
 
@@ -291,7 +404,7 @@ export default function LoginPage() {
                   variant="primary"
                   size="lg"
                   isLoading={loading}
-                  className="w-full py-3.5 text-base font-bold shadow-md cursor-pointer"
+                  className="w-full py-3.5 text-base font-bold shadow-md cursor-pointer bg-gradient-to-r from-[#086A92] to-[#008C91] hover:brightness-110"
                   rightIcon={<ArrowRight className="w-5 h-5 ml-1" />}
                 >
                   Sign In to Dashboard
@@ -299,12 +412,12 @@ export default function LoginPage() {
               </form>
             </div>
 
-            {/* 1-Click Fast Role Sign-In */}
-            <div className="pt-4 border-t border-[#E4EAEC]">
+            {/* 1-Click Role Access Grid */}
+            <div className="pt-5 border-t border-[#E4EAEC]">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs sm:text-sm font-bold text-[#17313A] flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-[#35B84A]" />
-                  <span>Instant 1-Click Role Logins</span>
+                  <span>Instant 1-Click Demo Logins</span>
                 </span>
                 <span className="text-xs text-[#086A92] bg-[#EAF5F8] px-2.5 py-1 rounded-full font-bold border border-[#c0e3ed]">
                   Tap to sign in

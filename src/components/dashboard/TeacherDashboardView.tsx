@@ -48,23 +48,23 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
           />
           <div>
             <div className="flex items-center gap-2">
-              <h2 className="text-base sm:text-lg font-bold">Faculty Teaching Cockpit</h2>
-              <span className="text-[10px] bg-emerald-500/20 text-[#35B84A] px-2 py-0.5 rounded-full font-bold border border-emerald-400/30">
+              <h2 className="text-lg sm:text-xl font-bold">Faculty Teaching Cockpit</h2>
+              <span className="text-xs bg-emerald-500/20 text-[#35B84A] px-2.5 py-0.5 rounded-full font-bold border border-emerald-400/30">
                 Active Session
               </span>
             </div>
-            <p className="text-xs text-[#EAF5F8]">
+            <p className="text-sm text-[#EAF5F8] mt-0.5">
               Form Tutor • Class 10-A • Mathematics &amp; Science Department
             </p>
-            <p className="text-[11px] text-[#A2E2F8] mt-0.5">
-              Academic Session 2025-2026 • CBSE Curriculum Grounded
+            <p className="text-xs text-[#A2E2F8] mt-0.5 font-medium">
+              Academic Session 2026–2027 • CBSE Curriculum Grounded
             </p>
           </div>
         </div>
 
         <div className="text-left sm:text-right">
-          <span className="text-[11px] uppercase tracking-wider text-cyan-200 font-mono block">Today&apos;s Schedule</span>
-          <span className="text-sm font-bold text-white">4 Teaching Periods Allocated</span>
+          <span className="text-xs uppercase tracking-wider text-cyan-200 font-mono block">Today&apos;s Schedule</span>
+          <span className="text-base font-bold text-white">4 Teaching Periods Allocated</span>
         </div>
       </div>
 

@@ -14,11 +14,23 @@
     --color-border: #e4eaec;
     --color-card-bg: #ffffff;
 
+    /* Cinematic Additions */
+    --color-midnight: #081820;
+    --color-deep-ocean: #0b2632;
+    --color-glass-surface: rgba(255, 255, 255, 0.08);
+    --color-soft-border: rgba(255, 255, 255, 0.12);
+    --color-muted-slate: #8fa5ae;
+    --color-premium-highlight: #75d7d1;
+
     --bg-app: #f7fafa;
     --card-bg: #ffffff;
     --text-main: #17313a;
     --text-muted: #6b7c83;
     --border-color: #e4eaec;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
@@ -32,8 +44,8 @@
 
 /* Custom Clean Scrollbars */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f5f7;
@@ -44,6 +56,47 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #9db2b8;
+}
+
+/* Cinematic Utilities */
+.glass-panel-dark {
+  background: rgba(11, 38, 50, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(228, 234, 236, 0.8);
+}
+
+.glow-blue {
+  box-shadow: 0 0 50px -10px rgba(8, 106, 146, 0.35);
+}
+
+.glow-teal {
+  box-shadow: 0 0 50px -10px rgba(0, 140, 145, 0.35);
+}
+
+.glow-green {
+  box-shadow: 0 0 40px -10px rgba(53, 184, 74, 0.3);
+}
+
+.bg-grid-pattern-dark {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.bg-grid-pattern-light {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(8, 106, 146, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(8, 106, 146, 0.04) 1px, transparent 1px);
 }
 
 /* Print Styles for Report Cards, Receipts, ID Cards, Payslips */
