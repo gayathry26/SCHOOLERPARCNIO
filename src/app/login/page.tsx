@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'motion/react';
 import {
   UserCheck,
   GraduationCap,
@@ -14,18 +13,15 @@ import {
   Lock,
   Mail,
   ArrowRight,
-  Sparkles,
-  CheckCircle2,
-  AlertCircle,
-  ShieldCheck,
   ArrowLeft,
   Eye,
   EyeOff,
   BrainCircuit,
-  Compass,
-  Zap,
+  ShieldCheck,
+  Users,
+  CheckCircle2,
+  AlertCircle,
 } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
 import { EdvoNestLogo } from '@/components/ui/EdvoNestLogo';
 
 interface DemoAccount {
@@ -35,8 +31,6 @@ interface DemoAccount {
   pass: string;
   icon: React.ComponentType<{ className?: string }>;
   desc: string;
-  badgeBg: string;
-  iconColor: string;
 }
 
 const DEMO_ACCOUNTS: DemoAccount[] = [
@@ -46,9 +40,7 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     email: 'admin@edvonest.com',
     pass: 'password123',
     icon: UserCheck,
-    desc: 'System Configuration & Records',
-    badgeBg: 'bg-[#EAF5F8]',
-    iconColor: 'text-[#086A92]',
+    desc: 'System Configuration',
   },
   {
     role: 'Principal',
@@ -56,19 +48,15 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     email: 'principal@edvonest.com',
     pass: 'password123',
     icon: GraduationCap,
-    desc: 'Executive Command & Academics',
-    badgeBg: 'bg-[#EAF8EC]',
-    iconColor: 'text-[#16A34A]',
+    desc: 'Executive Command',
   },
   {
-    role: 'Teacher (Math)',
+    role: 'Teacher',
     roleKey: 'TEACHER',
     email: 'teacher.math@edvonest.com',
     pass: 'password123',
     icon: BookOpen,
-    desc: '1-Tap Register & Gradebook',
-    badgeBg: 'bg-[#E0F5F5]',
-    iconColor: 'text-[#008C91]',
+    desc: 'Attendance & Marks',
   },
   {
     role: 'Accountant',
@@ -76,9 +64,7 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     email: 'accountant@edvonest.com',
     pass: 'password123',
     icon: DollarSign,
-    desc: 'Counter Fees & Instant Receipts',
-    badgeBg: 'bg-[#FEF3C7]',
-    iconColor: 'text-[#B45309]',
+    desc: 'Fees & Receipts',
   },
   {
     role: 'Parent',
@@ -86,9 +72,7 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     email: 'parent1@edvonest.com',
     pass: 'password123',
     icon: HeartHandshake,
-    desc: 'Ward Progress & Bus GPS ETA',
-    badgeBg: 'bg-[#F3E8FF]',
-    iconColor: 'text-[#7E22CE]',
+    desc: 'Ward Progress & Portal',
   },
   {
     role: 'Student',
@@ -96,9 +80,30 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     email: 'student1@edvonest.com',
     pass: 'password123',
     icon: User,
-    desc: 'Class 10-A, Timetable & AI Tutor',
-    badgeBg: 'bg-[#EAF5F8]',
-    iconColor: 'text-[#086A92]',
+    desc: 'Academics & Timetable',
+  },
+];
+
+const FEATURES = [
+  {
+    title: 'Academic Intelligence',
+    desc: 'Curriculum pacing, automated CBSE gradebooks, and examination marks management.',
+    icon: BrainCircuit,
+  },
+  {
+    title: 'Campus Safety & Fleet',
+    desc: 'Real-time GPS bus tracking, student gate passes, and arrival ETA alerts.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Financial Operations',
+    desc: 'Multi-mode counter fee collection, automated receipts, and reconciliation.',
+    icon: DollarSign,
+  },
+  {
+    title: 'Connected Community',
+    desc: 'Transparent parent portal, multi-child switching, and direct PTM bookings.',
+    icon: Users,
   },
 ];
 
@@ -106,7 +111,6 @@ export default function LoginPage() {
   const [email, setEmail] = useState('admin@edvonest.com');
   const [password, setPassword] = useState('password123');
   const [showPassword, setShowPassword] = useState(false);
-  const [activePillar, setActivePillar] = useState<'academics' | 'safety' | 'finance' | 'community'>('academics');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
@@ -142,7 +146,7 @@ export default function LoginPage() {
       router.refresh();
     } catch (err: any) {
       if (err.name === 'TypeError' || err.message?.includes('fetch') || err.message?.includes('network')) {
-        setError('Server is reconnecting. Please wait 2 seconds and click Sign In again.');
+        setError('Server is reconnecting. Please wait a moment and try again.');
       } else {
         setError(err.message || 'Login failed. Please verify your credentials.');
       }
@@ -165,302 +169,264 @@ export default function LoginPage() {
     }
   };
 
-  const pillars = [
-    {
-      id: 'academics',
-      title: 'Academic Intelligence',
-      badge: 'Modules A–D',
-      icon: BrainCircuit,
-      color: 'text-[#75D7D1]',
-      desc: 'Predictive performance analytics, CBSE/ICSE syllabus pacing, and automated term gradebooks.',
-      metric: '94.8% Syllabus On-Track',
-    },
-    {
-      id: 'safety',
-      title: 'Campus Safety & Fleet',
-      badge: 'Modules E–G',
-      icon: ShieldCheck,
-      color: 'text-emerald-400',
-      desc: 'Live school bus GPS tracking with parent arrival notifications and RFID/QR gate passes.',
-      metric: '12/12 Live GPS Routes',
-    },
-    {
-      id: 'finance',
-      title: 'Financial Operations',
-      badge: 'Modules H–L',
-      icon: DollarSign,
-      color: 'text-teal-300',
-      desc: 'Counter collections, automated UPI receipt generation, and annual audit cash balancing.',
-      metric: '₹ 48.5L Fee Realized',
-    },
-    {
-      id: 'community',
-      title: 'Parent & Student Hub',
-      badge: 'Modules I–N',
-      icon: Compass,
-      color: 'text-amber-300',
-      desc: 'Mobile-first ward tracking, homework pacing, digital certificates, and PTM booking.',
-      metric: '1,248 Active Profiles',
-    },
-  ] as const;
-
   return (
-    <div className="min-h-screen bg-[#081820] text-slate-100 flex flex-col justify-center py-6 sm:py-10 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Cinematic Ambient Glows */}
-      <div className="absolute top-0 -left-40 w-[600px] h-[600px] bg-[#086A92]/25 rounded-full filter blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 -right-40 w-[600px] h-[600px] bg-[#008C91]/20 rounded-full filter blur-[150px] pointer-events-none" />
-      <div className="absolute inset-0 bg-grid-pattern-dark opacity-15 pointer-events-none" />
+    <div className="min-h-screen bg-[#0B1B22] text-slate-100 flex flex-col justify-between selection:bg-[#00A6A6] selection:text-white">
+      {/* Top Header */}
+      <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
+        <Link href="/" className="flex items-center brightness-125 hover:opacity-90 transition-opacity">
+          <EdvoNestLogo variant="full" size="md" showTagline={false} />
+        </Link>
 
-      <div className="max-w-7xl w-full mx-auto space-y-6 relative z-10">
-        {/* Top Floating Glass Navigation Strip */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/5 backdrop-blur-xl px-6 py-4 rounded-3xl border border-white/10 shadow-2xl">
-          <Link href="/" className="flex items-center brightness-125 hover:opacity-90 transition-opacity">
-            <EdvoNestLogo variant="full" size="md" showTagline={true} />
-          </Link>
-
-          <div className="flex items-center gap-3">
-            <div className="hidden md:flex items-center gap-2 text-xs font-semibold text-slate-300 bg-white/5 px-3.5 py-1.5 rounded-full border border-white/10">
-              <span className="w-2 h-2 rounded-full bg-[#35B84A] animate-pulse" />
-              <span className="text-slate-400">Institutional Cloud OS:</span>
-              <span className="text-[#75D7D1] font-bold">CBSE &amp; ICSE Certified (#89410)</span>
-            </div>
-
-            <Link href="/">
-              <Button
-                variant="outline"
-                size="sm"
-                className="text-xs sm:text-sm font-semibold gap-1.5 bg-white/10 hover:bg-white/20 text-white border-white/15 cursor-pointer"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                <span>Back to Home</span>
-              </Button>
-            </Link>
+        <div className="flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-2 text-xs text-slate-300 bg-white/[0.04] px-3.5 py-1.5 rounded-full border border-white/[0.08]">
+            <span className="w-2 h-2 rounded-full bg-[#00A6A6]" />
+            <span className="text-slate-400">Institutional OS:</span>
+            <span className="text-slate-200 font-semibold">CBSE &amp; ICSE Certified (#89410)</span>
           </div>
-        </div>
 
-        {/* Main 2-Column Split Master Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* LEFT: Cinematic Architectural System Ecosystem */}
-          <div className="lg:col-span-7 bg-gradient-to-br from-[#0B2632] via-[#081820] to-[#17313A] rounded-3xl border border-white/15 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col justify-between space-y-6 relative overflow-hidden">
-            {/* Top Ecosystem Header */}
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-bold text-[#75D7D1]">
-                <Sparkles className="w-3.5 h-3.5 text-[#35B84A]" />
-                <span>Connected School Intelligence Fabric</span>
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-white transition-colors bg-white/[0.04] hover:bg-white/[0.08] px-3.5 py-1.5 rounded-lg border border-white/[0.08]"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Back to Website</span>
+          </Link>
+        </div>
+      </header>
+
+      {/* Main Two-Column Container */}
+      <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10 flex-1 flex items-center">
+        <div className="w-full flex flex-col lg:flex-row items-center lg:items-stretch gap-10 lg:gap-14 xl:gap-16">
+          {/* Left Section: 55% Width Product Introduction */}
+          <div className="w-full lg:w-[55%] flex flex-col justify-between py-2">
+            <div>
+              {/* Category Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-medium text-[#75D7D1] mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00A6A6]" />
+                <span>Enterprise School Operating System</span>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+
+              {/* Main Headline */}
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-white tracking-tight leading-[1.18]">
                 Architectural elegance for modern school operations.
               </h2>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
-                One unified institutional identity connecting classroom gradebooks, morning attendance registers, bus GPS routes, and counter fees.
+
+              {/* Short Description */}
+              <p className="text-sm sm:text-base text-slate-300/80 leading-relaxed max-w-xl mt-3 font-normal">
+                One unified platform connecting classroom academics, morning attendance registers, bus GPS routes, and financial fee collections in real time.
               </p>
-            </div>
 
-            {/* 4 Interactive System Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {pillars.map((pil) => {
-                const PIcon = pil.icon;
-                const isSelected = activePillar === pil.id;
-
-                return (
-                  <button
-                    key={pil.id}
-                    type="button"
-                    onClick={() => setActivePillar(pil.id)}
-                    className={`text-left p-4 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
-                      isSelected
-                        ? 'bg-white/15 border-cyan-400 shadow-xl ring-2 ring-cyan-400/30'
-                        : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
-                    }`}
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <div className={`p-2 rounded-xl bg-white/10 ${pil.color}`}>
-                          <PIcon className="w-5 h-5" />
-                        </div>
-                        <span className="text-[11px] font-mono font-bold text-slate-300 bg-black/20 px-2 py-0.5 rounded-md">
-                          {pil.badge}
-                        </span>
+              {/* 2x2 Feature Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-8">
+                {FEATURES.map((item) => {
+                  const FIcon = item.icon;
+                  return (
+                    <div
+                      key={item.title}
+                      className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.07] flex flex-col justify-between space-y-2.5 transition-colors hover:bg-white/[0.05]"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-[#00A6A6]/10 text-[#00A6A6] flex items-center justify-center">
+                        <FIcon className="w-4 h-4" />
                       </div>
-                      <h4 className="text-sm sm:text-base font-bold text-white">{pil.title}</h4>
-                      <p className="text-xs text-slate-300 mt-1 line-clamp-2 leading-relaxed">
-                        {pil.desc}
-                      </p>
+                      <div>
+                        <h3 className="text-sm font-semibold text-white tracking-normal">{item.title}</h3>
+                        <p className="text-xs text-slate-400 mt-1 leading-relaxed">{item.desc}</p>
+                      </div>
                     </div>
-
-                    <div className="pt-3 mt-3 border-t border-white/10 flex items-center justify-between text-xs">
-                      <span className={`font-bold ${pil.color}`}>{pil.metric}</span>
-                      <span className="text-emerald-400 font-bold">● Active</span>
-                    </div>
-                  </button>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Bottom 3 Trust Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-5 border-t border-white/10 text-xs text-slate-300">
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/10">
-                <CheckCircle2 className="w-4 h-4 text-[#35B84A] shrink-0" />
-                <span className="font-semibold">Zero IT Setup Needed</span>
-              </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/10">
-                <CheckCircle2 className="w-4 h-4 text-[#75D7D1] shrink-0" />
-                <span className="font-semibold">100% Granular RBAC</span>
-              </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/10">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span className="font-semibold">Live Instant Audit Logs</span>
-              </div>
+            {/* Bottom Institutional Assurance */}
+            <div className="pt-8 mt-8 border-t border-white/[0.06] flex flex-wrap items-center gap-5 sm:gap-8 text-xs text-slate-400">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-[#00A6A6] shrink-0" />
+                <span>Zero IT Setup</span>
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-[#00A6A6] shrink-0" />
+                <span>100% Granular RBAC</span>
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-[#00A6A6] shrink-0" />
+                <span>AES-256 Encrypted Backups</span>
+              </span>
             </div>
           </div>
 
-          {/* RIGHT: Minimal, High-Precision Sign-In Card */}
-          <div className="lg:col-span-5 bg-white text-[#17313A] rounded-3xl border border-[#E4EAEC] p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col justify-between space-y-6">
-            <div>
+          {/* Right Section: 45% Width Minimalist Login Panel */}
+          <div className="w-full lg:w-[45%] flex flex-col justify-center">
+            <div className="bg-white text-slate-900 rounded-2xl shadow-2xl shadow-black/30 border border-slate-200/90 p-7 sm:p-9 transition-all">
               {/* Header */}
-              <div className="mb-6 pb-4 border-b border-[#E4EAEC] flex items-center justify-between">
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#17313A]">Sign In</h3>
-                  <p className="text-sm text-[#4A5D65] mt-0.5">
-                    Select a 1-click role below or enter credentials
-                  </p>
-                </div>
-                <div className="w-11 h-11 rounded-2xl bg-[#EAF8EC] text-[#35B84A] flex items-center justify-center shrink-0 shadow-2xs">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
+              <div className="mb-6">
+                <h1 className="text-2xl sm:text-[1.65rem] font-bold text-slate-900 tracking-tight">
+                  Sign In
+                </h1>
+                <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                  Enter your credentials or choose a 1-click demo role below.
+                </p>
               </div>
 
               {/* Form */}
               <form onSubmit={handleLogin} className="space-y-4">
                 {error && (
-                  <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-xl text-rose-700 text-sm font-semibold flex items-start gap-2.5">
-                    <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                  <div className="p-3 bg-rose-50 border border-rose-200 rounded-lg text-rose-700 text-xs sm:text-sm flex items-start gap-2.5">
+                    <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                     <div className="flex-1">
-                      <p>{error}</p>
-                      <p className="text-xs text-rose-600/90 mt-0.5 font-normal">
-                        Tip: Click any 1-Click Role below to instantly load and test verified credentials.
+                      <p className="font-semibold">{error}</p>
+                      <p className="text-xs text-rose-600/90 mt-0.5">
+                        Tip: Click any 1-Click Role below to test verified credentials instantly.
                       </p>
                     </div>
                   </div>
                 )}
 
+                {/* Email / Username */}
                 <div>
-                  <label className="block text-sm font-bold text-[#17313A] mb-1.5">
+                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
                     Email / Username
                   </label>
                   <div className="relative">
-                    <Mail className="w-5 h-5 text-[#6B7C83] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                     <input
                       type="text"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full pl-11 pr-4 py-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl text-sm sm:text-base text-[#17313A] placeholder-[#6B7C83] focus:bg-white focus:outline-none focus:border-[#086A92] focus:ring-2 focus:ring-[#086A92]/20 font-medium transition-all"
+                      className="w-full h-11 pl-10 pr-4 bg-slate-50/70 border border-slate-200 rounded-lg text-sm text-slate-900 placeholder-slate-400 font-medium focus:bg-white focus:outline-none focus:border-[#00A6A6] focus:ring-2 focus:ring-[#00A6A6]/20 transition-all"
                       placeholder="admin@edvonest.com"
                     />
                   </div>
                 </div>
 
+                {/* Password */}
                 <div>
-                  <label className="block text-sm font-bold text-[#17313A] mb-1.5">
+                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
                     Password
                   </label>
                   <div className="relative">
-                    <Lock className="w-5 h-5 text-[#6B7C83] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                     <input
                       type={showPassword ? 'text' : 'password'}
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="w-full pl-11 pr-11 py-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl text-sm sm:text-base text-[#17313A] placeholder-[#6B7C83] focus:bg-white focus:outline-none focus:border-[#086A92] focus:ring-2 focus:ring-[#086A92]/20 font-medium transition-all"
+                      className="w-full h-11 pl-10 pr-10 bg-slate-50/70 border border-slate-200 rounded-lg text-sm text-slate-900 placeholder-slate-400 font-medium focus:bg-white focus:outline-none focus:border-[#00A6A6] focus:ring-2 focus:ring-[#00A6A6]/20 transition-all"
                       placeholder="••••••••"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer p-1"
+                      aria-label={showPassword ? 'Hide password' : 'Show password'}
                     >
                       {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between text-sm text-[#4A5D65] pt-0.5">
-                  <label className="flex items-center gap-2 cursor-pointer select-none">
+                {/* Remember Me & Need Help */}
+                <div className="flex items-center justify-between text-xs sm:text-sm pt-0.5">
+                  <label className="flex items-center gap-2 cursor-pointer select-none text-slate-600">
                     <input
                       type="checkbox"
                       defaultChecked
-                      className="w-4 h-4 rounded border-[#E4EAEC] text-[#086A92] focus:ring-[#086A92]"
+                      className="w-4 h-4 rounded border-slate-300 text-[#00A6A6] focus:ring-[#00A6A6] focus:ring-offset-0 cursor-pointer"
                     />
-                    <span className="font-medium">Remember me</span>
+                    <span>Remember me</span>
                   </label>
-                  <span className="text-[#086A92] font-semibold hover:underline cursor-pointer">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEmail('admin@edvonest.com');
+                      setPassword('password123');
+                    }}
+                    className="text-xs font-semibold text-[#008C91] hover:text-[#00A6A6] hover:underline cursor-pointer"
+                  >
                     Need help?
+                  </button>
+                </div>
+
+                {/* Full-Width Sign In Button with Subtle Teal Gradient */}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full h-11 bg-gradient-to-r from-[#008C91] to-[#00A6A6] hover:from-[#007D82] hover:to-[#009696] text-white font-semibold text-sm rounded-lg shadow-sm hover:shadow transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+                >
+                  {loading ? (
+                    <span className="inline-flex items-center gap-2">
+                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <span>Signing In...</span>
+                    </span>
+                  ) : (
+                    <>
+                      <span>Sign In to Dashboard</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
+                </button>
+              </form>
+
+              {/* Demo Roles Section */}
+              <div className="pt-5 mt-5 border-t border-slate-100">
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                    Instant 1-Click Demo Roles
+                  </span>
+                  <span className="text-[11px] text-[#008C91] font-medium">
+                    Tap to sign in
                   </span>
                 </div>
 
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="lg"
-                  isLoading={loading}
-                  className="w-full py-3.5 text-base font-bold shadow-md cursor-pointer bg-gradient-to-r from-[#086A92] to-[#008C91] hover:brightness-110"
-                  rightIcon={<ArrowRight className="w-5 h-5 ml-1" />}
-                >
-                  Sign In to Dashboard
-                </Button>
-              </form>
-            </div>
-
-            {/* 1-Click Role Access Grid */}
-            <div className="pt-5 border-t border-[#E4EAEC]">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs sm:text-sm font-bold text-[#17313A] flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-[#35B84A]" />
-                  <span>Instant 1-Click Demo Logins</span>
-                </span>
-                <span className="text-xs text-[#086A92] bg-[#EAF5F8] px-2.5 py-1 rounded-full font-bold border border-[#c0e3ed]">
-                  Tap to sign in
-                </span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2.5">
-                {DEMO_ACCOUNTS.map((acc) => {
-                  const Icon = acc.icon;
-                  const isSelected = email === acc.email;
-                  return (
-                    <button
-                      key={acc.role}
-                      type="button"
-                      onClick={() => selectDemoAccount(acc, true)}
-                      title={`Instant login as ${acc.role}`}
-                      className={`text-left p-3 rounded-xl border transition-all duration-200 cursor-pointer flex flex-col justify-between ${
-                        isSelected
-                          ? 'bg-[#EAF5F8] border-[#086A92] text-[#086A92] shadow-2xs ring-1 ring-[#086A92]'
-                          : 'bg-[#F7FAFA] border-[#E4EAEC] text-[#17313A] hover:bg-white hover:border-[#086A92]/40 hover:shadow-xs'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2 mb-1.5">
-                        <div className={`p-1.5 rounded-lg ${acc.badgeBg} ${acc.iconColor} shrink-0`}>
-                          <Icon className="w-4 h-4" />
+                <div className="grid grid-cols-2 gap-2">
+                  {DEMO_ACCOUNTS.map((acc) => {
+                    const Icon = acc.icon;
+                    const isSelected = email === acc.email;
+                    return (
+                      <button
+                        key={acc.role}
+                        type="button"
+                        onClick={() => selectDemoAccount(acc, true)}
+                        title={`Instant login as ${acc.role}`}
+                        className={`text-left p-2.5 rounded-lg border text-xs transition-all cursor-pointer flex items-center gap-2.5 ${
+                          isSelected
+                            ? 'bg-teal-50/70 border-[#00A6A6] text-slate-900 shadow-2xs ring-1 ring-[#00A6A6]/20'
+                            : 'bg-white border-slate-200/90 text-slate-700 hover:bg-slate-50 hover:border-slate-300'
+                        }`}
+                      >
+                        <div
+                          className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 ${
+                            isSelected ? 'bg-[#00A6A6]/15 text-[#008C91]' : 'bg-slate-100 text-slate-500'
+                          }`}
+                        >
+                          <Icon className="w-3.5 h-3.5" />
                         </div>
-                        <span className="text-xs sm:text-sm font-bold truncate">{acc.role}</span>
-                      </div>
-                      <p className="text-xs text-[#6B7C83] leading-snug line-clamp-1">{acc.desc}</p>
-                    </button>
-                  );
-                })}
+                        <div className="min-w-0 flex-1">
+                          <div className="font-semibold text-slate-900 truncate text-xs">{acc.role}</div>
+                          <div className="text-[11px] text-slate-500 truncate leading-tight">{acc.desc}</div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
 
-            {/* Footer security note */}
-            <div className="pt-2 text-center text-xs text-[#6B7C83] flex items-center justify-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#16A34A]" />
-              <span>AES-256 cloud encryption • CBSE regulatory standards • v2.4</span>
+              {/* Security Footer Note */}
+              <div className="pt-4 mt-3 text-center text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span>AES-256 Cloud Encryption • CBSE Regulatory Standards • v2.4</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
+
+      {/* Minimal Footer */}
+      <footer className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-white/[0.06]">
+        <span>&copy; {new Date().getFullYear()} EdvoNest Model International Academy. All rights reserved.</span>
+        <span>Secure Institutional Portal • CBSE Affiliation #89410</span>
+      </footer>
     </div>
   );
 }
