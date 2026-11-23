@@ -66,7 +66,7 @@ export const LandingFooter: React.FC = () => {
               </li>
               <li>
                 <Link href="/login" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <span>Student Learning Hub</span>
+                  <span>Transport &amp; Campus Safety</span>
                   <span className="text-xs text-slate-400">&rarr;</span>
                 </Link>
               </li>

@@ -56,7 +56,7 @@ export const LandingNavbar: React.FC = () => {
               href="/login"
               className="bg-[#35B84A] hover:bg-[#2da040] text-white font-bold px-3 py-1 rounded-md text-xs sm:text-sm transition-colors shadow-2xs"
             >
-              Staff &amp; Student Portal &rarr;
+              Staff &amp; Parent Portal &rarr;
             </Link>
           </div>
         </div>

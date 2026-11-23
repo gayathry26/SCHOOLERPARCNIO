@@ -67,13 +67,6 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     pass: 'password123',
     icon: HeartHandshake,
   },
-  {
-    role: 'Student',
-    roleKey: 'STUDENT',
-    email: 'student1@edvonest.com',
-    pass: 'password123',
-    icon: User,
-  },
 ];
 
 export default function LoginPage() {
@@ -229,7 +222,7 @@ export default function LoginPage() {
               PORTAL EXPERIENCE
             </label>
 
-            <div className="bg-slate-100 p-1 rounded-xl grid grid-cols-3 gap-1">
+            <div className="bg-slate-100 p-1 rounded-xl grid grid-cols-3 sm:grid-cols-5 gap-1">
               {DEMO_ACCOUNTS.map((acc) => {
                 const Icon = acc.icon;
                 const isActive = selectedRole === acc.role;
