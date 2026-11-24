@@ -38,9 +38,9 @@ const NODES: EcosystemNode[] = [
     title: 'Academic Intelligence',
     category: 'Module A • Academics',
     icon: BrainCircuit,
-    color: '#086A92',
-    accentBg: 'bg-[#EAF5F8]',
-    borderColor: 'border-[#c0e3ed]',
+    color: '#990000',
+    accentBg: 'bg-[#FEF2F2]',
+    borderColor: 'border-[#FECACA]',
     metric: '94.2% Class Average',
     status: 'Radar & Risks Active',
     link: '/dashboard/academic-intelligence',
@@ -62,8 +62,8 @@ const NODES: EcosystemNode[] = [
     title: 'Smart Campus Safety',
     category: 'Module E • Security',
     icon: ShieldCheck,
-    color: '#008C91',
-    accentBg: 'bg-[#E0F5F5]',
+    color: '#C00000',
+    accentBg: 'bg-[#FEF2F2]',
     borderColor: 'border-[#b6e8ea]',
     metric: '98.4% QR Scanned',
     status: 'Gate Passes Active',
@@ -110,9 +110,9 @@ const NODES: EcosystemNode[] = [
     title: 'Parent Engagement',
     category: 'Module J • Community',
     icon: Users2,
-    color: '#086A92',
-    accentBg: 'bg-[#EAF5F8]',
-    borderColor: 'border-[#c0e3ed]',
+    color: '#990000',
+    accentBg: 'bg-[#FEF2F2]',
+    borderColor: 'border-[#FECACA]',
     metric: '92% Parent Activity',
     status: 'Live Feed Connected',
     link: '/dashboard/parent-portal',
@@ -122,8 +122,8 @@ const NODES: EcosystemNode[] = [
     title: 'Multi-Campus Hub',
     category: 'Module P • Governance',
     icon: Building2,
-    color: '#008C91',
-    accentBg: 'bg-[#E0F5F5]',
+    color: '#C00000',
+    accentBg: 'bg-[#FEF2F2]',
     borderColor: 'border-[#b6e8ea]',
     metric: '2 Branches Linked',
     status: 'Synchronized',
@@ -143,34 +143,34 @@ export const CampusArchitectureWidget: React.FC = () => {
   });
 
   return (
-    <div className="bg-white border border-[#E4EAEC] rounded-2xl p-5 shadow-2xs space-y-4">
+    <div className="bg-white border border-[#E5E5E5] rounded-2xl p-5 shadow-2xs space-y-4">
       {/* Header bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#E4EAEC]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#E5E5E5]">
         <div>
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#35B84A] animate-pulse" />
-            <h3 className="text-sm font-black text-[#17313A] uppercase tracking-wider">
+            <h3 className="text-sm font-black text-[#171717] uppercase tracking-wider">
               EdvoNest Smart Operating Ecosystem
             </h3>
             <span className="text-[10px] bg-[#EAF8EC] text-[#16A34A] font-bold px-2 py-0.5 rounded-full border border-[#bbf0c5]">
               16 Modules Active
             </span>
           </div>
-          <p className="text-xs text-[#6B7C83] mt-0.5">
+          <p className="text-xs text-[#737373] mt-0.5">
             Instant bird&apos;s-eye access to your connected campus modules and operational health.
           </p>
         </div>
 
         {/* Filter pills */}
-        <div className="flex items-center gap-1.5 self-start sm:self-auto bg-[#F7FAFA] p-1 rounded-xl border border-[#E4EAEC]">
+        <div className="flex items-center gap-1.5 self-start sm:self-auto bg-[#F5F5F5] p-1 rounded-xl border border-[#E5E5E5]">
           {(['all', 'academics', 'safety', 'admin'] as const).map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
               className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer capitalize ${
                 filter === cat
-                  ? 'bg-white shadow-2xs text-[#086A92] border border-[#c0e3ed]'
-                  : 'text-[#6B7C83] hover:text-[#17313A]'
+                  ? 'bg-white shadow-2xs text-[#990000] border border-[#FECACA]'
+                  : 'text-[#737373] hover:text-[#171717]'
               }`}
             >
               {cat === 'all' ? 'All Hubs' : cat}
@@ -187,7 +187,7 @@ export const CampusArchitectureWidget: React.FC = () => {
             <Link
               key={node.title}
               href={node.link}
-              className={`p-3.5 rounded-xl border bg-white hover:bg-[#F7FAFA] transition-all duration-200 group flex flex-col justify-between hover:shadow-xs hover:-translate-y-0.5 ${node.borderColor}`}
+              className={`p-3.5 rounded-xl border bg-white hover:bg-[#F5F5F5] transition-all duration-200 group flex flex-col justify-between hover:shadow-xs hover:-translate-y-0.5 ${node.borderColor}`}
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
@@ -197,26 +197,26 @@ export const CampusArchitectureWidget: React.FC = () => {
                   >
                     <Icon className="w-4 h-4" />
                   </div>
-                  <span className="text-[9.5px] font-bold text-[#6B7C83] bg-[#F7FAFA] px-1.5 py-0.5 rounded border border-[#E4EAEC]">
+                  <span className="text-[9.5px] font-bold text-[#737373] bg-[#F5F5F5] px-1.5 py-0.5 rounded border border-[#E5E5E5]">
                     {node.status}
                   </span>
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-bold text-[#17313A] group-hover:text-[#086A92] transition-colors leading-tight">
+                  <h4 className="text-xs font-bold text-[#171717] group-hover:text-[#990000] transition-colors leading-tight">
                     {node.title}
                   </h4>
-                  <p className="text-[10px] text-[#6B7C83] mt-0.5 line-clamp-2 leading-relaxed">
+                  <p className="text-[10px] text-[#737373] mt-0.5 line-clamp-2 leading-relaxed">
                     {node.description}
                   </p>
                 </div>
               </div>
 
               <div className="mt-3 pt-2.5 border-t border-[#F1F5F7] flex items-center justify-between">
-                <span className="text-[11px] font-extrabold text-[#17313A]" style={{ color: node.color }}>
+                <span className="text-[11px] font-extrabold text-[#171717]" style={{ color: node.color }}>
                   {node.metric}
                 </span>
-                <span className="text-[11px] font-bold text-[#086A92] group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
+                <span className="text-[11px] font-bold text-[#990000] group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
                   Open <ArrowRight className="w-3 h-3" />
                 </span>
               </div>

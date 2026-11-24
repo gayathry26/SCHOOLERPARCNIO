@@ -109,46 +109,46 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
       </div>
 
       {/* Quick Action Shortcuts */}
-      <div className="bg-white border border-[#E4EAEC] rounded-2xl p-4 shadow-2xs">
+      <div className="bg-white border border-[#E5E5E5] rounded-2xl p-4 shadow-2xs">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xs font-bold text-[#17313A] uppercase tracking-wider">
+          <h3 className="text-xs font-bold text-[#171717] uppercase tracking-wider">
             Administrative Fast-Actions
           </h3>
-          <span className="text-[11px] text-[#6B7C83]">1-Tap Operations</span>
+          <span className="text-[11px] text-[#737373]">1-Tap Operations</span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
           <Link href="/dashboard/students">
-            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E4EAEC] bg-[#F7FAFA] hover:bg-[#EAF5F8] hover:border-[#c0e3ed] text-xs font-semibold text-[#086A92] transition-all cursor-pointer">
-              <UserPlus className="w-4 h-4 text-[#086A92]" />
+            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E5E5E5] bg-[#F5F5F5] hover:bg-[#FEF2F2] hover:border-[#FECACA] text-xs font-semibold text-[#990000] transition-all cursor-pointer">
+              <UserPlus className="w-4 h-4 text-[#990000]" />
               <span>+ Add Student</span>
             </button>
           </Link>
           <Link href="/dashboard/attendance">
-            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E4EAEC] bg-[#F7FAFA] hover:bg-[#EAF8EC] hover:border-[#bbf0c5] text-xs font-semibold text-[#16A34A] transition-all cursor-pointer">
+            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E5E5E5] bg-[#F5F5F5] hover:bg-[#EAF8EC] hover:border-[#bbf0c5] text-xs font-semibold text-[#16A34A] transition-all cursor-pointer">
               <CalendarCheck className="w-4 h-4 text-[#35B84A]" />
               <span>Mark Attendance</span>
             </button>
           </Link>
           <Link href="/dashboard/fees">
-            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E4EAEC] bg-[#F7FAFA] hover:bg-[#FEF3C7] hover:border-[#FDE68A] text-xs font-semibold text-[#B45309] transition-all cursor-pointer">
+            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E5E5E5] bg-[#F5F5F5] hover:bg-[#FEF3C7] hover:border-[#FDE68A] text-xs font-semibold text-[#B45309] transition-all cursor-pointer">
               <DollarSign className="w-4 h-4 text-[#D97706]" />
               <span>Collect Fee</span>
             </button>
           </Link>
           <Link href="/dashboard/communication">
-            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E4EAEC] bg-[#F7FAFA] hover:bg-[#EAF5F8] hover:border-[#c0e3ed] text-xs font-semibold text-[#086A92] transition-all cursor-pointer">
-              <MessageSquare className="w-4 h-4 text-[#086A92]" />
+            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E5E5E5] bg-[#F5F5F5] hover:bg-[#FEF2F2] hover:border-[#FECACA] text-xs font-semibold text-[#990000] transition-all cursor-pointer">
+              <MessageSquare className="w-4 h-4 text-[#990000]" />
               <span>Announcement</span>
             </button>
           </Link>
           <Link href="/dashboard/exams">
-            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E4EAEC] bg-[#F7FAFA] hover:bg-[#E0F5F5] hover:border-[#b6e8ea] text-xs font-semibold text-[#008C91] transition-all cursor-pointer">
-              <FileCheck2 className="w-4 h-4 text-[#008C91]" />
+            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E5E5E5] bg-[#F5F5F5] hover:bg-[#FEF2F2] hover:border-[#b6e8ea] text-xs font-semibold text-[#C00000] transition-all cursor-pointer">
+              <FileCheck2 className="w-4 h-4 text-[#C00000]" />
               <span>Create Exam</span>
             </button>
           </Link>
           <Link href="/dashboard/homework">
-            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E4EAEC] bg-[#F7FAFA] hover:bg-[#EAF8EC] hover:border-[#bbf0c5] text-xs font-semibold text-[#16A34A] transition-all cursor-pointer">
+            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E5E5E5] bg-[#F5F5F5] hover:bg-[#EAF8EC] hover:border-[#bbf0c5] text-xs font-semibold text-[#16A34A] transition-all cursor-pointer">
               <BookMarked className="w-4 h-4 text-[#35B84A]" />
               <span>Add Homework</span>
             </button>
@@ -188,8 +188,8 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
                     <AlertCircle className="w-4 h-4" />
                   </div>
                   <div className="truncate">
-                    <p className="text-xs font-bold text-[#17313A] truncate">12 students have low attendance</p>
-                    <p className="text-[10px] text-[#6B7C83]">Attendance below 75% CBSE threshold</p>
+                    <p className="text-xs font-bold text-[#171717] truncate">12 students have low attendance</p>
+                    <p className="text-[10px] text-[#737373]">Attendance below 75% CBSE threshold</p>
                   </div>
                 </div>
                 <Link href="/dashboard/attendance">
@@ -197,14 +197,14 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
                 </Link>
               </div>
 
-              <div className="p-3 bg-[#EAF5F8] border border-[#c0e3ed] rounded-xl flex items-center justify-between gap-3">
+              <div className="p-3 bg-[#FEF2F2] border border-[#FECACA] rounded-xl flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="p-1.5 rounded-lg bg-[#d5eef5] text-[#086A92] shrink-0">
+                  <div className="p-1.5 rounded-lg bg-[#d5eef5] text-[#990000] shrink-0">
                     <DollarSign className="w-4 h-4" />
                   </div>
                   <div className="truncate">
-                    <p className="text-xs font-bold text-[#17313A] truncate">28 students have pending fees</p>
-                    <p className="text-[10px] text-[#6B7C83]">Q3 Term fee due this week</p>
+                    <p className="text-xs font-bold text-[#171717] truncate">28 students have pending fees</p>
+                    <p className="text-[10px] text-[#737373]">Q3 Term fee due this week</p>
                   </div>
                 </div>
                 <Link href="/dashboard/fees">
@@ -212,14 +212,14 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
                 </Link>
               </div>
 
-              <div className="p-3 bg-[#F1F5F7] border border-[#E4EAEC] rounded-xl flex items-center justify-between gap-3">
+              <div className="p-3 bg-[#F1F5F7] border border-[#E5E5E5] rounded-xl flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="p-1.5 rounded-lg bg-white text-[#6B7C83] shrink-0 border border-[#E4EAEC]">
+                  <div className="p-1.5 rounded-lg bg-white text-[#737373] shrink-0 border border-[#E5E5E5]">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div className="truncate">
-                    <p className="text-xs font-bold text-[#17313A] truncate">3 teachers haven&apos;t submitted attendance</p>
-                    <p className="text-[10px] text-[#6B7C83]">Class 8-B, 9-A, 11-Science</p>
+                    <p className="text-xs font-bold text-[#171717] truncate">3 teachers haven&apos;t submitted attendance</p>
+                    <p className="text-[10px] text-[#737373]">Class 8-B, 9-A, 11-Science</p>
                   </div>
                 </div>
                 <Link href="/dashboard/attendance">
@@ -233,8 +233,8 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
                     <FileCheck2 className="w-4 h-4" />
                   </div>
                   <div className="truncate">
-                    <p className="text-xs font-bold text-[#17313A] truncate">2 exams scheduled this week</p>
-                    <p className="text-[10px] text-[#6B7C83]">Mid Term Mathematics &amp; Science</p>
+                    <p className="text-xs font-bold text-[#171717] truncate">2 exams scheduled this week</p>
+                    <p className="text-[10px] text-[#737373]">Mid Term Mathematics &amp; Science</p>
                   </div>
                 </div>
                 <Link href="/dashboard/exams">
@@ -250,7 +250,7 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-[#086A92]" />
+                <Clock className="w-4 h-4 text-[#990000]" />
                 <span>Recent Institutional Activity</span>
               </CardTitle>
               <Link href="/dashboard/audit-logs">
@@ -263,46 +263,46 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
               <div className="flex items-start gap-3 text-xs">
                 <div className="w-2 h-2 rounded-full bg-[#35B84A] mt-1.5 shrink-0" />
                 <div className="flex-1 min-w-0">
-                  <p className="font-bold text-[#17313A]">Student admission completed</p>
-                  <p className="text-[11px] text-[#6B7C83]">Aarav Verma enrolled in Class 10-A (#EDV-2025-0142)</p>
+                  <p className="font-bold text-[#171717]">Student admission completed</p>
+                  <p className="text-[11px] text-[#737373]">Aarav Verma enrolled in Class 10-A (#EDV-2025-0142)</p>
                 </div>
-                <span className="text-[10px] text-[#6B7C83] shrink-0">10m ago</span>
+                <span className="text-[10px] text-[#737373] shrink-0">10m ago</span>
               </div>
 
               <div className="flex items-start gap-3 text-xs">
-                <div className="w-2 h-2 rounded-full bg-[#086A92] mt-1.5 shrink-0" />
+                <div className="w-2 h-2 rounded-full bg-[#990000] mt-1.5 shrink-0" />
                 <div className="flex-1 min-w-0">
-                  <p className="font-bold text-[#17313A]">Fee payment received</p>
-                  <p className="text-[11px] text-[#6B7C83]">₹18,500 received online for Ananya Sharma (Receipt #RCP-8821)</p>
+                  <p className="font-bold text-[#171717]">Fee payment received</p>
+                  <p className="text-[11px] text-[#737373]">₹18,500 received online for Ananya Sharma (Receipt #RCP-8821)</p>
                 </div>
-                <span className="text-[10px] text-[#6B7C83] shrink-0">25m ago</span>
+                <span className="text-[10px] text-[#737373] shrink-0">25m ago</span>
               </div>
 
               <div className="flex items-start gap-3 text-xs">
-                <div className="w-2 h-2 rounded-full bg-[#008C91] mt-1.5 shrink-0" />
+                <div className="w-2 h-2 rounded-full bg-[#C00000] mt-1.5 shrink-0" />
                 <div className="flex-1 min-w-0">
-                  <p className="font-bold text-[#17313A]">Attendance submitted</p>
-                  <p className="text-[11px] text-[#6B7C83]">Class 10-A attendance submitted by Mr. Vikram Verma (42 Present)</p>
+                  <p className="font-bold text-[#171717]">Attendance submitted</p>
+                  <p className="text-[11px] text-[#737373]">Class 10-A attendance submitted by Mr. Vikram Verma (42 Present)</p>
                 </div>
-                <span className="text-[10px] text-[#6B7C83] shrink-0">1h ago</span>
+                <span className="text-[10px] text-[#737373] shrink-0">1h ago</span>
               </div>
 
               <div className="flex items-start gap-3 text-xs">
                 <div className="w-2 h-2 rounded-full bg-[#D97706] mt-1.5 shrink-0" />
                 <div className="flex-1 min-w-0">
-                  <p className="font-bold text-[#17313A]">New announcement published</p>
-                  <p className="text-[11px] text-[#6B7C83]">Annual Sports Day registration open for all grades</p>
+                  <p className="font-bold text-[#171717]">New announcement published</p>
+                  <p className="text-[11px] text-[#737373]">Annual Sports Day registration open for all grades</p>
                 </div>
-                <span className="text-[10px] text-[#6B7C83] shrink-0">2h ago</span>
+                <span className="text-[10px] text-[#737373] shrink-0">2h ago</span>
               </div>
 
               <div className="flex items-start gap-3 text-xs">
                 <div className="w-2 h-2 rounded-full bg-[#35B84A] mt-1.5 shrink-0" />
                 <div className="flex-1 min-w-0">
-                  <p className="font-bold text-[#17313A]">Exam results published</p>
-                  <p className="text-[11px] text-[#6B7C83]">Unit Test 1 Marks finalized for Class 9 Physics</p>
+                  <p className="font-bold text-[#171717]">Exam results published</p>
+                  <p className="text-[11px] text-[#737373]">Unit Test 1 Marks finalized for Class 9 Physics</p>
                 </div>
-                <span className="text-[10px] text-[#6B7C83] shrink-0">3h ago</span>
+                <span className="text-[10px] text-[#737373] shrink-0">3h ago</span>
               </div>
             </div>
           </Card>
@@ -314,27 +314,27 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Receipt className="w-4 h-4 text-[#086A92]" />
+              <Receipt className="w-4 h-4 text-[#990000]" />
               <span>Recent Fee Invoices</span>
             </CardTitle>
             <Link href="/dashboard/fees">
               <Button variant="ghost" size="xs">View All</Button>
             </Link>
           </CardHeader>
-          <div className="divide-y divide-[#E4EAEC]">
+          <div className="divide-y divide-[#E5E5E5]">
             {recentInvoices.length === 0 ? (
-              <p className="text-xs text-[#6B7C83] py-4 text-center">No fee invoices recorded yet.</p>
+              <p className="text-xs text-[#737373] py-4 text-center">No fee invoices recorded yet.</p>
             ) : (
               recentInvoices.map((inv) => (
                 <div key={inv.id} className="py-2.5 flex items-center justify-between text-xs">
                   <div>
-                    <p className="font-bold text-[#17313A]">
+                    <p className="font-bold text-[#171717]">
                       {inv.student.user.firstName} {inv.student.user.lastName}
                     </p>
-                    <p className="text-[10px] text-[#6B7C83]">Invoice #{inv.invoiceNumber}</p>
+                    <p className="text-[10px] text-[#737373]">Invoice #{inv.invoiceNumber}</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-bold text-[#17313A]">{formatCurrency(inv.totalAmount)}</p>
+                    <p className="font-bold text-[#171717]">{formatCurrency(inv.totalAmount)}</p>
                     <span
                       className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full ${
                         inv.status === 'PAID'
@@ -363,13 +363,13 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
           </CardHeader>
           <div className="space-y-2.5">
             {upcomingEvents.length === 0 ? (
-              <p className="text-xs text-[#6B7C83] py-4 text-center">No upcoming events scheduled.</p>
+              <p className="text-xs text-[#737373] py-4 text-center">No upcoming events scheduled.</p>
             ) : (
               upcomingEvents.map((evt) => (
-                <div key={evt.id} className="p-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl flex items-center justify-between">
+                <div key={evt.id} className="p-3 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl flex items-center justify-between">
                   <div>
-                    <h4 className="text-xs font-bold text-[#17313A]">{evt.title}</h4>
-                    <p className="text-[10px] text-[#6B7C83]">
+                    <h4 className="text-xs font-bold text-[#171717]">{evt.title}</h4>
+                    <p className="text-[10px] text-[#737373]">
                       {formatDate(evt.startDate)} • {evt.category || 'General'}
                     </p>
                   </div>

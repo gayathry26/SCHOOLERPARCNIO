@@ -38,7 +38,7 @@ const ROLE_WALKTHROUGHS: Record<string, { roleTitle: string; steps: WalkthroughS
         description: 'Your real-time executive dashboard tracks daily student attendance rates, faculty presence, and key campus operations at a glance.',
         tip: 'Click Command Centre in the sidebar for live biometric radar and transport tracking.',
         icon: Compass,
-        accentColor: '#086A92',
+        accentColor: '#990000',
       },
       {
         title: 'Academic Performance & Board Results',
@@ -78,7 +78,7 @@ const ROLE_WALKTHROUGHS: Record<string, { roleTitle: string; steps: WalkthroughS
         description: 'Create daily assignments, attach reference worksheets, set strict submission deadlines, and review student digital submissions.',
         tip: 'Students and parents receive instant in-app alerts when new homework is published.',
         icon: BookOpen,
-        accentColor: '#086A92',
+        accentColor: '#990000',
       },
       {
         title: 'Examination Marks Entry',
@@ -92,7 +92,7 @@ const ROLE_WALKTHROUGHS: Record<string, { roleTitle: string; steps: WalkthroughS
         description: 'View your weekly periods, room assignments, substitution notices, and upcoming parent meetings directly from the Events & Timetable view.',
         tip: 'Check your master calendar for scheduled athletics meets and school holidays.',
         icon: CalendarDays,
-        accentColor: '#008C91',
+        accentColor: '#C00000',
       },
     ],
   },
@@ -118,7 +118,7 @@ const ROLE_WALKTHROUGHS: Record<string, { roleTitle: string; steps: WalkthroughS
         description: 'Reconcile cash-in-hand, bank deposits, and online payment gateway transactions with complete audit trail integrity.',
         tip: 'Check Finance Vouchers to log vendor expenses, petty cash, and purchase orders.',
         icon: ShieldCheck,
-        accentColor: '#086A92',
+        accentColor: '#990000',
       },
       {
         title: 'Financial Statements & Audits',
@@ -137,7 +137,7 @@ const ROLE_WALKTHROUGHS: Record<string, { roleTitle: string; steps: WalkthroughS
         description: 'Monitor your ward’s daily attendance, morning punch-in times, and classroom remarks from home or while on the go.',
         tip: 'You will receive immediate notifications if your child is marked absent.',
         icon: Users,
-        accentColor: '#086A92',
+        accentColor: '#990000',
       },
       {
         title: 'Hassle-Free Online Fee Payments',
@@ -158,7 +158,7 @@ const ROLE_WALKTHROUGHS: Record<string, { roleTitle: string; steps: WalkthroughS
         description: 'Track your child’s school bus location in real-time, book one-on-one discussion slots with class teachers, and sign trip consent letters.',
         tip: 'Visit the PTM section to select your preferred discussion time slot.',
         icon: CalendarDays,
-        accentColor: '#008C91',
+        accentColor: '#C00000',
       },
     ],
   },
@@ -170,7 +170,7 @@ const ROLE_WALKTHROUGHS: Record<string, { roleTitle: string; steps: WalkthroughS
         description: 'Welcome to EdvoNest! See your daily class timetable, subject periods, classroom room numbers, and attendance streak all in one place.',
         tip: 'Keep your attendance above 75% to stay in the green zone for CBSE board clearance.',
         icon: GraduationCap,
-        accentColor: '#086A92',
+        accentColor: '#990000',
       },
       {
         title: 'Homework & Assignment Submissions',
@@ -191,7 +191,7 @@ const ROLE_WALKTHROUGHS: Record<string, { roleTitle: string; steps: WalkthroughS
         description: 'Explore upcoming science exhibitions, athletics meets, and inter-house debates. Register your participation with one click!',
         tip: 'Check the School Events tab to see registered teams and photo galleries.',
         icon: CalendarDays,
-        accentColor: '#008C91',
+        accentColor: '#C00000',
       },
     ],
   },
@@ -274,7 +274,7 @@ export const UserWalkthrough: React.FC<{ userRole: string }> = ({ userRole }) =>
     <div className="fixed bottom-6 right-6 z-50 max-w-sm sm:max-w-md w-full animate-in fade-in slide-in-from-bottom-5 duration-300">
       <div className="bg-white rounded-2xl shadow-2xl border border-slate-200/90 overflow-hidden ring-1 ring-black/5">
         {/* Top Header Banner */}
-        <div className="bg-gradient-to-r from-[#086A92] to-[#065A7D] p-4 text-white flex items-center justify-between">
+        <div className="bg-gradient-to-r from-[#990000] to-[#800000] p-4 text-white flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Compass className="w-5 h-5 text-cyan-300 animate-spin-slow" />
             <div>
@@ -327,8 +327,8 @@ export const UserWalkthrough: React.FC<{ userRole: string }> = ({ userRole }) =>
 
           {/* Contextual Tip */}
           {currentStep.tip && (
-            <div className="p-2.5 rounded-xl bg-sky-50/70 border border-sky-200/70 text-[11px] text-[#086A92] flex items-start gap-2">
-              <HelpCircle className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#086A92]" />
+            <div className="p-2.5 rounded-xl bg-sky-50/70 border border-sky-200/70 text-[11px] text-[#990000] flex items-start gap-2">
+              <HelpCircle className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#990000]" />
               <span className="leading-snug">{currentStep.tip}</span>
             </div>
           )}
@@ -343,7 +343,7 @@ export const UserWalkthrough: React.FC<{ userRole: string }> = ({ userRole }) =>
                   onClick={() => setCurrentStepIndex(i)}
                   className={`w-2 h-2 rounded-full transition-all ${
                     i === currentStepIndex
-                      ? 'w-5 bg-[#086A92]'
+                      ? 'w-5 bg-[#990000]'
                       : i < currentStepIndex
                       ? 'bg-[#35B84A]'
                       : 'bg-slate-200'
@@ -372,7 +372,7 @@ export const UserWalkthrough: React.FC<{ userRole: string }> = ({ userRole }) =>
                 size="xs"
                 variant="primary"
                 onClick={handleNext}
-                className="bg-[#086A92] hover:bg-[#065A7D] text-white flex items-center gap-1"
+                className="bg-[#990000] hover:bg-[#800000] text-white flex items-center gap-1"
               >
                 <span>{isLastStep ? 'Got it, Finish!' : 'Next'}</span>
                 {!isLastStep && <ChevronRight className="w-3.5 h-3.5" />}

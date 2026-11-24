@@ -151,7 +151,7 @@ export const HealthClient: React.FC<{
 
   const tabs: TabItem[] = [
     { id: 'profiles', label: 'Student Medical Profiles & Allergy Alerts', count: profiles.length, icon: <HeartPulse className="w-4 h-4 text-rose-500" /> },
-    { id: 'visits', label: 'Infirmary Clinic Consultations', count: visits.length, icon: <Stethoscope className="w-4 h-4 text-[#086A92]" /> },
+    { id: 'visits', label: 'Infirmary Clinic Consultations', count: visits.length, icon: <Stethoscope className="w-4 h-4 text-[#990000]" /> },
     { id: 'camps', label: 'Annual Health Checkup Camps', count: schedules.length, icon: <Calendar className="w-4 h-4 text-emerald-600" /> },
   ];
 
@@ -289,7 +289,7 @@ export const HealthClient: React.FC<{
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
@@ -318,7 +318,7 @@ export const HealthClient: React.FC<{
           <Button
             size="sm"
             variant="primary"
-            className="bg-[#086A92] hover:bg-[#065A7D] text-white flex items-center gap-1.5"
+            className="bg-[#990000] hover:bg-[#800000] text-white flex items-center gap-1.5"
             onClick={() => setIsVisitModalOpen(true)}
           >
             <Stethoscope className="w-3.5 h-3.5" />
@@ -348,7 +348,7 @@ export const HealthClient: React.FC<{
           value={visits.length}
           change="All resolved safely"
           trend="neutral"
-          icon={<Activity className="w-5 h-5 text-[#086A92]" />}
+          icon={<Activity className="w-5 h-5 text-[#990000]" />}
         />
         <StatCard
           title="Upcoming Health Camps"
@@ -404,7 +404,7 @@ export const HealthClient: React.FC<{
               <Button
                 size="sm"
                 variant="primary"
-                className="bg-[#086A92] text-white"
+                className="bg-[#990000] text-white"
                 onClick={() => setIsVisitModalOpen(true)}
               >
                 <Plus className="w-3.5 h-3.5 mr-1" /> Log New Visit
@@ -433,7 +433,7 @@ export const HealthClient: React.FC<{
             <Button
               size="sm"
               variant="primary"
-              className="bg-[#086A92] text-white"
+              className="bg-[#990000] text-white"
               onClick={() => setIsScheduleModalOpen(true)}
             >
               <Plus className="w-3.5 h-3.5 mr-1" /> Schedule Health Camp
@@ -489,7 +489,7 @@ export const HealthClient: React.FC<{
             <select
               value={visitForm.studentId}
               onChange={(e) => setVisitForm({ ...visitForm, studentId: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {students.map((s) => (
                 <option key={s.id} value={s.id}>
@@ -507,7 +507,7 @@ export const HealthClient: React.FC<{
               placeholder="e.g. Mild fever (100.2 F), stomach ache during lunch break"
               value={visitForm.symptoms}
               onChange={(e) => setVisitForm({ ...visitForm, symptoms: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -519,7 +519,7 @@ export const HealthClient: React.FC<{
               placeholder="e.g. Rested on infirmary bed for 40 mins, cold compress applied, vitals monitored"
               value={visitForm.treatmentGiven}
               onChange={(e) => setVisitForm({ ...visitForm, treatmentGiven: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -529,7 +529,7 @@ export const HealthClient: React.FC<{
               type="text"
               value={visitForm.medicineAdministered}
               onChange={(e) => setVisitForm({ ...visitForm, medicineAdministered: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -550,7 +550,7 @@ export const HealthClient: React.FC<{
             <Button size="sm" variant="outline" type="button" onClick={() => setIsVisitModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" className="bg-[#990000] text-white">
               Log Visit &amp; Notify Parents
             </Button>
           </div>
@@ -565,7 +565,7 @@ export const HealthClient: React.FC<{
             <select
               value={profileForm.studentId}
               onChange={(e) => setProfileForm({ ...profileForm, studentId: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {students.map((s) => (
                 <option key={s.id} value={s.id}>
@@ -581,7 +581,7 @@ export const HealthClient: React.FC<{
               <select
                 value={profileForm.bloodGroup}
                 onChange={(e) => setProfileForm({ ...profileForm, bloodGroup: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 {['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'].map((bg) => (
                   <option key={bg} value={bg}>{bg}</option>
@@ -594,7 +594,7 @@ export const HealthClient: React.FC<{
                 type="number"
                 value={profileForm.heightCm}
                 onChange={(e) => setProfileForm({ ...profileForm, heightCm: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -603,7 +603,7 @@ export const HealthClient: React.FC<{
                 type="number"
                 value={profileForm.weightKg}
                 onChange={(e) => setProfileForm({ ...profileForm, weightKg: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -615,7 +615,7 @@ export const HealthClient: React.FC<{
                 type="text"
                 value={profileForm.visionLeft}
                 onChange={(e) => setProfileForm({ ...profileForm, visionLeft: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -624,7 +624,7 @@ export const HealthClient: React.FC<{
                 type="text"
                 value={profileForm.visionRight}
                 onChange={(e) => setProfileForm({ ...profileForm, visionRight: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -636,7 +636,7 @@ export const HealthClient: React.FC<{
               placeholder="e.g. Peanuts, Penicillin, Dust allergy"
               value={profileForm.allergies}
               onChange={(e) => setProfileForm({ ...profileForm, allergies: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -647,7 +647,7 @@ export const HealthClient: React.FC<{
               placeholder="e.g. Asthma, Juvenile Diabetes, Epilepsy"
               value={profileForm.chronicConditions}
               onChange={(e) => setProfileForm({ ...profileForm, chronicConditions: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -658,7 +658,7 @@ export const HealthClient: React.FC<{
               placeholder="Instructions for teachers & bus conductors in emergency"
               value={profileForm.emergencyMedicalNotes}
               onChange={(e) => setProfileForm({ ...profileForm, emergencyMedicalNotes: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -666,7 +666,7 @@ export const HealthClient: React.FC<{
             <Button size="sm" variant="outline" type="button" onClick={() => setIsProfileModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" className="bg-[#990000] text-white">
               Save Medical Record
             </Button>
           </div>
@@ -683,7 +683,7 @@ export const HealthClient: React.FC<{
               required
               value={scheduleForm.title}
               onChange={(e) => setScheduleForm({ ...scheduleForm, title: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -695,7 +695,7 @@ export const HealthClient: React.FC<{
                 required
                 value={scheduleForm.scheduledDate}
                 onChange={(e) => setScheduleForm({ ...scheduleForm, scheduledDate: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -705,7 +705,7 @@ export const HealthClient: React.FC<{
                 required
                 value={scheduleForm.doctorName}
                 onChange={(e) => setScheduleForm({ ...scheduleForm, doctorName: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -716,7 +716,7 @@ export const HealthClient: React.FC<{
               type="text"
               value={scheduleForm.checkupType}
               onChange={(e) => setScheduleForm({ ...scheduleForm, checkupType: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -724,7 +724,7 @@ export const HealthClient: React.FC<{
             <Button size="sm" variant="outline" type="button" onClick={() => setIsScheduleModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" className="bg-[#990000] text-white">
               Schedule Camp
             </Button>
           </div>

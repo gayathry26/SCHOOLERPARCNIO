@@ -33,7 +33,7 @@ export const EcosystemSection: React.FC = () => {
       category: 'Curriculum & Grading',
       badge: 'CBSE Compliant',
       icon: BrainCircuit,
-      color: '#086A92',
+      color: '#990000',
       metric: '94.8% Syllabus On-Track',
       desc: 'Predictive performance analytics, adaptive question banks, CBSE/ICSE smart syllabus tracking, and automated term gradebooks.',
       highlights: [
@@ -49,7 +49,7 @@ export const EcosystemSection: React.FC = () => {
       category: 'Transport & Security',
       badge: 'Zero Incidents',
       icon: ShieldCheck,
-      color: '#008C91',
+      color: '#C00000',
       metric: '12/12 Live GPS Routes',
       desc: 'Live school bus GPS tracking with parent ETA notifications, geofence deviation alerts, encrypted student gate passes, and clinic health logs.',
       highlights: [
@@ -65,7 +65,7 @@ export const EcosystemSection: React.FC = () => {
       category: 'Counter & Invoicing',
       badge: '100% Reconciliation',
       icon: DollarSign,
-      color: '#35B84A',
+      color: '#990000',
       metric: '₹ 48.5L Q3 Realized',
       desc: 'Counter collections via Cash, Cheque, and UPI with idempotency protection. Instant printable receipts, fee concession rules, and cash-book balancing.',
       highlights: [
@@ -81,7 +81,7 @@ export const EcosystemSection: React.FC = () => {
       category: 'Engagement & Mentorship',
       badge: '1,248 Active Profiles',
       icon: HeartHandshake,
-      color: '#D97706',
+      color: '#171717',
       metric: '98.2% Parent Satisfaction',
       desc: 'Mobile-first parent portal with multi-child ward switching, timetable reviews, online homework submissions, and PTM appointment scheduling.',
       highlights: [
@@ -97,137 +97,103 @@ export const EcosystemSection: React.FC = () => {
   const ActiveIcon = activePillar.icon;
 
   return (
-    <section id="ecosystem" className="py-20 lg:py-28 bg-[#F7FAFA] text-[#17313A] relative overflow-hidden border-b border-[#E4EAEC]">
+    <section id="ecosystem" className="py-20 lg:py-28 bg-[#F5F5F5] text-[#171717] relative overflow-hidden border-b border-[#E5E5E5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs sm:text-sm font-bold text-[#086A92] uppercase tracking-wider bg-[#EAF5F8] px-4 py-1.5 rounded-full border border-[#c0e3ed] inline-block">
-            Connected Operating System
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span className="text-xs sm:text-sm font-bold text-[#990000] uppercase tracking-wider bg-red-50 px-4 py-1.5 rounded-full border border-red-200 inline-block">
+            Connected Architecture
           </span>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#17313A] tracking-tight leading-[1.12]">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#171717] tracking-tight leading-[1.12]">
             Everything connected.{' '}
-            <span className="bg-gradient-to-r from-[#086A92] via-[#008C91] to-[#35B84A] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#990000] via-[#C00000] to-[#E00000] bg-clip-text text-transparent">
               Nothing complicated.
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-[#4A5D65] leading-relaxed max-w-2xl mx-auto">
-            EdvoNest unifies the 4 foundational pillars of a high-achieving institution into one synchronized data fabric.
+          <p className="text-base sm:text-lg text-[#525252] leading-relaxed max-w-2xl mx-auto">
+            Explore how EdvoNest links every campus department into one continuous, high-performance operational continuum.
           </p>
         </div>
 
-        {/* 4 Pillars Interactive Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        {/* 4 Interactive Pillar Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {pillars.map((pillar) => {
-            const PIcon = pillar.icon;
-            const isSelected = activePillarId === pillar.id;
+            const Icon = pillar.icon;
+            const isSelected = pillar.id === activePillarId;
 
             return (
               <button
                 key={pillar.id}
                 type="button"
                 onClick={() => setActivePillarId(pillar.id)}
-                className={`text-left p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
+                className={`text-left p-6 rounded-2xl border transition-all duration-200 cursor-pointer flex flex-col justify-between ${
                   isSelected
-                    ? 'bg-white border-[#086A92] shadow-md ring-2 ring-[#086A92]/20'
-                    : 'bg-white/80 border-[#E4EAEC] hover:bg-white hover:border-[#086A92]/40 hover:shadow-2xs'
+                    ? 'bg-white border-[#990000] shadow-md ring-2 ring-red-100'
+                    : 'bg-white border-[#E5E5E5] hover:border-red-200 hover:shadow-xs'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <div
-                      className="w-11 h-11 rounded-xl flex items-center justify-center text-white shadow-xs"
-                      style={{ backgroundColor: pillar.color }}
-                    >
-                      <PIcon className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-xl bg-red-50 text-[#990000] flex items-center justify-center">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-[#F7FAFA] border border-[#E4EAEC] text-[#4A5D65]">
+                    <span className="text-xs font-mono font-bold text-[#525252] bg-[#F5F5F5] px-2 py-0.5 rounded border border-[#E5E5E5]">
                       {pillar.badge}
                     </span>
                   </div>
-
-                  <span className="text-xs uppercase font-mono tracking-wider text-[#6B7C83] font-semibold block">
-                    {pillar.category}
-                  </span>
-                  <h3 className="text-base sm:text-lg font-bold text-[#17313A] mt-1">
-                    {pillar.title}
-                  </h3>
+                  <h3 className="text-lg font-bold text-[#171717]">{pillar.title}</h3>
+                  <p className="text-xs text-[#525252] mt-1 font-semibold">{pillar.category}</p>
                 </div>
 
-                <div className="pt-4 mt-3 border-t border-[#F1F5F7] flex items-center justify-between text-xs">
-                  <span className="font-bold text-[#086A92]">{pillar.metric}</span>
-                  <span className="text-[#16A34A] font-bold">● Active</span>
+                <div className="pt-4 mt-4 border-t border-[#E5E5E5] flex items-center justify-between text-xs">
+                  <span className="font-bold text-[#990000]">{pillar.metric}</span>
+                  <span className="text-[#990000] font-bold text-xs flex items-center gap-1">
+                    <span>Inspect</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
                 </div>
               </button>
             );
           })}
         </div>
 
-        {/* Cinematic Expanded Pillar Showcase Panel */}
-        <div className="bg-white border border-[#E4EAEC] rounded-3xl p-6 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden">
+        {/* Deep Dive Panel */}
+        <div className="bg-white rounded-3xl border border-[#E5E5E5] p-6 sm:p-10 shadow-sm relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left Detail Column */}
-            <div className="lg:col-span-7 space-y-5">
-              <div className="flex items-center gap-3">
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-xs"
-                  style={{ backgroundColor: activePillar.color }}
-                >
-                  <ActiveIcon className="w-6 h-6" />
-                </div>
-                <div>
-                  <span className="text-xs uppercase font-mono tracking-wider text-[#086A92] font-bold">
-                    Operational Pillar 0{pillars.findIndex((p) => p.id === activePillar.id) + 1}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#17313A]">
-                    {activePillar.title}
-                  </h3>
-                </div>
+            <div className="lg:col-span-7 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-200 text-xs font-bold text-[#990000]">
+                <Sparkles className="w-3.5 h-3.5 text-[#990000]" />
+                <span>Deep Dive Architecture</span>
               </div>
 
-              <p className="text-base text-[#4A5D65] leading-relaxed max-w-xl">
+              <h3 className="text-2xl sm:text-3xl font-black text-[#171717]">
+                {activePillar.title}
+              </h3>
+
+              <p className="text-sm sm:text-base text-[#525252] leading-relaxed">
                 {activePillar.desc}
               </p>
 
-              {/* Highlights 2-column checklist */}
-              <div className="space-y-2 pt-2">
-                <span className="text-xs font-bold text-[#17313A] uppercase tracking-wider block mb-2">
-                  Key Institutional Capabilities:
-                </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                  {activePillar.highlights.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5 text-slate-800 font-medium">
-                      <CheckCircle2 className="w-4 h-4 text-[#35B84A] shrink-0" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                {activePillar.highlights.map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-[#171717]">
+                    <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Right Live Simulation Preview */}
-            <div className="lg:col-span-5 bg-[#F7FAFA] border border-[#E4EAEC] rounded-2xl p-5 sm:p-6 space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-[#E4EAEC]">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#35B84A] animate-pulse" />
-                  <span className="font-bold text-[#17313A] text-xs sm:text-sm">Real-Time Core Stream</span>
-                </div>
-                <span className="text-xs font-mono font-bold text-[#086A92] bg-[#EAF5F8] px-2.5 py-0.5 rounded-md border border-[#c0e3ed]">
-                  100% Operational
-                </span>
+            <div className="lg:col-span-5 bg-[#F5F5F5] rounded-2xl p-6 border border-[#E5E5E5] text-center space-y-3">
+              <div className="w-14 h-14 bg-red-50 text-[#990000] rounded-2xl flex items-center justify-center mx-auto shadow-2xs">
+                <ActiveIcon className="w-7 h-7" />
               </div>
-
-              <div className="p-4 bg-white rounded-xl border border-[#E4EAEC] space-y-2 shadow-2xs">
-                <div className="flex justify-between items-center text-xs text-[#6B7C83]">
-                  <span>Current Metric Benchmark</span>
-                  <span className="text-[#16A34A] font-bold">Passed Audit</span>
-                </div>
-                <div className="text-2xl sm:text-3xl font-black text-[#17313A]">{activePillar.metric}</div>
-                <div className="text-xs text-[#4A5D65]">Continuous background sync with zero latency</div>
-              </div>
-
-              <div className="text-xs text-[#6B7C83] flex items-center justify-between pt-1">
-                <span>AES-256 Cloud Backup Verified</span>
-                <span className="font-mono text-[#086A92] font-semibold">CBSE Standard #89410</span>
+              <h4 className="font-bold text-[#171717] text-base">{activePillar.category}</h4>
+              <p className="text-xs text-[#525252] leading-relaxed">
+                Synchronized continuously with the central relational database to eliminate data latency.
+              </p>
+              <div className="pt-2 text-xs font-mono font-bold text-[#990000] bg-white py-1.5 px-3 rounded-lg border border-[#E5E5E5] inline-block">
+                Status: Operational • 0 Errors
               </div>
             </div>
           </div>

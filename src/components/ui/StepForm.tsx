@@ -43,8 +43,8 @@ export const StepForm: React.FC<StepFormProps> = ({
                     isCompleted
                       ? 'bg-[#35B84A] text-white'
                       : isCurrent
-                      ? 'bg-[#086A92] text-white ring-4 ring-[#086A92]/15 shadow-xs'
-                      : 'bg-[#F1F5F7] text-[#6B7C83] border border-[#E4EAEC]'
+                      ? 'bg-[#990000] text-white ring-4 ring-[#990000]/15 shadow-xs'
+                      : 'bg-[#F1F5F7] text-[#737373] border border-[#E5E5E5]'
                   )}
                 >
                   {isCompleted ? <Check className="w-3.5 h-3.5 stroke-[3]" /> : step.id}
@@ -53,13 +53,13 @@ export const StepForm: React.FC<StepFormProps> = ({
                   <p
                     className={clsx(
                       'text-xs font-bold leading-tight',
-                      isCurrent ? 'text-[#086A92]' : isCompleted ? 'text-[#17313A]' : 'text-[#6B7C83]'
+                      isCurrent ? 'text-[#990000]' : isCompleted ? 'text-[#171717]' : 'text-[#737373]'
                     )}
                   >
                     {step.title}
                   </p>
                   {step.description && (
-                    <p className="text-[10px] text-[#6B7C83] leading-none mt-0.5">{step.description}</p>
+                    <p className="text-[10px] text-[#737373] leading-none mt-0.5">{step.description}</p>
                   )}
                 </div>
               </div>
@@ -68,7 +68,7 @@ export const StepForm: React.FC<StepFormProps> = ({
                 <div
                   className={clsx(
                     'flex-1 h-[2px] mx-2 transition-colors duration-200',
-                    step.id < currentStep ? 'bg-[#35B84A]' : 'bg-[#E4EAEC]'
+                    step.id < currentStep ? 'bg-[#35B84A]' : 'bg-[#E5E5E5]'
                   )}
                 />
               )}

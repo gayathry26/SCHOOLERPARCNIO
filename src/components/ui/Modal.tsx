@@ -38,19 +38,19 @@ export const Modal: React.FC<ModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#17313A]/50 backdrop-blur-2xs animate-in fade-in duration-150">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#171717]/50 backdrop-blur-2xs animate-in fade-in duration-150">
       <div
-        className={`w-full ${widthClasses[maxWidth]} bg-white rounded-2xl shadow-xl border border-[#E4EAEC] overflow-hidden flex flex-col max-h-[90vh]`}
+        className={`w-full ${widthClasses[maxWidth]} bg-white rounded-2xl shadow-xl border border-[#E5E5E5] overflow-hidden flex flex-col max-h-[90vh]`}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E4EAEC] bg-[#F7FAFA]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E5E5] bg-[#F5F5F5]">
           <div>
-            <h3 className="text-base sm:text-lg font-bold text-[#17313A]">{title}</h3>
-            {subtitle && <p className="text-xs sm:text-sm text-[#4A5D65] mt-0.5">{subtitle}</p>}
+            <h3 className="text-base sm:text-lg font-bold text-[#171717]">{title}</h3>
+            {subtitle && <p className="text-xs sm:text-sm text-[#525252] mt-0.5">{subtitle}</p>}
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-[#6B7C83] hover:text-[#17313A] hover:bg-[#E4EAEC] rounded-lg transition-colors cursor-pointer"
+            className="p-1.5 text-[#737373] hover:text-[#171717] hover:bg-[#E5E5E5] rounded-lg transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>

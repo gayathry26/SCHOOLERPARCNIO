@@ -729,7 +729,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
       id: 'items',
       label: 'Item Master & Stock Ledger',
       count: assets.length,
-      icon: <Boxes className="w-4 h-4 text-[#086A92]" />,
+      icon: <Boxes className="w-4 h-4 text-[#990000]" />,
     },
     {
       id: 'movements',
@@ -772,7 +772,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
       header: 'Item Code & Tags',
       render: (row) => (
         <div>
-          <span className="font-mono text-xs font-bold text-[#086A92]">{row.assetCode}</span>
+          <span className="font-mono text-xs font-bold text-[#990000]">{row.assetCode}</span>
           <div className="flex items-center gap-1.5 mt-0.5">
             <button
               onClick={() => {
@@ -790,7 +790,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 setSelectedAsset(row);
                 setIsBarcodeModalOpen(true);
               }}
-              className="p-1 rounded text-slate-500 hover:text-[#086A92] hover:bg-slate-100"
+              className="p-1 rounded text-slate-500 hover:text-[#990000] hover:bg-slate-100"
               title="View QR Code"
             >
               <QrCode className="w-3.5 h-3.5" />
@@ -847,7 +847,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
               <div
                 className={`h-full rounded-full ${
-                  isOut ? 'bg-rose-500 w-0' : isLow ? 'bg-amber-500 w-1/4' : 'bg-[#086A92] w-3/4'
+                  isOut ? 'bg-rose-500 w-0' : isLow ? 'bg-amber-500 w-1/4' : 'bg-[#990000] w-3/4'
                 }`}
               />
             </div>
@@ -954,7 +954,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
       render: (row) => (
         <div>
           <span className="font-bold text-slate-900 text-xs block">{row.assetItem?.name || 'Inventory Item'}</span>
-          <span className="text-[11px] font-mono text-[#086A92]">{row.assetItem?.assetCode}</span>
+          <span className="text-[11px] font-mono text-[#990000]">{row.assetItem?.assetCode}</span>
         </div>
       ),
     },
@@ -1023,10 +1023,10 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
   return (
     <div className="space-y-6">
       {/* HEADER BANNER */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-6 rounded-2xl shadow-2xs">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-6 rounded-2xl shadow-2xs">
         <div>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#EAF5F8] text-[#086A92] flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-[#FEF2F2] text-[#990000] flex items-center justify-center font-bold">
               <Boxes className="w-5 h-5" />
             </div>
             <div>
@@ -1080,7 +1080,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
           <Button
             size="sm"
             variant="primary"
-            className="bg-[#086A92] hover:bg-[#065A7D] text-white flex items-center gap-1.5"
+            className="bg-[#990000] hover:bg-[#800000] text-white flex items-center gap-1.5"
             onClick={() => setIsItemModalOpen(true)}
           >
             <Plus className="w-3.5 h-3.5" />
@@ -1122,7 +1122,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
           subtitle={`${assets.length} active master catalog items`}
           trend="up"
           variant="blue"
-          icon={<DollarSign className="w-5 h-5 text-[#086A92]" />}
+          icon={<DollarSign className="w-5 h-5 text-[#990000]" />}
         />
         <StatCard
           title="Low Stock & Reorder Alerts"
@@ -1174,7 +1174,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 <select
                   value={categoryFilter}
                   onChange={(e) => setCategoryFilter(e.target.value)}
-                  className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 outline-none focus:border-[#086A92]"
+                  className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 outline-none focus:border-[#990000]"
                 >
                   <option value="ALL">All Categories ({categories.length})</option>
                   {categories.map((c) => (
@@ -1187,7 +1187,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 <select
                   value={stockStatusFilter}
                   onChange={(e) => setStockStatusFilter(e.target.value)}
-                  className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 outline-none focus:border-[#086A92]"
+                  className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 outline-none focus:border-[#990000]"
                 >
                   <option value="ALL">All Stock Levels</option>
                   <option value="LOW_STOCK">Low Stock / Reorder Needed</option>
@@ -1198,7 +1198,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 <select
                   value={itemTypeFilter}
                   onChange={(e) => setItemTypeFilter(e.target.value)}
-                  className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 outline-none focus:border-[#086A92]"
+                  className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 outline-none focus:border-[#990000]"
                 >
                   <option value="ALL">All Item Types</option>
                   <option value="CONSUMABLE">Consumables Only</option>
@@ -1239,7 +1239,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 <select
                   value={movementTypeFilter}
                   onChange={(e) => setMovementTypeFilter(e.target.value)}
-                  className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 outline-none focus:border-[#086A92]"
+                  className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 outline-none focus:border-[#990000]"
                 >
                   <option value="ALL">All Movement Types</option>
                   <option value="STOCK_IN">Stock In (GRN / Replenish)</option>
@@ -1255,7 +1255,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 <Button
                   size="sm"
                   variant="primary"
-                  className="bg-[#086A92] text-white"
+                  className="bg-[#990000] text-white"
                   onClick={() => setIsMovementModalOpen(true)}
                 >
                   <Plus className="w-3.5 h-3.5 mr-1" /> Log Movement
@@ -1295,7 +1295,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 <Button
                   size="sm"
                   variant="primary"
-                  className="bg-[#086A92] text-white"
+                  className="bg-[#990000] text-white"
                   onClick={() => setIsRequestModalOpen(true)}
                 >
                   <Plus className="w-3.5 h-3.5 mr-1" /> New Requisition
@@ -1307,7 +1307,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               {requests.map((req) => (
                 <div
                   key={req.id}
-                  className="p-4 rounded-xl border border-slate-200 bg-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs transition-colors hover:border-[#086A92]/40"
+                  className="p-4 rounded-xl border border-slate-200 bg-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs transition-colors hover:border-[#990000]/40"
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
@@ -1382,7 +1382,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                       <Button
                         size="xs"
                         variant="primary"
-                        className="bg-[#086A92] text-white flex items-center gap-1"
+                        className="bg-[#990000] text-white flex items-center gap-1"
                         onClick={() => {
                           setPoForm({
                             ...poForm,
@@ -1422,7 +1422,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 <Button
                   size="sm"
                   variant="primary"
-                  className="bg-[#086A92] text-white"
+                  className="bg-[#990000] text-white"
                   onClick={() => setIsPoModalOpen(true)}
                 >
                   <Plus className="w-3.5 h-3.5 mr-1" /> New Purchase Order
@@ -1434,11 +1434,11 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               {purchaseOrders.map((po) => (
                 <div
                   key={po.id}
-                  className="p-4 rounded-xl border border-slate-200 bg-white space-y-3 transition-colors hover:border-[#086A92]/40"
+                  className="p-4 rounded-xl border border-slate-200 bg-white space-y-3 transition-colors hover:border-[#990000]/40"
                 >
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-100 pb-2">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono font-bold text-[#086A92] text-sm">{po.poNumber}</span>
+                      <span className="font-mono font-bold text-[#990000] text-sm">{po.poNumber}</span>
                       <Badge
                         variant={
                           po.status === 'DELIVERED'
@@ -1597,7 +1597,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 <Button
                   size="sm"
                   variant="primary"
-                  className="bg-[#086A92] text-white"
+                  className="bg-[#990000] text-white"
                   onClick={() => setIsMaintenanceModalOpen(true)}
                 >
                   <Plus className="w-3.5 h-3.5 mr-1" /> Log Maintenance / Repair
@@ -1664,7 +1664,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <Button
                 size="sm"
                 variant="primary"
-                className="bg-[#086A92] text-white"
+                className="bg-[#990000] text-white"
                 onClick={() => setIsAuditModalOpen(true)}
               >
                 <Plus className="w-3.5 h-3.5 mr-1" /> Conduct Physical Audit
@@ -1676,12 +1676,12 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             {auditSessions.map((audit) => (
               <div
                 key={audit.id}
-                className="p-5 rounded-2xl border border-slate-200 bg-white space-y-3 transition-colors hover:border-[#086A92]/40"
+                className="p-5 rounded-2xl border border-slate-200 bg-white space-y-3 transition-colors hover:border-[#990000]/40"
               >
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-mono font-bold text-[#086A92] text-sm">{audit.auditCode}</span>
+                      <span className="font-mono font-bold text-[#990000] text-sm">{audit.auditCode}</span>
                       <Badge variant="emerald" size="sm">
                         {audit.status}
                       </Badge>
@@ -1770,7 +1770,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 <Button
                   size="sm"
                   variant="primary"
-                  className="bg-[#086A92] text-white"
+                  className="bg-[#990000] text-white"
                   onClick={() => setIsVendorModalOpen(true)}
                 >
                   <Plus className="w-3.5 h-3.5 mr-1" /> Register Supplier
@@ -1782,10 +1782,10 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               {vendors.map((v) => (
                 <div
                   key={v.id}
-                  className="p-4 rounded-xl border border-slate-200 bg-white space-y-2.5 transition-colors hover:border-[#086A92]/40"
+                  className="p-4 rounded-xl border border-slate-200 bg-white space-y-2.5 transition-colors hover:border-[#990000]/40"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-[#086A92]">{v.vendorCode || 'VND-001'}</span>
+                    <span className="font-mono text-xs font-bold text-[#990000]">{v.vendorCode || 'VND-001'}</span>
                     <Badge variant="blue" size="xs">
                       {v.category || 'General Supplies'}
                     </Badge>
@@ -1860,7 +1860,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               placeholder="e.g. Olympus CX21i Binocular Biological Microscope"
               value={itemForm.name}
               onChange={(e) => setItemForm({ ...itemForm, name: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -1870,7 +1870,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={itemForm.categoryId}
                 onChange={(e) => setItemForm({ ...itemForm, categoryId: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 {categories.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -1884,7 +1884,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={itemForm.vendorId}
                 onChange={(e) => setItemForm({ ...itemForm, vendorId: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="">None / Open Market</option>
                 {vendors.map((v) => (
@@ -1903,7 +1903,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 type="text"
                 value={itemForm.location}
                 onChange={(e) => setItemForm({ ...itemForm, location: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -1911,7 +1911,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={itemForm.unit}
                 onChange={(e) => setItemForm({ ...itemForm, unit: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="PIECES">PIECES</option>
                 <option value="SETS">SETS</option>
@@ -1929,7 +1929,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 onChange={(e) =>
                   setItemForm({ ...itemForm, isConsumable: e.target.value === 'CONSUMABLE' })
                 }
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="CAPITAL">Fixed / Capital Asset</option>
                 <option value="CONSUMABLE">Consumable Material</option>
@@ -1945,7 +1945,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 min="0"
                 value={itemForm.currentQuantity}
                 onChange={(e) => setItemForm({ ...itemForm, currentQuantity: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -1955,7 +1955,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 min="1"
                 value={itemForm.minStockThreshold}
                 onChange={(e) => setItemForm({ ...itemForm, minStockThreshold: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -1965,7 +1965,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 min="1"
                 value={itemForm.reorderLevel}
                 onChange={(e) => setItemForm({ ...itemForm, reorderLevel: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -1975,7 +1975,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 min="0"
                 value={itemForm.purchaseCost}
                 onChange={(e) => setItemForm({ ...itemForm, purchaseCost: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -1991,7 +1991,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                     placeholder="e.g. SN-8940-2026"
                     value={itemForm.serialNumber}
                     onChange={(e) => setItemForm({ ...itemForm, serialNumber: e.target.value })}
-                    className="w-full text-xs border border-slate-300 rounded-lg p-1.5 focus:border-[#086A92] outline-none bg-white"
+                    className="w-full text-xs border border-slate-300 rounded-lg p-1.5 focus:border-[#990000] outline-none bg-white"
                   />
                 </div>
                 <div>
@@ -2000,7 +2000,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                     type="date"
                     value={itemForm.warrantyExpiry}
                     onChange={(e) => setItemForm({ ...itemForm, warrantyExpiry: e.target.value })}
-                    className="w-full text-xs border border-slate-300 rounded-lg p-1.5 focus:border-[#086A92] outline-none bg-white"
+                    className="w-full text-xs border border-slate-300 rounded-lg p-1.5 focus:border-[#990000] outline-none bg-white"
                   />
                 </div>
                 <div>
@@ -2009,7 +2009,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                     type="number"
                     value={itemForm.depreciationRate}
                     onChange={(e) => setItemForm({ ...itemForm, depreciationRate: e.target.value })}
-                    className="w-full text-xs border border-slate-300 rounded-lg p-1.5 focus:border-[#086A92] outline-none bg-white"
+                    className="w-full text-xs border border-slate-300 rounded-lg p-1.5 focus:border-[#990000] outline-none bg-white"
                   />
                 </div>
               </div>
@@ -2020,7 +2020,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             <Button size="sm" variant="outline" type="button" onClick={() => setIsItemModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#990000] text-white">
               {loading ? 'Saving...' : 'Register Master Item'}
             </Button>
           </div>
@@ -2045,7 +2045,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             <select
               value={issueForm.issuedToUserId}
               onChange={(e) => setIssueForm({ ...issueForm, issuedToUserId: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {staffUsers.map((u) => (
                 <option key={u.id} value={u.id}>
@@ -2064,7 +2064,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 max={selectedAsset?.currentQuantity || 1}
                 value={issueForm.quantity}
                 onChange={(e) => setIssueForm({ ...issueForm, quantity: parseInt(e.target.value) || 1 })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2074,7 +2074,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 required
                 value={issueForm.returnDueDate}
                 onChange={(e) => setIssueForm({ ...issueForm, returnDueDate: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2085,7 +2085,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               rows={2}
               value={issueForm.remarks}
               onChange={(e) => setIssueForm({ ...issueForm, remarks: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2093,7 +2093,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             <Button size="sm" variant="outline" type="button" onClick={() => setIsIssueModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#990000] text-white">
               {loading ? 'Processing...' : 'Confirm Issue'}
             </Button>
           </div>
@@ -2118,7 +2118,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             <select
               value={returnForm.conditionReturn}
               onChange={(e) => setReturnForm({ ...returnForm, conditionReturn: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               <option value="EXCELLENT">EXCELLENT (Like New)</option>
               <option value="GOOD">GOOD (Normal Wear)</option>
@@ -2133,7 +2133,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               rows={2}
               value={returnForm.remarks}
               onChange={(e) => setReturnForm({ ...returnForm, remarks: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2172,7 +2172,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                   unitCost: String(found?.purchaseCost || 0),
                 });
               }}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {assets.map((a) => (
                 <option key={a.id} value={a.id}>
@@ -2188,7 +2188,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={movementForm.movementType}
                 onChange={(e) => setMovementForm({ ...movementForm, movementType: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="ADJUSTMENT">ADJUSTMENT (Count Reconciliation)</option>
                 <option value="STOCK_IN">STOCK_IN (Manual Replenish)</option>
@@ -2207,7 +2207,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 required
                 value={movementForm.quantity}
                 onChange={(e) => setMovementForm({ ...movementForm, quantity: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2220,7 +2220,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                   type="text"
                   value={movementForm.fromLocation}
                   onChange={(e) => setMovementForm({ ...movementForm, fromLocation: e.target.value })}
-                  className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                  className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
                 />
               </div>
               <div>
@@ -2229,7 +2229,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                   type="text"
                   value={movementForm.toLocation}
                   onChange={(e) => setMovementForm({ ...movementForm, toLocation: e.target.value })}
-                  className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                  className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
                 />
               </div>
             </div>
@@ -2242,7 +2242,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               required
               value={movementForm.reason}
               onChange={(e) => setMovementForm({ ...movementForm, reason: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2250,7 +2250,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             <Button size="sm" variant="outline" type="button" onClick={() => setIsMovementModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#990000] text-white">
               {loading ? 'Posting...' : 'Commit Movement'}
             </Button>
           </div>
@@ -2276,7 +2276,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               placeholder="e.g. CBSE Practical Grade 12 Chemistry Reagent Sets"
               value={requestForm.itemTitle}
               onChange={(e) => setRequestForm({ ...requestForm, itemTitle: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2286,7 +2286,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={requestForm.categoryName}
                 onChange={(e) => setRequestForm({ ...requestForm, categoryName: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 {categories.map((c) => (
                   <option key={c.id} value={c.name}>{c.name}</option>
@@ -2298,7 +2298,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={requestForm.departmentName}
                 onChange={(e) => setRequestForm({ ...requestForm, departmentName: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 {departments.map((d) => (
                   <option key={d.id} value={d.name}>{d.name}</option>
@@ -2310,7 +2310,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={requestForm.priority}
                 onChange={(e) => setRequestForm({ ...requestForm, priority: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="LOW">LOW</option>
                 <option value="MEDIUM">MEDIUM</option>
@@ -2328,7 +2328,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 min="1"
                 value={requestForm.quantity}
                 onChange={(e) => setRequestForm({ ...requestForm, quantity: parseInt(e.target.value) || 1 })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2338,7 +2338,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 min="0"
                 value={requestForm.estimatedCost}
                 onChange={(e) => setRequestForm({ ...requestForm, estimatedCost: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2384,7 +2384,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               required
               value={requestForm.reason}
               onChange={(e) => setRequestForm({ ...requestForm, reason: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2392,7 +2392,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             <Button size="sm" variant="outline" type="button" onClick={() => setIsRequestModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#990000] text-white">
               {loading ? 'Submitting...' : 'Submit Requisition'}
             </Button>
           </div>
@@ -2416,7 +2416,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={poForm.vendorId}
                 onChange={(e) => setPoForm({ ...poForm, vendorId: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 {vendors.map((v) => (
                   <option key={v.id} value={v.id}>{v.name} ({v.vendorCode || 'VND'})</option>
@@ -2430,7 +2430,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 required
                 value={poForm.expectedDeliveryDate}
                 onChange={(e) => setPoForm({ ...poForm, expectedDeliveryDate: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2444,7 +2444,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 required
                 value={poForm.itemTitle}
                 onChange={(e) => setPoForm({ ...poForm, itemTitle: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none bg-white"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none bg-white"
               />
             </div>
             <div className="grid grid-cols-2 gap-3">
@@ -2455,7 +2455,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                   min="1"
                   value={poForm.quantity}
                   onChange={(e) => setPoForm({ ...poForm, quantity: parseInt(e.target.value) || 1 })}
-                  className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none bg-white"
+                  className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none bg-white"
                 />
               </div>
               <div>
@@ -2465,7 +2465,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                   min="0"
                   value={poForm.unitPrice}
                   onChange={(e) => setPoForm({ ...poForm, unitPrice: parseFloat(e.target.value) || 0 })}
-                  className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none bg-white"
+                  className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none bg-white"
                 />
               </div>
             </div>
@@ -2487,7 +2487,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 type="text"
                 value={poForm.paymentTerms}
                 onChange={(e) => setPoForm({ ...poForm, paymentTerms: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2496,7 +2496,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 type="text"
                 value={poForm.notes}
                 onChange={(e) => setPoForm({ ...poForm, notes: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2505,7 +2505,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             <Button size="sm" variant="outline" type="button" onClick={() => setIsPoModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#990000] text-white">
               {loading ? 'Creating...' : 'Issue Purchase Order'}
             </Button>
           </div>
@@ -2543,7 +2543,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 required
                 value={grnForm.invoiceNumber}
                 onChange={(e) => setGrnForm({ ...grnForm, invoiceNumber: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2553,7 +2553,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 required
                 value={grnForm.invoiceDate}
                 onChange={(e) => setGrnForm({ ...grnForm, invoiceDate: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2564,7 +2564,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={grnForm.paymentStatus}
                 onChange={(e) => setGrnForm({ ...grnForm, paymentStatus: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="PAID">PAID</option>
                 <option value="PENDING">PENDING</option>
@@ -2576,7 +2576,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={grnForm.paymentMode}
                 onChange={(e) => setGrnForm({ ...grnForm, paymentMode: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="ONLINE_BANK_TRANSFER">ONLINE_BANK_TRANSFER</option>
                 <option value="CHEQUE">CHEQUE</option>
@@ -2590,7 +2590,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 type="text"
                 value={grnForm.transactionRef}
                 onChange={(e) => setGrnForm({ ...grnForm, transactionRef: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2601,7 +2601,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               rows={2}
               value={grnForm.remarks}
               onChange={(e) => setGrnForm({ ...grnForm, remarks: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2631,7 +2631,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             <select
               value={maintenanceForm.assetItemId}
               onChange={(e) => setMaintenanceForm({ ...maintenanceForm, assetItemId: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {assets
                 .filter((a) => !a.isConsumable)
@@ -2649,7 +2649,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={maintenanceForm.maintenanceType}
                 onChange={(e) => setMaintenanceForm({ ...maintenanceForm, maintenanceType: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="PREVENTIVE">PREVENTIVE (Periodic Checkup)</option>
                 <option value="CORRECTIVE">CORRECTIVE (Breakdown Repair)</option>
@@ -2663,7 +2663,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={maintenanceForm.status}
                 onChange={(e) => setMaintenanceForm({ ...maintenanceForm, status: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="COMPLETED">COMPLETED (Restored to Active)</option>
                 <option value="IN_PROGRESS">IN_PROGRESS (Under Service)</option>
@@ -2680,7 +2680,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 required
                 value={maintenanceForm.serviceProvider}
                 onChange={(e) => setMaintenanceForm({ ...maintenanceForm, serviceProvider: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2689,7 +2689,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 type="text"
                 value={maintenanceForm.technicianName}
                 onChange={(e) => setMaintenanceForm({ ...maintenanceForm, technicianName: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2699,7 +2699,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 min="0"
                 value={maintenanceForm.cost}
                 onChange={(e) => setMaintenanceForm({ ...maintenanceForm, cost: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2711,7 +2711,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               required
               value={maintenanceForm.description}
               onChange={(e) => setMaintenanceForm({ ...maintenanceForm, description: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2719,7 +2719,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             <Button size="sm" variant="outline" type="button" onClick={() => setIsMaintenanceModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#990000] text-white">
               {loading ? 'Logging...' : 'Save Maintenance Record'}
             </Button>
           </div>
@@ -2745,7 +2745,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 required
                 value={auditForm.auditorName}
                 onChange={(e) => setAuditForm({ ...auditForm, auditorName: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2754,7 +2754,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 type="text"
                 value={auditForm.departmentName}
                 onChange={(e) => setAuditForm({ ...auditForm, departmentName: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2822,7 +2822,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               rows={2}
               value={auditForm.remarks}
               onChange={(e) => setAuditForm({ ...auditForm, remarks: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2855,7 +2855,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               placeholder="e.g. Cambridge Scientific Instruments Ltd"
               value={vendorForm.name}
               onChange={(e) => setVendorForm({ ...vendorForm, name: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2866,7 +2866,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 type="text"
                 value={vendorForm.contactPerson}
                 onChange={(e) => setVendorForm({ ...vendorForm, contactPerson: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2877,7 +2877,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 placeholder="+91 98110 00000"
                 value={vendorForm.phone}
                 onChange={(e) => setVendorForm({ ...vendorForm, phone: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2890,7 +2890,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 placeholder="orders@supplier.com"
                 value={vendorForm.email}
                 onChange={(e) => setVendorForm({ ...vendorForm, email: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2899,7 +2899,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 type="text"
                 value={vendorForm.gstNumber}
                 onChange={(e) => setVendorForm({ ...vendorForm, gstNumber: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2911,7 +2911,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 type="text"
                 value={vendorForm.category}
                 onChange={(e) => setVendorForm({ ...vendorForm, category: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2920,7 +2920,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 type="text"
                 value={vendorForm.paymentTerms}
                 onChange={(e) => setVendorForm({ ...vendorForm, paymentTerms: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2931,7 +2931,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               type="text"
               value={vendorForm.address}
               onChange={(e) => setVendorForm({ ...vendorForm, address: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2939,7 +2939,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             <Button size="sm" variant="outline" type="button" onClick={() => setIsVendorModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#990000] text-white">
               {loading ? 'Saving...' : 'Register Vendor'}
             </Button>
           </div>
@@ -2964,7 +2964,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               placeholder="e.g. Smart Classroom Displays"
               value={categoryForm.name}
               onChange={(e) => setCategoryForm({ ...categoryForm, name: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2976,7 +2976,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 placeholder="CAT-SMR"
                 value={categoryForm.code}
                 onChange={(e) => setCategoryForm({ ...categoryForm, code: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2984,7 +2984,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={categoryForm.isAsset ? 'TRUE' : 'FALSE'}
                 onChange={(e) => setCategoryForm({ ...categoryForm, isAsset: e.target.value === 'TRUE' })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="FALSE">Consumable Material</option>
                 <option value="TRUE">Capital / Fixed Asset</option>
@@ -2998,7 +2998,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               rows={2}
               value={categoryForm.description}
               onChange={(e) => setCategoryForm({ ...categoryForm, description: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -3006,7 +3006,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
             <Button size="sm" variant="outline" type="button" onClick={() => setIsCategoryModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#990000] text-white">
               {loading ? 'Creating...' : 'Save Category'}
             </Button>
           </div>
@@ -3033,7 +3033,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               className="p-6 rounded-2xl border-2 border-dashed border-slate-300 bg-white flex flex-col items-center text-center space-y-3"
             >
               {/* Institution Header */}
-              <div className="flex items-center gap-1.5 text-xs font-bold text-[#086A92]">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[#990000]">
                 <Boxes className="w-4 h-4" />
                 <span>EDVONEST CAMPUS ERP — ASSET TAG</span>
               </div>
@@ -3049,35 +3049,35 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <div className="w-full py-2 bg-slate-50 rounded-xl border border-slate-200 flex flex-col items-center">
                 <svg className="h-12 w-48" viewBox="0 0 200 50">
                   {/* Procedural barcode stripes */}
-                  <rect x="10" y="0" width="3" height="40" fill="#17313A" />
-                  <rect x="16" y="0" width="1" height="40" fill="#17313A" />
-                  <rect x="20" y="0" width="4" height="40" fill="#17313A" />
-                  <rect x="28" y="0" width="2" height="40" fill="#17313A" />
-                  <rect x="33" y="0" width="3" height="40" fill="#17313A" />
-                  <rect x="40" y="0" width="1" height="40" fill="#17313A" />
-                  <rect x="44" y="0" width="4" height="40" fill="#17313A" />
-                  <rect x="52" y="0" width="2" height="40" fill="#17313A" />
-                  <rect x="58" y="0" width="3" height="40" fill="#17313A" />
-                  <rect x="65" y="0" width="5" height="40" fill="#17313A" />
-                  <rect x="73" y="0" width="1" height="40" fill="#17313A" />
-                  <rect x="77" y="0" width="4" height="40" fill="#17313A" />
-                  <rect x="85" y="0" width="2" height="40" fill="#17313A" />
-                  <rect x="91" y="0" width="3" height="40" fill="#17313A" />
-                  <rect x="98" y="0" width="2" height="40" fill="#17313A" />
-                  <rect x="104" y="0" width="4" height="40" fill="#17313A" />
-                  <rect x="112" y="0" width="1" height="40" fill="#17313A" />
-                  <rect x="116" y="0" width="3" height="40" fill="#17313A" />
-                  <rect x="122" y="0" width="5" height="40" fill="#17313A" />
-                  <rect x="131" y="0" width="2" height="40" fill="#17313A" />
-                  <rect x="136" y="0" width="3" height="40" fill="#17313A" />
-                  <rect x="143" y="0" width="1" height="40" fill="#17313A" />
-                  <rect x="147" y="0" width="4" height="40" fill="#17313A" />
-                  <rect x="155" y="0" width="2" height="40" fill="#17313A" />
-                  <rect x="160" y="0" width="4" height="40" fill="#17313A" />
-                  <rect x="168" y="0" width="2" height="40" fill="#17313A" />
-                  <rect x="174" y="0" width="3" height="40" fill="#17313A" />
-                  <rect x="180" y="0" width="1" height="40" fill="#17313A" />
-                  <rect x="184" y="0" width="4" height="40" fill="#17313A" />
+                  <rect x="10" y="0" width="3" height="40" fill="#171717" />
+                  <rect x="16" y="0" width="1" height="40" fill="#171717" />
+                  <rect x="20" y="0" width="4" height="40" fill="#171717" />
+                  <rect x="28" y="0" width="2" height="40" fill="#171717" />
+                  <rect x="33" y="0" width="3" height="40" fill="#171717" />
+                  <rect x="40" y="0" width="1" height="40" fill="#171717" />
+                  <rect x="44" y="0" width="4" height="40" fill="#171717" />
+                  <rect x="52" y="0" width="2" height="40" fill="#171717" />
+                  <rect x="58" y="0" width="3" height="40" fill="#171717" />
+                  <rect x="65" y="0" width="5" height="40" fill="#171717" />
+                  <rect x="73" y="0" width="1" height="40" fill="#171717" />
+                  <rect x="77" y="0" width="4" height="40" fill="#171717" />
+                  <rect x="85" y="0" width="2" height="40" fill="#171717" />
+                  <rect x="91" y="0" width="3" height="40" fill="#171717" />
+                  <rect x="98" y="0" width="2" height="40" fill="#171717" />
+                  <rect x="104" y="0" width="4" height="40" fill="#171717" />
+                  <rect x="112" y="0" width="1" height="40" fill="#171717" />
+                  <rect x="116" y="0" width="3" height="40" fill="#171717" />
+                  <rect x="122" y="0" width="5" height="40" fill="#171717" />
+                  <rect x="131" y="0" width="2" height="40" fill="#171717" />
+                  <rect x="136" y="0" width="3" height="40" fill="#171717" />
+                  <rect x="143" y="0" width="1" height="40" fill="#171717" />
+                  <rect x="147" y="0" width="4" height="40" fill="#171717" />
+                  <rect x="155" y="0" width="2" height="40" fill="#171717" />
+                  <rect x="160" y="0" width="4" height="40" fill="#171717" />
+                  <rect x="168" y="0" width="2" height="40" fill="#171717" />
+                  <rect x="174" y="0" width="3" height="40" fill="#171717" />
+                  <rect x="180" y="0" width="1" height="40" fill="#171717" />
+                  <rect x="184" y="0" width="4" height="40" fill="#171717" />
                 </svg>
                 <span className="font-mono text-xs font-bold tracking-widest text-slate-800 mt-1">
                   {selectedAsset.barcode || '89010049281'}
@@ -3123,7 +3123,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 <Button
                   size="sm"
                   variant="primary"
-                  className="bg-[#086A92] text-white flex items-center gap-1.5"
+                  className="bg-[#990000] text-white flex items-center gap-1.5"
                   onClick={() => window.print()}
                 >
                   <Printer className="w-3.5 h-3.5" />
@@ -3166,7 +3166,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               <select
                 value={disposalForm.disposalMethod}
                 onChange={(e) => setDisposalForm({ ...disposalForm, disposalMethod: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 <option value="SCRAPPED">SCRAPPED (Metal / Plastic Salvage)</option>
                 <option value="E_WASTE">E_WASTE (Certified Recycler)</option>
@@ -3182,7 +3182,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
                 min="0"
                 value={disposalForm.disposalValue}
                 onChange={(e) => setDisposalForm({ ...disposalForm, disposalValue: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -3194,7 +3194,7 @@ export const InventoryClient: React.FC<InventoryClientProps> = ({
               required
               value={disposalForm.disposalReason}
               onChange={(e) => setDisposalForm({ ...disposalForm, disposalReason: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 

@@ -92,28 +92,28 @@ export const AdmissionEnquiryCard: React.FC = () => {
   };
 
   return (
-    <div id="admissions" className="bg-white border border-[#E4EAEC] rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden">
+    <div id="admissions" className="bg-white border border-[#E5E5E5] rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden">
       {/* Decorative accent edge */}
-      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#086A92] via-[#008C91] to-[#35B84A]" />
+      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#990000] via-[#C00000] to-[#E00000]" />
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#E4EAEC] gap-2 mb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#E5E5E5] gap-2 mb-5">
         <div>
           <div className="flex items-center gap-2">
-            <span className="p-2 rounded-lg bg-[#EAF8EC] text-[#16A34A]">
+            <span className="p-2 rounded-lg bg-red-50 text-[#990000]">
               <Sparkles className="w-5 h-5" />
             </span>
-            <h3 className="text-lg sm:text-xl font-bold text-[#17313A]">
+            <h3 className="text-lg sm:text-xl font-bold text-[#171717]">
               Online Admission Enquiry
             </h3>
           </div>
-          <p className="text-sm text-[#4A5D65] mt-1">
+          <p className="text-sm text-[#525252] mt-1">
             Academic Session 2026–2027 • Senior Secondary CBSE Affiliation #89410
           </p>
         </div>
 
-        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EAF8EC] text-[#16A34A] text-xs sm:text-sm font-bold border border-[#bbf0c5] shrink-0 self-start sm:self-auto">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#35B84A] animate-pulse" />
+        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-50 text-[#990000] text-xs sm:text-sm font-bold border border-red-200 shrink-0 self-start sm:self-auto">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#990000] animate-pulse" />
           <span>Seats Open</span>
         </span>
       </div>
@@ -121,29 +121,29 @@ export const AdmissionEnquiryCard: React.FC = () => {
       {/* SUCCESS STATE */}
       {successApplication ? (
         <div className="py-8 space-y-4 text-center animate-in fade-in zoom-in-95 duration-200">
-          <div className="w-16 h-16 bg-[#EAF8EC] text-[#16A34A] rounded-full flex items-center justify-center mx-auto shadow-2xs">
+          <div className="w-16 h-16 bg-red-50 text-[#990000] rounded-full flex items-center justify-center mx-auto shadow-2xs">
             <CheckCircle2 className="w-9 h-9" />
           </div>
 
           <div className="space-y-1.5">
-            <h4 className="text-xl sm:text-2xl font-bold text-[#17313A]">
+            <h4 className="text-xl sm:text-2xl font-bold text-[#171717]">
               Enquiry Submitted Successfully!
             </h4>
-            <p className="text-sm sm:text-base text-[#4A5D65] max-w-md mx-auto">
+            <p className="text-sm sm:text-base text-[#525252] max-w-md mx-auto">
               Thank you for choosing Edvonest Model International Academy. Your provisional application file has been registered.
             </p>
           </div>
 
-          <div className="bg-[#F7FAFA] border border-[#E4EAEC] rounded-2xl p-5 max-w-sm mx-auto text-sm space-y-2">
+          <div className="bg-[#F5F5F5] border border-[#E5E5E5] rounded-2xl p-5 max-w-sm mx-auto text-sm space-y-2">
             <div className="flex justify-between items-center">
               <span className="text-slate-500 font-medium">Application Ref #:</span>
-              <span className="font-mono font-bold text-[#086A92] text-base">
+              <span className="font-mono font-bold text-[#990000] text-base">
                 {successApplication.applicationNo}
               </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-slate-500 font-medium">Student Name:</span>
-              <span className="font-bold text-[#17313A]">{successApplication.studentName}</span>
+              <span className="font-bold text-[#171717]">{successApplication.studentName}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-slate-500 font-medium">Class Applying:</span>
@@ -151,7 +151,7 @@ export const AdmissionEnquiryCard: React.FC = () => {
             </div>
             <div className="flex justify-between items-center">
               <span className="text-slate-500 font-medium">Status:</span>
-              <span className="text-xs font-bold bg-[#EAF8EC] text-[#16A34A] px-2.5 py-1 rounded">
+              <span className="text-xs font-bold bg-red-50 text-[#990000] px-2.5 py-1 rounded border border-red-200">
                 Under Review
               </span>
             </div>
@@ -179,7 +179,7 @@ export const AdmissionEnquiryCard: React.FC = () => {
           {/* Student Name & Class */}
           <div className="grid grid-cols-1 sm:grid-cols-12 gap-3.5">
             <div className="sm:col-span-8">
-              <label className="block font-bold text-[#17313A] mb-1.5 text-sm sm:text-base">
+              <label className="block font-bold text-[#171717] mb-1.5 text-sm sm:text-base">
                 Student Full Name *
               </label>
               <div className="relative">
@@ -190,19 +190,19 @@ export const AdmissionEnquiryCard: React.FC = () => {
                   placeholder="e.g. Aarav Sharma"
                   value={formData.studentName}
                   onChange={(e) => setFormData({ ...formData, studentName: e.target.value })}
-                  className="w-full pl-11 pr-3.5 py-3 text-sm sm:text-base bg-white border border-[#E4EAEC] rounded-xl text-[#17313A] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#086A92]/20 focus:border-[#086A92] transition-all"
+                  className="w-full pl-11 pr-3.5 py-3 text-sm sm:text-base bg-white border border-[#E5E5E5] rounded-xl text-[#171717] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000] transition-all"
                 />
               </div>
             </div>
 
             <div className="sm:col-span-4">
-              <label className="block font-bold text-[#17313A] mb-1.5 text-sm sm:text-base">
+              <label className="block font-bold text-[#171717] mb-1.5 text-sm sm:text-base">
                 Class Applying For *
               </label>
               <select
                 value={formData.applyingForClass}
                 onChange={(e) => setFormData({ ...formData, applyingForClass: e.target.value })}
-                className="w-full px-3.5 py-3 text-sm sm:text-base bg-white border border-[#E4EAEC] rounded-xl text-[#17313A] font-medium focus:outline-none focus:ring-2 focus:ring-[#086A92]/20 focus:border-[#086A92] transition-all"
+                className="w-full px-3.5 py-3 text-sm sm:text-base bg-white border border-[#E5E5E5] rounded-xl text-[#171717] font-medium focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000] transition-all"
               >
                 <option value="Pre-Primary">Pre-Primary (Kindergarten)</option>
                 <option value="Grade 1">Grade 1</option>
@@ -221,7 +221,7 @@ export const AdmissionEnquiryCard: React.FC = () => {
           {/* Parent Details */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             <div>
-              <label className="block font-bold text-[#17313A] mb-1.5 text-sm sm:text-base">
+              <label className="block font-bold text-[#171717] mb-1.5 text-sm sm:text-base">
                 Parent / Guardian Name *
               </label>
               <input
@@ -230,12 +230,12 @@ export const AdmissionEnquiryCard: React.FC = () => {
                 placeholder="e.g. Ramesh Sharma"
                 value={formData.parentName}
                 onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
-                className="w-full px-3.5 py-3 text-sm sm:text-base bg-white border border-[#E4EAEC] rounded-xl text-[#17313A] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#086A92]/20 focus:border-[#086A92] transition-all"
+                className="w-full px-3.5 py-3 text-sm sm:text-base bg-white border border-[#E5E5E5] rounded-xl text-[#171717] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000] transition-all"
               />
             </div>
 
             <div>
-              <label className="block font-bold text-[#17313A] mb-1.5 text-sm sm:text-base">
+              <label className="block font-bold text-[#171717] mb-1.5 text-sm sm:text-base">
                 Parent Mobile Phone *
               </label>
               <div className="relative">
@@ -246,7 +246,7 @@ export const AdmissionEnquiryCard: React.FC = () => {
                   placeholder="+91 98XXX XXXXX"
                   value={formData.parentPhone}
                   onChange={(e) => setFormData({ ...formData, parentPhone: e.target.value })}
-                  className="w-full pl-11 pr-3.5 py-3 text-sm sm:text-base bg-white border border-[#E4EAEC] rounded-xl text-[#17313A] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#086A92]/20 focus:border-[#086A92] transition-all font-mono"
+                  className="w-full pl-11 pr-3.5 py-3 text-sm sm:text-base bg-white border border-[#E5E5E5] rounded-xl text-[#171717] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000] transition-all font-mono"
                 />
               </div>
             </div>
@@ -255,7 +255,7 @@ export const AdmissionEnquiryCard: React.FC = () => {
           {/* Parent Email & Address */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             <div>
-              <label className="block font-bold text-[#17313A] mb-1.5 text-sm sm:text-base">
+              <label className="block font-bold text-[#171717] mb-1.5 text-sm sm:text-base">
                 Parent Email (Optional)
               </label>
               <div className="relative">
@@ -265,13 +265,13 @@ export const AdmissionEnquiryCard: React.FC = () => {
                   placeholder="parent.contact@gmail.com"
                   value={formData.parentEmail}
                   onChange={(e) => setFormData({ ...formData, parentEmail: e.target.value })}
-                  className="w-full pl-11 pr-3.5 py-3 text-sm sm:text-base bg-white border border-[#E4EAEC] rounded-xl text-[#17313A] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#086A92]/20 focus:border-[#086A92] transition-all"
+                  className="w-full pl-11 pr-3.5 py-3 text-sm sm:text-base bg-white border border-[#E5E5E5] rounded-xl text-[#171717] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000] transition-all"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block font-bold text-[#17313A] mb-1.5 text-sm sm:text-base">
+              <label className="block font-bold text-[#171717] mb-1.5 text-sm sm:text-base">
                 City / Locality (Optional)
               </label>
               <input
@@ -279,7 +279,7 @@ export const AdmissionEnquiryCard: React.FC = () => {
                 placeholder="e.g. Sector 62, Noida"
                 value={formData.address}
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                className="w-full px-3.5 py-3 text-sm sm:text-base bg-white border border-[#E4EAEC] rounded-xl text-[#17313A] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#086A92]/20 focus:border-[#086A92] transition-all"
+                className="w-full px-3.5 py-3 text-sm sm:text-base bg-white border border-[#E5E5E5] rounded-xl text-[#171717] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#990000]/20 focus:border-[#990000] transition-all"
               />
             </div>
           </div>
@@ -290,15 +290,15 @@ export const AdmissionEnquiryCard: React.FC = () => {
               type="submit"
               variant="primary"
               size="lg"
-              className="w-full text-base font-bold shadow-md cursor-pointer py-3.5"
+              className="w-full text-base font-bold shadow-md cursor-pointer py-3.5 bg-[#990000] hover:bg-[#800000] text-white"
               isLoading={isLoading}
               rightIcon={<ArrowRight className="w-5 h-5" />}
             >
               Submit Official Admission Enquiry
             </Button>
 
-            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-[#4A5D65]">
-              <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
+            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-[#525252]">
+              <ShieldCheck className="w-4 h-4 text-[#990000]" />
               <span>256-bit encrypted submission. Zero public caching of sensitive records.</span>
             </div>
           </div>

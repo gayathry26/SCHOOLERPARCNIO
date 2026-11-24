@@ -113,7 +113,7 @@ export default async function StudentProfilePage({
     width: 200,
     margin: 1,
     color: {
-      dark: '#086A92',
+      dark: '#990000',
       light: '#ffffff',
     },
   });

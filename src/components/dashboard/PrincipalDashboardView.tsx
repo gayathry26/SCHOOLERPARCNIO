@@ -57,7 +57,7 @@ export const PrincipalDashboardView: React.FC<PrincipalDashboardProps> = ({
   return (
     <div className="space-y-6">
       {/* Principal Executive Briefing Banner */}
-      <div className="bg-gradient-to-r from-[#086A92] via-[#008C91] to-[#35B84A] text-white p-6 rounded-3xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-gradient-to-r from-[#800000] via-[#990000] to-[#C00000] text-white p-6 rounded-3xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="space-y-1.5">
           <div className="flex items-center gap-2">
             <span className="px-3 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-xs">
@@ -75,12 +75,12 @@ export const PrincipalDashboardView: React.FC<PrincipalDashboardProps> = ({
 
         <div className="flex items-center gap-3 shrink-0 flex-wrap">
           <Link href="/dashboard/academic-intelligence">
-            <Button variant="outline" size="md" className="bg-white text-[#086A92] hover:bg-white/90 border-transparent font-bold text-sm">
+            <Button variant="outline" size="md" className="bg-white text-[#990000] hover:bg-white/90 border-transparent font-bold text-sm">
               Academic Intelligence
             </Button>
           </Link>
           <Link href="/dashboard/command-centre">
-            <Button variant="secondary" size="md" className="bg-[#17313A] text-white hover:bg-[#17313A]/90 border-transparent font-bold text-sm">
+            <Button variant="secondary" size="md" className="bg-[#171717] text-white hover:bg-[#171717]/90 border-transparent font-bold text-sm">
               Command HQ
             </Button>
           </Link>
@@ -126,7 +126,7 @@ export const PrincipalDashboardView: React.FC<PrincipalDashboardProps> = ({
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <BarChart2 className="w-4 h-4 text-[#086A92]" />
+                <BarChart2 className="w-4 h-4 text-[#990000]" />
                 <span>Class Attendance &amp; Academic Health</span>
               </CardTitle>
               <Link href="/dashboard/attendance">
@@ -141,27 +141,27 @@ export const PrincipalDashboardView: React.FC<PrincipalDashboardProps> = ({
                 { class: 'Class 12-Science (Senior)', attendance: 97, syllabus: 91, risk: 0, teacher: 'Dr. Sen Gupta' },
                 { class: 'Class 12-Commerce (Senior)', attendance: 89, syllabus: 78, risk: 4, teacher: 'Mrs. Neha Mehta' },
               ].map((item, idx) => (
-                <div key={idx} className="p-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                <div key={idx} className="p-3 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-[#17313A]">{item.class}</span>
+                      <span className="font-bold text-[#171717]">{item.class}</span>
                       {item.risk > 0 && (
                         <span className="text-[10px] bg-rose-50 text-rose-700 px-1.5 py-0.5 rounded font-bold border border-rose-200">
                           {item.risk} At Risk
                         </span>
                       )}
                     </div>
-                    <p className="text-[11px] text-[#6B7C83] mt-0.5">Class Teacher: {item.teacher}</p>
+                    <p className="text-[11px] text-[#737373] mt-0.5">Class Teacher: {item.teacher}</p>
                   </div>
 
                   <div className="flex items-center gap-4">
                     <div className="text-right">
-                      <span className="text-[10px] text-[#6B7C83]">Attendance</span>
+                      <span className="text-[10px] text-[#737373]">Attendance</span>
                       <p className="font-bold text-emerald-700">{item.attendance}%</p>
                     </div>
                     <div className="text-right">
-                      <span className="text-[10px] text-[#6B7C83]">Syllabus</span>
-                      <p className="font-bold text-[#086A92]">{item.syllabus}%</p>
+                      <span className="text-[10px] text-[#737373]">Syllabus</span>
+                      <p className="font-bold text-[#990000]">{item.syllabus}%</p>
                     </div>
                     <Link href="/dashboard/academic-intelligence">
                       <Button variant="outline" size="xs">Audit</Button>
@@ -191,9 +191,9 @@ export const PrincipalDashboardView: React.FC<PrincipalDashboardProps> = ({
               ].map((student, idx) => (
                 <div key={idx} className="p-3 bg-rose-50/40 border border-rose-100 rounded-xl flex items-center justify-between text-xs">
                   <div>
-                    <p className="font-bold text-[#17313A]">{student.name}</p>
+                    <p className="font-bold text-[#171717]">{student.name}</p>
                     <p className="text-[11px] text-rose-700 font-medium">{student.issue}</p>
-                    <p className="text-[10px] text-[#6B7C83] mt-0.5">{student.class}</p>
+                    <p className="text-[10px] text-[#737373] mt-0.5">{student.class}</p>
                   </div>
                   <Badge variant="rose" size="xs">{student.tag}</Badge>
                 </div>
@@ -205,25 +205,25 @@ export const PrincipalDashboardView: React.FC<PrincipalDashboardProps> = ({
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#008C91]" />
+                <CheckCircle2 className="w-4 h-4 text-[#C00000]" />
                 <span>Pending Approvals</span>
               </CardTitle>
               <Badge variant="teal" size="xs">3 Pending</Badge>
             </CardHeader>
             <div className="space-y-2 text-xs">
-              <div className="p-2.5 bg-[#F7FAFA] border border-[#E4EAEC] rounded-lg flex items-center justify-between">
+              <div className="p-2.5 bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg flex items-center justify-between">
                 <div>
-                  <p className="font-bold text-[#17313A]">Staff Medical Leave (2 Days)</p>
-                  <p className="text-[10px] text-[#6B7C83]">Mrs. Anjali Rao • Biology Dept</p>
+                  <p className="font-bold text-[#171717]">Staff Medical Leave (2 Days)</p>
+                  <p className="text-[10px] text-[#737373]">Mrs. Anjali Rao • Biology Dept</p>
                 </div>
                 <div className="flex gap-1.5">
                   <Button variant="success" size="xs">Approve</Button>
                 </div>
               </div>
-              <div className="p-2.5 bg-[#F7FAFA] border border-[#E4EAEC] rounded-lg flex items-center justify-between">
+              <div className="p-2.5 bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg flex items-center justify-between">
                 <div>
-                  <p className="font-bold text-[#17313A]">Science Lab Reagents Purchase</p>
-                  <p className="text-[10px] text-[#6B7C83]">Voucher #VCH-2025-081 • ₹14,200</p>
+                  <p className="font-bold text-[#171717]">Science Lab Reagents Purchase</p>
+                  <p className="text-[10px] text-[#737373]">Voucher #VCH-2025-081 • ₹14,200</p>
                 </div>
                 <div className="flex gap-1.5">
                   <Button variant="success" size="xs">Approve</Button>
@@ -239,7 +239,7 @@ export const PrincipalDashboardView: React.FC<PrincipalDashboardProps> = ({
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <FileCheck2 className="w-4 h-4 text-[#086A92]" />
+              <FileCheck2 className="w-4 h-4 text-[#990000]" />
               <span>Examination Schedules &amp; Status</span>
             </CardTitle>
             <Link href="/dashboard/exams">
@@ -248,13 +248,13 @@ export const PrincipalDashboardView: React.FC<PrincipalDashboardProps> = ({
           </CardHeader>
           <div className="space-y-2.5">
             {recentExams.length === 0 ? (
-              <p className="text-xs text-[#6B7C83] py-4 text-center">No exams currently configured.</p>
+              <p className="text-xs text-[#737373] py-4 text-center">No exams currently configured.</p>
             ) : (
               recentExams.map((ex) => (
-                <div key={ex.id} className="p-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl flex items-center justify-between text-xs">
+                <div key={ex.id} className="p-3 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl flex items-center justify-between text-xs">
                   <div>
-                    <h4 className="font-bold text-[#17313A]">{ex.name}</h4>
-                    <p className="text-[10px] text-[#6B7C83]">
+                    <h4 className="font-bold text-[#171717]">{ex.name}</h4>
+                    <p className="text-[10px] text-[#737373]">
                       {formatDate(ex.startDate)} to {formatDate(ex.endDate)}
                     </p>
                   </div>
@@ -279,10 +279,10 @@ export const PrincipalDashboardView: React.FC<PrincipalDashboardProps> = ({
           </CardHeader>
           <div className="space-y-2.5">
             {upcomingEvents.map((evt) => (
-              <div key={evt.id} className="p-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl flex items-center justify-between text-xs">
+              <div key={evt.id} className="p-3 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl flex items-center justify-between text-xs">
                 <div>
-                  <h4 className="font-bold text-[#17313A]">{evt.title}</h4>
-                  <p className="text-[10px] text-[#6B7C83]">
+                  <h4 className="font-bold text-[#171717]">{evt.title}</h4>
+                  <p className="text-[10px] text-[#737373]">
                     {formatDate(evt.startDate)} • {evt.category || 'General'}
                   </p>
                 </div>

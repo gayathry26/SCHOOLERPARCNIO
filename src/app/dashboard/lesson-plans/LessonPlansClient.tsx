@@ -123,11 +123,11 @@ export const LessonPlansClient: React.FC<{
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-              <FileCheck2 className="w-6 h-6 text-[#086A92]" />
+              <FileCheck2 className="w-6 h-6 text-[#990000]" />
               <span>Lesson Planning &amp; Syllabus Progress Tracker</span>
             </h2>
             <Badge variant="blue" size="sm">
@@ -182,7 +182,7 @@ export const LessonPlansClient: React.FC<{
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex items-center justify-between bg-white p-3 border border-[#E4EAEC] rounded-xl">
+      <div className="flex items-center justify-between bg-white p-3 border border-[#E5E5E5] rounded-xl">
         <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
           <span>Filter Status:</span>
           {['all', 'SUBMITTED', 'APPROVED', 'DRAFT'].map((s) => (
@@ -191,7 +191,7 @@ export const LessonPlansClient: React.FC<{
               onClick={() => setStatusFilter(s)}
               className={`px-3 py-1 rounded-lg transition-colors cursor-pointer ${
                 statusFilter === s
-                  ? 'bg-[#086A92] text-white font-bold'
+                  ? 'bg-[#990000] text-white font-bold'
                   : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
               }`}
             >
@@ -229,7 +229,7 @@ export const LessonPlansClient: React.FC<{
 
             <div>
               <h3 className="font-bold text-slate-900 text-sm leading-snug">{plan.topicTitle}</h3>
-              <p className="text-xs text-[#086A92] font-semibold mt-0.5">
+              <p className="text-xs text-[#990000] font-semibold mt-0.5">
                 {plan.class?.name} - {plan.section?.name} • {plan.subject?.name}
                 {plan.chapter && <span className="text-slate-500 font-normal"> ({plan.chapter.name})</span>}
               </p>

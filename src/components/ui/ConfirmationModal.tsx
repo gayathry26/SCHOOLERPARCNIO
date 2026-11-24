@@ -32,12 +32,12 @@ export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   const isWarning = variant === 'warning';
 
   const Icon = isDanger ? AlertCircle : isWarning ? AlertTriangle : CheckCircle2;
-  const iconColor = isDanger ? 'text-rose-600 bg-rose-50' : isWarning ? 'text-amber-600 bg-amber-50' : 'text-[#086A92] bg-sky-50';
+  const iconColor = isDanger ? 'text-rose-600 bg-rose-50' : isWarning ? 'text-amber-600 bg-amber-50' : 'text-[#990000] bg-sky-50';
   const confirmBtnClass = isDanger
     ? 'bg-rose-600 hover:bg-rose-700 text-white'
     : isWarning
     ? 'bg-amber-600 hover:bg-amber-700 text-white'
-    : 'bg-[#086A92] hover:bg-[#065A7D] text-white';
+    : 'bg-[#990000] hover:bg-[#800000] text-white';
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={title}>

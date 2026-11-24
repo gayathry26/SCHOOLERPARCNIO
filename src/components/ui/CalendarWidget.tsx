@@ -67,7 +67,7 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({
       {/* Month Header Nav */}
       <div className="flex items-center justify-between pb-2 border-b border-slate-100">
         <h4 className="text-xs font-bold text-slate-800 tracking-tight flex items-center gap-1.5">
-          <CalendarIcon className="w-3.5 h-3.5 text-[#086A92]" />
+          <CalendarIcon className="w-3.5 h-3.5 text-[#990000]" />
           <span>{monthName}</span>
         </h4>
 
@@ -127,9 +127,9 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({
               }}
               className={`h-7 w-7 mx-auto rounded-lg flex flex-col items-center justify-center relative font-semibold transition ${
                 isSelected
-                  ? 'bg-[#086A92] text-white shadow-2xs font-bold'
+                  ? 'bg-[#990000] text-white shadow-2xs font-bold'
                   : isToday
-                  ? 'bg-sky-50 text-[#086A92] ring-1 ring-[#086A92]'
+                  ? 'bg-sky-50 text-[#990000] ring-1 ring-[#990000]'
                   : 'text-slate-700 hover:bg-slate-100'
               }`}
             >

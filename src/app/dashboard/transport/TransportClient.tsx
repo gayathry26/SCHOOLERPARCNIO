@@ -279,11 +279,11 @@ export const TransportClient: React.FC<{
     return (
       <div className="space-y-6">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                <Bus className="w-6 h-6 text-[#086A92]" />
+                <Bus className="w-6 h-6 text-[#990000]" />
                 <span>Smart Transport Intelligence &amp; Fleet Telemetry</span>
               </h2>
               <Badge variant="emerald" size="sm" className="flex items-center gap-1.5">
@@ -311,7 +311,7 @@ export const TransportClient: React.FC<{
               <Button
                 size="sm"
                 variant="primary"
-                className="bg-[#086A92] hover:bg-[#065A7D] text-white flex items-center gap-1.5"
+                className="bg-[#990000] hover:bg-[#800000] text-white flex items-center gap-1.5"
                 onClick={() => setIsMaintenanceModalOpen(true)}
               >
                 <Plus className="w-3.5 h-3.5" />
@@ -335,7 +335,7 @@ export const TransportClient: React.FC<{
             value={trips.filter((t) => t.status === 'IN_TRANSIT').length || trips.length}
             change="All routes on time"
             trend="up"
-            icon={<Bus className="w-5 h-5 text-[#086A92]" />}
+            icon={<Bus className="w-5 h-5 text-[#990000]" />}
           />
           <StatCard
             title="Assigned Students"
@@ -415,7 +415,7 @@ export const TransportClient: React.FC<{
                 {/* Map Canvas Representation */}
                 <div className="relative z-10 my-8 flex flex-col sm:flex-row items-center justify-around gap-6 p-6 rounded-xl bg-slate-900/70 border border-slate-800">
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-[#086A92]/20 border border-[#086A92]/50 flex items-center justify-center text-[#38bdf8]">
+                    <div className="w-14 h-14 rounded-2xl bg-[#990000]/20 border border-[#990000]/50 flex items-center justify-center text-[#38bdf8]">
                       <Bus className="w-7 h-7" />
                     </div>
                     <div>
@@ -475,7 +475,7 @@ export const TransportClient: React.FC<{
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-sm font-bold flex items-center gap-2">
-                      <Navigation className="w-4 h-4 text-[#086A92]" />
+                      <Navigation className="w-4 h-4 text-[#990000]" />
                       <span>Active Vehicle Fleet ({trips.length})</span>
                     </CardTitle>
                   </CardHeader>
@@ -483,7 +483,7 @@ export const TransportClient: React.FC<{
                     {trips.map((trip) => (
                       <div
                         key={trip.id}
-                        className="p-3.5 rounded-xl border border-slate-200 hover:border-[#086A92] transition-colors bg-white flex flex-col gap-2"
+                        className="p-3.5 rounded-xl border border-slate-200 hover:border-[#990000] transition-colors bg-white flex flex-col gap-2"
                       >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
@@ -505,7 +505,7 @@ export const TransportClient: React.FC<{
                           <Button
                             size="xs"
                             variant="ghost"
-                            className="text-[#086A92] text-[11px] p-0 h-auto hover:underline"
+                            className="text-[#990000] text-[11px] p-0 h-auto hover:underline"
                             onClick={() => handleSimulateGps(trip.id)}
                           >
                             Ping GPS
@@ -577,7 +577,7 @@ export const TransportClient: React.FC<{
                   <div className="flex items-center justify-between">
                     <div>
                       <CardTitle className="text-base font-bold text-slate-900 flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-[#086A92]" />
+                        <MapPin className="w-4 h-4 text-[#990000]" />
                         <span>{route.routeName}</span>
                       </CardTitle>
                       <span className="text-xs text-slate-500 font-mono">
@@ -662,7 +662,7 @@ export const TransportClient: React.FC<{
                       </div>
                       <a
                         href={`tel:${v.driverStaff.user?.phone || '9810122444'}`}
-                        className="text-[#086A92] hover:underline flex items-center gap-1 font-medium"
+                        className="text-[#990000] hover:underline flex items-center gap-1 font-medium"
                       >
                         <Phone className="w-3 h-3" /> Call
                       </a>
@@ -690,7 +690,7 @@ export const TransportClient: React.FC<{
                 <Button
                   size="sm"
                   variant="primary"
-                  className="bg-[#086A92] text-white"
+                  className="bg-[#990000] text-white"
                   onClick={() => setIsMaintenanceModalOpen(true)}
                 >
                   <Plus className="w-3.5 h-3.5 mr-1" /> Add Service Record
@@ -720,7 +720,7 @@ export const TransportClient: React.FC<{
               <select
                 value={maintenanceForm.vehicleId}
                 onChange={(e) => setMaintenanceForm({ ...maintenanceForm, vehicleId: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 {initialVehicles.map((v) => (
                   <option key={v.id} value={v.id}>
@@ -735,7 +735,7 @@ export const TransportClient: React.FC<{
               <select
                 value={maintenanceForm.maintenanceType}
                 onChange={(e) => setMaintenanceForm({ ...maintenanceForm, maintenanceType: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 <option value="SERVICE">Periodic Engine &amp; Brake Service</option>
                 <option value="FITNESS_CERT">RTO Fitness Inspection Certificate</option>
@@ -751,7 +751,7 @@ export const TransportClient: React.FC<{
                   type="date"
                   value={maintenanceForm.scheduledDate}
                   onChange={(e) => setMaintenanceForm({ ...maintenanceForm, scheduledDate: e.target.value })}
-                  className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                  className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
                 />
               </div>
               <div>
@@ -760,7 +760,7 @@ export const TransportClient: React.FC<{
                   type="number"
                   value={maintenanceForm.cost}
                   onChange={(e) => setMaintenanceForm({ ...maintenanceForm, cost: e.target.value })}
-                  className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                  className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
                 />
               </div>
             </div>
@@ -771,7 +771,7 @@ export const TransportClient: React.FC<{
                 type="text"
                 value={maintenanceForm.vendorName}
                 onChange={(e) => setMaintenanceForm({ ...maintenanceForm, vendorName: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
 
@@ -779,7 +779,7 @@ export const TransportClient: React.FC<{
               <Button size="sm" variant="outline" type="button" onClick={() => setIsMaintenanceModalOpen(false)}>
                 Cancel
               </Button>
-              <Button size="sm" variant="primary" type="submit" className="bg-[#086A92] text-white">
+              <Button size="sm" variant="primary" type="submit" className="bg-[#990000] text-white">
                 Save Record
               </Button>
             </div>

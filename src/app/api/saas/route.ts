@@ -122,7 +122,7 @@ export async function POST(req: NextRequest) {
         adminLastName,
         adminEmail,
         adminPassword = 'password123',
-        themeColor = '#086A92',
+        themeColor = '#990000',
       } = body;
 
       if (!name || !tenantCode || !adminEmail) {
@@ -159,7 +159,7 @@ export async function POST(req: NextRequest) {
           city: city || 'New Delhi',
           state: state || 'Delhi',
           pincode: pincode || '110001',
-          themeColor: themeColor || '#086A92',
+          themeColor: themeColor || '#990000',
           status: 'ACTIVE',
           subscriptionPlan,
           subscriptionStatus: 'ACTIVE',

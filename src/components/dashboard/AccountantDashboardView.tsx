@@ -75,12 +75,12 @@ export const AccountantDashboardView: React.FC<AccountantDashboardProps> = ({
       </div>
 
       {/* Accountant Fast Operations Bar */}
-      <div className="bg-white border border-[#E4EAEC] rounded-2xl p-4 shadow-2xs">
+      <div className="bg-white border border-[#E5E5E5] rounded-2xl p-4 shadow-2xs">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xs font-bold text-[#17313A] uppercase tracking-wider">
+          <h3 className="text-xs font-bold text-[#171717] uppercase tracking-wider">
             Finance &amp; Counter Operations
           </h3>
-          <span className="text-[11px] text-[#6B7C83]">Accounting Fast Bar</span>
+          <span className="text-[11px] text-[#737373]">Accounting Fast Bar</span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <Link href="/dashboard/fees">
@@ -113,7 +113,7 @@ export const AccountantDashboardView: React.FC<AccountantDashboardProps> = ({
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <CreditCard className="w-4 h-4 text-[#086A92]" />
+                <CreditCard className="w-4 h-4 text-[#990000]" />
                 <span>Payment Mode Breakdown</span>
               </CardTitle>
               <Badge variant="blue" size="xs">This Month</Badge>
@@ -121,16 +121,16 @@ export const AccountantDashboardView: React.FC<AccountantDashboardProps> = ({
             <div className="space-y-3 text-xs">
               {[
                 { mode: 'UPI & QR Terminal', amount: 285000, share: 51, color: 'bg-[#35B84A]' },
-                { mode: 'Net Banking / NEFT / IMPS', amount: 142000, share: 25, color: 'bg-[#086A92]' },
-                { mode: 'Credit / Debit Cards', amount: 80000, share: 14, color: 'bg-[#008C91]' },
+                { mode: 'Net Banking / NEFT / IMPS', amount: 142000, share: 25, color: 'bg-[#990000]' },
+                { mode: 'Credit / Debit Cards', amount: 80000, share: 14, color: 'bg-[#C00000]' },
                 { mode: 'Cash Counter Deposits', amount: 53000, share: 10, color: 'bg-amber-500' },
               ].map((item, idx) => (
-                <div key={idx} className="p-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl space-y-1.5">
+                <div key={idx} className="p-3 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl space-y-1.5">
                   <div className="flex items-center justify-between">
-                    <span className="font-bold text-[#17313A]">{item.mode}</span>
-                    <span className="font-bold text-[#17313A]">{formatCurrency(item.amount)} ({item.share}%)</span>
+                    <span className="font-bold text-[#171717]">{item.mode}</span>
+                    <span className="font-bold text-[#171717]">{formatCurrency(item.amount)} ({item.share}%)</span>
                   </div>
-                  <div className="w-full bg-[#E4EAEC] h-2 rounded-full overflow-hidden">
+                  <div className="w-full bg-[#E5E5E5] h-2 rounded-full overflow-hidden">
                     <div className={`${item.color} h-full rounded-full`} style={{ width: `${item.share}%` }} />
                   </div>
                 </div>
@@ -160,11 +160,11 @@ export const AccountantDashboardView: React.FC<AccountantDashboardProps> = ({
               ].map((item, idx) => (
                 <div key={idx} className="p-3 bg-amber-50/40 border border-amber-100 rounded-xl flex items-center justify-between">
                   <div>
-                    <p className="font-bold text-[#17313A]">{item.student}</p>
-                    <p className="text-[10px] text-[#6B7C83]">{item.class} • <span className="text-amber-800 font-semibold">{item.days}</span></p>
+                    <p className="font-bold text-[#171717]">{item.student}</p>
+                    <p className="text-[10px] text-[#737373]">{item.class} • <span className="text-amber-800 font-semibold">{item.days}</span></p>
                   </div>
                   <div className="text-right">
-                    <p className="font-bold text-[#17313A]">{formatCurrency(item.amount)}</p>
+                    <p className="font-bold text-[#171717]">{formatCurrency(item.amount)}</p>
                     <Link href="/dashboard/fees">
                       <Button variant="outline" size="xs">Collect</Button>
                     </Link>
@@ -180,32 +180,32 @@ export const AccountantDashboardView: React.FC<AccountantDashboardProps> = ({
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Receipt className="w-4 h-4 text-[#086A92]" />
+            <Receipt className="w-4 h-4 text-[#990000]" />
             <span>Recent Invoices &amp; Receipts Ledger</span>
           </CardTitle>
           <Link href="/dashboard/fees">
             <Button variant="ghost" size="xs">Complete Ledger</Button>
           </Link>
         </CardHeader>
-        <div className="divide-y divide-[#E4EAEC]">
+        <div className="divide-y divide-[#E5E5E5]">
           {recentInvoices.length === 0 ? (
-            <p className="text-xs text-[#6B7C83] py-4 text-center">No fee invoices recorded yet.</p>
+            <p className="text-xs text-[#737373] py-4 text-center">No fee invoices recorded yet.</p>
           ) : (
             recentInvoices.map((inv) => (
               <div key={inv.id} className="py-3 flex items-center justify-between text-xs">
                 <div>
                   <div className="flex items-center gap-2">
-                    <p className="font-bold text-[#17313A]">
+                    <p className="font-bold text-[#171717]">
                       {inv.student.user.firstName} {inv.student.user.lastName}
                     </p>
-                    <span className="text-[10px] text-[#6B7C83]">#{inv.invoiceNumber}</span>
+                    <span className="text-[10px] text-[#737373]">#{inv.invoiceNumber}</span>
                   </div>
-                  <p className="text-[10px] text-[#6B7C83]">
+                  <p className="text-[10px] text-[#737373]">
                     Created: {formatDate(inv.createdAt)} • Due: {formatDate(inv.dueDate)}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="font-bold text-[#17313A]">{formatCurrency(inv.totalAmount)}</p>
+                  <p className="font-bold text-[#171717]">{formatCurrency(inv.totalAmount)}</p>
                   <span
                     className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${
                       inv.status === 'PAID'

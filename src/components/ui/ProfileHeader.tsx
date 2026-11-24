@@ -46,7 +46,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`bg-white border border-[#E4EAEC] rounded-2xl p-5 sm:p-6 shadow-2xs ${className}`}>
+    <div className={`bg-white border border-[#E5E5E5] rounded-2xl p-5 sm:p-6 shadow-2xs ${className}`}>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
         {/* Left col: Avatar & Bio */}
         <div className="lg:col-span-8 flex flex-col sm:flex-row items-start sm:items-center gap-5">
@@ -62,7 +62,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
               <button
                 type="button"
                 onClick={onPhotoEdit}
-                className="absolute -bottom-1.5 -right-1.5 p-1.5 bg-[#086A92] text-white rounded-full shadow-md hover:bg-[#065A7D] transition-transform hover:scale-110 cursor-pointer border-2 border-white"
+                className="absolute -bottom-1.5 -right-1.5 p-1.5 bg-[#990000] text-white rounded-full shadow-md hover:bg-[#800000] transition-transform hover:scale-110 cursor-pointer border-2 border-white"
                 title="Change photo"
               >
                 <Camera className="w-3.5 h-3.5" />
@@ -81,7 +81,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
                 </Badge>
               )}
               {idCode && (
-                <span className="text-xs font-mono font-bold text-[#086A92] bg-[#EAF5F8] px-2.5 py-0.5 rounded-lg border border-[#c0e3ed]">
+                <span className="text-xs font-mono font-bold text-[#990000] bg-[#FEF2F2] px-2.5 py-0.5 rounded-lg border border-[#FECACA]">
                   {idLabel}: {idCode}
                 </span>
               )}
@@ -123,7 +123,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
                 src={qrDataUrl}
                 alt="Verification QR"
                 onClick={onQrClick}
-                className="w-14 h-14 rounded-xl border border-slate-200 p-1 bg-white shadow-2xs cursor-pointer hover:border-[#086A92] transition"
+                className="w-14 h-14 rounded-xl border border-slate-200 p-1 bg-white shadow-2xs cursor-pointer hover:border-[#990000] transition"
               />
             </div>
           )}

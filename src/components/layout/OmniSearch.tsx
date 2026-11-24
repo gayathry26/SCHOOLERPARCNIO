@@ -377,11 +377,11 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'ERP Modules':
-        return <Layers className="w-4 h-4 text-[#086A92]" />;
+        return <Layers className="w-4 h-4 text-[#990000]" />;
       case 'Students':
-        return <GraduationCap className="w-4 h-4 text-[#086A92]" />;
+        return <GraduationCap className="w-4 h-4 text-[#990000]" />;
       case 'Teachers & Staff':
-        return <Users className="w-4 h-4 text-[#008C91]" />;
+        return <Users className="w-4 h-4 text-[#C00000]" />;
       case 'Classes & Wings':
         return <BookOpen className="w-4 h-4 text-[#35B84A]" />;
       case 'Library Books':
@@ -389,16 +389,16 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
       case 'Fee Invoices':
         return <DollarSign className="w-4 h-4 text-[#D97706]" />;
       case 'Quick Action':
-        return <Zap className="w-4 h-4 text-[#086A92]" />;
+        return <Zap className="w-4 h-4 text-[#990000]" />;
       case 'AI Assistant':
       case 'AI Tool':
         return <Sparkles className="w-4 h-4 text-[#35B84A]" />;
       case 'Campus':
-        return <Bus className="w-4 h-4 text-[#008C91]" />;
+        return <Bus className="w-4 h-4 text-[#C00000]" />;
       case 'Recent':
-        return <Clock className="w-4 h-4 text-[#6B7C83]" />;
+        return <Clock className="w-4 h-4 text-[#737373]" />;
       default:
-        return <ArrowRight className="w-4 h-4 text-[#086A92]" />;
+        return <ArrowRight className="w-4 h-4 text-[#990000]" />;
     }
   };
 
@@ -407,15 +407,15 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
       {/* Desktop Search Trigger Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-[#F7FAFA] hover:bg-[#EAF5F8] border border-[#E4EAEC] hover:border-[#086A92] rounded-xl text-xs text-[#6B7C83] transition-all w-60 sm:w-68 justify-between select-none cursor-pointer shadow-2xs group"
+        className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-[#F5F5F5] hover:bg-[#FEF2F2] border border-[#E5E5E5] hover:border-[#990000] rounded-xl text-xs text-[#737373] transition-all w-60 sm:w-68 justify-between select-none cursor-pointer shadow-2xs group"
         aria-label="Search or Quick Command"
       >
         <span className="flex items-center gap-2">
-          <Search className="w-3.5 h-3.5 text-[#6B7C83] group-hover:text-[#086A92] transition-colors" />
-          <span className="group-hover:text-[#17313A] transition-colors">Search or Command...</span>
+          <Search className="w-3.5 h-3.5 text-[#737373] group-hover:text-[#990000] transition-colors" />
+          <span className="group-hover:text-[#171717] transition-colors">Search or Command...</span>
         </span>
         <div className="flex items-center gap-1">
-          <kbd className="px-1.5 py-0.5 text-[10px] bg-white border border-[#E4EAEC] rounded text-[#17313A] font-mono shadow-2xs font-semibold">
+          <kbd className="px-1.5 py-0.5 text-[10px] bg-white border border-[#E5E5E5] rounded text-[#171717] font-mono shadow-2xs font-semibold">
             Ctrl K
           </kbd>
         </div>
@@ -424,7 +424,7 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
       {/* Mobile Search Trigger Icon Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="md:hidden p-2 text-[#6B7C83] hover:text-[#086A92] hover:bg-[#EAF5F8] rounded-xl border border-[#E4EAEC] transition-colors cursor-pointer"
+        className="md:hidden p-2 text-[#737373] hover:text-[#990000] hover:bg-[#FEF2F2] rounded-xl border border-[#E5E5E5] transition-colors cursor-pointer"
         aria-label="Search or Quick Command"
         title="Search or Quick Command (Ctrl+K)"
       >
@@ -434,19 +434,19 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
       {/* Command Menu Modal Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-start justify-center pt-12 sm:pt-16 p-3 sm:p-4 bg-[#17313A]/60 backdrop-blur-xs animate-in fade-in duration-150"
+          className="fixed inset-0 z-50 flex items-start justify-center pt-12 sm:pt-16 p-3 sm:p-4 bg-[#171717]/60 backdrop-blur-xs animate-in fade-in duration-150"
           onClick={() => setIsOpen(false)}
           role="dialog"
           aria-modal="true"
           aria-label="Global Search and Quick Action Command Menu"
         >
           <div
-            className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-[#E4EAEC] overflow-hidden flex flex-col max-h-[85vh] animate-in zoom-in-95 duration-150"
+            className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-[#E5E5E5] overflow-hidden flex flex-col max-h-[85vh] animate-in zoom-in-95 duration-150"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Top Search Input Bar */}
-            <div className="p-3.5 border-b border-[#E4EAEC] flex items-center gap-2.5 bg-[#F7FAFA]">
-              <Search className="w-4 h-4 text-[#086A92] shrink-0" />
+            <div className="p-3.5 border-b border-[#E5E5E5] flex items-center gap-2.5 bg-[#F5F5F5]">
+              <Search className="w-4 h-4 text-[#990000] shrink-0" />
               <input
                 ref={inputRef}
                 type="text"
@@ -454,25 +454,25 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleInputKeyDown}
                 placeholder="Search students, faculty, classes, modules, or launch actions..."
-                className="w-full text-xs sm:text-sm bg-transparent border-none text-[#17313A] placeholder:text-[#6B7C83] focus:outline-none"
+                className="w-full text-xs sm:text-sm bg-transparent border-none text-[#171717] placeholder:text-[#737373] focus:outline-none"
               />
-              {loading && <Loader2 className="w-4 h-4 animate-spin text-[#086A92] shrink-0" />}
+              {loading && <Loader2 className="w-4 h-4 animate-spin text-[#990000] shrink-0" />}
               {query && (
                 <button
                   onClick={() => setQuery('')}
-                  className="p-1 text-[#6B7C83] hover:text-[#17313A] rounded-md cursor-pointer shrink-0"
+                  className="p-1 text-[#737373] hover:text-[#171717] rounded-md cursor-pointer shrink-0"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
-              <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] bg-white border border-[#E4EAEC] rounded text-[#6B7C83] font-mono">
+              <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] bg-white border border-[#E5E5E5] rounded text-[#737373] font-mono">
                 ESC
               </kbd>
             </div>
 
             {/* Filter Tabs Bar */}
-            <div className="flex items-center gap-1.5 px-3 py-2 bg-white border-b border-[#E4EAEC]/70 text-[11px] overflow-x-auto">
-              <span className="text-[10px] font-bold uppercase text-[#6B7C83] mr-1 shrink-0">Filter:</span>
+            <div className="flex items-center gap-1.5 px-3 py-2 bg-white border-b border-[#E5E5E5]/70 text-[11px] overflow-x-auto">
+              <span className="text-[10px] font-bold uppercase text-[#737373] mr-1 shrink-0">Filter:</span>
               {(['ALL', 'ACTIONS', 'RECENT', 'MODULES', 'STUDENTS'] as const).map((tab) => (
                 <button
                   key={tab}
@@ -482,8 +482,8 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
                   }}
                   className={`px-2.5 py-1 rounded-lg font-semibold transition-all whitespace-nowrap cursor-pointer ${
                     activeTab === tab
-                      ? 'bg-[#086A92] text-white shadow-2xs'
-                      : 'text-[#6B7C83] hover:bg-[#F7FAFA] hover:text-[#17313A]'
+                      ? 'bg-[#990000] text-white shadow-2xs'
+                      : 'text-[#737373] hover:bg-[#F5F5F5] hover:text-[#171717]'
                   }`}
                 >
                   {tab === 'ALL' && 'All Results'}
@@ -496,11 +496,11 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
             </div>
 
             {/* Results / Action Items List */}
-            <div className="overflow-y-auto p-2 divide-y divide-[#E4EAEC]/50 max-h-[58vh]">
+            <div className="overflow-y-auto p-2 divide-y divide-[#E5E5E5]/50 max-h-[58vh]">
               {/* No matches state */}
               {query.length >= 2 && displayItems.length === 0 && !loading && (
-                <div className="p-8 text-center text-xs text-[#6B7C83] space-y-2">
-                  <p className="font-semibold text-[#17313A]">No matches found for &ldquo;{query}&rdquo;</p>
+                <div className="p-8 text-center text-xs text-[#737373] space-y-2">
+                  <p className="font-semibold text-[#171717]">No matches found for &ldquo;{query}&rdquo;</p>
                   <p className="text-[11px]">
                     Try searching by student name, admission number, module keyword (e.g. &ldquo;fees&rdquo;, &ldquo;attendance&rdquo;) or class.
                   </p>
@@ -510,7 +510,7 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
               {/* Display items */}
               {displayItems.length > 0 && (
                 <div className="space-y-1">
-                  <div className="px-3 py-1 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-[#6B7C83]">
+                  <div className="px-3 py-1 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-[#737373]">
                     <span>
                       {query.length >= 2
                         ? `Search Results (${displayItems.length})`
@@ -534,15 +534,15 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
                         onClick={() => handleSelect(item)}
                         onMouseEnter={() => setSelectedIndex(idx)}
                         className={`w-full text-left p-2.5 rounded-xl flex items-center justify-between transition-all group cursor-pointer ${
-                          isSelected ? 'bg-[#EAF5F8] text-[#086A92]' : 'hover:bg-[#F7FAFA]'
+                          isSelected ? 'bg-[#FEF2F2] text-[#990000]' : 'hover:bg-[#F5F5F5]'
                         }`}
                       >
                         <div className="flex items-center gap-3 min-w-0">
                           <div
                             className={`p-2 rounded-lg transition-colors shrink-0 ${
                               isSelected
-                                ? 'bg-white shadow-2xs text-[#086A92]'
-                                : 'bg-[#F1F5F7] text-[#6B7C83]'
+                                ? 'bg-white shadow-2xs text-[#990000]'
+                                : 'bg-[#F1F5F7] text-[#737373]'
                             }`}
                           >
                             {CustomIcon ? (
@@ -553,14 +553,14 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
                           </div>
                           <div className="truncate">
                             <div className="flex items-center gap-2">
-                              <p className="text-xs font-bold text-[#17313A] truncate">
+                              <p className="text-xs font-bold text-[#171717] truncate">
                                 {item.title}
                               </p>
                               {isPinned && (
                                 <Star className="w-3 h-3 fill-amber-400 text-amber-500 shrink-0" />
                               )}
                             </div>
-                            <p className="text-[11px] text-[#6B7C83] truncate mt-0.5">
+                            <p className="text-[11px] text-[#737373] truncate mt-0.5">
                               {item.subtitle}
                             </p>
                           </div>
@@ -571,9 +571,9 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
                             {item.category}
                           </span>
                           {isSelected ? (
-                            <CornerDownLeft className="w-3.5 h-3.5 text-[#086A92]" />
+                            <CornerDownLeft className="w-3.5 h-3.5 text-[#990000]" />
                           ) : (
-                            <ArrowRight className="w-3.5 h-3.5 text-[#6B7C83] group-hover:text-[#086A92] transition-colors" />
+                            <ArrowRight className="w-3.5 h-3.5 text-[#737373] group-hover:text-[#990000] transition-colors" />
                           )}
                         </div>
                       </button>
@@ -584,22 +584,22 @@ export const OmniSearch: React.FC<OmniSearchProps> = ({ userRole = 'SCHOOL_ADMIN
             </div>
 
             {/* Bottom Keyboard Shortcut Hint Footer */}
-            <div className="p-2.5 bg-[#F7FAFA] border-t border-[#E4EAEC] flex items-center justify-between text-[11px] text-[#6B7C83] px-4">
+            <div className="p-2.5 bg-[#F5F5F5] border-t border-[#E5E5E5] flex items-center justify-between text-[11px] text-[#737373] px-4">
               <div className="flex items-center gap-3">
                 <span className="flex items-center gap-1">
-                  <kbd className="px-1.5 py-0.5 bg-white border border-[#E4EAEC] rounded text-[10px] font-mono">↑↓</kbd>
+                  <kbd className="px-1.5 py-0.5 bg-white border border-[#E5E5E5] rounded text-[10px] font-mono">↑↓</kbd>
                   <span>navigate</span>
                 </span>
                 <span className="flex items-center gap-1">
-                  <kbd className="px-1.5 py-0.5 bg-white border border-[#E4EAEC] rounded text-[10px] font-mono">↵</kbd>
+                  <kbd className="px-1.5 py-0.5 bg-white border border-[#E5E5E5] rounded text-[10px] font-mono">↵</kbd>
                   <span>select / launch</span>
                 </span>
                 <span className="flex items-center gap-1">
-                  <kbd className="px-1.5 py-0.5 bg-white border border-[#E4EAEC] rounded text-[10px] font-mono">esc</kbd>
+                  <kbd className="px-1.5 py-0.5 bg-white border border-[#E5E5E5] rounded text-[10px] font-mono">esc</kbd>
                   <span>close</span>
                 </span>
               </div>
-              <div className="flex items-center gap-1 text-[#086A92] font-semibold">
+              <div className="flex items-center gap-1 text-[#990000] font-semibold">
                 <Zap className="w-3 h-3 text-[#35B84A]" />
                 <span>EdvoNest Instant Command</span>
               </div>

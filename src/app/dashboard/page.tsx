@@ -122,24 +122,24 @@ export default async function DashboardPage() {
   return (
     <div className="space-y-5">
       {/* Top Greeting & Role Context Banner */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white border border-[#E4EAEC] rounded-2xl p-5 shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white border border-[#E5E5E5] rounded-2xl p-5 shadow-2xs">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-lg sm:text-xl font-bold text-[#17313A]">
+            <h1 className="text-lg sm:text-xl font-bold text-[#171717]">
               Good morning, {user.firstName} 👋
             </h1>
             <Badge variant="blue" size="xs">
               {user.role.replace(/_/g, ' ')}
             </Badge>
           </div>
-          <p className="text-xs text-[#6B7C83] mt-0.5">
+          <p className="text-xs text-[#737373] mt-0.5">
             {getRoleGreetingSubtitle()}
           </p>
         </div>
 
         <div className="flex items-center gap-2 text-xs">
-          <span className="text-[#6B7C83]">Active Term:</span>
-          <span className="font-bold text-[#086A92] bg-[#EAF5F8] px-2.5 py-1 rounded-lg border border-[#c0e3ed]">
+          <span className="text-[#737373]">Active Term:</span>
+          <span className="font-bold text-[#990000] bg-[#FEF2F2] px-2.5 py-1 rounded-lg border border-[#FECACA]">
             Session 2025–2026 (Term 2)
           </span>
         </div>

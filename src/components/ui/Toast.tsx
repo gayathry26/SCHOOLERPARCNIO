@@ -52,7 +52,7 @@ const TOAST_STYLES: Record<ToastType, { bg: string; border: string; text: string
     bg: 'bg-sky-50',
     border: 'border-sky-300',
     text: 'text-sky-900',
-    iconColor: 'text-[#086A92]',
+    iconColor: 'text-[#990000]',
   },
 };
 

@@ -70,7 +70,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ currentRole, o
   const tabs = getNavTabs();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#E4EAEC] md:hidden shadow-lg safe-area-pb">
+    <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#E5E5E5] md:hidden shadow-lg safe-area-pb">
       <div className="flex items-center justify-around h-15 px-1">
         {tabs.map((tab) => {
           const Icon = tab.icon;
@@ -81,7 +81,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ currentRole, o
               <button
                 key={tab.label}
                 onClick={onOpenDrawer}
-                className="flex flex-col items-center justify-center flex-1 py-1 text-slate-500 hover:text-[#086A92] transition-colors cursor-pointer"
+                className="flex flex-col items-center justify-center flex-1 py-1 text-slate-500 hover:text-[#990000] transition-colors cursor-pointer"
               >
                 <Icon className="w-5 h-5" />
                 <span className="text-[10px] font-medium tracking-tight mt-0.5">{tab.label}</span>
@@ -95,14 +95,14 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ currentRole, o
               href={tab.href}
               className={`flex flex-col items-center justify-center flex-1 py-1 transition-colors ${
                 isActive
-                  ? 'text-[#086A92] font-bold'
+                  ? 'text-[#990000] font-bold'
                   : 'text-slate-500 hover:text-slate-800'
               }`}
             >
               <div className="relative">
                 <Icon className={`w-5 h-5 ${isActive ? 'stroke-[2.5px]' : 'stroke-2'}`} />
                 {isActive && (
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#086A92]" />
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#990000]" />
                 )}
               </div>
               <span className={`text-[10px] tracking-tight mt-0.5 ${isActive ? 'font-black' : 'font-medium'}`}>

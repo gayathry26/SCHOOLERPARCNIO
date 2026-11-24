@@ -126,10 +126,10 @@ export default function ComponentShowcasePage() {
   return (
     <div className="space-y-8 pb-16">
       {/* Header */}
-      <div className="bg-white border border-[#E4EAEC] p-6 rounded-2xl shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="bg-white border border-[#E5E5E5] p-6 rounded-2xl shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="p-2 rounded-xl bg-[#EAF5F8] text-[#086A92]">
+            <span className="p-2 rounded-xl bg-[#FEF2F2] text-[#990000]">
               <Sparkles className="w-5 h-5" />
             </span>
             <h2 className="text-xl font-black text-slate-900 tracking-tight">
@@ -151,7 +151,7 @@ export default function ComponentShowcasePage() {
       {/* ---------------------------------------------------- */}
       <section className="space-y-3">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-          <Layers className="w-4 h-4 text-[#086A92]" />
+          <Layers className="w-4 h-4 text-[#990000]" />
           <span>1. Smart Stat Cards</span>
         </h3>
         <p className="text-xs text-slate-500">
@@ -203,7 +203,7 @@ export default function ComponentShowcasePage() {
       {/* ---------------------------------------------------- */}
       <section className="space-y-3">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-          <Layers className="w-4 h-4 text-[#086A92]" />
+          <Layers className="w-4 h-4 text-[#990000]" />
           <span>2. Progress Rings</span>
         </h3>
         <p className="text-xs text-slate-500">
@@ -256,7 +256,7 @@ export default function ComponentShowcasePage() {
       {/* ---------------------------------------------------- */}
       <section className="space-y-3">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-          <Layers className="w-4 h-4 text-[#086A92]" />
+          <Layers className="w-4 h-4 text-[#990000]" />
           <span>3 &amp; 4. Interactive Timeline &amp; Calendar Widget</span>
         </h3>
 
@@ -288,7 +288,7 @@ export default function ComponentShowcasePage() {
       {/* ---------------------------------------------------- */}
       <section className="space-y-3">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-          <Layers className="w-4 h-4 text-[#086A92]" />
+          <Layers className="w-4 h-4 text-[#990000]" />
           <span>5. Visual Filters</span>
         </h3>
         <p className="text-xs text-slate-500">
@@ -328,7 +328,7 @@ export default function ComponentShowcasePage() {
       {/* ---------------------------------------------------- */}
       <section className="space-y-3">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-          <Layers className="w-4 h-4 text-[#086A92]" />
+          <Layers className="w-4 h-4 text-[#990000]" />
           <span>6. Profile Header</span>
         </h3>
         <p className="text-xs text-slate-500">
@@ -352,7 +352,7 @@ export default function ComponentShowcasePage() {
             { icon: MapPin, text: 'Sector 62, Noida' },
           ]}
           actions={
-            <Button size="xs" variant="outline" className="text-[#086A92]">
+            <Button size="xs" variant="outline" className="text-[#990000]">
               View Full Dossier
             </Button>
           }
@@ -364,7 +364,7 @@ export default function ComponentShowcasePage() {
       {/* ---------------------------------------------------- */}
       <section className="space-y-3">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-          <Layers className="w-4 h-4 text-[#086A92]" />
+          <Layers className="w-4 h-4 text-[#990000]" />
           <span>7 &amp; 8. Chart Tooltip &amp; Activity Feed</span>
         </h3>
 
@@ -378,7 +378,7 @@ export default function ComponentShowcasePage() {
                 title="CBSE Pre-Board Exam Evaluation"
                 delta={{ value: '+4.2% vs Term 1', isPositive: true }}
                 entries={[
-                  { label: 'Student Score', value: '92.4%', color: '#086A92' },
+                  { label: 'Student Score', value: '92.4%', color: '#990000' },
                   { label: 'Class Section Average', value: '76.8%', color: '#16A34A' },
                   { label: 'Highest Benchmark', value: '98.0%', color: '#7C3AED' },
                 ]}
@@ -400,7 +400,7 @@ export default function ComponentShowcasePage() {
       {/* ---------------------------------------------------- */}
       <section className="space-y-3">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-          <Layers className="w-4 h-4 text-[#086A92]" />
+          <Layers className="w-4 h-4 text-[#990000]" />
           <span>9, 10, 11 &amp; 12. Notification Toasts, Modals &amp; File Preview</span>
         </h3>
 
@@ -442,7 +442,7 @@ export default function ComponentShowcasePage() {
             <Button
               size="sm"
               variant="outline"
-              className="text-[#086A92] border-sky-300"
+              className="text-[#990000] border-sky-300"
               onClick={() =>
                 setPreviewFile({
                   title: 'Class 10 CBSE Board Marksheet',
@@ -474,7 +474,7 @@ export default function ComponentShowcasePage() {
       {/* ---------------------------------------------------- */}
       <section className="space-y-3">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-          <Layers className="w-4 h-4 text-[#086A92]" />
+          <Layers className="w-4 h-4 text-[#990000]" />
           <span>13 &amp; 14. Skeleton Loading System &amp; Smart Empty States</span>
         </h3>
 

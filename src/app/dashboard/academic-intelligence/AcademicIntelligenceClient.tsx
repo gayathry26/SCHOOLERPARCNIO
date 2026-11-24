@@ -156,11 +156,11 @@ export const AcademicIntelligenceClient: React.FC<{
   return (
     <div className="space-y-6">
       {/* Top Banner */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-              <BrainCircuit className="w-6 h-6 text-[#086A92]" />
+              <BrainCircuit className="w-6 h-6 text-[#990000]" />
               <span>Advanced Academic Intelligence &amp; Intervention</span>
             </h2>
             <Badge variant="blue" size="sm">
@@ -178,7 +178,7 @@ export const AcademicIntelligenceClient: React.FC<{
           <select
             value={selectedClassId}
             onChange={(e) => setSelectedClassId(e.target.value)}
-            className="text-xs bg-[#F7FAFA] border border-[#E4EAEC] rounded-lg px-3 py-1.5 font-semibold text-slate-800 focus:outline-none focus:border-[#086A92]"
+            className="text-xs bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg px-3 py-1.5 font-semibold text-slate-800 focus:outline-none focus:border-[#990000]"
           >
             <option value="all">All School Classes</option>
             {classes.map((c) => (
@@ -343,7 +343,7 @@ export const AcademicIntelligenceClient: React.FC<{
               </div>
               <div>
                 <h3 className="font-bold text-slate-900 text-sm">{ch.name}</h3>
-                <p className="text-xs text-[#086A92] font-semibold mt-0.5">{ch.subject?.name}</p>
+                <p className="text-xs text-[#990000] font-semibold mt-0.5">{ch.subject?.name}</p>
               </div>
               {ch.completedAt ? (
                 <p className="text-[11px] text-slate-400">
@@ -351,7 +351,7 @@ export const AcademicIntelligenceClient: React.FC<{
                 </p>
               ) : (
                 <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                  <div className="bg-[#086A92] h-full rounded-full w-3/5" />
+                  <div className="bg-[#990000] h-full rounded-full w-3/5" />
                 </div>
               )}
             </Card>
@@ -368,17 +368,17 @@ export const AcademicIntelligenceClient: React.FC<{
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4">
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center space-y-1">
               <span className="text-xs text-slate-500 font-bold uppercase">Class 10 - Section A</span>
-              <p className="text-2xl font-black text-[#086A92]">86.4%</p>
+              <p className="text-2xl font-black text-[#990000]">86.4%</p>
               <span className="text-xs text-emerald-600 font-semibold">+3.1% over school avg</span>
             </div>
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center space-y-1">
               <span className="text-xs text-slate-500 font-bold uppercase">Class 10 - Section B</span>
-              <p className="text-2xl font-black text-[#17313A]">82.1%</p>
+              <p className="text-2xl font-black text-[#171717]">82.1%</p>
               <span className="text-xs text-slate-500 font-semibold">On target</span>
             </div>
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center space-y-1">
               <span className="text-xs text-slate-500 font-bold uppercase">Class 9 - Section A</span>
-              <p className="text-2xl font-black text-[#008C91]">84.8%</p>
+              <p className="text-2xl font-black text-[#C00000]">84.8%</p>
               <span className="text-xs text-emerald-600 font-semibold">+1.5% over school avg</span>
             </div>
           </div>

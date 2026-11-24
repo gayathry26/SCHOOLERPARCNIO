@@ -100,7 +100,7 @@ export const ReportsClient: React.FC<{
       title: 'Student Reports',
       desc: 'Enrollment registers, demographic distributions, and house listings',
       icon: GraduationCap,
-      color: 'bg-[#EAF5F8] text-[#086A92]',
+      color: 'bg-[#FEF2F2] text-[#990000]',
       count: `${students.length} Students`,
       onExport: exportStudentsReport,
     },
@@ -124,7 +124,7 @@ export const ReportsClient: React.FC<{
       title: 'Academic & Exam Reports',
       desc: 'Marksheets, subject performance averages, and term rankings',
       icon: FileCheck2,
-      color: 'bg-[#E0F5F5] text-[#008C91]',
+      color: 'bg-[#FEF2F2] text-[#C00000]',
       count: `${marks.length} Records`,
       onExport: exportExamsReport,
     },
@@ -132,7 +132,7 @@ export const ReportsClient: React.FC<{
       title: 'Staff & HR Reports',
       desc: 'Faculty directories, department allocations, and employee codes',
       icon: Users,
-      color: 'bg-[#F1F5F7] text-[#17313A]',
+      color: 'bg-[#F1F5F7] text-[#171717]',
       count: `${staff.length} Staff`,
       onExport: exportStaffReport,
     },
@@ -141,13 +141,13 @@ export const ReportsClient: React.FC<{
   return (
     <div className="space-y-5">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white border border-[#E4EAEC] rounded-xl p-5 shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white border border-[#E5E5E5] rounded-xl p-5 shadow-2xs">
         <div>
-          <h2 className="text-lg sm:text-xl font-bold text-[#17313A] tracking-tight flex items-center gap-2">
-            <BarChart3 className="w-5 h-5 text-[#086A92]" />
+          <h2 className="text-lg sm:text-xl font-bold text-[#171717] tracking-tight flex items-center gap-2">
+            <BarChart3 className="w-5 h-5 text-[#990000]" />
             <span>Categorized School Reports Hub</span>
           </h2>
-          <p className="text-xs text-[#6B7C83] mt-0.5">
+          <p className="text-xs text-[#737373] mt-0.5">
             Download clean, organized CSV spreadsheets categorized by module.
           </p>
         </div>
@@ -166,17 +166,17 @@ export const ReportsClient: React.FC<{
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-[#17313A] text-sm">{cat.title}</h3>
-                      <span className="text-[10px] text-[#6B7C83] font-semibold">{cat.count}</span>
+                      <h3 className="font-bold text-[#171717] text-sm">{cat.title}</h3>
+                      <span className="text-[10px] text-[#737373] font-semibold">{cat.count}</span>
                     </div>
                   </div>
                 </div>
-                <p className="text-xs text-[#6B7C83] leading-relaxed">
+                <p className="text-xs text-[#737373] leading-relaxed">
                   {cat.desc}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-[#E4EAEC] flex justify-end">
+              <div className="pt-3 border-t border-[#E5E5E5] flex justify-end">
                 <Button
                   variant="primary"
                   size="xs"

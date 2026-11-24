@@ -67,11 +67,11 @@ export const MultiCampusClient: React.FC<{
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-              <Building2 className="w-6 h-6 text-[#086A92]" />
+              <Building2 className="w-6 h-6 text-[#990000]" />
               <span>Multi-Campus Architecture &amp; Group Network</span>
             </h2>
             <Badge variant="purple" size="sm">
@@ -87,7 +87,7 @@ export const MultiCampusClient: React.FC<{
           <Button
             size="sm"
             variant="primary"
-            className="bg-[#086A92] hover:bg-[#065A7D] text-white flex items-center gap-1.5"
+            className="bg-[#990000] hover:bg-[#800000] text-white flex items-center gap-1.5"
             onClick={() => setIsAddModalOpen(true)}
           >
             <Plus className="w-3.5 h-3.5" />
@@ -103,7 +103,7 @@ export const MultiCampusClient: React.FC<{
           value={`${branches.length} Campuses`}
           change="Delhi NCR Region"
           trend="neutral"
-          icon={<Building2 className="w-5 h-5 text-[#086A92]" />}
+          icon={<Building2 className="w-5 h-5 text-[#990000]" />}
         />
         <StatCard
           title="Consolidated Student Strength"
@@ -154,7 +154,7 @@ export const MultiCampusClient: React.FC<{
                 key={b.id}
                 className={`p-5 rounded-2xl border transition-all ${
                   isSelected
-                    ? 'border-[#086A92] ring-2 ring-[#086A92]/20 bg-sky-50/20'
+                    ? 'border-[#990000] ring-2 ring-[#990000]/20 bg-sky-50/20'
                     : 'border-slate-200 bg-white hover:border-slate-300'
                 }`}
               >
@@ -187,7 +187,7 @@ export const MultiCampusClient: React.FC<{
                   </div>
                   <div className="flex justify-between text-slate-600">
                     <span>CBSE Board Average:</span>
-                    <strong className="text-[#086A92] font-mono font-bold">{cbseAverage}</strong>
+                    <strong className="text-[#990000] font-mono font-bold">{cbseAverage}</strong>
                   </div>
                 </div>
 
@@ -195,7 +195,7 @@ export const MultiCampusClient: React.FC<{
                   <Button
                     size="xs"
                     variant={isSelected ? 'primary' : 'outline'}
-                    className={isSelected ? 'bg-[#086A92] text-white' : 'text-[#086A92]'}
+                    className={isSelected ? 'bg-[#990000] text-white' : 'text-[#990000]'}
                     onClick={() => setActiveBranchId(b.id)}
                   >
                     {isSelected ? 'Active Context' : 'Switch Context'}
@@ -223,7 +223,7 @@ export const MultiCampusClient: React.FC<{
               required
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -235,7 +235,7 @@ export const MultiCampusClient: React.FC<{
                 required
                 value={form.branchCode}
                 onChange={(e) => setForm({ ...form, branchCode: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -244,7 +244,7 @@ export const MultiCampusClient: React.FC<{
                 type="number"
                 value={form.studentCapacity}
                 onChange={(e) => setForm({ ...form, studentCapacity: parseInt(e.target.value) || 1500 })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -257,7 +257,7 @@ export const MultiCampusClient: React.FC<{
                 required
                 value={form.principalName}
                 onChange={(e) => setForm({ ...form, principalName: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -267,7 +267,7 @@ export const MultiCampusClient: React.FC<{
                 required
                 value={form.contactPhone}
                 onChange={(e) => setForm({ ...form, contactPhone: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -278,7 +278,7 @@ export const MultiCampusClient: React.FC<{
               type="text"
               value={form.address}
               onChange={(e) => setForm({ ...form, address: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -289,7 +289,7 @@ export const MultiCampusClient: React.FC<{
                 type="text"
                 value={form.city}
                 onChange={(e) => setForm({ ...form, city: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -298,7 +298,7 @@ export const MultiCampusClient: React.FC<{
                 type="text"
                 value={form.state}
                 onChange={(e) => setForm({ ...form, state: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -307,7 +307,7 @@ export const MultiCampusClient: React.FC<{
             <Button size="sm" variant="outline" type="button" onClick={() => setIsAddModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" className="bg-[#990000] text-white">
               Save Campus Branch
             </Button>
           </div>

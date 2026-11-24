@@ -62,7 +62,7 @@ export const RoleDashboardCharts: React.FC<ChartsProps> = ({
         <CardHeader className="mb-2">
           <div>
             <CardTitle>Today&apos;s Attendance Overview</CardTitle>
-            <p className="text-[11px] text-[#6B7C83] mt-0.5">
+            <p className="text-[11px] text-[#737373] mt-0.5">
               Breakdown across Present, Absent, and On Leave
             </p>
           </div>
@@ -74,14 +74,14 @@ export const RoleDashboardCharts: React.FC<ChartsProps> = ({
                 contentStyle={{
                   backgroundColor: '#ffffff',
                   borderRadius: '10px',
-                  borderColor: '#E4EAEC',
+                  borderColor: '#E5E5E5',
                   fontSize: '11px',
                   boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
                 }}
               />
               <Legend
                 wrapperStyle={{ fontSize: '11px', paddingTop: '8px' }}
-                formatter={(value) => <span className="text-[#17313A] font-semibold">{value}</span>}
+                formatter={(value) => <span className="text-[#171717] font-semibold">{value}</span>}
               />
               <Pie
                 data={attendancePieData}
@@ -97,18 +97,18 @@ export const RoleDashboardCharts: React.FC<ChartsProps> = ({
             </PieChart>
           </ResponsiveContainer>
         </div>
-        <div className="pt-2 border-t border-[#E4EAEC] grid grid-cols-3 text-center text-xs">
+        <div className="pt-2 border-t border-[#E5E5E5] grid grid-cols-3 text-center text-xs">
           <div>
             <p className="text-[#35B84A] font-bold">{attendancePresent}</p>
-            <p className="text-[10px] text-[#6B7C83]">Present</p>
+            <p className="text-[10px] text-[#737373]">Present</p>
           </div>
           <div>
             <p className="text-[#DC2626] font-bold">{attendanceAbsent}</p>
-            <p className="text-[10px] text-[#6B7C83]">Absent</p>
+            <p className="text-[10px] text-[#737373]">Absent</p>
           </div>
           <div>
             <p className="text-[#D97706] font-bold">{attendanceLeave}</p>
-            <p className="text-[10px] text-[#6B7C83]">Leave</p>
+            <p className="text-[10px] text-[#737373]">Leave</p>
           </div>
         </div>
       </Card>
@@ -118,7 +118,7 @@ export const RoleDashboardCharts: React.FC<ChartsProps> = ({
         <CardHeader className="mb-2">
           <div>
             <CardTitle>Fee Collection &amp; Pending Dues</CardTitle>
-            <p className="text-[11px] text-[#6B7C83] mt-0.5">
+            <p className="text-[11px] text-[#737373] mt-0.5">
               Monthly collections vs outstanding balances (in ₹ INR)
             </p>
           </div>
@@ -128,18 +128,18 @@ export const RoleDashboardCharts: React.FC<ChartsProps> = ({
             <AreaChart data={MONTHLY_COLLECTION_DATA} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
               <defs>
                 <linearGradient id="colorCollected" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#086A92" stopOpacity={0.25} />
-                  <stop offset="95%" stopColor="#086A92" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#990000" stopOpacity={0.25} />
+                  <stop offset="95%" stopColor="#990000" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="colorPending" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#D97706" stopOpacity={0.2} />
                   <stop offset="95%" stopColor="#D97706" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#E4EAEC" />
-              <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#6B7C83' }} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#E5E5E5" />
+              <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#737373' }} />
               <YAxis
-                tick={{ fontSize: 11, fill: '#6B7C83' }}
+                tick={{ fontSize: 11, fill: '#737373' }}
                 tickFormatter={(val) => `₹${val / 1000}k`}
               />
               <Tooltip
@@ -147,7 +147,7 @@ export const RoleDashboardCharts: React.FC<ChartsProps> = ({
                 contentStyle={{
                   backgroundColor: '#ffffff',
                   borderRadius: '10px',
-                  borderColor: '#E4EAEC',
+                  borderColor: '#E5E5E5',
                   fontSize: '11px',
                   boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
                 }}
@@ -156,7 +156,7 @@ export const RoleDashboardCharts: React.FC<ChartsProps> = ({
               <Area
                 type="monotone"
                 dataKey="Collected"
-                stroke="#086A92"
+                stroke="#990000"
                 strokeWidth={2}
                 fillOpacity={1}
                 fill="url(#colorCollected)"
@@ -172,9 +172,9 @@ export const RoleDashboardCharts: React.FC<ChartsProps> = ({
             </AreaChart>
           </ResponsiveContainer>
         </div>
-        <div className="pt-2 border-t border-[#E4EAEC] flex items-center justify-between text-xs px-2">
-          <span className="text-[#6B7C83]">Total Collected (YTD): <strong className="text-[#086A92]">{formatCurrency(totalCollected)}</strong></span>
-          <span className="text-[#6B7C83]">Outstanding: <strong className="text-[#D97706]">{formatCurrency(totalPending)}</strong></span>
+        <div className="pt-2 border-t border-[#E5E5E5] flex items-center justify-between text-xs px-2">
+          <span className="text-[#737373]">Total Collected (YTD): <strong className="text-[#990000]">{formatCurrency(totalCollected)}</strong></span>
+          <span className="text-[#737373]">Outstanding: <strong className="text-[#D97706]">{formatCurrency(totalPending)}</strong></span>
         </div>
       </Card>
     </div>

@@ -65,7 +65,7 @@ export const VisualFilters: React.FC<VisualFiltersProps> = ({
               placeholder={searchPlaceholder}
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full pl-9 pr-8 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-[#086A92] outline-none transition"
+              className="w-full pl-9 pr-8 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-[#990000] outline-none transition"
             />
             {searchQuery && (
               <button
@@ -83,7 +83,7 @@ export const VisualFilters: React.FC<VisualFiltersProps> = ({
             <select
               value={selectedDropdownValue}
               onChange={(e) => onSelectDropdown(e.target.value)}
-              className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-[#086A92] outline-none text-slate-700 transition"
+              className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-[#990000] outline-none text-slate-700 transition"
             >
               {dropdownOptions.map((opt) => (
                 <option key={opt.value} value={opt.value}>
@@ -117,7 +117,7 @@ export const VisualFilters: React.FC<VisualFiltersProps> = ({
                 onClick={() => onSelectChip(chip.id)}
                 className={`px-3 py-1.5 rounded-full font-medium whitespace-nowrap transition flex items-center gap-1.5 border text-xs ${
                   isSelected
-                    ? 'bg-[#086A92] text-white border-[#086A92] shadow-2xs font-semibold'
+                    ? 'bg-[#990000] text-white border-[#990000] shadow-2xs font-semibold'
                     : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
                 }`}
               >

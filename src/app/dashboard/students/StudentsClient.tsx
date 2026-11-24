@@ -124,7 +124,7 @@ export const StudentsClient: React.FC<{
       key: 'admissionNumber',
       header: 'Admission No',
       render: (row) => (
-        <span className="font-mono font-bold text-[#086A92]">{row.admissionNumber}</span>
+        <span className="font-mono font-bold text-[#990000]">{row.admissionNumber}</span>
       ),
     },
     {
@@ -136,11 +136,11 @@ export const StudentsClient: React.FC<{
           <div>
             <Link
               href={`/dashboard/students/${row.id}`}
-              className="font-bold text-[#17313A] hover:text-[#086A92] transition-colors"
+              className="font-bold text-[#171717] hover:text-[#990000] transition-colors"
             >
               {row.name}
             </Link>
-            <span className="text-[10.5px] text-[#6B7C83] block">{row.email}</span>
+            <span className="text-[10.5px] text-[#737373] block">{row.email}</span>
           </div>
         </div>
       ),
@@ -149,7 +149,7 @@ export const StudentsClient: React.FC<{
       key: 'className',
       header: 'Class',
       render: (row) => (
-        <span className="font-semibold text-[#17313A]">
+        <span className="font-semibold text-[#171717]">
           {row.className}
         </span>
       ),
@@ -158,7 +158,7 @@ export const StudentsClient: React.FC<{
       key: 'sectionName',
       header: 'Section',
       render: (row) => (
-        <span className="font-medium text-[#6B7C83]">
+        <span className="font-medium text-[#737373]">
           {row.sectionName}
         </span>
       ),
@@ -166,15 +166,15 @@ export const StudentsClient: React.FC<{
     {
       key: 'rollNumber',
       header: 'Roll No',
-      render: (row) => <span className="font-mono text-[#17313A] font-semibold">{row.rollNumber}</span>,
+      render: (row) => <span className="font-mono text-[#171717] font-semibold">{row.rollNumber}</span>,
     },
     {
       key: 'parentName',
       header: 'Parent / Contact',
       render: (row) => (
         <div>
-          <span className="font-medium text-[#17313A] text-xs block">{row.parentName}</span>
-          <span className="text-[10.5px] text-[#6B7C83] font-mono">{row.parentPhone}</span>
+          <span className="font-medium text-[#171717] text-xs block">{row.parentName}</span>
+          <span className="text-[10.5px] text-[#737373] font-mono">{row.parentPhone}</span>
         </div>
       ),
     },
@@ -185,12 +185,12 @@ export const StudentsClient: React.FC<{
         const houseColors: Record<string, string> = {
           Ruby: 'bg-[#FEE2E2] text-[#DC2626] border-[#FECACA]',
           Emerald: 'bg-[#EAF8EC] text-[#16A34A] border-[#bbf0c5]',
-          Sapphire: 'bg-[#EAF5F8] text-[#086A92] border-[#c0e3ed]',
+          Sapphire: 'bg-[#FEF2F2] text-[#990000] border-[#FECACA]',
           Topaz: 'bg-[#FEF3C7] text-[#B45309] border-[#FDE68A]',
         };
         return (
           <span
-            className={`px-2 py-0.5 text-[10.5px] font-bold rounded-full border ${houseColors[row.house] || 'bg-[#F1F5F7] text-[#6B7C83] border-[#E4EAEC]'
+            className={`px-2 py-0.5 text-[10.5px] font-bold rounded-full border ${houseColors[row.house] || 'bg-[#F1F5F7] text-[#737373] border-[#E5E5E5]'
               }`}
           >
             {row.house}
@@ -204,7 +204,7 @@ export const StudentsClient: React.FC<{
       sortable: false,
       render: (row) => (
         <Link href={`/dashboard/students/${row.id}`}>
-          <Button variant="outline" size="xs" leftIcon={<Eye className="w-3 h-3 text-[#086A92]" />}>
+          <Button variant="outline" size="xs" leftIcon={<Eye className="w-3 h-3 text-[#990000]" />}>
             View
           </Button>
         </Link>
@@ -356,18 +356,18 @@ export const StudentsClient: React.FC<{
   return (
     <div className="space-y-5">
       {/* Top Header & Actions */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white border border-[#E4EAEC] rounded-xl p-5 shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white border border-[#E5E5E5] rounded-xl p-5 shadow-2xs">
         <div>
           <div className="flex items-center gap-2">
-            <h2 className="text-lg sm:text-xl font-bold text-[#17313A] tracking-tight flex items-center gap-2">
-              <GraduationCap className="w-5 h-5 text-[#086A92]" />
+            <h2 className="text-lg sm:text-xl font-bold text-[#171717] tracking-tight flex items-center gap-2">
+              <GraduationCap className="w-5 h-5 text-[#990000]" />
               <span>Students</span>
             </h2>
             <Badge variant="blue" size="sm">
               {filteredStudents.length} Students
             </Badge>
           </div>
-          <p className="text-xs text-[#6B7C83] mt-0.5">
+          <p className="text-xs text-[#737373] mt-0.5">
             Manage student records, enrollment, parent details, promotions, and batch tools.
           </p>
         </div>
@@ -378,7 +378,7 @@ export const StudentsClient: React.FC<{
               variant="outline"
               size="sm"
               onClick={() => setIsPromoteModalOpen(true)}
-              leftIcon={<ArrowRightLeft className="w-3.5 h-3.5 text-[#008C91]" />}
+              leftIcon={<ArrowRightLeft className="w-3.5 h-3.5 text-[#C00000]" />}
             >
               Promote ({selectedStudents.length})
             </Button>
@@ -388,7 +388,7 @@ export const StudentsClient: React.FC<{
             variant="outline"
             size="sm"
             onClick={() => setIsImportModalOpen(true)}
-            leftIcon={<Upload className="w-3.5 h-3.5 text-[#6B7C83]" />}
+            leftIcon={<Upload className="w-3.5 h-3.5 text-[#737373]" />}
           >
             Import CSV
           </Button>
@@ -408,9 +408,9 @@ export const StudentsClient: React.FC<{
       </div>
 
       {/* Filter Selectors Bar */}
-      <div className="bg-white p-3.5 rounded-xl border border-[#E4EAEC] shadow-2xs flex flex-wrap items-center gap-3 text-xs">
-        <div className="flex items-center gap-1.5 text-[#17313A] font-bold">
-          <Filter className="w-3.5 h-3.5 text-[#086A92]" />
+      <div className="bg-white p-3.5 rounded-xl border border-[#E5E5E5] shadow-2xs flex flex-wrap items-center gap-3 text-xs">
+        <div className="flex items-center gap-1.5 text-[#171717] font-bold">
+          <Filter className="w-3.5 h-3.5 text-[#990000]" />
           <span>Filters:</span>
         </div>
 
@@ -420,7 +420,7 @@ export const StudentsClient: React.FC<{
             setSelectedClass(e.target.value);
             setSelectedSection('');
           }}
-          className="bg-[#F7FAFA] border border-[#E4EAEC] rounded-lg px-2.5 py-1.5 text-xs text-[#17313A] font-semibold focus:outline-none focus:ring-1 focus:ring-[#086A92]"
+          className="bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg px-2.5 py-1.5 text-xs text-[#171717] font-semibold focus:outline-none focus:ring-1 focus:ring-[#990000]"
         >
           <option value="">All Classes ({classes.length})</option>
           {classes.map((c) => (
@@ -434,7 +434,7 @@ export const StudentsClient: React.FC<{
           <select
             value={selectedSection}
             onChange={(e) => setSelectedSection(e.target.value)}
-            className="bg-[#F7FAFA] border border-[#E4EAEC] rounded-lg px-2.5 py-1.5 text-xs text-[#17313A] font-semibold focus:outline-none focus:ring-1 focus:ring-[#086A92]"
+            className="bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg px-2.5 py-1.5 text-xs text-[#171717] font-semibold focus:outline-none focus:ring-1 focus:ring-[#990000]"
           >
             <option value="">All Sections</option>
             {classes
@@ -453,14 +453,14 @@ export const StudentsClient: React.FC<{
               setSelectedClass('');
               setSelectedSection('');
             }}
-            className="text-[#086A92] font-bold hover:underline cursor-pointer"
+            className="text-[#990000] font-bold hover:underline cursor-pointer"
           >
             Reset Filters
           </button>
         )}
 
-        <div className="ml-auto text-[#6B7C83]">
-          Showing <span className="font-bold text-[#17313A]">{filteredStudents.length}</span> students
+        <div className="ml-auto text-[#737373]">
+          Showing <span className="font-bold text-[#171717]">{filteredStudents.length}</span> students
         </div>
       </div>
 
@@ -495,29 +495,29 @@ export const StudentsClient: React.FC<{
             {/* Step 1: Basic Information */}
             {addStep === 1 && (
               <div className="space-y-3 animate-in fade-in duration-150">
-                <h4 className="font-bold text-sm text-[#17313A] pb-1 border-b border-[#E4EAEC]">
+                <h4 className="font-bold text-sm text-[#171717] pb-1 border-b border-[#E5E5E5]">
                   Step 1: Basic Information
                 </h4>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block font-bold text-[#17313A] mb-1">First Name *</label>
+                    <label className="block font-bold text-[#171717] mb-1">First Name *</label>
                     <input
                       type="text"
                       required
                       value={formData.firstName}
                       onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                      className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
                       placeholder="Aarav"
                     />
                   </div>
                   <div>
-                    <label className="block font-bold text-[#17313A] mb-1">Last Name *</label>
+                    <label className="block font-bold text-[#171717] mb-1">Last Name *</label>
                     <input
                       type="text"
                       required
                       value={formData.lastName}
                       onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                      className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
                       placeholder="Verma"
                     />
                   </div>
@@ -525,11 +525,11 @@ export const StudentsClient: React.FC<{
 
                 <div className="grid grid-cols-3 gap-3">
                   <div>
-                    <label className="block font-bold text-[#17313A] mb-1">Gender *</label>
+                    <label className="block font-bold text-[#171717] mb-1">Gender *</label>
                     <select
                       value={formData.gender}
                       onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
-                      className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92] bg-white font-semibold"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000] bg-white font-semibold"
                     >
                       <option value="MALE">Male</option>
                       <option value="FEMALE">Female</option>
@@ -537,21 +537,21 @@ export const StudentsClient: React.FC<{
                     </select>
                   </div>
                   <div>
-                    <label className="block font-bold text-[#17313A] mb-1">Date of Birth *</label>
+                    <label className="block font-bold text-[#171717] mb-1">Date of Birth *</label>
                     <input
                       type="date"
                       required
                       value={formData.dob}
                       onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
-                      className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
                     />
                   </div>
                   <div>
-                    <label className="block font-bold text-[#17313A] mb-1">Blood Group</label>
+                    <label className="block font-bold text-[#171717] mb-1">Blood Group</label>
                     <select
                       value={formData.bloodGroup}
                       onChange={(e) => setFormData({ ...formData, bloodGroup: e.target.value })}
-                      className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92] bg-white"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000] bg-white"
                     >
                       <option value="A+">A+</option>
                       <option value="A-">A-</option>
@@ -570,40 +570,40 @@ export const StudentsClient: React.FC<{
             {/* Step 2: Parent Information */}
             {addStep === 2 && (
               <div className="space-y-3 animate-in fade-in duration-150">
-                <h4 className="font-bold text-sm text-[#17313A] pb-1 border-b border-[#E4EAEC]">
+                <h4 className="font-bold text-sm text-[#171717] pb-1 border-b border-[#E5E5E5]">
                   Step 2: Parent / Guardian Information
                 </h4>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block font-bold text-[#17313A] mb-1">Parent Full Name *</label>
+                    <label className="block font-bold text-[#171717] mb-1">Parent Full Name *</label>
                     <input
                       type="text"
                       required
                       value={formData.parentName}
                       onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
-                      className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
                       placeholder="Ramesh Verma"
                     />
                   </div>
                   <div>
-                    <label className="block font-bold text-[#17313A] mb-1">Parent Phone *</label>
+                    <label className="block font-bold text-[#171717] mb-1">Parent Phone *</label>
                     <input
                       type="tel"
                       required
                       value={formData.parentPhone}
                       onChange={(e) => setFormData({ ...formData, parentPhone: e.target.value })}
-                      className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
                       placeholder="+91 98100 12345"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block font-bold text-[#17313A] mb-1">Parent Email</label>
+                  <label className="block font-bold text-[#171717] mb-1">Parent Email</label>
                   <input
                     type="email"
                     value={formData.parentEmail}
                     onChange={(e) => setFormData({ ...formData, parentEmail: e.target.value })}
-                    className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                    className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
                     placeholder="parent@example.com"
                   />
                 </div>
@@ -613,12 +613,12 @@ export const StudentsClient: React.FC<{
             {/* Step 3: Academic Information */}
             {addStep === 3 && (
               <div className="space-y-3 animate-in fade-in duration-150">
-                <h4 className="font-bold text-sm text-[#17313A] pb-1 border-b border-[#E4EAEC]">
+                <h4 className="font-bold text-sm text-[#171717] pb-1 border-b border-[#E5E5E5]">
                   Step 3: Academic &amp; Class Placement
                 </h4>
                 <div className="grid grid-cols-3 gap-3">
                   <div>
-                    <label className="block font-bold text-[#17313A] mb-1">Class *</label>
+                    <label className="block font-bold text-[#171717] mb-1">Class *</label>
                     <select
                       value={formData.classId}
                       onChange={(e) => {
@@ -630,7 +630,7 @@ export const StudentsClient: React.FC<{
                           sectionId: c?.sections[0]?.id || '',
                         });
                       }}
-                      className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92] bg-white font-semibold"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000] bg-white font-semibold"
                     >
                       {classes.map((c) => (
                         <option key={c.id} value={c.id}>
@@ -640,11 +640,11 @@ export const StudentsClient: React.FC<{
                     </select>
                   </div>
                   <div>
-                    <label className="block font-bold text-[#17313A] mb-1">Section *</label>
+                    <label className="block font-bold text-[#171717] mb-1">Section *</label>
                     <select
                       value={formData.sectionId}
                       onChange={(e) => setFormData({ ...formData, sectionId: e.target.value })}
-                      className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92] bg-white font-semibold"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000] bg-white font-semibold"
                     >
                       {classes
                         .find((c) => c.id === formData.classId)
@@ -656,12 +656,12 @@ export const StudentsClient: React.FC<{
                     </select>
                   </div>
                   <div>
-                    <label className="block font-bold text-[#17313A] mb-1">Roll Number</label>
+                    <label className="block font-bold text-[#171717] mb-1">Roll Number</label>
                     <input
                       type="text"
                       value={formData.rollNumber}
                       onChange={(e) => setFormData({ ...formData, rollNumber: e.target.value })}
-                      className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
                       placeholder="10A05"
                     />
                   </div>
@@ -672,27 +672,27 @@ export const StudentsClient: React.FC<{
             {/* Step 4: Residential Address & House */}
             {addStep === 4 && (
               <div className="space-y-3 animate-in fade-in duration-150">
-                <h4 className="font-bold text-sm text-[#17313A] pb-1 border-b border-[#E4EAEC]">
+                <h4 className="font-bold text-sm text-[#171717] pb-1 border-b border-[#E5E5E5]">
                   Step 4: Residential Address &amp; House
                 </h4>
                 <div className="grid grid-cols-3 gap-3">
                   <div className="col-span-2">
-                    <label className="block font-bold text-[#17313A] mb-1">Address *</label>
+                    <label className="block font-bold text-[#171717] mb-1">Address *</label>
                     <input
                       type="text"
                       required
                       value={formData.address}
                       onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                      className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
                       placeholder="Plot 12, Sector 62"
                     />
                   </div>
                   <div>
-                    <label className="block font-bold text-[#17313A] mb-1">House</label>
+                    <label className="block font-bold text-[#171717] mb-1">House</label>
                     <select
                       value={formData.house}
                       onChange={(e) => setFormData({ ...formData, house: e.target.value })}
-                      className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92] bg-white font-semibold"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000] bg-white font-semibold"
                     >
                       <option value="Emerald">Emerald</option>
                       <option value="Ruby">Ruby</option>
@@ -707,28 +707,28 @@ export const StudentsClient: React.FC<{
             {/* Step 5: Review & Confirmation */}
             {addStep === 5 && (
               <div className="space-y-3 animate-in fade-in duration-150">
-                <h4 className="font-bold text-sm text-[#17313A] pb-1 border-b border-[#E4EAEC]">
+                <h4 className="font-bold text-sm text-[#171717] pb-1 border-b border-[#E5E5E5]">
                   Step 5: Review Enrollment Details
                 </h4>
-                <div className="bg-[#F7FAFA] p-4 rounded-xl border border-[#E4EAEC] space-y-2.5">
-                  <div className="flex justify-between border-b border-[#E4EAEC] pb-2">
-                    <span className="text-[#6B7C83]">Student Name:</span>
-                    <span className="font-bold text-[#17313A]">{formData.firstName} {formData.lastName}</span>
+                <div className="bg-[#F5F5F5] p-4 rounded-xl border border-[#E5E5E5] space-y-2.5">
+                  <div className="flex justify-between border-b border-[#E5E5E5] pb-2">
+                    <span className="text-[#737373]">Student Name:</span>
+                    <span className="font-bold text-[#171717]">{formData.firstName} {formData.lastName}</span>
                   </div>
-                  <div className="flex justify-between border-b border-[#E4EAEC] pb-2">
-                    <span className="text-[#6B7C83]">Class &amp; Section:</span>
-                    <span className="font-bold text-[#086A92]">{selectedClassName} - Section {selectedSectionName}</span>
+                  <div className="flex justify-between border-b border-[#E5E5E5] pb-2">
+                    <span className="text-[#737373]">Class &amp; Section:</span>
+                    <span className="font-bold text-[#990000]">{selectedClassName} - Section {selectedSectionName}</span>
                   </div>
-                  <div className="flex justify-between border-b border-[#E4EAEC] pb-2">
-                    <span className="text-[#6B7C83]">Gender / DOB:</span>
-                    <span className="font-bold text-[#17313A]">{formData.gender} • {formData.dob}</span>
+                  <div className="flex justify-between border-b border-[#E5E5E5] pb-2">
+                    <span className="text-[#737373]">Gender / DOB:</span>
+                    <span className="font-bold text-[#171717]">{formData.gender} • {formData.dob}</span>
                   </div>
-                  <div className="flex justify-between border-b border-[#E4EAEC] pb-2">
-                    <span className="text-[#6B7C83]">Parent:</span>
-                    <span className="font-bold text-[#17313A]">{formData.parentName} ({formData.parentPhone})</span>
+                  <div className="flex justify-between border-b border-[#E5E5E5] pb-2">
+                    <span className="text-[#737373]">Parent:</span>
+                    <span className="font-bold text-[#171717]">{formData.parentName} ({formData.parentPhone})</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#6B7C83]">House:</span>
+                    <span className="text-[#737373]">House:</span>
                     <span className="font-bold text-[#35B84A]">{formData.house}</span>
                   </div>
                 </div>
@@ -736,7 +736,7 @@ export const StudentsClient: React.FC<{
             )}
 
             {/* Stepper Navigation Buttons */}
-            <div className="pt-4 border-t border-[#E4EAEC] flex items-center justify-between">
+            <div className="pt-4 border-t border-[#E5E5E5] flex items-center justify-between">
               {addStep > 1 ? (
                 <Button
                   type="button"
@@ -788,10 +788,10 @@ export const StudentsClient: React.FC<{
         maxWidth="2xl"
       >
         <div className="space-y-4 text-xs">
-          <div className="p-4 bg-[#F7FAFA] border border-dashed border-[#E4EAEC] rounded-xl text-center space-y-2">
-            <FileSpreadsheet className="w-8 h-8 text-[#086A92] mx-auto" />
+          <div className="p-4 bg-[#F5F5F5] border border-dashed border-[#E5E5E5] rounded-xl text-center space-y-2">
+            <FileSpreadsheet className="w-8 h-8 text-[#990000] mx-auto" />
             <div>
-              <label className="cursor-pointer font-bold text-[#086A92] hover:underline">
+              <label className="cursor-pointer font-bold text-[#990000] hover:underline">
                 <span>Select CSV File</span>
                 <input
                   type="file"
@@ -800,7 +800,7 @@ export const StudentsClient: React.FC<{
                   className="hidden"
                 />
               </label>
-              <p className="text-[#6B7C83] text-[11px] mt-0.5">
+              <p className="text-[#737373] text-[11px] mt-0.5">
                 Support headers: Student Name, Class, Section, Gender, Parent Name, Phone
               </p>
             </div>
@@ -815,16 +815,16 @@ export const StudentsClient: React.FC<{
           {importRows.length > 0 && (
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-[#17313A] flex items-center gap-1.5">
+                <span className="font-bold text-[#171717] flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-[#35B84A]" />
                   <span>Preview ({importRows.length} rows loaded)</span>
                 </span>
-                <span className="text-[#6B7C83] text-[11px]">Ready to import</span>
+                <span className="text-[#737373] text-[11px]">Ready to import</span>
               </div>
 
-              <div className="max-h-48 overflow-y-auto border border-[#E4EAEC] rounded-lg">
+              <div className="max-h-48 overflow-y-auto border border-[#E5E5E5] rounded-lg">
                 <table className="w-full text-left text-[11px]">
-                  <thead className="bg-[#F7FAFA] font-bold text-[#6B7C83]">
+                  <thead className="bg-[#F5F5F5] font-bold text-[#737373]">
                     <tr>
                       <th className="p-2">#</th>
                       <th className="p-2">Name</th>
@@ -834,7 +834,7 @@ export const StudentsClient: React.FC<{
                       <th className="p-2">Phone</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#E4EAEC]">
+                  <tbody className="divide-y divide-[#E5E5E5]">
                     {importRows.slice(0, 10).map((r, i) => (
                       <tr key={i}>
                         <td className="p-2 font-mono">{i + 1}</td>
@@ -862,7 +862,7 @@ export const StudentsClient: React.FC<{
             </div>
           )}
 
-          <div className="pt-3 border-t border-[#E4EAEC] flex justify-end gap-2">
+          <div className="pt-3 border-t border-[#E5E5E5] flex justify-end gap-2">
             <Button
               variant="outline"
               size="sm"
@@ -899,11 +899,11 @@ export const StudentsClient: React.FC<{
         <div className="space-y-4 text-xs">
           <div className="space-y-3">
             <div>
-              <label className="block font-bold text-[#17313A] mb-1">Target Academic Year *</label>
+              <label className="block font-bold text-[#171717] mb-1">Target Academic Year *</label>
               <select
                 value={targetYearId}
                 onChange={(e) => setTargetYearId(e.target.value)}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92] bg-white font-semibold"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000] bg-white font-semibold"
               >
                 {academicYears.map((ay) => (
                   <option key={ay.id} value={ay.id}>
@@ -915,7 +915,7 @@ export const StudentsClient: React.FC<{
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block font-bold text-[#17313A] mb-1">Target Class *</label>
+                <label className="block font-bold text-[#171717] mb-1">Target Class *</label>
                 <select
                   value={targetClassId}
                   onChange={(e) => {
@@ -924,7 +924,7 @@ export const StudentsClient: React.FC<{
                     setTargetClassId(cId);
                     setTargetSectionId(c?.sections[0]?.id || '');
                   }}
-                  className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92] bg-white font-semibold"
+                  className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000] bg-white font-semibold"
                 >
                   {classes.map((c) => (
                     <option key={c.id} value={c.id}>
@@ -935,11 +935,11 @@ export const StudentsClient: React.FC<{
               </div>
 
               <div>
-                <label className="block font-bold text-[#17313A] mb-1">Target Section *</label>
+                <label className="block font-bold text-[#171717] mb-1">Target Section *</label>
                 <select
                   value={targetSectionId}
                   onChange={(e) => setTargetSectionId(e.target.value)}
-                  className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92] bg-white font-semibold"
+                  className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000] bg-white font-semibold"
                 >
                   {classes
                     .find((c) => c.id === targetClassId)
@@ -953,7 +953,7 @@ export const StudentsClient: React.FC<{
             </div>
           </div>
 
-          <div className="pt-3 border-t border-[#E4EAEC] flex justify-end gap-2">
+          <div className="pt-3 border-t border-[#E5E5E5] flex justify-end gap-2">
             <Button
               variant="outline"
               size="sm"

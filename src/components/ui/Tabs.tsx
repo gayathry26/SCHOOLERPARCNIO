@@ -39,8 +39,8 @@ export const Tabs: React.FC<TabsProps> = ({
               className={clsx(
                 'flex items-center gap-2 px-3.5 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap select-none cursor-pointer',
                 isActive
-                  ? 'bg-white text-[#086A92] shadow-2xs'
-                  : 'text-[#6B7C83] hover:text-[#17313A] hover:bg-white/50'
+                  ? 'bg-white text-[#990000] shadow-2xs'
+                  : 'text-[#737373] hover:text-[#171717] hover:bg-white/50'
               )}
             >
               {tab.icon}
@@ -49,7 +49,7 @@ export const Tabs: React.FC<TabsProps> = ({
                 <span
                   className={clsx(
                     'px-2 py-0.5 text-xs rounded-full font-bold',
-                    isActive ? 'bg-[#EAF5F8] text-[#086A92]' : 'bg-[#E4EAEC] text-[#6B7C83]'
+                    isActive ? 'bg-[#FEF2F2] text-[#990000]' : 'bg-[#E5E5E5] text-[#737373]'
                   )}
                 >
                   {tab.count}
@@ -63,7 +63,7 @@ export const Tabs: React.FC<TabsProps> = ({
   }
 
   return (
-    <div className={twMerge(clsx('flex items-center gap-2 border-b border-[#E4EAEC] overflow-x-auto', className))}>
+    <div className={twMerge(clsx('flex items-center gap-2 border-b border-[#E5E5E5] overflow-x-auto', className))}>
       {tabList.map((tab) => {
         const isActive = activeTab === tab.id;
         return (
@@ -73,8 +73,8 @@ export const Tabs: React.FC<TabsProps> = ({
             className={clsx(
               'flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 whitespace-nowrap transition-all select-none cursor-pointer -mb-[1px]',
               isActive
-                ? 'border-[#086A92] text-[#086A92] bg-[#EAF5F8]/40'
-                : 'border-transparent text-[#6B7C83] hover:text-[#17313A] hover:border-[#cbd7da]'
+                ? 'border-[#990000] text-[#990000] bg-[#FEF2F2]/40'
+                : 'border-transparent text-[#737373] hover:text-[#171717] hover:border-[#E5E5E5]'
             )}
           >
             {tab.icon}
@@ -83,7 +83,7 @@ export const Tabs: React.FC<TabsProps> = ({
               <span
                 className={clsx(
                   'px-2 py-0.5 text-xs rounded-full font-bold',
-                  isActive ? 'bg-[#086A92] text-white' : 'bg-[#F1F5F7] text-[#6B7C83]'
+                  isActive ? 'bg-[#990000] text-white' : 'bg-[#F1F5F7] text-[#737373]'
                 )}
               >
                 {tab.count}

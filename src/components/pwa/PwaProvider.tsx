@@ -151,9 +151,9 @@ export const PwaProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
       {/* Android / Desktop Install Banner */}
       {showInstallBanner && (
-        <div className="fixed bottom-20 md:bottom-6 left-4 right-4 md:left-auto md:right-6 md:w-96 z-50 bg-white border border-[#086A92]/30 rounded-xl p-3.5 shadow-2xl flex items-center justify-between gap-3 animate-in fade-in slide-in-from-bottom-4">
+        <div className="fixed bottom-20 md:bottom-6 left-4 right-4 md:left-auto md:right-6 md:w-96 z-50 bg-white border border-[#990000]/30 rounded-xl p-3.5 shadow-2xl flex items-center justify-between gap-3 animate-in fade-in slide-in-from-bottom-4">
           <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-lg bg-[#086A92] flex items-center justify-center text-white shrink-0 shadow-xs">
+            <div className="w-10 h-10 rounded-lg bg-[#990000] flex items-center justify-center text-white shrink-0 shadow-xs">
               <Download className="w-5 h-5" />
             </div>
             <div>
@@ -166,7 +166,7 @@ export const PwaProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           <div className="flex items-center gap-1.5 shrink-0">
             <button
               onClick={handleInstallClick}
-              className="bg-[#086A92] hover:bg-[#0F4C68] text-white text-xs font-bold px-3 py-1.5 rounded-md cursor-pointer transition-colors"
+              className="bg-[#990000] hover:bg-[#0F4C68] text-white text-xs font-bold px-3 py-1.5 rounded-md cursor-pointer transition-colors"
             >
               Install
             </button>
@@ -182,10 +182,10 @@ export const PwaProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
       {/* iOS Safari 'Add to Home Screen' Instructions Banner */}
       {showIosPrompt && (
-        <div className="fixed bottom-20 left-4 right-4 z-50 bg-white border border-[#086A92]/30 rounded-xl p-3.5 shadow-2xl text-xs space-y-2 animate-in fade-in slide-in-from-bottom-4">
+        <div className="fixed bottom-20 left-4 right-4 z-50 bg-white border border-[#990000]/30 rounded-xl p-3.5 shadow-2xl text-xs space-y-2 animate-in fade-in slide-in-from-bottom-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#086A92]" />
+              <Sparkles className="w-4 h-4 text-[#990000]" />
               <span className="font-bold text-slate-900">Install EdvoNest on iPhone/iPad</span>
             </div>
             <button onClick={handleDismissIos} className="text-slate-400 hover:text-slate-600 cursor-pointer">

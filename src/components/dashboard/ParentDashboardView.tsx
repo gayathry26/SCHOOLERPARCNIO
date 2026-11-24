@@ -57,7 +57,7 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
   return (
     <div className="space-y-6">
       {/* Child Ward Switcher & Profile Card */}
-      <div className="bg-[#086A92] text-white rounded-2xl p-5 sm:p-6 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-[#990000] text-white rounded-2xl p-5 sm:p-6 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex items-center gap-3.5">
           <Avatar
             name={currentChild.name}
@@ -69,11 +69,11 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-base sm:text-lg font-bold">{currentChild.name}</h2>
-              <span className="text-[10px] bg-white/20 text-[#EAF5F8] px-2 py-0.5 rounded-full font-bold">
+              <span className="text-[10px] bg-white/20 text-[#FEF2F2] px-2 py-0.5 rounded-full font-bold">
                 Student Ward
               </span>
             </div>
-            <p className="text-xs text-[#EAF5F8]">
+            <p className="text-xs text-[#FEF2F2]">
               {currentChild.class} • Admission #{currentChild.admissionNo} • Roll #{currentChild.rollNo}
             </p>
             <p className="text-xs text-[#35B84A] font-bold mt-0.5">
@@ -85,7 +85,7 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
         {/* 1-Tap Fee Payment Action */}
         <div className="flex items-center gap-3 bg-white/10 p-3 rounded-xl border border-white/20">
           <div>
-            <p className="text-[10px] text-[#EAF5F8] uppercase tracking-wider font-semibold">Term Fee Balance</p>
+            <p className="text-[10px] text-[#FEF2F2] uppercase tracking-wider font-semibold">Term Fee Balance</p>
             <p className="text-lg font-black text-[#FDE68A]">{formatCurrency(currentChild.feeDue)}</p>
           </div>
           <Link href="/dashboard/fees">
@@ -135,7 +135,7 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-[#086A92]" />
+                <BookOpen className="w-4 h-4 text-[#990000]" />
                 <span>Homework &amp; Assignments</span>
               </CardTitle>
               <Link href="/dashboard/homework">
@@ -146,11 +146,11 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
               <div className="p-3 bg-[#FEF3C7]/40 border border-[#FDE68A] rounded-xl flex items-center justify-between text-xs">
                 <div>
                   <div className="flex items-center gap-2">
-                    <h4 className="font-bold text-[#17313A]">Quadratic Formula Exercises 4.2</h4>
+                    <h4 className="font-bold text-[#171717]">Quadratic Formula Exercises 4.2</h4>
                     <Badge variant="amber" size="xs">Due Tomorrow</Badge>
                   </div>
-                  <p className="text-[10px] text-[#6B7C83] mt-0.5">Mathematics • Class 10-A • Assigned by Mr. Verma</p>
-                  <p className="text-[10px] text-[#086A92] font-semibold mt-1">Teacher Remark: Submit completed notebook in period 1</p>
+                  <p className="text-[10px] text-[#737373] mt-0.5">Mathematics • Class 10-A • Assigned by Mr. Verma</p>
+                  <p className="text-[10px] text-[#990000] font-semibold mt-1">Teacher Remark: Submit completed notebook in period 1</p>
                 </div>
                 <Badge variant="amber" size="xs">Pending</Badge>
               </div>
@@ -158,10 +158,10 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
               <div className="p-3 bg-[#EAF8EC] border border-[#bbf0c5] rounded-xl flex items-center justify-between text-xs">
                 <div>
                   <div className="flex items-center gap-2">
-                    <h4 className="font-bold text-[#17313A]">Light Ray Reflection Diagrams</h4>
+                    <h4 className="font-bold text-[#171717]">Light Ray Reflection Diagrams</h4>
                     <Badge variant="green" size="xs">Submitted</Badge>
                   </div>
-                  <p className="text-[10px] text-[#6B7C83] mt-0.5">Science Lab • Class 10-A • Submitted on 17 Nov</p>
+                  <p className="text-[10px] text-[#737373] mt-0.5">Science Lab • Class 10-A • Submitted on 17 Nov</p>
                   <p className="text-[10px] text-emerald-700 font-semibold mt-1">Teacher Grade: A+ (Well done)</p>
                 </div>
                 <CheckCircle2 className="w-4 h-4 text-[#35B84A]" />
@@ -175,29 +175,29 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Bus className="w-4 h-4 text-[#008C91]" />
+                <Bus className="w-4 h-4 text-[#C00000]" />
                 <span>Live School Transport</span>
               </CardTitle>
               <Link href="/dashboard/transport">
                 <Button variant="ghost" size="xs">Live Map</Button>
               </Link>
             </CardHeader>
-            <div className="p-3.5 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl space-y-3 text-xs">
+            <div className="p-3.5 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl space-y-3 text-xs">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-[#17313A]">{currentChild.busRoute}</span>
+                <span className="font-bold text-[#171717]">{currentChild.busRoute}</span>
                 <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">
                   GPS Active
                 </span>
               </div>
-              <div className="flex items-center justify-between text-[11px] text-[#6B7C83]">
+              <div className="flex items-center justify-between text-[11px] text-[#737373]">
                 <span>Current Status</span>
-                <span className="font-bold text-[#086A92]">{currentChild.busEta}</span>
+                <span className="font-bold text-[#990000]">{currentChild.busEta}</span>
               </div>
-              <div className="flex items-center justify-between text-[11px] text-[#6B7C83] border-t border-[#E4EAEC] pt-2">
+              <div className="flex items-center justify-between text-[11px] text-[#737373] border-t border-[#E5E5E5] pt-2">
                 <span>Driver: {currentChild.driverName}</span>
                 <a
                   href={`tel:${currentChild.driverPhone}`}
-                  className="flex items-center gap-1 text-[#086A92] font-bold hover:underline"
+                  className="flex items-center gap-1 text-[#990000] font-bold hover:underline"
                 >
                   <Phone className="w-3 h-3" />
                   <span>Call Driver</span>
@@ -207,11 +207,11 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
           </Card>
 
           {/* Quick Notice Pill */}
-          <div className="p-3.5 bg-[#EAF5F8] border border-[#c0e3ed] rounded-2xl flex items-center gap-3">
-            <HeartHandshake className="w-6 h-6 text-[#086A92] shrink-0" />
+          <div className="p-3.5 bg-[#FEF2F2] border border-[#FECACA] rounded-2xl flex items-center gap-3">
+            <HeartHandshake className="w-6 h-6 text-[#990000] shrink-0" />
             <div className="text-xs">
-              <p className="font-bold text-[#17313A]">Parent-Teacher Meeting</p>
-              <p className="text-[11px] text-[#6B7C83]">Upcoming PTM on Saturday, 23 Nov, 09:00 AM.</p>
+              <p className="font-bold text-[#171717]">Parent-Teacher Meeting</p>
+              <p className="text-[11px] text-[#737373]">Upcoming PTM on Saturday, 23 Nov, 09:00 AM.</p>
             </div>
           </div>
         </div>
@@ -230,13 +230,13 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
         </CardHeader>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {announcements.slice(0, 2).map((ann) => (
-            <div key={ann.id} className="p-3 bg-[#F7FAFA] rounded-xl border border-[#E4EAEC] text-xs">
-              <div className="flex items-center justify-between text-[10px] text-[#6B7C83]">
-                <span className="font-bold text-[#086A92]">{ann.targetAudience}</span>
+            <div key={ann.id} className="p-3 bg-[#F5F5F5] rounded-xl border border-[#E5E5E5] text-xs">
+              <div className="flex items-center justify-between text-[10px] text-[#737373]">
+                <span className="font-bold text-[#990000]">{ann.targetAudience}</span>
                 <span>{formatDate(ann.publishedAt, 'dd MMM')}</span>
               </div>
-              <p className="font-bold text-[#17313A] mt-1">{ann.title}</p>
-              <p className="text-[11px] text-[#6B7C83] mt-0.5 line-clamp-2">{ann.content}</p>
+              <p className="font-bold text-[#171717] mt-1">{ann.title}</p>
+              <p className="text-[11px] text-[#737373] mt-0.5 line-clamp-2">{ann.content}</p>
             </div>
           ))}
         </div>

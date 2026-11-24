@@ -2,31 +2,24 @@
 
 @layer base {
   :root {
-    /* EdvoNest Official Brand Palette */
-    --color-primary-blue: #086a92;
-    --color-teal: #008c91;
-    --color-green: #35b84a;
-    --color-light-green: #eaf8ec;
-    --color-light-blue: #eaf5f8;
-    --color-bg-app: #f7fafa;
-    --color-dark-text: #17313a;
-    --color-muted-text: #6b7c83;
-    --color-border: #e4eaec;
+    /* EdvoNest Red & White Enterprise Brand Palette */
+    --color-primary-red: #990000;
+    --color-secondary-red: #c00000;
+    --color-accent-red: #e00000;
+    --color-light-red: #fef2f2;
+    --color-light-red-border: #fecaca;
+    --color-bg-app: #ffffff;
+    --color-bg-surface: #f5f5f5;
+    --color-dark-text: #171717;
+    --color-muted-text: #525252;
+    --color-border: #e5e5e5;
     --color-card-bg: #ffffff;
 
-    /* Cinematic Additions */
-    --color-midnight: #081820;
-    --color-deep-ocean: #0b2632;
-    --color-glass-surface: rgba(255, 255, 255, 0.08);
-    --color-soft-border: rgba(255, 255, 255, 0.12);
-    --color-muted-slate: #8fa5ae;
-    --color-premium-highlight: #75d7d1;
-
-    --bg-app: #f7fafa;
+    --bg-app: #ffffff;
     --card-bg: #ffffff;
-    --text-main: #17313a;
-    --text-muted: #6b7c83;
-    --border-color: #e4eaec;
+    --text-main: #171717;
+    --text-muted: #525252;
+    --border-color: #e5e5e5;
   }
 
   html {
@@ -34,12 +27,18 @@
   }
 
   body {
-    background-color: var(--bg-app);
-    color: var(--text-main);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", Arial, sans-serif;
+    background-color: #ffffff;
+    color: #171717;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
+
+/* Selection Color: Deep Red */
+::selection {
+  background-color: #990000;
+  color: #ffffff;
 }
 
 /* Custom Clean Scrollbars */
@@ -48,120 +47,31 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f7;
+  background: #f5f5f5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c8d5d9;
+  background: #d4d4d4;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9db2b8;
+  background: #a3a3a3;
 }
 
-/* Cinematic Utilities */
-.glass-panel-dark {
-  background: rgba(11, 38, 50, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
+/* Enterprise Utilities */
 .glass-panel-light {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(228, 234, 236, 0.8);
+  border: 1px solid #e5e5e5;
 }
 
-.glow-blue {
-  box-shadow: 0 0 50px -10px rgba(8, 106, 146, 0.35);
-}
-
-.glow-teal {
-  box-shadow: 0 0 50px -10px rgba(0, 140, 145, 0.35);
-}
-
-.glow-green {
-  box-shadow: 0 0 40px -10px rgba(53, 184, 74, 0.3);
-}
-
-.bg-grid-pattern-dark {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+.glow-red {
+  box-shadow: 0 0 40px -10px rgba(153, 0, 0, 0.3);
 }
 
 .bg-grid-pattern-light {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(8, 106, 146, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(8, 106, 146, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(153, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(153, 0, 0, 0.03) 1px, transparent 1px);
 }
-
-/* Print Styles for Report Cards, Receipts, ID Cards, Payslips */
-@media print {
-  body {
-    background: #ffffff !important;
-    color: #000000 !important;
-  }
-  .no-print {
-    display: none !important;
-  }
-  .print-only {
-    display: block !important;
-  }
-  .print-container {
-    padding: 0 !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-    border: none !important;
-    width: 100% !important;
-  }
-  @page {
-    margin: 1cm;
-  }
-}
-
-/* Subtle Professional Animations */
-@keyframes float-gentle {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-@keyframes float-reverse {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(6px);
-  }
-}
-
-@keyframes pulse-subtle {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.85;
-    transform: scale(1.02);
-  }
-}
-
-.animate-float {
-  animation: float-gentle 6s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: float-reverse 7s ease-in-out infinite 1s;
-}
-
-.animate-pulse-subtle {
-  animation: pulse-subtle 4s ease-in-out infinite;
-}
-

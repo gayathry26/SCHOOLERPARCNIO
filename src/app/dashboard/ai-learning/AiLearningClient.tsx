@@ -102,7 +102,7 @@ export const AiLearningClient: React.FC<{
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
@@ -119,9 +119,9 @@ export const AiLearningClient: React.FC<{
         </div>
 
         {student && (
-          <div className="flex items-center gap-2 px-3 py-1.5 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl text-xs font-semibold text-slate-700">
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl text-xs font-semibold text-slate-700">
             <span>Student:</span>
-            <span className="font-bold text-[#086A92]">
+            <span className="font-bold text-[#990000]">
               {student.user.firstName} {student.user.lastName} ({student.admissionNumber})
             </span>
           </div>
@@ -372,7 +372,7 @@ export const AiLearningClient: React.FC<{
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <MessageSquare className="w-5 h-5 text-[#086A92]" />
+                <MessageSquare className="w-5 h-5 text-[#990000]" />
                 <span>Instant Concept Explainer &amp; Homework Helper</span>
               </CardTitle>
             </CardHeader>
@@ -381,7 +381,7 @@ export const AiLearningClient: React.FC<{
                 value={doubtQuestion}
                 onChange={(e) => setDoubtQuestion(e.target.value)}
                 placeholder="Ask any question from NCERT Math, Science, Social Studies, e.g.: 'Explain why concave mirror is used in car headlights with ray diagram formula'..."
-                className="w-full h-28 p-3 text-xs border border-slate-200 rounded-xl focus:outline-none focus:border-[#086A92] focus:ring-1 focus:ring-[#086A92] placeholder:text-slate-400"
+                className="w-full h-28 p-3 text-xs border border-slate-200 rounded-xl focus:outline-none focus:border-[#990000] focus:ring-1 focus:ring-[#990000] placeholder:text-slate-400"
               />
               <div className="flex justify-between items-center">
                 <span className="text-[11px] text-slate-400">
@@ -401,7 +401,7 @@ export const AiLearningClient: React.FC<{
           </Card>
 
           {doubtResponse && (
-            <Card className="p-5 bg-white border border-[#E4EAEC] space-y-3 shadow-xs">
+            <Card className="p-5 bg-white border border-[#E5E5E5] space-y-3 shadow-xs">
               <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
                 <Sparkles className="w-4 h-4 text-[#35B84A]" />
                 <span className="font-bold text-xs text-slate-900">AI Tutor Solution</span>

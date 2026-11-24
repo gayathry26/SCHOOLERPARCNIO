@@ -86,7 +86,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
     adminLastName: 'Office',
     adminEmail: '',
     adminPassword: 'password123',
-    themeColor: '#086A92',
+    themeColor: '#990000',
   });
 
   // Form states: Edit Plan
@@ -311,7 +311,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs">
         <div>
           <div className="flex items-center gap-2">
-            <span className="p-2 rounded-xl bg-[#EAF5F8] text-[#086A92]">
+            <span className="p-2 rounded-xl bg-[#FEF2F2] text-[#990000]">
               <Globe className="w-6 h-6 animate-pulse" />
             </span>
             <div>
@@ -341,7 +341,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
           <Button
             size="sm"
             onClick={() => setShowOnboardModal(true)}
-            className="bg-[#086A92] hover:bg-[#065475] text-white text-xs font-bold shadow-xs"
+            className="bg-[#990000] hover:bg-[#065475] text-white text-xs font-bold shadow-xs"
           >
             <Plus className="w-3.5 h-3.5 mr-1.5" /> Onboard New School
           </Button>
@@ -355,7 +355,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
         <Card className="p-4 border-slate-200 bg-white">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-500">Total Schools</span>
-            <Building2 className="w-4 h-4 text-[#086A92]" />
+            <Building2 className="w-4 h-4 text-[#990000]" />
           </div>
           <span className="text-2xl font-bold text-slate-900 mt-2 block">{kpis.totalSchools}</span>
           <span className="text-[10px] text-emerald-600 font-bold mt-1 block">
@@ -451,7 +451,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
                 placeholder="Search school name, code, or city..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full text-xs pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:border-[#086A92]"
+                className="w-full text-xs pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:border-[#990000]"
               />
             </div>
 
@@ -495,7 +495,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
                         <td className="py-3.5 px-4">
                           <div className="font-bold text-slate-900">{sch.name}</div>
                           <div className="text-[11px] text-slate-400 font-mono">
-                            Tenant: <span className="font-bold text-[#086A92]">{sch.tenantCode}</span> &bull; ID: {sch.id}
+                            Tenant: <span className="font-bold text-[#990000]">{sch.tenantCode}</span> &bull; ID: {sch.id}
                           </div>
                         </td>
                         <td className="py-3.5 px-4">
@@ -618,7 +618,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
                     pl.code === 'PREMIUM'
                       ? 'border-purple-300 bg-gradient-to-b from-white to-purple-50/30 shadow-md'
                       : pl.isPopular
-                      ? 'border-[#086A92] bg-white shadow-sm'
+                      ? 'border-[#990000] bg-white shadow-sm'
                       : 'border-slate-200 bg-white'
                   }`}
                 >
@@ -639,7 +639,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
                         {pl.name}
                       </Badge>
                       {pl.isPopular && (
-                        <span className="text-[10px] font-bold text-[#086A92] bg-[#EAF5F8] px-2 py-0.5 rounded-full">
+                        <span className="text-[10px] font-bold text-[#990000] bg-[#FEF2F2] px-2 py-0.5 rounded-full">
                           Most Popular
                         </span>
                       )}
@@ -706,7 +706,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
             <Button
               size="sm"
               onClick={() => setShowGenerateInvoiceModal(true)}
-              className="bg-[#086A92] hover:bg-[#065475] text-white text-xs font-semibold"
+              className="bg-[#990000] hover:bg-[#065475] text-white text-xs font-semibold"
             >
               <Plus className="w-3.5 h-3.5 mr-1" /> Issue Subscription Invoice
             </Button>
@@ -843,7 +843,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
           <div className="bg-white rounded-2xl p-6 w-full max-w-xl max-h-[90vh] overflow-y-auto shadow-xl border border-slate-200">
             <h3 className="text-lg font-bold text-slate-900 mb-1 flex items-center gap-2">
-              <Building2 className="w-5 h-5 text-[#086A92]" />
+              <Building2 className="w-5 h-5 text-[#990000]" />
               Onboard New School (SaaS Tenant)
             </h3>
             <p className="text-xs text-slate-500 mb-4">
@@ -860,7 +860,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
                     placeholder="e.g. Greenwood Cambridge International"
                     value={onboardForm.name}
                     onChange={(e) => setOnboardForm({ ...onboardForm, name: e.target.value })}
-                    className="w-full text-xs border border-slate-200 rounded-lg py-2 px-3 outline-none focus:border-[#086A92]"
+                    className="w-full text-xs border border-slate-200 rounded-lg py-2 px-3 outline-none focus:border-[#990000]"
                   />
                 </div>
                 <div className="col-span-2 sm:col-span-1">
@@ -871,7 +871,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
                     placeholder="e.g. GREENWOOD"
                     value={onboardForm.tenantCode}
                     onChange={(e) => setOnboardForm({ ...onboardForm, tenantCode: e.target.value.toUpperCase() })}
-                    className="w-full text-xs font-mono font-bold border border-slate-200 rounded-lg py-2 px-3 outline-none focus:border-[#086A92]"
+                    className="w-full text-xs font-mono font-bold border border-slate-200 rounded-lg py-2 px-3 outline-none focus:border-[#990000]"
                   />
                 </div>
               </div>
@@ -914,7 +914,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
 
               <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
                 <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                  <Users className="w-4 h-4 text-[#086A92]" /> Primary School Admin Account
+                  <Users className="w-4 h-4 text-[#990000]" /> Primary School Admin Account
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
@@ -1000,7 +1000,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
                   type="submit"
                   size="sm"
                   disabled={isLoading}
-                  className="bg-[#086A92] hover:bg-[#065475] text-white text-xs font-bold"
+                  className="bg-[#990000] hover:bg-[#065475] text-white text-xs font-bold"
                 >
                   Onboard Institution
                 </Button>
@@ -1017,7 +1017,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
           <div className="bg-white rounded-2xl p-6 w-full max-w-md shadow-xl border border-slate-200">
             <h3 className="text-lg font-bold text-slate-900 mb-1 flex items-center gap-2">
-              <Settings className="w-5 h-5 text-[#086A92]" />
+              <Settings className="w-5 h-5 text-[#990000]" />
               Modify Subscription &amp; Quotas
             </h3>
             <p className="text-xs text-slate-500 mb-4">{showEditPlanModal.name}</p>
@@ -1073,7 +1073,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
                   type="submit"
                   size="sm"
                   disabled={isLoading}
-                  className="bg-[#086A92] hover:bg-[#065475] text-white text-xs font-bold"
+                  className="bg-[#990000] hover:bg-[#065475] text-white text-xs font-bold"
                 >
                   Save Quotas
                 </Button>
@@ -1090,7 +1090,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
           <div className="bg-white rounded-2xl p-6 w-full max-w-md shadow-xl border border-slate-200">
             <h3 className="text-lg font-bold text-slate-900 mb-1 flex items-center gap-2">
-              <CreditCard className="w-5 h-5 text-[#086A92]" />
+              <CreditCard className="w-5 h-5 text-[#990000]" />
               Issue Subscription Invoice
             </h3>
 
@@ -1146,7 +1146,7 @@ export const PlatformAdminClient: React.FC<PlatformAdminClientProps> = ({
                   type="submit"
                   size="sm"
                   disabled={isLoading}
-                  className="bg-[#086A92] hover:bg-[#065475] text-white text-xs font-bold"
+                  className="bg-[#990000] hover:bg-[#065475] text-white text-xs font-bold"
                 >
                   Generate Invoice
                 </Button>

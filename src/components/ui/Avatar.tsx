@@ -38,9 +38,9 @@ const HOUSE_RING_MAP: Record<string, string> = {
 };
 
 const GRADIENTS = [
-  'from-[#086A92] to-[#008C91]',
-  'from-[#008C91] to-[#35B84A]',
-  'from-[#17313A] to-[#086A92]',
+  'from-[#990000] to-[#C00000]',
+  'from-[#800000] to-[#990000]',
+  'from-[#171717] to-[#990000]',
   'from-[#B45309] to-[#D97706]',
   'from-[#4F46E5] to-[#7C3AED]',
   'from-[#0D9488] to-[#10B981]',

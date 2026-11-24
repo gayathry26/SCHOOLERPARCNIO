@@ -281,24 +281,24 @@ export const HostelClient: React.FC<HostelClientProps> = ({
     <div className="space-y-6">
       {/* Toast Notice */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#17313A] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-white/15 animate-in slide-in-from-bottom-3 duration-200">
+        <div className="fixed bottom-6 right-6 z-50 bg-[#171717] text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-white/15 animate-in slide-in-from-bottom-3 duration-200">
           <CheckCircle2 className="w-5 h-5 text-[#35B84A]" />
           <span className="text-sm font-semibold">{toastMessage}</span>
         </div>
       )}
 
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-[#E4EAEC]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-[#E5E5E5]">
         <div>
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#EAF5F8] text-[#086A92] flex items-center justify-center font-bold">
+            <div className="w-9 h-9 rounded-xl bg-[#FEF2F2] text-[#990000] flex items-center justify-center font-bold">
               <Building2 className="w-5 h-5" />
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-[#17313A] tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-black text-[#171717] tracking-tight">
               Hostel &amp; Residential Management
             </h1>
           </div>
-          <p className="text-sm text-[#4A5D65] mt-1 font-medium">
+          <p className="text-sm text-[#525252] mt-1 font-medium">
             Campus residence blocks, room inventories, bed allocations, evening roll-calls, and student outpasses.
           </p>
         </div>
@@ -308,7 +308,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
             variant="outline"
             size="sm"
             onClick={() => setShowRoomModal(true)}
-            className="text-xs font-bold bg-white text-[#17313A] border-[#E4EAEC]"
+            className="text-xs font-bold bg-white text-[#171717] border-[#E5E5E5]"
           >
             <Plus className="w-4 h-4 mr-1.5" />
             <span>Add Room</span>
@@ -318,7 +318,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
             variant="primary"
             size="sm"
             onClick={() => setShowAllocModal(true)}
-            className="text-xs font-bold bg-[#086A92] hover:bg-[#07597b] text-white shadow-sm"
+            className="text-xs font-bold bg-[#990000] hover:bg-[#800000] text-white shadow-sm"
           >
             <BedDouble className="w-4 h-4 mr-1.5" />
             <span>Allocate Bed</span>
@@ -328,17 +328,17 @@ export const HostelClient: React.FC<HostelClientProps> = ({
 
       {/* 4 Top KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-5 bg-white border border-[#E4EAEC] rounded-2xl shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-xs text-[#4A5D65] font-semibold">
+        <div className="p-5 bg-white border border-[#E5E5E5] rounded-2xl shadow-2xs space-y-1">
+          <div className="flex items-center justify-between text-xs text-[#525252] font-semibold">
             <span>Total Bed Capacity</span>
-            <Building2 className="w-4 h-4 text-[#086A92]" />
+            <Building2 className="w-4 h-4 text-[#990000]" />
           </div>
-          <div className="text-2xl font-black text-[#17313A]">{totalBeds} Beds</div>
+          <div className="text-2xl font-black text-[#171717]">{totalBeds} Beds</div>
           <p className="text-xs text-slate-500">Across {buildings.length} Residential Blocks</p>
         </div>
 
-        <div className="p-5 bg-white border border-[#E4EAEC] rounded-2xl shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-xs text-[#4A5D65] font-semibold">
+        <div className="p-5 bg-white border border-[#E5E5E5] rounded-2xl shadow-2xs space-y-1">
+          <div className="flex items-center justify-between text-xs text-[#525252] font-semibold">
             <span>Active Residents</span>
             <Users className="w-4 h-4 text-[#16A34A]" />
           </div>
@@ -346,8 +346,8 @@ export const HostelClient: React.FC<HostelClientProps> = ({
           <p className="text-xs text-slate-500">{vacancyRate}% Vacancy Available</p>
         </div>
 
-        <div className="p-5 bg-white border border-[#E4EAEC] rounded-2xl shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-xs text-[#4A5D65] font-semibold">
+        <div className="p-5 bg-white border border-[#E5E5E5] rounded-2xl shadow-2xs space-y-1">
+          <div className="flex items-center justify-between text-xs text-[#525252] font-semibold">
             <span>Active Outpasses</span>
             <DoorOpen className="w-4 h-4 text-amber-600" />
           </div>
@@ -355,24 +355,24 @@ export const HostelClient: React.FC<HostelClientProps> = ({
           <p className="text-xs text-slate-500">Authorized Gate Passes</p>
         </div>
 
-        <div className="p-5 bg-white border border-[#E4EAEC] rounded-2xl shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-xs text-[#4A5D65] font-semibold">
+        <div className="p-5 bg-white border border-[#E5E5E5] rounded-2xl shadow-2xs space-y-1">
+          <div className="flex items-center justify-between text-xs text-[#525252] font-semibold">
             <span>Resident Safety</span>
             <ShieldCheck className="w-4 h-4 text-teal-600" />
           </div>
-          <div className="text-2xl font-black text-[#008C91]">100% Monitored</div>
+          <div className="text-2xl font-black text-[#C00000]">100% Monitored</div>
           <p className="text-xs text-slate-500">24/7 Security &amp; Wardens</p>
         </div>
       </div>
 
       {/* Tab Navigation */}
-      <div className="flex items-center gap-2 border-b border-[#E4EAEC] pb-2">
+      <div className="flex items-center gap-2 border-b border-[#E5E5E5] pb-2">
         <button
           onClick={() => setActiveTab('rooms')}
           className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
             activeTab === 'rooms'
-              ? 'bg-[#086A92] text-white shadow-xs'
-              : 'bg-white text-[#4A5D65] hover:text-[#17313A] border border-[#E4EAEC]'
+              ? 'bg-[#990000] text-white shadow-xs'
+              : 'bg-white text-[#525252] hover:text-[#171717] border border-[#E5E5E5]'
           }`}
         >
           Buildings &amp; Rooms
@@ -382,8 +382,8 @@ export const HostelClient: React.FC<HostelClientProps> = ({
           onClick={() => setActiveTab('allocations')}
           className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
             activeTab === 'allocations'
-              ? 'bg-[#086A92] text-white shadow-xs'
-              : 'bg-white text-[#4A5D65] hover:text-[#17313A] border border-[#E4EAEC]'
+              ? 'bg-[#990000] text-white shadow-xs'
+              : 'bg-white text-[#525252] hover:text-[#171717] border border-[#E5E5E5]'
           }`}
         >
           Bed Allocations ({allocations.length})
@@ -393,8 +393,8 @@ export const HostelClient: React.FC<HostelClientProps> = ({
           onClick={() => setActiveTab('attendance')}
           className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
             activeTab === 'attendance'
-              ? 'bg-[#086A92] text-white shadow-xs'
-              : 'bg-white text-[#4A5D65] hover:text-[#17313A] border border-[#E4EAEC]'
+              ? 'bg-[#990000] text-white shadow-xs'
+              : 'bg-white text-[#525252] hover:text-[#171717] border border-[#E5E5E5]'
           }`}
         >
           Night Roll-Call
@@ -404,8 +404,8 @@ export const HostelClient: React.FC<HostelClientProps> = ({
           onClick={() => setActiveTab('outpasses')}
           className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
             activeTab === 'outpasses'
-              ? 'bg-[#086A92] text-white shadow-xs'
-              : 'bg-white text-[#4A5D65] hover:text-[#17313A] border border-[#E4EAEC]'
+              ? 'bg-[#990000] text-white shadow-xs'
+              : 'bg-white text-[#525252] hover:text-[#171717] border border-[#E5E5E5]'
           }`}
         >
           Outpasses &amp; Leaves ({outpasses.length})
@@ -418,7 +418,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
       {activeTab === 'rooms' && (
         <div className="space-y-6">
           {/* Building Switcher Pills */}
-          <div className="flex flex-wrap items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-[#E4EAEC]">
+          <div className="flex flex-wrap items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-[#E5E5E5]">
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold text-slate-500 uppercase tracking-wider mr-2">
                 Residential Block:
@@ -429,8 +429,8 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                   onClick={() => setSelectedBuildingId(b.id)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                     selectedBuildingId === b.id
-                      ? 'bg-[#17313A] text-white'
-                      : 'bg-[#F7FAFA] text-slate-700 hover:bg-slate-100 border border-[#E4EAEC]'
+                      ? 'bg-[#171717] text-white'
+                      : 'bg-[#F5F5F5] text-slate-700 hover:bg-slate-100 border border-[#E5E5E5]'
                   }`}
                 >
                   {b.name} ({b.type})
@@ -441,7 +441,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
             {activeBuilding && (
               <div className="text-xs text-slate-600 flex items-center gap-4">
                 <span className="flex items-center gap-1.5 font-medium">
-                  <Phone className="w-3.5 h-3.5 text-[#086A92]" />
+                  <Phone className="w-3.5 h-3.5 text-[#990000]" />
                   <span>Warden: {activeBuilding.wardenName} ({activeBuilding.wardenPhone})</span>
                 </span>
                 <span className="flex items-center gap-1.5 font-medium">
@@ -459,10 +459,10 @@ export const HostelClient: React.FC<HostelClientProps> = ({
               return (
                 <div
                   key={room.id}
-                  className="bg-white border border-[#E4EAEC] rounded-2xl p-5 space-y-3 shadow-2xs hover:border-[#cbd7da] transition-all"
+                  className="bg-white border border-[#E5E5E5] rounded-2xl p-5 space-y-3 shadow-2xs hover:border-[#E5E5E5] transition-all"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-lg font-black text-[#17313A]">
+                    <span className="font-mono text-lg font-black text-[#171717]">
                       Room {room.roomNumber}
                     </span>
                     <span
@@ -487,7 +487,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-400">Monthly Fee:</span>
-                      <span className="font-bold text-[#086A92]">₹ {room.monthlyFee.toLocaleString()}</span>
+                      <span className="font-bold text-[#990000]">₹ {room.monthlyFee.toLocaleString()}</span>
                     </div>
                   </div>
 
@@ -502,7 +502,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                     <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                       <div
                         className={`h-full rounded-full transition-all ${
-                          isFull ? 'bg-rose-500' : 'bg-[#086A92]'
+                          isFull ? 'bg-rose-500' : 'bg-[#990000]'
                         }`}
                         style={{ width: `${(room.occupiedBeds / room.capacity) * 100}%` }}
                       />
@@ -519,8 +519,8 @@ export const HostelClient: React.FC<HostelClientProps> = ({
           TAB 2: BED ALLOCATIONS
           ===================================================================== */}
       {activeTab === 'allocations' && (
-        <div className="bg-white border border-[#E4EAEC] rounded-2xl overflow-hidden shadow-2xs">
-          <div className="p-4 border-b border-[#E4EAEC] flex items-center justify-between gap-4">
+        <div className="bg-white border border-[#E5E5E5] rounded-2xl overflow-hidden shadow-2xs">
+          <div className="p-4 border-b border-[#E5E5E5] flex items-center justify-between gap-4">
             <h3 className="font-bold text-slate-900 text-sm sm:text-base">
               Active Resident Bed Allocations
             </h3>
@@ -531,7 +531,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm text-slate-700">
-              <thead className="bg-[#F7FAFA] border-b border-[#E4EAEC] text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <thead className="bg-[#F5F5F5] border-b border-[#E5E5E5] text-xs font-bold text-slate-500 uppercase tracking-wider">
                 <tr>
                   <th className="py-3 px-4">Student</th>
                   <th className="py-3 px-4">Class</th>
@@ -542,7 +542,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                   <th className="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E4EAEC]">
+              <tbody className="divide-y divide-[#E5E5E5]">
                 {allocations.map((alloc) => (
                   <tr key={alloc.id} className="hover:bg-slate-50/70 transition-colors">
                     <td className="py-3 px-4">
@@ -566,7 +566,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                       </span>{' '}
                       <span className="text-xs text-slate-500">({alloc.bedNumber})</span>
                     </td>
-                    <td className="py-3 px-4 font-bold text-[#086A92]">
+                    <td className="py-3 px-4 font-bold text-[#990000]">
                       ₹ {alloc.monthlyRent.toLocaleString()}
                     </td>
                     <td className="py-3 px-4 text-xs text-slate-600 font-medium">
@@ -592,8 +592,8 @@ export const HostelClient: React.FC<HostelClientProps> = ({
           TAB 3: NIGHT ROLL-CALL ATTENDANCE
           ===================================================================== */}
       {activeTab === 'attendance' && (
-        <div className="bg-white border border-[#E4EAEC] rounded-2xl p-6 space-y-5 shadow-2xs">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E4EAEC]">
+        <div className="bg-white border border-[#E5E5E5] rounded-2xl p-6 space-y-5 shadow-2xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E5E5E5]">
             <div>
               <h3 className="font-bold text-slate-900 text-lg">
                 Hostel Evening Roll-Call Register
@@ -623,7 +623,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                 return (
                   <div
                     key={alloc.id}
-                    className="p-3.5 rounded-xl border border-[#E4EAEC] bg-[#F7FAFA] space-y-2.5"
+                    className="p-3.5 rounded-xl border border-[#E5E5E5] bg-[#F5F5F5] space-y-2.5"
                   >
                     <div className="flex items-center justify-between">
                       <div>
@@ -653,7 +653,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                                 : st === 'ON_LEAVE'
                                 ? 'bg-amber-600 text-white'
                                 : 'bg-blue-600 text-white'
-                              : 'bg-white text-slate-600 border border-[#E4EAEC] hover:bg-slate-100'
+                              : 'bg-white text-slate-600 border border-[#E5E5E5] hover:bg-slate-100'
                           }`}
                         >
                           {st === 'ON_LEAVE' ? 'LEAVE' : st}
@@ -680,17 +680,17 @@ export const HostelClient: React.FC<HostelClientProps> = ({
               variant="primary"
               size="sm"
               onClick={() => setShowOutpassModal(true)}
-              className="text-xs font-bold bg-[#086A92] hover:bg-[#07597b] text-white"
+              className="text-xs font-bold bg-[#990000] hover:bg-[#800000] text-white"
             >
               <Plus className="w-4 h-4 mr-1.5" />
               <span>Issue Outpass</span>
             </Button>
           </div>
 
-          <div className="bg-white border border-[#E4EAEC] rounded-2xl overflow-hidden shadow-2xs">
+          <div className="bg-white border border-[#E5E5E5] rounded-2xl overflow-hidden shadow-2xs">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm text-slate-700">
-                <thead className="bg-[#F7FAFA] border-b border-[#E4EAEC] text-xs font-bold text-slate-500 uppercase tracking-wider">
+                <thead className="bg-[#F5F5F5] border-b border-[#E5E5E5] text-xs font-bold text-slate-500 uppercase tracking-wider">
                   <tr>
                     <th className="py-3 px-4">Student</th>
                     <th className="py-3 px-4">Destination</th>
@@ -701,7 +701,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                     <th className="py-3 px-4 text-right">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#E4EAEC]">
+                <tbody className="divide-y divide-[#E5E5E5]">
                   {outpasses.map((op) => (
                     <tr key={op.id} className="hover:bg-slate-50/70 transition-colors">
                       <td className="py-3 px-4 font-bold text-slate-900">
@@ -760,7 +760,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                 <select
                   value={roomForm.buildingId}
                   onChange={(e) => setRoomForm({ ...roomForm, buildingId: e.target.value })}
-                  className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                  className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                 >
                   {buildings.map((b) => (
                     <option key={b.id} value={b.id}>
@@ -778,7 +778,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                     required
                     value={roomForm.roomNumber}
                     onChange={(e) => setRoomForm({ ...roomForm, roomNumber: e.target.value })}
-                    className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                    className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                     placeholder="301"
                   />
                 </div>
@@ -790,7 +790,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                     max="10"
                     value={roomForm.floor}
                     onChange={(e) => setRoomForm({ ...roomForm, floor: parseInt(e.target.value) || 1 })}
-                    className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                    className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                   />
                 </div>
               </div>
@@ -804,7 +804,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                     max="8"
                     value={roomForm.capacity}
                     onChange={(e) => setRoomForm({ ...roomForm, capacity: parseInt(e.target.value) || 4 })}
-                    className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                    className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                   />
                 </div>
                 <div>
@@ -812,7 +812,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                   <select
                     value={roomForm.roomType}
                     onChange={(e) => setRoomForm({ ...roomForm, roomType: e.target.value })}
-                    className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                    className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                   >
                     <option value="NON_AC">Non-AC</option>
                     <option value="AC">Air Conditioned</option>
@@ -827,7 +827,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                   type="number"
                   value={roomForm.monthlyFee}
                   onChange={(e) => setRoomForm({ ...roomForm, monthlyFee: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                  className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                 />
               </div>
 
@@ -863,7 +863,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                   required
                   value={allocForm.studentId}
                   onChange={(e) => setAllocForm({ ...allocForm, studentId: e.target.value })}
-                  className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                  className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                 >
                   <option value="">-- Choose Boarding Student --</option>
                   {students.map((s) => (
@@ -880,7 +880,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                   required
                   value={allocForm.roomId}
                   onChange={(e) => setAllocForm({ ...allocForm, roomId: e.target.value })}
-                  className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                  className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                 >
                   <option value="">-- Choose Room with Vacancy --</option>
                   {displayedRooms
@@ -901,7 +901,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                     required
                     value={allocForm.bedNumber}
                     onChange={(e) => setAllocForm({ ...allocForm, bedNumber: e.target.value })}
-                    className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                    className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                   />
                 </div>
                 <div>
@@ -910,7 +910,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                     type="number"
                     value={allocForm.monthlyRent}
                     onChange={(e) => setAllocForm({ ...allocForm, monthlyRent: parseFloat(e.target.value) || 0 })}
-                    className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                    className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                   />
                 </div>
               </div>
@@ -947,7 +947,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                   required
                   value={outpassForm.studentId}
                   onChange={(e) => setOutpassForm({ ...outpassForm, studentId: e.target.value })}
-                  className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                  className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                 >
                   <option value="">-- Choose Resident --</option>
                   {students.map((s) => (
@@ -965,7 +965,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                   required
                   value={outpassForm.destination}
                   onChange={(e) => setOutpassForm({ ...outpassForm, destination: e.target.value })}
-                  className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                  className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                   placeholder="Parent Residence / Hospital"
                 />
               </div>
@@ -977,7 +977,7 @@ export const HostelClient: React.FC<HostelClientProps> = ({
                   required
                   value={outpassForm.purpose}
                   onChange={(e) => setOutpassForm({ ...outpassForm, purpose: e.target.value })}
-                  className="w-full px-3 py-2 border border-[#E4EAEC] rounded-xl text-sm"
+                  className="w-full px-3 py-2 border border-[#E5E5E5] rounded-xl text-sm"
                   placeholder="Weekend Home Visit"
                 />
               </div>

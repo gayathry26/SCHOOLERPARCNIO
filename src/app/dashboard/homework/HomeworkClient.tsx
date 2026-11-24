@@ -163,7 +163,7 @@ export const HomeworkClient: React.FC<{
                 <div className="space-y-3">
                   <div className="flex items-start justify-between gap-2">
                     <div>
-                      <span className="text-[10px] bg-[#EAF5F8] text-[#086A92] font-bold px-2 py-0.5 rounded border border-[#c0e3ed]">
+                      <span className="text-[10px] bg-[#FEF2F2] text-[#990000] font-bold px-2 py-0.5 rounded border border-[#FECACA]">
                         {hw.class?.name || 'Class'} {hw.section ? `- Sec ${hw.section.name}` : ''} • {hw.subject?.name || 'General'}
                       </span>
                       <h3 className="font-bold text-slate-900 text-sm mt-1.5 leading-snug">{hw.title}</h3>

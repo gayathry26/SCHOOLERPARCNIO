@@ -292,7 +292,7 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       icon: UserPlus,
       roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL', 'VICE_PRINCIPAL', 'RECEPTIONIST'],
       badge: 'Admissions',
-      color: 'text-[#086A92]',
+      color: 'text-[#990000]',
     },
     {
       key: 'MARK_ATTENDANCE' as QuickActionKey,
@@ -310,7 +310,7 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       icon: ClipboardList,
       roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL', 'TEACHER', 'CLASS_TEACHER'],
       badge: 'Academic',
-      color: 'text-[#008C91]',
+      color: 'text-[#C00000]',
     },
     {
       key: 'CREATE_EXAM' as QuickActionKey,
@@ -337,7 +337,7 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       icon: MessageSquare,
       roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL', 'VICE_PRINCIPAL', 'TEACHER'],
       badge: 'Broadcast',
-      color: 'text-[#086A92]',
+      color: 'text-[#990000]',
     },
     {
       key: 'GENERATE_REPORT' as QuickActionKey,
@@ -368,7 +368,7 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
         title="⚡ Quick Action Launcher"
       >
         <div className="space-y-4">
-          <p className="text-xs text-[#6B7C83]">
+          <p className="text-xs text-[#737373]">
             Perform high-frequency school operations instantly from anywhere without switching pages.
           </p>
 
@@ -386,21 +386,21 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
                       setActiveAction(action.key);
                     }
                   }}
-                  className="flex items-start gap-3 p-3 rounded-xl border border-[#E4EAEC] hover:border-[#086A92] hover:bg-[#EAF5F8]/40 transition-all text-left group cursor-pointer"
+                  className="flex items-start gap-3 p-3 rounded-xl border border-[#E5E5E5] hover:border-[#990000] hover:bg-[#FEF2F2]/40 transition-all text-left group cursor-pointer"
                 >
-                  <div className="p-2.5 rounded-lg bg-[#F7FAFA] group-hover:bg-white text-[#17313A] shadow-2xs shrink-0">
+                  <div className="p-2.5 rounded-lg bg-[#F5F5F5] group-hover:bg-white text-[#171717] shadow-2xs shrink-0">
                     <Icon className={`w-5 h-5 ${action.color}`} />
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between gap-1">
-                      <h4 className="text-xs font-bold text-[#17313A] group-hover:text-[#086A92] transition-colors truncate">
+                      <h4 className="text-xs font-bold text-[#171717] group-hover:text-[#990000] transition-colors truncate">
                         {action.title}
                       </h4>
                       <Badge variant="slate" size="xs">
                         {action.badge}
                       </Badge>
                     </div>
-                    <p className="text-[11px] text-[#6B7C83] mt-0.5 truncate">{action.subtitle}</p>
+                    <p className="text-[11px] text-[#737373] mt-0.5 truncate">{action.subtitle}</p>
                   </div>
                 </button>
               );
@@ -431,36 +431,36 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">First Name *</label>
+              <label className="block font-semibold text-[#171717] mb-1">First Name *</label>
               <input
                 type="text"
                 required
                 value={studentForm.firstName}
                 onChange={(e) => setStudentForm({ ...studentForm, firstName: e.target.value })}
                 placeholder="e.g. Aarav"
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
               />
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Last Name *</label>
+              <label className="block font-semibold text-[#171717] mb-1">Last Name *</label>
               <input
                 type="text"
                 required
                 value={studentForm.lastName}
                 onChange={(e) => setStudentForm({ ...studentForm, lastName: e.target.value })}
                 placeholder="e.g. Verma"
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Class *</label>
+              <label className="block font-semibold text-[#171717] mb-1">Class *</label>
               <select
                 value={studentForm.className}
                 onChange={(e) => setStudentForm({ ...studentForm, className: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="Class 10">Class 10 (Secondary)</option>
                 <option value="Class 9">Class 9 (Secondary)</option>
@@ -470,11 +470,11 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
               </select>
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Gender *</label>
+              <label className="block font-semibold text-[#171717] mb-1">Gender *</label>
               <select
                 value={studentForm.gender}
                 onChange={(e) => setStudentForm({ ...studentForm, gender: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="MALE">Male</option>
                 <option value="FEMALE">Female</option>
@@ -485,29 +485,29 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Parent Name</label>
+              <label className="block font-semibold text-[#171717] mb-1">Parent Name</label>
               <input
                 type="text"
                 value={studentForm.parentName}
                 onChange={(e) => setStudentForm({ ...studentForm, parentName: e.target.value })}
                 placeholder="e.g. Ramesh Verma"
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
               />
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Parent Mobile *</label>
+              <label className="block font-semibold text-[#171717] mb-1">Parent Mobile *</label>
               <input
                 type="tel"
                 required
                 value={studentForm.parentPhone}
                 onChange={(e) => setStudentForm({ ...studentForm, parentPhone: e.target.value })}
                 placeholder="+91 98765 43210"
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
               />
             </div>
           </div>
 
-          <div className="flex justify-end gap-2 pt-2 border-t border-[#E4EAEC]">
+          <div className="flex justify-end gap-2 pt-2 border-t border-[#E5E5E5]">
             <Button variant="ghost" size="sm" type="button" onClick={handleClose}>
               Cancel
             </Button>
@@ -533,23 +533,23 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
           )}
 
           <div>
-            <label className="block font-semibold text-[#17313A] mb-1">Student</label>
+            <label className="block font-semibold text-[#171717] mb-1">Student</label>
             <input
               type="text"
               required
               value={paymentForm.studentSearch}
               onChange={(e) => setPaymentForm({ ...paymentForm, studentSearch: e.target.value })}
-              className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+              className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Fee Head</label>
+              <label className="block font-semibold text-[#171717] mb-1">Fee Head</label>
               <select
                 value={paymentForm.feeHead}
                 onChange={(e) => setPaymentForm({ ...paymentForm, feeHead: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="Term 2 Tuition Fee">Term 2 Tuition Fee</option>
                 <option value="Transport Bus Pass">Transport Bus Pass</option>
@@ -558,24 +558,24 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
               </select>
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Amount (₹) *</label>
+              <label className="block font-semibold text-[#171717] mb-1">Amount (₹) *</label>
               <input
                 type="number"
                 required
                 value={paymentForm.amount}
                 onChange={(e) => setPaymentForm({ ...paymentForm, amount: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg font-mono font-bold text-[#086A92] focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg font-mono font-bold text-[#990000] focus:outline-none focus:border-[#990000]"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Payment Mode</label>
+              <label className="block font-semibold text-[#171717] mb-1">Payment Mode</label>
               <select
                 value={paymentForm.paymentMode}
                 onChange={(e) => setPaymentForm({ ...paymentForm, paymentMode: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="CASH">Cash (Counter)</option>
                 <option value="UPI">UPI / QR Scan</option>
@@ -585,17 +585,17 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
               </select>
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Receipt Reference</label>
+              <label className="block font-semibold text-[#171717] mb-1">Receipt Reference</label>
               <input
                 type="text"
                 value={paymentForm.transactionRef}
                 onChange={(e) => setPaymentForm({ ...paymentForm, transactionRef: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg font-mono focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg font-mono focus:outline-none focus:border-[#990000]"
               />
             </div>
           </div>
 
-          <div className="flex justify-end gap-2 pt-2 border-t border-[#E4EAEC]">
+          <div className="flex justify-end gap-2 pt-2 border-t border-[#E5E5E5]">
             <Button variant="ghost" size="sm" type="button" onClick={handleClose}>
               Cancel
             </Button>
@@ -622,11 +622,11 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Target Class *</label>
+              <label className="block font-semibold text-[#171717] mb-1">Target Class *</label>
               <select
                 value={homeworkForm.className}
                 onChange={(e) => setHomeworkForm({ ...homeworkForm, className: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="Class 10-A">Class 10-A</option>
                 <option value="Class 10-B">Class 10-B</option>
@@ -636,11 +636,11 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
               </select>
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Subject *</label>
+              <label className="block font-semibold text-[#171717] mb-1">Subject *</label>
               <select
                 value={homeworkForm.subject}
                 onChange={(e) => setHomeworkForm({ ...homeworkForm, subject: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="Mathematics">Mathematics</option>
                 <option value="Science">Science (Physics & Chem)</option>
@@ -652,40 +652,40 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
           </div>
 
           <div>
-            <label className="block font-semibold text-[#17313A] mb-1">Assignment Title *</label>
+            <label className="block font-semibold text-[#171717] mb-1">Assignment Title *</label>
             <input
               type="text"
               required
               value={homeworkForm.title}
               onChange={(e) => setHomeworkForm({ ...homeworkForm, title: e.target.value })}
               placeholder="e.g. Chapter 4: Quadratic Equations Problem Set 4.2"
-              className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+              className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Due Date *</label>
+              <label className="block font-semibold text-[#171717] mb-1">Due Date *</label>
               <input
                 type="date"
                 required
                 value={homeworkForm.dueDate}
                 onChange={(e) => setHomeworkForm({ ...homeworkForm, dueDate: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
               />
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Max Marks</label>
+              <label className="block font-semibold text-[#171717] mb-1">Max Marks</label>
               <input
                 type="number"
                 value={homeworkForm.maxMarks}
                 onChange={(e) => setHomeworkForm({ ...homeworkForm, maxMarks: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
               />
             </div>
           </div>
 
-          <div className="flex justify-end gap-2 pt-2 border-t border-[#E4EAEC]">
+          <div className="flex justify-end gap-2 pt-2 border-t border-[#E5E5E5]">
             <Button variant="ghost" size="sm" type="button" onClick={handleClose}>
               Cancel
             </Button>
@@ -711,24 +711,24 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
           )}
 
           <div>
-            <label className="block font-semibold text-[#17313A] mb-1">Exam Title *</label>
+            <label className="block font-semibold text-[#171717] mb-1">Exam Title *</label>
             <input
               type="text"
               required
               value={examForm.examName}
               onChange={(e) => setExamForm({ ...examForm, examName: e.target.value })}
               placeholder="e.g. Term 2 Periodic Assessment - Mathematics"
-              className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+              className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Class *</label>
+              <label className="block font-semibold text-[#171717] mb-1">Class *</label>
               <select
                 value={examForm.className}
                 onChange={(e) => setExamForm({ ...examForm, className: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="Class 10">Class 10</option>
                 <option value="Class 9">Class 9</option>
@@ -737,11 +737,11 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
               </select>
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Subject *</label>
+              <label className="block font-semibold text-[#171717] mb-1">Subject *</label>
               <select
                 value={examForm.subject}
                 onChange={(e) => setExamForm({ ...examForm, subject: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="Science">Science</option>
                 <option value="Mathematics">Mathematics</option>
@@ -753,36 +753,36 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
 
           <div className="grid grid-cols-3 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Exam Date *</label>
+              <label className="block font-semibold text-[#171717] mb-1">Exam Date *</label>
               <input
                 type="date"
                 required
                 value={examForm.examDate}
                 onChange={(e) => setExamForm({ ...examForm, examDate: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
               />
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Total Marks</label>
+              <label className="block font-semibold text-[#171717] mb-1">Total Marks</label>
               <input
                 type="number"
                 value={examForm.totalMarks}
                 onChange={(e) => setExamForm({ ...examForm, totalMarks: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
               />
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Passing Marks</label>
+              <label className="block font-semibold text-[#171717] mb-1">Passing Marks</label>
               <input
                 type="number"
                 value={examForm.passingMarks}
                 onChange={(e) => setExamForm({ ...examForm, passingMarks: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
               />
             </div>
           </div>
 
-          <div className="flex justify-end gap-2 pt-2 border-t border-[#E4EAEC]">
+          <div className="flex justify-end gap-2 pt-2 border-t border-[#E5E5E5]">
             <Button variant="ghost" size="sm" type="button" onClick={handleClose}>
               Cancel
             </Button>
@@ -808,24 +808,24 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
           )}
 
           <div>
-            <label className="block font-semibold text-[#17313A] mb-1">Notice Headline *</label>
+            <label className="block font-semibold text-[#171717] mb-1">Notice Headline *</label>
             <input
               type="text"
               required
               value={announcementForm.title}
               onChange={(e) => setAnnouncementForm({ ...announcementForm, title: e.target.value })}
               placeholder="e.g. Annual Sports Meet Scheduled for Dec 15"
-              className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+              className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Target Audience</label>
+              <label className="block font-semibold text-[#171717] mb-1">Target Audience</label>
               <select
                 value={announcementForm.targetAudience}
                 onChange={(e) => setAnnouncementForm({ ...announcementForm, targetAudience: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="ALL">Entire Campus Community</option>
                 <option value="PARENTS">Parents Only</option>
@@ -834,11 +834,11 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
               </select>
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Priority</label>
+              <label className="block font-semibold text-[#171717] mb-1">Priority</label>
               <select
                 value={announcementForm.priority}
                 onChange={(e) => setAnnouncementForm({ ...announcementForm, priority: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="NORMAL">Standard Notice</option>
                 <option value="URGENT">High Priority Alert</option>
@@ -847,18 +847,18 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
           </div>
 
           <div>
-            <label className="block font-semibold text-[#17313A] mb-1">Circular Message *</label>
+            <label className="block font-semibold text-[#171717] mb-1">Circular Message *</label>
             <textarea
               required
               rows={4}
               value={announcementForm.content}
               onChange={(e) => setAnnouncementForm({ ...announcementForm, content: e.target.value })}
               placeholder="Compose official circular details, timing, venue, instructions..."
-              className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+              className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
             />
           </div>
 
-          <div className="flex justify-end gap-2 pt-2 border-t border-[#E4EAEC]">
+          <div className="flex justify-end gap-2 pt-2 border-t border-[#E5E5E5]">
             <Button variant="ghost" size="sm" type="button" onClick={handleClose}>
               Cancel
             </Button>
@@ -885,36 +885,36 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">First Name *</label>
+              <label className="block font-semibold text-[#171717] mb-1">First Name *</label>
               <input
                 type="text"
                 required
                 value={teacherForm.firstName}
                 onChange={(e) => setTeacherForm({ ...teacherForm, firstName: e.target.value })}
                 placeholder="e.g. Shalini"
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
               />
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Last Name *</label>
+              <label className="block font-semibold text-[#171717] mb-1">Last Name *</label>
               <input
                 type="text"
                 required
                 value={teacherForm.lastName}
                 onChange={(e) => setTeacherForm({ ...teacherForm, lastName: e.target.value })}
                 placeholder="e.g. Nair"
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Department</label>
+              <label className="block font-semibold text-[#171717] mb-1">Department</label>
               <select
                 value={teacherForm.department}
                 onChange={(e) => setTeacherForm({ ...teacherForm, department: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="Mathematics">Mathematics</option>
                 <option value="Physics & Science">Physics &amp; Science</option>
@@ -924,29 +924,29 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
               </select>
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Designation</label>
+              <label className="block font-semibold text-[#171717] mb-1">Designation</label>
               <input
                 type="text"
                 value={teacherForm.designation}
                 onChange={(e) => setTeacherForm({ ...teacherForm, designation: e.target.value })}
                 placeholder="e.g. Senior PGT Teacher"
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
               />
             </div>
           </div>
 
           <div>
-            <label className="block font-semibold text-[#17313A] mb-1">Official Email</label>
+            <label className="block font-semibold text-[#171717] mb-1">Official Email</label>
             <input
               type="email"
               value={teacherForm.email}
               onChange={(e) => setTeacherForm({ ...teacherForm, email: e.target.value })}
               placeholder="e.g. s.nair@edvonest-academy.edu.in"
-              className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg focus:outline-none focus:border-[#086A92]"
+              className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000]"
             />
           </div>
 
-          <div className="flex justify-end gap-2 pt-2 border-t border-[#E4EAEC]">
+          <div className="flex justify-end gap-2 pt-2 border-t border-[#E5E5E5]">
             <Button variant="ghost" size="sm" type="button" onClick={handleClose}>
               Cancel
             </Button>
@@ -972,11 +972,11 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
           )}
 
           <div>
-            <label className="block font-semibold text-[#17313A] mb-1">Select Report Type</label>
+            <label className="block font-semibold text-[#171717] mb-1">Select Report Type</label>
             <select
               value={reportForm.reportType}
               onChange={(e) => setReportForm({ ...reportForm, reportType: e.target.value })}
-              className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+              className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
             >
               <option value="CBSE_COMPLIANCE">CBSE Annual Regulatory Compliance Report</option>
               <option value="FEE_COLLECTION">Daily &amp; Monthly Fee Reconciliation Ledger</option>
@@ -987,22 +987,22 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Export Format</label>
+              <label className="block font-semibold text-[#171717] mb-1">Export Format</label>
               <select
                 value={reportForm.format}
                 onChange={(e) => setReportForm({ ...reportForm, format: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="PDF">Standard Signed PDF (.pdf)</option>
                 <option value="CSV">Data Spreadsheet (.csv)</option>
               </select>
             </div>
             <div>
-              <label className="block font-semibold text-[#17313A] mb-1">Timeframe</label>
+              <label className="block font-semibold text-[#171717] mb-1">Timeframe</label>
               <select
                 value={reportForm.timeframe}
                 onChange={(e) => setReportForm({ ...reportForm, timeframe: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E4EAEC] rounded-lg bg-white focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
               >
                 <option value="CURRENT_TERM">Current Term (2025–2026)</option>
                 <option value="YEAR_TO_DATE">Full Academic Year</option>
@@ -1011,7 +1011,7 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
             </div>
           </div>
 
-          <div className="flex justify-end gap-2 pt-2 border-t border-[#E4EAEC]">
+          <div className="flex justify-end gap-2 pt-2 border-t border-[#E5E5E5]">
             <Button variant="ghost" size="sm" type="button" onClick={handleClose}>
               Cancel
             </Button>

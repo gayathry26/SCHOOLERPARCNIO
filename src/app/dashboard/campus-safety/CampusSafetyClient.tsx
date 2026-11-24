@@ -148,11 +148,11 @@ export const CampusSafetyClient: React.FC<{
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-              <Shield className="w-6 h-6 text-[#086A92]" />
+              <Shield className="w-6 h-6 text-[#990000]" />
               <span>Smart Campus Safety &amp; Access Control</span>
             </h2>
             <Badge variant="blue" size="sm">
@@ -226,7 +226,7 @@ export const CampusSafetyClient: React.FC<{
           <Card className="lg:col-span-1 space-y-4">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-sm">
-                <QrCode className="w-4 h-4 text-[#086A92]" />
+                <QrCode className="w-4 h-4 text-[#990000]" />
                 <span>Simulate Turnstile / RFID Scan</span>
               </CardTitle>
             </CardHeader>
@@ -351,7 +351,7 @@ export const CampusSafetyClient: React.FC<{
           {passes.map((vp) => (
             <Card key={vp.id} className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="font-mono font-bold text-xs text-[#086A92]">{vp.passNumber}</span>
+                <span className="font-mono font-bold text-xs text-[#990000]">{vp.passNumber}</span>
                 <Badge variant={vp.status === 'ACTIVE' ? 'green' : 'slate'} size="xs">
                   {vp.status}
                 </Badge>
@@ -392,7 +392,7 @@ export const CampusSafetyClient: React.FC<{
                   <span className="text-xs font-bold text-slate-900">{pick.guardianName}</span>
                 </div>
                 <p className="text-xs text-slate-500 font-mono">{pick.phone}</p>
-                <p className="text-xs text-[#086A92] font-semibold mt-1">
+                <p className="text-xs text-[#990000] font-semibold mt-1">
                   Ward: {pick.student?.user?.firstName} {pick.student?.user?.lastName} (Adm #{pick.student?.admissionNumber})
                 </p>
                 <span className="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 inline-block font-bold">

@@ -106,7 +106,7 @@ export const FilePreviewModal: React.FC<FilePreviewModalProps> = ({
             size="sm"
             variant="primary"
             onClick={handleDownload}
-            className="bg-[#086A92] hover:bg-[#065A7D] text-white flex items-center gap-1.5"
+            className="bg-[#990000] hover:bg-[#800000] text-white flex items-center gap-1.5"
           >
             <Download className="w-4 h-4" />
             <span>Download Copy</span>

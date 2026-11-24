@@ -269,7 +269,7 @@ export const StudentProfileClient: React.FC<{
         date: cert.issueDate,
         category: 'AWARDS',
         icon: Sparkles,
-        color: '#086A92',
+        color: '#990000',
       });
     });
 
@@ -316,7 +316,7 @@ export const StudentProfileClient: React.FC<{
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 no-print">
         <Link
           href="/dashboard/students"
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#086A92] hover:underline"
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#990000] hover:underline"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back to Students Directory</span>
@@ -328,7 +328,7 @@ export const StudentProfileClient: React.FC<{
             variant="outline"
             size="sm"
             onClick={() => setIsQrModalOpen(true)}
-            leftIcon={<QrIcon className="w-3.5 h-3.5 text-[#086A92]" />}
+            leftIcon={<QrIcon className="w-3.5 h-3.5 text-[#990000]" />}
           >
             Digital Gate QR
           </Button>
@@ -365,7 +365,7 @@ export const StudentProfileClient: React.FC<{
       {/* ---------------------------------------------------- */}
       {/* 360-DEGREE STUDENT PROFILE HEADER CARD */}
       {/* ---------------------------------------------------- */}
-      <div className="bg-white border border-[#E4EAEC] rounded-2xl p-5 sm:p-6 shadow-2xs relative overflow-hidden">
+      <div className="bg-white border border-[#E5E5E5] rounded-2xl p-5 sm:p-6 shadow-2xs relative overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
           {/* Col 1: Photo, Name, Badges, Contact info */}
           <div className="lg:col-span-8 flex flex-col sm:flex-row items-start sm:items-center gap-5">
@@ -381,7 +381,7 @@ export const StudentProfileClient: React.FC<{
               <button
                 type="button"
                 onClick={() => setIsPhotoModalOpen(true)}
-                className="absolute -bottom-1.5 -right-1.5 p-1.5 bg-[#086A92] text-white rounded-full shadow-md hover:bg-[#065A7D] transition-transform hover:scale-110 cursor-pointer border-2 border-white"
+                className="absolute -bottom-1.5 -right-1.5 p-1.5 bg-[#990000] text-white rounded-full shadow-md hover:bg-[#800000] transition-transform hover:scale-110 cursor-pointer border-2 border-white"
                 title="Update profile photo"
               >
                 <Camera className="w-3.5 h-3.5" />
@@ -396,7 +396,7 @@ export const StudentProfileClient: React.FC<{
                 <Badge variant="emerald" size="xs">
                   Active Enrollment
                 </Badge>
-                <span className="text-xs font-mono font-bold text-[#086A92] bg-[#EAF5F8] px-2.5 py-0.5 rounded-lg border border-[#c0e3ed]">
+                <span className="text-xs font-mono font-bold text-[#990000] bg-[#FEF2F2] px-2.5 py-0.5 rounded-lg border border-[#FECACA]">
                   {student.admissionNumber}
                 </span>
               </div>
@@ -415,7 +415,7 @@ export const StudentProfileClient: React.FC<{
 
               <div className="flex items-center gap-4 text-[11px] text-slate-500 pt-1 flex-wrap">
                 <span className="flex items-center gap-1">
-                  <Mail className="w-3.5 h-3.5 text-[#086A92]" /> {student.user.email}
+                  <Mail className="w-3.5 h-3.5 text-[#990000]" /> {student.user.email}
                 </span>
                 <span className="flex items-center gap-1">
                   <Phone className="w-3.5 h-3.5 text-[#16A34A]" /> {student.emergencyContact || '+91 98765 43210'}
@@ -436,7 +436,7 @@ export const StudentProfileClient: React.FC<{
               <p className="text-xs font-bold text-slate-900 mt-0.5">Encrypted Gate Access</p>
               <button
                 onClick={() => setIsQrModalOpen(true)}
-                className="text-[11px] text-[#086A92] font-semibold hover:underline mt-0.5 inline-block"
+                className="text-[11px] text-[#990000] font-semibold hover:underline mt-0.5 inline-block"
               >
                 Scan &amp; Verify Code
               </button>
@@ -446,7 +446,7 @@ export const StudentProfileClient: React.FC<{
                 src={qrDataUrl}
                 alt="Institutional Gate Verification QR"
                 onClick={() => setIsQrModalOpen(true)}
-                className="w-16 h-16 rounded-xl border border-slate-200 p-1 bg-white shadow-2xs cursor-pointer hover:border-[#086A92] transition"
+                className="w-16 h-16 rounded-xl border border-slate-200 p-1 bg-white shadow-2xs cursor-pointer hover:border-[#990000] transition"
               />
             )}
           </div>
@@ -477,7 +477,7 @@ export const StudentProfileClient: React.FC<{
               value={`${gpaPercentage}%`}
               change={`Grade ${overallGrade} • Top 5%`}
               trend="up"
-              icon={<TrendingUp className="w-5 h-5 text-[#086A92]" />}
+              icon={<TrendingUp className="w-5 h-5 text-[#990000]" />}
             />
             <StatCard
               title="Tuition Dues"
@@ -509,7 +509,7 @@ export const StudentProfileClient: React.FC<{
               <Card className="p-5">
                 <CardHeader className="p-0 pb-3 border-b border-slate-100 flex items-center justify-between">
                   <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                    <User className="w-4 h-4 text-[#086A92]" />
+                    <User className="w-4 h-4 text-[#990000]" />
                     <span>Primary Biographical &amp; Enrollment Records</span>
                   </CardTitle>
                   <Button size="xs" variant="outline" onClick={() => setActiveTab('personal')}>
@@ -586,12 +586,12 @@ export const StudentProfileClient: React.FC<{
               <Card className="p-5">
                 <CardHeader className="p-0 pb-3 border-b border-slate-100 flex items-center justify-between">
                   <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                    <History className="w-4 h-4 text-[#086A92]" />
+                    <History className="w-4 h-4 text-[#990000]" />
                     <span>Recent 360° Activity</span>
                   </CardTitle>
                   <button
                     onClick={() => setActiveTab('timeline')}
-                    className="text-xs text-[#086A92] font-semibold hover:underline"
+                    className="text-xs text-[#990000] font-semibold hover:underline"
                   >
                     View All
                   </button>
@@ -668,7 +668,7 @@ export const StudentProfileClient: React.FC<{
             </div>
             <div>
               <span className="text-slate-400 block font-semibold">Admission Number</span>
-              <span className="font-mono font-bold text-[#086A92]">{student.admissionNumber}</span>
+              <span className="font-mono font-bold text-[#990000]">{student.admissionNumber}</span>
             </div>
             <div>
               <span className="text-slate-400 block font-semibold">Roll Number</span>
@@ -734,7 +734,7 @@ export const StudentProfileClient: React.FC<{
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
               <div>
                 <h4 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-[#086A92]" />
+                  <TrendingUp className="w-5 h-5 text-[#990000]" />
                   <span>Academic Trajectory &amp; Term GPA Progression</span>
                 </h4>
                 <p className="text-xs text-slate-500">
@@ -771,7 +771,7 @@ export const StudentProfileClient: React.FC<{
                   <path
                     d="M 80 110 L 200 90 L 320 60 L 440 50 L 540 40"
                     fill="none"
-                    stroke="#086A92"
+                    stroke="#990000"
                     strokeWidth="3.5"
                     strokeLinecap="round"
                   />
@@ -779,7 +779,7 @@ export const StudentProfileClient: React.FC<{
                   {/* Linear Gradient Definition */}
                   <defs>
                     <linearGradient id="blueGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#086A92" />
+                      <stop offset="0%" stopColor="#990000" />
                       <stop offset="100%" stopColor="#ffffff" />
                     </linearGradient>
                   </defs>
@@ -793,8 +793,8 @@ export const StudentProfileClient: React.FC<{
                     { cx: 540, cy: 40, label: 'Pre-Board 2 (92%)' },
                   ].map((pt, i) => (
                     <g key={i}>
-                      <circle cx={pt.cx} cy={pt.cy} r="5.5" fill="#ffffff" stroke="#086A92" strokeWidth="3" />
-                      <text x={pt.cx} y={pt.cy - 12} fill="#086A92" fontSize="10" fontWeight="bold" textAnchor="middle">
+                      <circle cx={pt.cx} cy={pt.cy} r="5.5" fill="#ffffff" stroke="#990000" strokeWidth="3" />
+                      <text x={pt.cx} y={pt.cy - 12} fill="#990000" fontSize="10" fontWeight="bold" textAnchor="middle">
                         {pt.label.split(' ')[2]?.replace(/[()]/g, '') || ''}
                       </text>
                       <text x={pt.cx} y={195} fill="#64748b" fontSize="10" textAnchor="middle">
@@ -815,11 +815,11 @@ export const StudentProfileClient: React.FC<{
 
             <div className="space-y-4 pt-4">
               {[
-                { subject: 'Mathematics (041)', student: 94, average: 74, color: '#086A92' },
+                { subject: 'Mathematics (041)', student: 94, average: 74, color: '#990000' },
                 { subject: 'Science & Physics (086)', student: 88, average: 71, color: '#16A34A' },
                 { subject: 'English Core (184)', student: 82, average: 78, color: '#7C3AED' },
                 { subject: 'Social Science (087)', student: 89, average: 70, color: '#D97706' },
-                { subject: 'Computer Applications & AI (165)', student: 98, average: 81, color: '#008C91' },
+                { subject: 'Computer Applications & AI (165)', student: 98, average: 81, color: '#C00000' },
               ].map((sub, i) => (
                 <div key={i} className="space-y-1 text-xs">
                   <div className="flex justify-between font-semibold">
@@ -945,7 +945,7 @@ export const StudentProfileClient: React.FC<{
                   placeholder="Filter by status or remarks..."
                   value={attendanceSearch}
                   onChange={(e) => setAttendanceSearch(e.target.value)}
-                  className="pl-8 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg outline-none focus:border-[#086A92]"
+                  className="pl-8 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg outline-none focus:border-[#990000]"
                 />
               </div>
             </div>
@@ -1030,7 +1030,7 @@ export const StudentProfileClient: React.FC<{
                       <td className="py-3 px-3 text-center font-semibold text-slate-800">
                         {practical} / {m.examSchedule?.maxPracticalMarks || 20}
                       </td>
-                      <td className="py-3 px-3 text-center font-bold text-[#086A92]">
+                      <td className="py-3 px-3 text-center font-bold text-[#990000]">
                         {total} / {m.examSchedule?.maxMarks || 100}
                       </td>
                       <td className="py-3 px-3 text-center">
@@ -1087,7 +1087,7 @@ export const StudentProfileClient: React.FC<{
                 </div>
 
                 <div className="flex items-center gap-3 shrink-0 self-end sm:self-auto">
-                  <span className="font-bold text-[#086A92] text-sm">
+                  <span className="font-bold text-[#990000] text-sm">
                     {sub.marksScored || 18} / {sub.homework?.maxMarks || 20} Marks
                   </span>
                   <Badge variant="emerald">{sub.status || 'GRADED'}</Badge>
@@ -1111,7 +1111,7 @@ export const StudentProfileClient: React.FC<{
                 value={formatCurrency(totalBilled)}
                 change="Annual Fee Schedule"
                 trend="neutral"
-                icon={<CreditCard className="w-5 h-5 text-[#086A92]" />}
+                icon={<CreditCard className="w-5 h-5 text-[#990000]" />}
               />
               <StatCard
                 title="Total Collected"
@@ -1154,7 +1154,7 @@ export const StudentProfileClient: React.FC<{
                       <span className="font-bold text-slate-800">
                         Paid: {formatCurrency(inv.paidAmount)}
                       </span>
-                      <Button size="xs" variant="outline" className="text-[#086A92]">
+                      <Button size="xs" variant="outline" className="text-[#990000]">
                         <Download className="w-3 h-3 mr-1" /> Receipt
                       </Button>
                     </div>
@@ -1191,7 +1191,7 @@ export const StudentProfileClient: React.FC<{
             {studentDocuments.map((doc) => (
               <div
                 key={doc.id}
-                className="p-4 rounded-xl border border-slate-200 bg-white hover:border-[#086A92] hover:shadow-xs transition space-y-3 flex flex-col justify-between"
+                className="p-4 rounded-xl border border-slate-200 bg-white hover:border-[#990000] hover:shadow-xs transition space-y-3 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between">
@@ -1212,7 +1212,7 @@ export const StudentProfileClient: React.FC<{
                   <Button
                     size="xs"
                     variant="outline"
-                    className="flex-1 text-[#086A92]"
+                    className="flex-1 text-[#990000]"
                     onClick={() => setPreviewDoc(doc)}
                   >
                     <Eye className="w-3 h-3 mr-1" /> Preview
@@ -1252,7 +1252,7 @@ export const StudentProfileClient: React.FC<{
               </div>
               <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
                 <span className="text-slate-400 block font-semibold">Vision (L / R)</span>
-                <span className="text-lg font-black text-[#086A92]">
+                <span className="text-lg font-black text-[#990000]">
                   {student.healthProfile?.visionLeft || '6/6'} • {student.healthProfile?.visionRight || '6/6'}
                 </span>
               </div>
@@ -1310,7 +1310,7 @@ export const StudentProfileClient: React.FC<{
             {(student.achievements || []).map((ach: any) => (
               <div
                 key={ach.id}
-                className="p-4 rounded-xl border border-slate-200 bg-white hover:border-[#086A92] hover:shadow-xs transition space-y-2.5"
+                className="p-4 rounded-xl border border-slate-200 bg-white hover:border-[#990000] hover:shadow-xs transition space-y-2.5"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">
@@ -1340,7 +1340,7 @@ export const StudentProfileClient: React.FC<{
         <div className="space-y-5">
           <Card className="p-6">
             <h4 className="text-base font-bold text-slate-900 pb-3 border-b border-slate-100 flex items-center gap-2">
-              <Users className="w-5 h-5 text-[#086A92]" />
+              <Users className="w-5 h-5 text-[#990000]" />
               <span>Primary Parent / Guardian Contact</span>
             </h4>
 
@@ -1366,7 +1366,7 @@ export const StudentProfileClient: React.FC<{
               </div>
               <div>
                 <span className="text-slate-400 block font-semibold">Email Address</span>
-                <span className="font-bold text-[#086A92]">{parent?.user?.email || 'parent.guardian@edvonest.edu'}</span>
+                <span className="font-bold text-[#990000]">{parent?.user?.email || 'parent.guardian@edvonest.edu'}</span>
               </div>
               <div>
                 <span className="text-slate-400 block font-semibold">Emergency Pickup Permitted</span>
@@ -1417,7 +1417,7 @@ export const StudentProfileClient: React.FC<{
                   onClick={() => setTimelineFilter(cat)}
                   className={`px-2.5 py-1 rounded-full font-medium transition ${
                     timelineFilter === cat
-                      ? 'bg-[#086A92] text-white shadow-2xs'
+                      ? 'bg-[#990000] text-white shadow-2xs'
                       : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                   }`}
                 >
@@ -1441,7 +1441,7 @@ export const StudentProfileClient: React.FC<{
                     <Icon className="w-2.5 h-2.5" />
                   </div>
 
-                  <div className="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-[#086A92] transition text-xs space-y-1">
+                  <div className="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-[#990000] transition text-xs space-y-1">
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-slate-900 text-sm">{item.title}</span>
                       <span className="text-[10px] text-slate-400 font-mono">{formatDate(item.date)}</span>
@@ -1460,7 +1460,7 @@ export const StudentProfileClient: React.FC<{
       {/* ==================================================== */}
       <Modal isOpen={isQrModalOpen} onClose={() => setIsQrModalOpen(false)} title="Institutional Gate Pass & QR Code">
         <div className="text-center p-4 space-y-4">
-          <div className="w-48 h-48 mx-auto p-2 bg-white rounded-2xl border-2 border-[#086A92] shadow-sm flex items-center justify-center">
+          <div className="w-48 h-48 mx-auto p-2 bg-white rounded-2xl border-2 border-[#990000] shadow-sm flex items-center justify-center">
             {qrDataUrl && <img src={qrDataUrl} alt="Institutional QR" className="w-full h-full object-contain" />}
           </div>
 
@@ -1468,7 +1468,7 @@ export const StudentProfileClient: React.FC<{
             <h4 className="font-bold text-slate-900 text-base">
               {student.user.firstName} {student.user.lastName}
             </h4>
-            <span className="text-xs font-mono font-bold text-[#086A92]">
+            <span className="text-xs font-mono font-bold text-[#990000]">
               {student.admissionNumber} • {currentEnrollment?.class?.name}-{currentEnrollment?.section?.name}
             </span>
           </div>
@@ -1513,7 +1513,7 @@ export const StudentProfileClient: React.FC<{
             </div>
 
             <div className="p-12 border-2 border-dashed border-slate-200 rounded-xl text-center space-y-2">
-              <FileText className="w-10 h-10 text-[#086A92] mx-auto" />
+              <FileText className="w-10 h-10 text-[#990000] mx-auto" />
               <p className="font-bold text-slate-800">Secure PDF Preview Verified</p>
               <p className="text-[11px] text-slate-400">Digitally signed encrypted document stored on institutional S3.</p>
             </div>
@@ -1522,7 +1522,7 @@ export const StudentProfileClient: React.FC<{
               <Button size="sm" variant="outline" onClick={() => setPreviewDoc(null)}>
                 Close
               </Button>
-              <Button size="sm" variant="primary" className="bg-[#086A92] text-white">
+              <Button size="sm" variant="primary" className="bg-[#990000] text-white">
                 <Download className="w-3.5 h-3.5 mr-1" /> Download Copy
               </Button>
             </div>
@@ -1564,7 +1564,7 @@ export const StudentProfileClient: React.FC<{
             <input
               type="text"
               defaultValue={`Academic Update regarding ${student.user.firstName}`}
-              className="w-full border border-slate-300 rounded-lg p-2.5 outline-none focus:border-[#086A92]"
+              className="w-full border border-slate-300 rounded-lg p-2.5 outline-none focus:border-[#990000]"
             />
           </div>
 
@@ -1573,7 +1573,7 @@ export const StudentProfileClient: React.FC<{
             <textarea
               rows={3}
               placeholder="Enter your message or circular notice..."
-              className="w-full border border-slate-300 rounded-lg p-2.5 outline-none focus:border-[#086A92]"
+              className="w-full border border-slate-300 rounded-lg p-2.5 outline-none focus:border-[#990000]"
             />
           </div>
 

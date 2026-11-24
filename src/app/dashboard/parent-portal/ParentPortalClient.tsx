@@ -100,7 +100,7 @@ export const ParentPortalClient: React.FC<{
   };
 
   const tabs: TabItem[] = [
-    { id: 'digest', label: 'Daily Student Activity Digest', icon: <User className="w-4 h-4 text-[#086A92]" /> },
+    { id: 'digest', label: 'Daily Student Activity Digest', icon: <User className="w-4 h-4 text-[#990000]" /> },
     { id: 'homework', label: 'Homework & Assignments', count: homeworkList.length, icon: <BookOpen className="w-4 h-4 text-amber-500" /> },
     { id: 'ptm', label: 'Parent-Teacher Conferences (PTM)', count: ptms.length, icon: <Calendar className="w-4 h-4 text-emerald-600" /> },
     { id: 'consents', label: 'Digital Circulars & Consent Forms', count: consents.filter((c) => c.isAccepted === null).length, icon: <FileCheck2 className="w-4 h-4 text-indigo-600" /> },
@@ -110,7 +110,7 @@ export const ParentPortalClient: React.FC<{
   return (
     <div className="space-y-6">
       {/* Student Banner */}
-      <div className="bg-gradient-to-r from-[#086A92] to-[#043A52] text-white p-6 rounded-2xl shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="bg-gradient-to-r from-[#990000] to-[#171717] text-white p-6 rounded-2xl shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white text-2xl font-bold">
             {primaryStudent?.user?.firstName?.charAt(0) || 'S'}
@@ -225,7 +225,7 @@ export const ParentPortalClient: React.FC<{
             <Card>
               <CardHeader>
                 <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                  <BellRing className="w-4 h-4 text-[#086A92]" />
+                  <BellRing className="w-4 h-4 text-[#990000]" />
                   <span>Instant Notification Channels</span>
                 </CardTitle>
               </CardHeader>
@@ -239,7 +239,7 @@ export const ParentPortalClient: React.FC<{
                     type="checkbox"
                     checked={whatsappEnabled}
                     onChange={(e) => setWhatsappEnabled(e.target.checked)}
-                    className="w-4 h-4 text-[#086A92] rounded"
+                    className="w-4 h-4 text-[#990000] rounded"
                   />
                 </div>
 
@@ -252,7 +252,7 @@ export const ParentPortalClient: React.FC<{
                     type="checkbox"
                     checked={smsEnabled}
                     onChange={(e) => setSmsEnabled(e.target.checked)}
-                    className="w-4 h-4 text-[#086A92] rounded"
+                    className="w-4 h-4 text-[#990000] rounded"
                   />
                 </div>
 
@@ -316,7 +316,7 @@ export const ParentPortalClient: React.FC<{
             <Button
               size="sm"
               variant="primary"
-              className="bg-[#086A92] text-white"
+              className="bg-[#990000] text-white"
               onClick={() => setIsPtmModalOpen(true)}
             >
               <Plus className="w-3.5 h-3.5 mr-1" />
@@ -471,7 +471,7 @@ export const ParentPortalClient: React.FC<{
             <select
               value={ptmForm.teacherId}
               onChange={(e) => setPtmForm({ ...ptmForm, teacherId: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {teachers.map((t) => (
                 <option key={t.id} value={t.id}>
@@ -489,7 +489,7 @@ export const ParentPortalClient: React.FC<{
                 required
                 value={ptmForm.scheduledDate}
                 onChange={(e) => setPtmForm({ ...ptmForm, scheduledDate: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -497,7 +497,7 @@ export const ParentPortalClient: React.FC<{
               <select
                 value={ptmForm.timeSlot}
                 onChange={(e) => setPtmForm({ ...ptmForm, timeSlot: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="09:00 AM - 09:20 AM">09:00 AM - 09:20 AM</option>
                 <option value="10:00 AM - 10:20 AM">10:00 AM - 10:20 AM</option>
@@ -512,7 +512,7 @@ export const ParentPortalClient: React.FC<{
             <select
               value={ptmForm.meetingMode}
               onChange={(e) => setPtmForm({ ...ptmForm, meetingMode: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               <option value="IN_PERSON">In-Person at Campus Conference Room</option>
               <option value="VIDEO_CALL">Secure Video Conference Link</option>
@@ -525,7 +525,7 @@ export const ParentPortalClient: React.FC<{
               rows={2}
               value={ptmForm.notes}
               onChange={(e) => setPtmForm({ ...ptmForm, notes: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -533,7 +533,7 @@ export const ParentPortalClient: React.FC<{
             <Button size="sm" variant="outline" type="button" onClick={() => setIsPtmModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" className="bg-[#990000] text-white">
               Confirm Conference Slot
             </Button>
           </div>

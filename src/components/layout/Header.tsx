@@ -45,13 +45,13 @@ export const Header: React.FC<HeaderProps> = ({ user, onOpenDrawer }) => {
   };
 
   return (
-    <header className="h-16 bg-white border-b border-[#E4EAEC] px-3 sm:px-6 flex items-center justify-between sticky top-0 z-20 shadow-2xs">
+    <header className="h-16 bg-white border-b border-[#E5E5E5] px-4 sm:px-6 flex items-center justify-between sticky top-0 z-20 shadow-2xs">
       {/* Left items: Mobile Hamburger Drawer Button + Academic Session + Quick Search */}
       <div className="flex items-center gap-2 sm:gap-3">
         {/* Mobile Hamburger Drawer Trigger */}
         <button
           onClick={onOpenDrawer}
-          className="md:hidden p-1.5 rounded-lg text-slate-700 hover:text-[#086A92] hover:bg-[#EAF5F8] transition-colors cursor-pointer"
+          className="md:hidden p-2 rounded-lg text-[#171717] hover:text-[#990000] hover:bg-red-50 transition-colors cursor-pointer"
           title="Open Menu Drawer"
         >
           <Menu className="w-5 h-5" />
@@ -62,83 +62,79 @@ export const Header: React.FC<HeaderProps> = ({ user, onOpenDrawer }) => {
           <EdvoNestLogo variant="icon-only" size="sm" />
         </div>
 
-        <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl text-xs font-semibold text-[#17313A] shadow-2xs">
-          <Calendar className="w-4 h-4 text-[#086A92]" />
-          <span className="text-[#6B7C83]">Session:</span>
-          <span className="font-bold text-[#086A92]">2026–2027 (CBSE)</span>
-          <span className="w-2 h-2 rounded-full bg-[#35B84A] animate-pulse" />
+        {/* Session Indicator */}
+        <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg text-xs font-semibold text-[#171717]">
+          <Calendar className="w-3.5 h-3.5 text-[#990000]" />
+          <span className="text-[#525252]">Session:</span>
+          <span className="font-bold text-[#990000]">2026–2027 (CBSE)</span>
+          <span className="w-2 h-2 rounded-full bg-[#990000] animate-pulse" />
         </div>
 
         <OmniSearch userRole={user.role} />
 
         <button
           onClick={() => triggerQuickAction('LAUNCHER')}
-          className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 bg-[#EAF5F8] hover:bg-[#086A92] text-[#086A92] hover:text-white rounded-xl text-xs font-bold transition-all cursor-pointer shadow-2xs border border-[#c0e3ed]"
+          className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 bg-red-50 hover:bg-[#990000] text-[#990000] hover:text-white rounded-lg text-xs font-bold transition-all cursor-pointer border border-red-200"
           title="Open Quick Action Launcher"
         >
-          <Zap className="w-3.5 h-3.5 text-[#35B84A]" />
+          <Zap className="w-3.5 h-3.5 text-[#990000]" />
           <span>Quick Actions</span>
         </button>
       </div>
 
       {/* Right items: Online/Offline Pill, Role Switcher, Notifications, User Badge, Logout */}
-      <div className="flex items-center gap-1.5 sm:gap-3">
+      <div className="flex items-center gap-2 sm:gap-3">
         {/* Role Walkthrough Trigger */}
         <button
           onClick={() => window.dispatchEvent(new CustomEvent('start-walkthrough'))}
-          className="hidden md:flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-slate-700 hover:text-[#086A92] hover:bg-[#EAF5F8] rounded-lg transition-colors border border-slate-200 hover:border-[#c0e3ed] cursor-pointer shadow-2xs"
+          className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold text-[#525252] hover:text-[#990000] hover:bg-red-50 rounded-lg transition-colors border border-[#E5E5E5] hover:border-red-200 cursor-pointer"
           title="Restart guided tour for your role"
         >
-          <Compass className="w-3.5 h-3.5 text-[#086A92]" />
+          <Compass className="w-3.5 h-3.5 text-[#990000]" />
           <span>Tour</span>
         </button>
 
         {/* Real-time Network Indicator */}
         <div
-          className={`flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-bold ${
-            online ? 'bg-emerald-50 text-emerald-700' : 'bg-amber-100 text-amber-800'
-          }`}
-          title={online ? 'Connected to EdvoNest Cloud' : 'Working in Offline Mode'}
+          className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold ${online ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-red-50 text-[#990000] border border-red-200'
+            }`}
+          title={online ? 'Connected to Institutional Cloud OS' : 'Offline mode active (Local Queue)'}
         >
-          {online ? (
-            <>
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="hidden sm:inline">Online</span>
-            </>
-          ) : (
-            <>
-              <WifiOff className="w-3 h-3 text-amber-600 animate-pulse" />
-              <span className="hidden sm:inline">Offline</span>
-            </>
-          )}
+          {online ? <Wifi className="w-3 h-3 text-emerald-600" /> : <WifiOff className="w-3 h-3 text-[#990000]" />}
+          <span className="hidden sm:inline">{online ? 'Cloud Synced' : 'Offline Mode'}</span>
         </div>
 
-        <RoleSwitcher currentRole={user.role} currentUserName={`${user.firstName} ${user.lastName}`} />
+        {/* Role Switcher */}
+        <RoleSwitcher currentRole={user.role} />
 
-        <div className="h-5 w-[1px] bg-[#E4EAEC] hidden sm:block" />
+        {/* Notification Center */}
+        <NotificationCenter userRole={user.role} />
 
-        <NotificationCenter />
-
-        <div className="flex items-center gap-2 pl-1">
-          <div className="w-8 h-8 rounded-full bg-[#086A92] text-white flex items-center justify-center text-xs font-black shadow-xs">
+        {/* User Mini Profile Avatar */}
+        <div className="flex items-center gap-2 pl-2 border-l border-[#E5E5E5]">
+          <div className="w-8 h-8 rounded-full bg-[#990000] text-white flex items-center justify-center text-xs font-bold shadow-2xs">
             {user.firstName[0]}
             {user.lastName[0]}
           </div>
-          <div className="hidden md:block text-left">
-            <p className="text-xs font-bold text-[#17313A] leading-tight">
-              {user.firstName} {user.lastName}
-            </p>
-            <p className="text-[10px] text-[#6B7C83] font-medium leading-tight mt-0.5">{user.role}</p>
-          </div>
-        </div>
 
-        <button
-          onClick={handleLogout}
-          title="Sign out"
-          className="p-1.5 text-[#6B7C83] hover:text-[#DC2626] hover:bg-[#FEE2E2] rounded-lg transition-colors cursor-pointer"
-        >
-          <LogOut className="w-4 h-4" />
-        </button>
+          <div className="hidden sm:block text-left text-xs leading-tight">
+            <div className="font-bold text-[#171717] truncate max-w-[110px]">
+              {user.firstName} {user.lastName}
+            </div>
+            <div className="text-[10px] font-semibold text-[#990000] capitalize">
+              {user.role.toLowerCase().replace('_', ' ')}
+            </div>
+          </div>
+
+          <button
+            onClick={handleLogout}
+            className="p-1.5 rounded-lg text-[#525252] hover:text-[#990000] hover:bg-red-50 transition-colors ml-1 cursor-pointer"
+            title="Sign Out"
+            aria-label="Sign Out"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
+        </div>
       </div>
     </header>
   );

@@ -73,11 +73,11 @@ export const CertificatesClient: React.FC<{
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-              <Award className="w-6 h-6 text-[#086A92]" />
+              <Award className="w-6 h-6 text-[#990000]" />
               <span>Digital Certificates &amp; Institutional Credentials</span>
             </h2>
             <Badge variant="blue" size="sm">
@@ -147,7 +147,7 @@ export const CertificatesClient: React.FC<{
             size="sm"
             onClick={handleGenerateCertificate}
             disabled={isSaving}
-            className="bg-[#086A92] hover:bg-[#065A7D] text-white flex items-center gap-1.5"
+            className="bg-[#990000] hover:bg-[#800000] text-white flex items-center gap-1.5"
           >
             <Sparkles className="w-3.5 h-3.5" />
             Issue &amp; Generate Document
@@ -180,7 +180,7 @@ export const CertificatesClient: React.FC<{
                 <Button
                   size="xs"
                   variant="outline"
-                  className="mt-1 text-[#086A92]"
+                  className="mt-1 text-[#990000]"
                   onClick={() =>
                     setViewCertificate({
                       certificateNo: c.certificateNo,
@@ -283,7 +283,7 @@ export const CertificatesClient: React.FC<{
               <Button
                 variant="primary"
                 size="sm"
-                className="bg-[#086A92] text-white"
+                className="bg-[#990000] text-white"
                 onClick={() => window.print()}
               >
                 <Printer className="w-3.5 h-3.5 mr-1" /> Print Official Certificate

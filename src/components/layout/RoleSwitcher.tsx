@@ -76,15 +76,15 @@ export const RoleSwitcher: React.FC<{ currentRole: string; currentUserName?: str
       <button
         onClick={() => setIsOpen(!isOpen)}
         disabled={isSwitching}
-        className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 bg-[#F7FAFA] hover:bg-[#EAF5F8] border border-[#E4EAEC] rounded-lg text-xs font-semibold text-[#17313A] transition-all cursor-pointer"
+        className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 bg-[#F5F5F5] hover:bg-[#FEF2F2] border border-[#E5E5E5] rounded-lg text-xs font-semibold text-[#171717] transition-all cursor-pointer"
         title="Switch user role to test permissions"
       >
         <div className="flex items-center gap-1.5">
-          <IconComponent className="w-3.5 h-3.5 text-[#086A92]" />
-          <span className="hidden sm:inline text-[#6B7C83]">Role:</span>
-          <span className="text-[#086A92] font-bold">{activeRoleObj.label}</span>
+          <IconComponent className="w-3.5 h-3.5 text-[#990000]" />
+          <span className="hidden sm:inline text-[#737373]">Role:</span>
+          <span className="text-[#990000] font-bold">{activeRoleObj.label}</span>
         </div>
-        <ChevronDown className={`w-3.5 h-3.5 text-[#6B7C83] transition-transform ${isOpen ? 'rotate-180 text-[#086A92]' : ''}`} />
+        <ChevronDown className={`w-3.5 h-3.5 text-[#737373] transition-transform ${isOpen ? 'rotate-180 text-[#990000]' : ''}`} />
       </button>
 
       {isOpen && (
@@ -95,13 +95,13 @@ export const RoleSwitcher: React.FC<{ currentRole: string; currentUserName?: str
       )}
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-[#E4EAEC] p-2 z-50 animate-in fade-in-50 zoom-in-95">
-          <div className="p-2 border-b border-[#E4EAEC] mb-1 flex items-center justify-between">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#086A92] flex items-center gap-1.5">
+        <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-[#E5E5E5] p-2 z-50 animate-in fade-in-50 zoom-in-95">
+          <div className="p-2 border-b border-[#E5E5E5] mb-1 flex items-center justify-between">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#990000] flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-[#35B84A]" />
               Role Switcher
             </span>
-            <span className="text-[10px] bg-[#EAF5F8] text-[#086A92] px-1.5 py-0.5 rounded font-mono font-bold">
+            <span className="text-[10px] bg-[#FEF2F2] text-[#990000] px-1.5 py-0.5 rounded font-mono font-bold">
               Test RBAC
             </span>
           </div>
@@ -116,16 +116,16 @@ export const RoleSwitcher: React.FC<{ currentRole: string; currentUserName?: str
                   onClick={() => handleSwitch(role.id)}
                   className={`w-full text-left p-2 rounded-lg flex items-start gap-2.5 transition-colors cursor-pointer ${
                     isSelected
-                      ? 'bg-[#EAF5F8] border border-[#c0e3ed] text-[#086A92]'
-                      : 'hover:bg-[#F7FAFA] text-[#17313A]'
+                      ? 'bg-[#FEF2F2] border border-[#FECACA] text-[#990000]'
+                      : 'hover:bg-[#F5F5F5] text-[#171717]'
                   }`}
                 >
-                  <div className={`p-1.5 rounded-md ${isSelected ? 'bg-[#086A92] text-white' : 'bg-[#F1F5F7] text-[#6B7C83]'}`}>
+                  <div className={`p-1.5 rounded-md ${isSelected ? 'bg-[#990000] text-white' : 'bg-[#F1F5F7] text-[#737373]'}`}>
                     <RoleIcon className="w-4 h-4" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <p className={`text-xs font-bold truncate ${isSelected ? 'text-[#086A92]' : 'text-[#17313A]'}`}>
+                      <p className={`text-xs font-bold truncate ${isSelected ? 'text-[#990000]' : 'text-[#171717]'}`}>
                         {role.label}
                       </p>
                       {isSelected && (
@@ -134,7 +134,7 @@ export const RoleSwitcher: React.FC<{ currentRole: string; currentUserName?: str
                         </span>
                       )}
                     </div>
-                    <p className={`text-[11px] truncate ${isSelected ? 'text-[#008C91]' : 'text-[#6B7C83]'}`}>
+                    <p className={`text-[11px] truncate ${isSelected ? 'text-[#C00000]' : 'text-[#737373]'}`}>
                       {role.desc}
                     </p>
                   </div>

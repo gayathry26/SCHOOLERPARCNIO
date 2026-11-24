@@ -173,11 +173,11 @@ export const QuestionBankClient: React.FC<{
     return (
       <div className="space-y-6">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                <BookOpen className="w-6 h-6 text-[#086A92]" />
+                <BookOpen className="w-6 h-6 text-[#990000]" />
                 <span>Smart Examination Question Bank &amp; Blueprint Studio</span>
               </h2>
               <Badge variant="blue" size="sm">
@@ -194,7 +194,7 @@ export const QuestionBankClient: React.FC<{
               variant="outline"
               size="sm"
               onClick={() => setIsGeneratePaperOpen(true)}
-              leftIcon={<Sparkles className="w-3.5 h-3.5 text-[#086A92]" />}
+              leftIcon={<Sparkles className="w-3.5 h-3.5 text-[#990000]" />}
             >
               Auto-Generate Paper
             </Button>
@@ -248,7 +248,7 @@ export const QuestionBankClient: React.FC<{
         {activeTab === 'repository' && (
           <div className="space-y-4">
             {/* Filters Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 border border-[#E4EAEC] rounded-xl">
+            <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 border border-[#E5E5E5] rounded-xl">
               <div className="flex items-center gap-2 flex-1 max-w-sm">
                 <Search className="w-4 h-4 text-slate-400" />
                 <input
@@ -264,7 +264,7 @@ export const QuestionBankClient: React.FC<{
                 <select
                   value={selectedSubject}
                   onChange={(e) => setSelectedSubject(e.target.value)}
-                  className="text-xs bg-[#F7FAFA] border border-[#E4EAEC] rounded-lg px-2.5 py-1.5 font-semibold text-slate-700"
+                  className="text-xs bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg px-2.5 py-1.5 font-semibold text-slate-700"
                 >
                   <option value="all">All Subjects</option>
                   {subjects.map((s) => (
@@ -277,7 +277,7 @@ export const QuestionBankClient: React.FC<{
                 <select
                   value={selectedType}
                   onChange={(e) => setSelectedType(e.target.value)}
-                  className="text-xs bg-[#F7FAFA] border border-[#E4EAEC] rounded-lg px-2.5 py-1.5 font-semibold text-slate-700"
+                  className="text-xs bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg px-2.5 py-1.5 font-semibold text-slate-700"
                 >
                   <option value="all">All Types</option>
                   <option value="MCQ">MCQ</option>
@@ -288,7 +288,7 @@ export const QuestionBankClient: React.FC<{
                 <select
                   value={selectedDifficulty}
                   onChange={(e) => setSelectedDifficulty(e.target.value)}
-                  className="text-xs bg-[#F7FAFA] border border-[#E4EAEC] rounded-lg px-2.5 py-1.5 font-semibold text-slate-700"
+                  className="text-xs bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg px-2.5 py-1.5 font-semibold text-slate-700"
                 >
                   <option value="all">All Difficulties</option>
                   <option value="EASY">Easy</option>
@@ -319,7 +319,7 @@ export const QuestionBankClient: React.FC<{
                         <Badge variant="slate" size="xs">
                           {q.questionType}
                         </Badge>
-                        <span className="text-xs font-bold text-[#086A92]">{q.subject?.name}</span>
+                        <span className="text-xs font-bold text-[#990000]">{q.subject?.name}</span>
                         {q.chapter && (
                           <span className="text-[11px] text-slate-400 font-mono">
                             • {q.chapter.name}
@@ -390,7 +390,7 @@ export const QuestionBankClient: React.FC<{
 
                     <div>
                       <h3 className="font-bold text-slate-900 text-sm">{p.title}</h3>
-                      <p className="text-xs text-[#086A92] font-semibold mt-0.5">
+                      <p className="text-xs text-[#990000] font-semibold mt-0.5">
                         {p.class?.name} • {p.subject?.name}
                       </p>
                     </div>

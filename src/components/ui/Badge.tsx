@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  variant?: 'slate' | 'green' | 'emerald' | 'teal' | 'blue' | 'amber' | 'rose' | 'indigo' | 'purple';
+  variant?: 'slate' | 'green' | 'emerald' | 'teal' | 'blue' | 'amber' | 'rose' | 'indigo' | 'purple' | 'red' | 'dark-red';
   size?: 'xs' | 'sm' | 'md';
 }
 
@@ -17,15 +17,17 @@ export const Badge: React.FC<BadgeProps> = ({
   const baseStyles = 'inline-flex items-center font-semibold rounded-full border leading-none';
 
   const variants = {
-    slate: 'bg-[#F1F5F7] text-[#4A5D65] border-[#E4EAEC]',
-    green: 'bg-[#EAF8EC] text-[#16A34A] border-[#bbf0c5]',
-    emerald: 'bg-[#EAF8EC] text-[#16A34A] border-[#bbf0c5]',
-    teal: 'bg-[#E0F5F5] text-[#008C91] border-[#b6e8ea]',
-    blue: 'bg-[#EAF5F8] text-[#086A92] border-[#c0e3ed]',
-    amber: 'bg-[#FEF3C7] text-[#B45309] border-[#FDE68A]',
-    rose: 'bg-[#FEE2E2] text-[#DC2626] border-[#FECACA]',
-    indigo: 'bg-[#EEF2FF] text-[#4F46E5] border-[#E0E7FF]',
-    purple: 'bg-[#FAF5FF] text-[#7E22CE] border-[#F3E8FF]',
+    slate: 'bg-[#F5F5F5] text-[#171717] border-[#E5E5E5]',
+    red: 'bg-red-50 text-[#990000] border-red-200',
+    'dark-red': 'bg-[#990000] text-white border-[#800000]',
+    green: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    emerald: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    teal: 'bg-red-50 text-[#990000] border-red-200', // Redirected from teal to brand red
+    blue: 'bg-red-50 text-[#990000] border-red-200', // Redirected from blue to brand red
+    amber: 'bg-amber-50 text-amber-800 border-amber-200',
+    rose: 'bg-red-50 text-[#990000] border-red-200',
+    indigo: 'bg-red-50 text-[#990000] border-red-200', // Redirected to brand red
+    purple: 'bg-red-50 text-[#990000] border-red-200', // Redirected to brand red
   };
 
   const sizes = {

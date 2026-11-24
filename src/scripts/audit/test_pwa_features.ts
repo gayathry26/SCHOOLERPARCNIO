@@ -29,7 +29,7 @@ async function testPwaFeatures() {
   const manifestContent = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
   assert(manifestContent.name && manifestContent.short_name === 'EdvoNest', 'Manifest has valid EdvoNest brand name');
   assert(manifestContent.display === 'standalone', 'Manifest display mode is set to standalone');
-  assert(manifestContent.theme_color === '#086A92', 'Manifest theme_color matches official teal brand color #086A92');
+  assert(manifestContent.theme_color === '#990000', 'Manifest theme_color matches official teal brand color #990000');
   assert(Array.isArray(manifestContent.icons) && manifestContent.icons.length >= 3, 'Manifest defines required icon sizes');
   assert(Array.isArray(manifestContent.shortcuts) && manifestContent.shortcuts.length >= 4, 'Manifest defines quick mobile shortcuts');
 

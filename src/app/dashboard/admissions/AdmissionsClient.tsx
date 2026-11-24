@@ -263,10 +263,10 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
         <div>
           <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-            <UserPlus className="w-6 h-6 text-[#086A92]" />
+            <UserPlus className="w-6 h-6 text-[#990000]" />
             <span>Admissions &amp; Lead CRM Pipeline</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">
@@ -277,7 +277,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
         <Button
           variant="primary"
           size="sm"
-          className="bg-[#086A92] hover:bg-[#065A7D] text-white"
+          className="bg-[#990000] hover:bg-[#800000] text-white"
           onClick={() => setIsNewModalOpen(true)}
         >
           <UserPlus className="w-3.5 h-3.5 mr-1" />
@@ -286,9 +286,9 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
       </div>
 
       {/* Conversion Funnel Banner */}
-      <div className="p-4 bg-gradient-to-r from-[#086A92]/10 via-sky-50 to-indigo-50 border border-sky-200/60 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="p-4 bg-gradient-to-r from-[#990000]/10 via-sky-50 to-indigo-50 border border-sky-200/60 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#086A92] text-white flex items-center justify-center font-bold">
+          <div className="w-10 h-10 rounded-xl bg-[#990000] text-white flex items-center justify-center font-bold">
             <TrendingUp className="w-5 h-5" />
           </div>
           <div>
@@ -400,7 +400,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
                 required
                 value={formData.studentName}
                 onChange={(e) => setFormData({ ...formData, studentName: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#990000]"
                 placeholder="Arya Sharma"
               />
             </div>
@@ -409,7 +409,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
               <select
                 value={formData.applyingForClass}
                 onChange={(e) => setFormData({ ...formData, applyingForClass: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#086A92] bg-white"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#990000] bg-white"
               >
                 {['Class 1', 'Class 5', 'Class 9', 'Class 10', 'Class 11 Science', 'Class 11 Commerce'].map((c) => (
                   <option key={c} value={c}>{c}</option>
@@ -426,7 +426,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
                 required
                 value={formData.parentName}
                 onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#990000]"
                 placeholder="Dr. Rajesh Sharma"
               />
             </div>
@@ -437,7 +437,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
                 required
                 value={formData.parentPhone}
                 onChange={(e) => setFormData({ ...formData, parentPhone: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#990000]"
                 placeholder="+91 98111 22334"
               />
             </div>
@@ -449,7 +449,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
               type="email"
               value={formData.parentEmail}
               onChange={(e) => setFormData({ ...formData, parentEmail: e.target.value })}
-              className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#086A92]"
+              className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#990000]"
               placeholder="parent.sharma@example.com"
             />
           </div>
@@ -463,7 +463,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
             >
               Cancel
             </Button>
-            <Button type="submit" variant="primary" size="sm" className="bg-[#086A92] text-white">
+            <Button type="submit" variant="primary" size="sm" className="bg-[#990000] text-white">
               Save Admission Enquiry
             </Button>
           </div>
@@ -496,7 +496,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
             {/* Document Verification Section */}
             <div className="border border-slate-200 rounded-xl p-3 space-y-2">
               <h4 className="font-bold text-slate-900 flex items-center gap-1.5">
-                <FileCheck2 className="w-4 h-4 text-[#086A92]" />
+                <FileCheck2 className="w-4 h-4 text-[#990000]" />
                 <span>Submitted Documents Verification</span>
               </h4>
 

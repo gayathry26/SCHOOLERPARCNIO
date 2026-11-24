@@ -352,7 +352,7 @@ export const HrClient: React.FC<HrClientProps> = ({
       id: 'allocations',
       label: 'Teaching Assignments & Allocations',
       count: yearAllocations.length,
-      icon: <Layers className="w-4 h-4 text-[#086A92]" />,
+      icon: <Layers className="w-4 h-4 text-[#990000]" />,
     },
     {
       id: 'workload',
@@ -867,7 +867,7 @@ export const HrClient: React.FC<HrClientProps> = ({
             <div className="flex items-center gap-1.5">
               <span className="font-bold text-slate-900 text-xs block">{row.name}</span>
               {row.profileType === 'TEACHER' && (
-                <span className="text-[9px] px-1 py-0.2 bg-[#EAF5F8] text-[#086A92] font-semibold rounded">
+                <span className="text-[9px] px-1 py-0.2 bg-[#FEF2F2] text-[#990000] font-semibold rounded">
                   Faculty
                 </span>
               )}
@@ -904,7 +904,7 @@ export const HrClient: React.FC<HrClientProps> = ({
         <Button
           size="xs"
           variant="outline"
-          className="border-[#086A92] text-[#086A92] hover:bg-[#EAF5F8] flex items-center gap-1 font-medium"
+          className="border-[#990000] text-[#990000] hover:bg-[#FEF2F2] flex items-center gap-1 font-medium"
           onClick={() => openStaffProfile(row)}
         >
           <History className="w-3.5 h-3.5" />
@@ -1014,7 +1014,7 @@ export const HrClient: React.FC<HrClientProps> = ({
       render: (row) => (
         <div>
           <span className="font-bold text-slate-900 text-xs">{formatDate(row.date)}</span>
-          <span className="block text-[11px] text-[#086A92] font-mono font-bold">Period {row.periodIndex}</span>
+          <span className="block text-[11px] text-[#990000] font-mono font-bold">Period {row.periodIndex}</span>
         </div>
       ),
     },
@@ -1095,11 +1095,11 @@ export const HrClient: React.FC<HrClientProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Banner / Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-              <Users className="w-6 h-6 text-[#086A92]" />
+              <Users className="w-6 h-6 text-[#990000]" />
               <span>Staff Lifecycle, Reassignment &amp; Workload System</span>
             </h2>
             <Badge variant="blue" size="sm">
@@ -1124,7 +1124,7 @@ export const HrClient: React.FC<HrClientProps> = ({
           <Button
             size="sm"
             variant="outline"
-            className="flex items-center gap-1.5 text-[#086A92] border-[#c0e3ed]"
+            className="flex items-center gap-1.5 text-[#990000] border-[#FECACA]"
             onClick={() => {
               setAllocForm((prev) => ({ ...prev, academicYearId: selectedAcademicYearId }));
               setIsAllocateModalOpen(true);
@@ -1136,7 +1136,7 @@ export const HrClient: React.FC<HrClientProps> = ({
           <Button
             size="sm"
             variant="primary"
-            className="bg-[#086A92] hover:bg-[#065A7D] text-white flex items-center gap-1.5"
+            className="bg-[#990000] hover:bg-[#800000] text-white flex items-center gap-1.5"
             onClick={() => setIsBulkAllocateModalOpen(true)}
           >
             <RotateCcw className="w-3.5 h-3.5" />
@@ -1152,7 +1152,7 @@ export const HrClient: React.FC<HrClientProps> = ({
           value={allEmployees.filter((e) => e.status === 'ACTIVE').length}
           change={`${allEmployees.length} Total Permanent Records`}
           trend="up"
-          icon={<Users className="w-5 h-5 text-[#086A92]" />}
+          icon={<Users className="w-5 h-5 text-[#990000]" />}
         />
         <StatCard
           title="Teaching Allocations"
@@ -1207,7 +1207,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                     onClick={() => setStatusFilter(st)}
                     className={`px-2.5 py-1 text-xs rounded-lg font-medium transition-all ${
                       statusFilter === st
-                        ? 'bg-[#086A92] text-white shadow-2xs'
+                        ? 'bg-[#990000] text-white shadow-2xs'
                         : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                     }`}
                   >
@@ -1255,8 +1255,8 @@ export const HrClient: React.FC<HrClientProps> = ({
 
               {/* Academic Year Selector */}
               <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2 bg-[#F1F5F7] px-3 py-1.5 rounded-xl border border-[#E4EAEC]">
-                  <Calendar className="w-4 h-4 text-[#086A92]" />
+                <div className="flex items-center gap-2 bg-[#F1F5F7] px-3 py-1.5 rounded-xl border border-[#E5E5E5]">
+                  <Calendar className="w-4 h-4 text-[#990000]" />
                   <span className="text-xs font-semibold text-slate-700">Academic Session:</span>
                   <select
                     value={selectedAcademicYearId}
@@ -1274,7 +1274,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 <Button
                   size="sm"
                   variant="primary"
-                  className="bg-[#086A92] text-white flex items-center gap-1.5"
+                  className="bg-[#990000] text-white flex items-center gap-1.5"
                   onClick={() => {
                     setAllocForm((prev) => ({ ...prev, academicYearId: selectedAcademicYearId }));
                     setIsAllocateModalOpen(true);
@@ -1336,7 +1336,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                       </div>
                       <div className="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
                         <div
-                          className={`h-full rounded-full ${percentage > 85 ? 'bg-amber-500' : 'bg-[#086A92]'}`}
+                          className={`h-full rounded-full ${percentage > 85 ? 'bg-amber-500' : 'bg-[#990000]'}`}
                           style={{ width: `${percentage}%` }}
                         />
                       </div>
@@ -1379,7 +1379,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               <Button
                 size="sm"
                 variant="primary"
-                className="bg-[#086A92] text-white"
+                className="bg-[#990000] text-white"
                 onClick={() => setIsSubModalOpen(true)}
               >
                 <Plus className="w-3.5 h-3.5 mr-1" /> Assign Substitute
@@ -1456,7 +1456,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               <Button
                 size="sm"
                 variant="primary"
-                className="bg-[#086A92] text-white"
+                className="bg-[#990000] text-white"
                 onClick={() => setIsAppraisalModalOpen(true)}
               >
                 <Plus className="w-3.5 h-3.5 mr-1" /> Record Appraisal
@@ -1574,7 +1574,7 @@ export const HrClient: React.FC<HrClientProps> = ({
         >
           <div className="space-y-5 p-1">
             {/* Header Identity Card */}
-            <div className="p-4 rounded-xl bg-gradient-to-r from-[#F7FAFA] to-slate-50 border border-[#E4EAEC] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="p-4 rounded-xl bg-gradient-to-r from-[#F5F5F5] to-slate-50 border border-[#E5E5E5] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <Avatar name={selectedStaffProfile.name} size="lg" shape="circle" />
                 <div>
@@ -1683,7 +1683,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 onClick={() => setProfileSubTab('overview')}
                 className={`px-4 py-2 text-xs font-bold border-b-2 transition-all ${
                   profileSubTab === 'overview'
-                    ? 'border-[#086A92] text-[#086A92]'
+                    ? 'border-[#990000] text-[#990000]'
                     : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
@@ -1694,7 +1694,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                   onClick={() => setProfileSubTab('assignments')}
                   className={`px-4 py-2 text-xs font-bold border-b-2 transition-all ${
                     profileSubTab === 'assignments'
-                      ? 'border-[#086A92] text-[#086A92]'
+                      ? 'border-[#990000] text-[#990000]'
                       : 'border-transparent text-slate-500 hover:text-slate-800'
                   }`}
                 >
@@ -1705,7 +1705,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 onClick={() => setProfileSubTab('salary')}
                 className={`px-4 py-2 text-xs font-bold border-b-2 transition-all ${
                   profileSubTab === 'salary'
-                    ? 'border-[#086A92] text-[#086A92]'
+                    ? 'border-[#990000] text-[#990000]'
                     : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
@@ -1715,7 +1715,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 onClick={() => setProfileSubTab('lifecycle')}
                 className={`px-4 py-2 text-xs font-bold border-b-2 transition-all ${
                   profileSubTab === 'lifecycle'
-                    ? 'border-[#086A92] text-[#086A92]'
+                    ? 'border-[#990000] text-[#990000]'
                     : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
@@ -1728,7 +1728,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                 <div className="p-4 rounded-xl border border-slate-200 bg-white space-y-2.5">
                   <h4 className="font-bold text-slate-900 border-b border-slate-100 pb-1.5 flex items-center gap-1.5">
-                    <Users className="w-3.5 h-3.5 text-[#086A92]" /> Employment Identity
+                    <Users className="w-3.5 h-3.5 text-[#990000]" /> Employment Identity
                   </h4>
                   <div className="flex justify-between">
                     <span className="text-slate-500">Permanent Employee Code:</span>
@@ -1803,7 +1803,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                   <Button
                     size="xs"
                     variant="outline"
-                    className="border-[#086A92] text-[#086A92]"
+                    className="border-[#990000] text-[#990000]"
                     onClick={() => {
                       setAllocForm({
                         teacherId: selectedStaffProfile.id,
@@ -1977,7 +1977,7 @@ export const HrClient: React.FC<HrClientProps> = ({
             <select
               value={allocForm.teacherId}
               onChange={(e) => setAllocForm({ ...allocForm, teacherId: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {teachers.map((t) => (
                 <option key={t.id} value={t.id}>
@@ -1993,7 +1993,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               <select
                 value={allocForm.academicYearId}
                 onChange={(e) => setAllocForm({ ...allocForm, academicYearId: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 {academicYears.map((ay) => (
                   <option key={ay.id} value={ay.id}>
@@ -2007,7 +2007,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               <select
                 value={allocForm.role}
                 onChange={(e) => setAllocForm({ ...allocForm, role: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 <option value="SUBJECT_TEACHER">Subject Teacher</option>
                 <option value="CLASS_TEACHER">Class Teacher (In-Charge)</option>
@@ -2031,7 +2031,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                     sectionId: targetClass?.sections?.[0]?.id || '',
                   });
                 }}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 {classes.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -2045,7 +2045,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               <select
                 value={allocForm.sectionId}
                 onChange={(e) => setAllocForm({ ...allocForm, sectionId: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 {(selectedClass?.sections || []).map((sec: any) => (
                   <option key={sec.id} value={sec.id}>
@@ -2062,7 +2062,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               <select
                 value={allocForm.subjectId}
                 onChange={(e) => setAllocForm({ ...allocForm, subjectId: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 <option value="">General / All Subjects</option>
                 {subjects.map((sub) => (
@@ -2080,7 +2080,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 max="35"
                 value={allocForm.periodsPerWeek}
                 onChange={(e) => setAllocForm({ ...allocForm, periodsPerWeek: parseInt(e.target.value) || 5 })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2089,7 +2089,7 @@ export const HrClient: React.FC<HrClientProps> = ({
           <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-[#086A92]" /> Live Timetable Slot Clash Detection
+                <Clock className="w-3.5 h-3.5 text-[#990000]" /> Live Timetable Slot Clash Detection
               </span>
               <Button
                 type="button"
@@ -2097,7 +2097,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 variant="outline"
                 disabled={clashCheckState.checking}
                 onClick={handleCheckClash}
-                className="text-[#086A92] border-[#086A92] hover:bg-[#EAF5F8]"
+                className="text-[#990000] border-[#990000] hover:bg-[#FEF2F2]"
               >
                 {clashCheckState.checking ? 'Checking...' : 'Check Slot'}
               </Button>
@@ -2168,7 +2168,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               variant="primary"
               type="submit"
               disabled={isActionLoading}
-              className="bg-[#086A92] text-white"
+              className="bg-[#990000] text-white"
             >
               {isActionLoading ? 'Saving...' : 'Confirm Teaching Allocation'}
             </Button>
@@ -2188,7 +2188,7 @@ export const HrClient: React.FC<HrClientProps> = ({
         <form onSubmit={handleBulkAllocate} className="space-y-4">
           <div className="p-3.5 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-900 space-y-1">
             <div className="font-bold flex items-center gap-1.5">
-              <RotateCcw className="w-3.5 h-3.5 text-[#086A92]" /> Historical Record Protection Guarantee
+              <RotateCcw className="w-3.5 h-3.5 text-[#990000]" /> Historical Record Protection Guarantee
             </div>
             <p className="text-[11px] text-blue-800">
               This process creates fresh records for the selected target session. Past academic year assignments remain permanently archived and untouched.
@@ -2201,7 +2201,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               <select
                 value={bulkAllocForm.sourceAcademicYearId}
                 onChange={(e) => setBulkAllocForm({ ...bulkAllocForm, sourceAcademicYearId: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 {academicYears.map((ay) => (
                   <option key={ay.id} value={ay.id}>
@@ -2215,7 +2215,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               <select
                 value={bulkAllocForm.targetAcademicYearId}
                 onChange={(e) => setBulkAllocForm({ ...bulkAllocForm, targetAcademicYearId: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 {academicYears.map((ay) => (
                   <option key={ay.id} value={ay.id}>
@@ -2235,7 +2235,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               variant="primary"
               type="submit"
               disabled={isActionLoading}
-              className="bg-[#086A92] text-white"
+              className="bg-[#990000] text-white"
             >
               {isActionLoading ? 'Processing...' : 'Run Bulk Carry Forward'}
             </Button>
@@ -2258,7 +2258,7 @@ export const HrClient: React.FC<HrClientProps> = ({
             <select
               value={lifecycleForm.newStatus}
               onChange={(e) => setLifecycleForm({ ...lifecycleForm, newStatus: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               <option value="ACTIVE">ACTIVE (On Duty)</option>
               <option value="ON_LEAVE">ON_LEAVE (Sabbatical / Medical / Maternity)</option>
@@ -2277,7 +2277,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               required
               value={lifecycleForm.effectiveDate}
               onChange={(e) => setLifecycleForm({ ...lifecycleForm, effectiveDate: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2288,7 +2288,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               placeholder="e.g. Relocation, Superannuation retirement, Medical sabbatical..."
               value={lifecycleForm.exitReason}
               onChange={(e) => setLifecycleForm({ ...lifecycleForm, exitReason: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2301,7 +2301,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               variant="primary"
               type="submit"
               disabled={isActionLoading}
-              className="bg-[#086A92] text-white"
+              className="bg-[#990000] text-white"
             >
               {isActionLoading ? 'Saving...' : 'Update Status & Log Audit'}
             </Button>
@@ -2336,7 +2336,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               placeholder="e.g. Rejoined institution as Senior Faculty after career break..."
               value={rejoinRemarks}
               onChange={(e) => setRejoinRemarks(e.target.value)}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2372,7 +2372,7 @@ export const HrClient: React.FC<HrClientProps> = ({
             <select
               value={transferDeptId}
               onChange={(e) => setTransferDeptId(e.target.value)}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {departments.map((d) => (
                 <option key={d.id} value={d.id}>
@@ -2389,7 +2389,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               placeholder="e.g. Transferred to Science & Math Department due to curriculum expansion..."
               value={transferRemarks}
               onChange={(e) => setTransferRemarks(e.target.value)}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2402,7 +2402,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               variant="primary"
               type="submit"
               disabled={isActionLoading}
-              className="bg-[#086A92] text-white"
+              className="bg-[#990000] text-white"
             >
               {isActionLoading ? 'Saving...' : 'Confirm Transfer & Log Audit'}
             </Button>
@@ -2428,7 +2428,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               placeholder="e.g. PGT Senior Faculty, Head of Department (HOD), Vice Principal"
               value={newDesignation}
               onChange={(e) => setNewDesignation(e.target.value)}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2439,7 +2439,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               placeholder="e.g. Promoted to Senior Faculty (PGT) following annual merit evaluation..."
               value={designationRemarks}
               onChange={(e) => setDesignationRemarks(e.target.value)}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2452,7 +2452,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               variant="primary"
               type="submit"
               disabled={isActionLoading}
-              className="bg-[#086A92] text-white"
+              className="bg-[#990000] text-white"
             >
               {isActionLoading ? 'Saving...' : 'Update Designation'}
             </Button>
@@ -2479,7 +2479,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 min="1000"
                 value={salaryRevisionForm.newSalary}
                 onChange={(e) => setSalaryRevisionForm({ ...salaryRevisionForm, newSalary: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2491,7 +2491,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 onChange={(e) =>
                   setSalaryRevisionForm({ ...salaryRevisionForm, effectiveDate: e.target.value })
                 }
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2504,7 +2504,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               placeholder="e.g. Annual merit appraisal increment, 6th pay scale adjustment..."
               value={salaryRevisionForm.reason}
               onChange={(e) => setSalaryRevisionForm({ ...salaryRevisionForm, reason: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2543,7 +2543,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 required
                 value={newTeacherForm.firstName}
                 onChange={(e) => setNewTeacherForm({ ...newTeacherForm, firstName: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2553,7 +2553,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 required
                 value={newTeacherForm.lastName}
                 onChange={(e) => setNewTeacherForm({ ...newTeacherForm, lastName: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2566,7 +2566,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 value={newTeacherForm.email}
                 onChange={(e) => setNewTeacherForm({ ...newTeacherForm, email: e.target.value })}
                 placeholder="faculty@edvonest.com"
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2576,7 +2576,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 value={newTeacherForm.phone}
                 onChange={(e) => setNewTeacherForm({ ...newTeacherForm, phone: e.target.value })}
                 placeholder="+91 98765 43210"
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2589,7 +2589,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 placeholder="Auto-generated if empty"
                 value={newTeacherForm.employeeCode}
                 onChange={(e) => setNewTeacherForm({ ...newTeacherForm, employeeCode: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2598,7 +2598,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 type="text"
                 value={newTeacherForm.designation}
                 onChange={(e) => setNewTeacherForm({ ...newTeacherForm, designation: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2609,7 +2609,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               <select
                 value={newTeacherForm.department}
                 onChange={(e) => setNewTeacherForm({ ...newTeacherForm, department: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 {departments.map((d) => (
                   <option key={d.id} value={d.name}>
@@ -2626,7 +2626,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 onChange={(e) =>
                   setNewTeacherForm({ ...newTeacherForm, basicSalary: parseFloat(e.target.value) || 50000 })
                 }
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2640,7 +2640,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               variant="primary"
               type="submit"
               disabled={isActionLoading}
-              className="bg-[#086A92] text-white"
+              className="bg-[#990000] text-white"
             >
               {isActionLoading ? 'Creating...' : 'Create Permanent Record'}
             </Button>
@@ -2658,7 +2658,7 @@ export const HrClient: React.FC<HrClientProps> = ({
             <select
               value={subForm.absentTeacherId}
               onChange={(e) => setSubForm({ ...subForm, absentTeacherId: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {teachers.map((t) => (
                 <option key={t.id} value={t.id}>
@@ -2673,7 +2673,7 @@ export const HrClient: React.FC<HrClientProps> = ({
             <select
               value={subForm.substituteTeacherId}
               onChange={(e) => setSubForm({ ...subForm, substituteTeacherId: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {teachers.map((t) => (
                 <option key={t.id} value={t.id}>
@@ -2691,7 +2691,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 required
                 value={subForm.date}
                 onChange={(e) => setSubForm({ ...subForm, date: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2702,7 +2702,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 max="8"
                 value={subForm.periodIndex}
                 onChange={(e) => setSubForm({ ...subForm, periodIndex: parseInt(e.target.value) || 1 })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2710,7 +2710,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               <select
                 value={subForm.sectionId}
                 onChange={(e) => setSubForm({ ...subForm, sectionId: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 {sections.map((sec) => (
                   <option key={sec.id} value={sec.id}>
@@ -2725,7 +2725,7 @@ export const HrClient: React.FC<HrClientProps> = ({
             <Button size="sm" variant="outline" type="button" onClick={() => setIsSubModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" className="bg-[#990000] text-white">
               Confirm Assignment &amp; Notify
             </Button>
           </div>
@@ -2746,7 +2746,7 @@ export const HrClient: React.FC<HrClientProps> = ({
             <select
               value={appraisalForm.teacherProfileId}
               onChange={(e) => setAppraisalForm({ ...appraisalForm, teacherProfileId: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {teachers.map((t) => (
                 <option key={t.id} value={t.id}>
@@ -2766,7 +2766,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 max="5"
                 value={appraisalForm.teachingQualityScore}
                 onChange={(e) => setAppraisalForm({ ...appraisalForm, teachingQualityScore: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2778,7 +2778,7 @@ export const HrClient: React.FC<HrClientProps> = ({
                 max="5"
                 value={appraisalForm.studentFeedbackScore}
                 onChange={(e) => setAppraisalForm({ ...appraisalForm, studentFeedbackScore: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2786,7 +2786,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               <select
                 value={appraisalForm.finalRating}
                 onChange={(e) => setAppraisalForm({ ...appraisalForm, finalRating: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="OUTSTANDING">OUTSTANDING</option>
                 <option value="VERY_GOOD">VERY GOOD</option>
@@ -2802,7 +2802,7 @@ export const HrClient: React.FC<HrClientProps> = ({
               rows={2}
               value={appraisalForm.reviewRemarks}
               onChange={(e) => setAppraisalForm({ ...appraisalForm, reviewRemarks: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2810,7 +2810,7 @@ export const HrClient: React.FC<HrClientProps> = ({
             <Button size="sm" variant="outline" type="button" onClick={() => setIsAppraisalModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" className="bg-[#990000] text-white">
               Save Appraisal
             </Button>
           </div>

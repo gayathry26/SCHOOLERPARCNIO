@@ -32,11 +32,11 @@ const PILLARS: PillarInfo[] = [
     id: 'academics',
     title: 'Academics & AI Learning',
     badge: 'Modules A • B • C • D',
-    color: '#086A92',
-    borderColor: '#086A92',
-    bgGradient: 'from-[#EAF5F8] via-white to-white',
-    iconBg: 'bg-[#EAF5F8]',
-    iconColor: 'text-[#086A92]',
+    color: '#990000',
+    borderColor: '#990000',
+    bgGradient: 'from-[#FEF2F2] via-white to-white',
+    iconBg: 'bg-[#FEF2F2]',
+    iconColor: 'text-[#990000]',
     icon: BrainCircuit,
     description:
       'Predictive academic performance, CBSE/ICSE digital syllabus pacing, automated marks gradebook, and adaptive AI student doubts.',
@@ -53,11 +53,11 @@ const PILLARS: PillarInfo[] = [
     id: 'safety',
     title: 'Campus Safety & Transport',
     badge: 'Modules E • F • G',
-    color: '#008C91',
-    borderColor: '#008C91',
-    bgGradient: 'from-[#E0F5F5] via-white to-white',
-    iconBg: 'bg-[#E0F5F5]',
-    iconColor: 'text-[#008C91]',
+    color: '#C00000',
+    borderColor: '#C00000',
+    bgGradient: 'from-[#FEF2F2] via-white to-white',
+    iconBg: 'bg-[#FEF2F2]',
+    iconColor: 'text-[#C00000]',
     icon: ShieldCheck,
     description:
       'Instant encrypted student QR gate passes, live GPS school bus tracking with parent ETA notifications, and clinic health logs.',
@@ -125,14 +125,14 @@ export const SchoolArchitectureDiagram: React.FC<{ compact?: boolean }> = () => 
       <div>
         <div className="flex items-center gap-2 mb-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-[#35B84A] animate-pulse" />
-          <span className="text-xs font-bold text-[#086A92] uppercase tracking-wider bg-[#EAF5F8] px-3 py-1 rounded-full border border-[#c0e3ed]">
+          <span className="text-xs font-bold text-[#990000] uppercase tracking-wider bg-[#FEF2F2] px-3 py-1 rounded-full border border-[#FECACA]">
             Unified School OS Architecture
           </span>
         </div>
-        <h3 className="text-xl sm:text-2xl font-black text-[#17313A] tracking-tight">
+        <h3 className="text-xl sm:text-2xl font-black text-[#171717] tracking-tight">
           Interconnected School Intelligence
         </h3>
-        <p className="text-sm text-[#4A5D65] mt-1 leading-relaxed">
+        <p className="text-sm text-[#525252] mt-1 leading-relaxed">
           Select an operational pillar below to explore real-time data flows across classrooms, administration, safety, and parents.
         </p>
       </div>
@@ -150,25 +150,25 @@ export const SchoolArchitectureDiagram: React.FC<{ compact?: boolean }> = () => 
               onClick={() => setActivePillar(pillar.id)}
               className={`text-left p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer flex flex-col justify-between ${
                 isSelected
-                  ? 'bg-white border-[#086A92] shadow-sm ring-2 ring-[#086A92]/15'
-                  : 'bg-white/80 border-[#E4EAEC] hover:bg-white hover:border-[#086A92]/40 hover:shadow-2xs'
+                  ? 'bg-white border-[#990000] shadow-sm ring-2 ring-[#990000]/15'
+                  : 'bg-white/80 border-[#E5E5E5] hover:bg-white hover:border-[#990000]/40 hover:shadow-2xs'
               }`}
             >
               <div className="flex items-start justify-between gap-2 mb-2">
                 <div className={`w-9 h-9 rounded-xl ${pillar.iconBg} ${pillar.iconColor} flex items-center justify-center shrink-0`}>
                   <PIcon className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-mono font-semibold text-[#6B7C83] bg-[#F7FAFA] px-2 py-0.5 rounded-md border border-[#E4EAEC]">
+                <span className="text-xs font-mono font-semibold text-[#737373] bg-[#F5F5F5] px-2 py-0.5 rounded-md border border-[#E5E5E5]">
                   {pillar.badge}
                 </span>
               </div>
 
               <div>
-                <h4 className="text-sm sm:text-base font-bold text-[#17313A]">
+                <h4 className="text-sm sm:text-base font-bold text-[#171717]">
                   {pillar.title}
                 </h4>
                 <div className="flex items-center justify-between mt-1.5 pt-1.5 border-t border-[#F1F5F7] text-xs">
-                  <span className="font-semibold text-[#086A92]">{pillar.metrics}</span>
+                  <span className="font-semibold text-[#990000]">{pillar.metrics}</span>
                   <span className="font-bold text-[#16A34A] flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
                     <span>Active</span>
@@ -182,16 +182,16 @@ export const SchoolArchitectureDiagram: React.FC<{ compact?: boolean }> = () => 
 
       {/* Deep-Dive Detail Showcase for Selected Pillar */}
       <div
-        className={`rounded-2xl p-5 border border-[#E4EAEC] bg-gradient-to-br ${selected.bgGradient} shadow-2xs space-y-3.5`}
+        className={`rounded-2xl p-5 border border-[#E5E5E5] bg-gradient-to-br ${selected.bgGradient} shadow-2xs space-y-3.5`}
       >
-        <div className="flex items-center justify-between pb-2.5 border-b border-[#E4EAEC]/60">
+        <div className="flex items-center justify-between pb-2.5 border-b border-[#E5E5E5]/60">
           <div className="flex items-center gap-2.5">
             <div className={`p-2 rounded-xl ${selected.iconBg} ${selected.iconColor}`}>
               <ActiveIcon className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-base sm:text-lg font-bold text-[#17313A]">{selected.title}</h4>
-              <p className="text-xs font-mono font-semibold text-[#086A92]">{selected.badge}</p>
+              <h4 className="text-base sm:text-lg font-bold text-[#171717]">{selected.title}</h4>
+              <p className="text-xs font-mono font-semibold text-[#990000]">{selected.badge}</p>
             </div>
           </div>
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF8EC] text-[#16A34A] text-xs font-bold border border-[#bbf0c5]">
@@ -200,12 +200,12 @@ export const SchoolArchitectureDiagram: React.FC<{ compact?: boolean }> = () => 
           </span>
         </div>
 
-        <p className="text-sm text-[#4A5D65] leading-relaxed">
+        <p className="text-sm text-[#525252] leading-relaxed">
           {selected.description}
         </p>
 
         <div>
-          <span className="text-xs font-bold text-[#17313A] uppercase tracking-wider block mb-2">
+          <span className="text-xs font-bold text-[#171717] uppercase tracking-wider block mb-2">
             Included Core Capabilities:
           </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-800">

@@ -156,10 +156,10 @@ export const LibraryClient: React.FC<{
   const getBookCoverTheme = (category: string) => {
     const cat = (category || '').toLowerCase();
     if (cat.includes('sci') || cat.includes('phy') || cat.includes('chem')) {
-      return { gradient: 'from-[#086A92] to-[#008C91]', badge: 'bg-[#EAF5F8] text-[#086A92] border-[#c0e3ed]', icon: '🧪' };
+      return { gradient: 'from-[#990000] to-[#C00000]', badge: 'bg-[#FEF2F2] text-[#990000] border-[#FECACA]', icon: '🧪' };
     }
     if (cat.includes('math')) {
-      return { gradient: 'from-[#008C91] to-[#35B84A]', badge: 'bg-[#EAF8EC] text-[#16A34A] border-[#bbf0c5]', icon: '📐' };
+      return { gradient: 'from-[#990000] to-[#C00000]', badge: 'bg-red-50 text-[#990000] border-red-200', icon: '📐' };
     }
     if (cat.includes('comp') || cat.includes('tech') || cat.includes('ai')) {
       return { gradient: 'from-indigo-600 to-purple-600', badge: 'bg-indigo-50 text-indigo-700 border-indigo-200', icon: '💻' };
@@ -186,7 +186,7 @@ export const LibraryClient: React.FC<{
               </span>
             </div>
             <div>
-              <span className="font-bold text-slate-900 block hover:text-[#086A92] transition-colors">
+              <span className="font-bold text-slate-900 block hover:text-[#990000] transition-colors">
                 {row.title}
               </span>
               <span className="block text-[11px] text-slate-500">Author: {row.author}</span>
@@ -321,7 +321,7 @@ export const LibraryClient: React.FC<{
               variant="outline"
               size="sm"
               onClick={() => setIsIssueBookOpen(true)}
-              leftIcon={<BookCheck className="w-3.5 h-3.5 text-[#086A92]" />}
+              leftIcon={<BookCheck className="w-3.5 h-3.5 text-[#990000]" />}
             >
               Issue Book
             </Button>
@@ -424,7 +424,7 @@ export const LibraryClient: React.FC<{
               required
               value={bookForm.title}
               onChange={(e) => setBookForm({ ...bookForm, title: e.target.value })}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#086A92]"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#990000]"
               placeholder="e.g. Higher Engineering Mathematics"
             />
           </div>
@@ -437,7 +437,7 @@ export const LibraryClient: React.FC<{
                 required
                 value={bookForm.author}
                 onChange={(e) => setBookForm({ ...bookForm, author: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#990000]"
                 placeholder="Dr. B.S. Grewal"
               />
             </div>
@@ -448,7 +448,7 @@ export const LibraryClient: React.FC<{
                 required
                 value={bookForm.isbn}
                 onChange={(e) => setBookForm({ ...bookForm, isbn: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#086A92] font-mono"
+                className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#990000] font-mono"
                 placeholder="978-81-7409-195-5"
               />
             </div>
@@ -460,7 +460,7 @@ export const LibraryClient: React.FC<{
               <select
                 value={bookForm.category}
                 onChange={(e) => setBookForm({ ...bookForm, category: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#990000]"
               >
                 <option value="Mathematics">Mathematics</option>
                 <option value="Science">Science</option>
@@ -475,7 +475,7 @@ export const LibraryClient: React.FC<{
                 type="text"
                 value={bookForm.rackNumber}
                 onChange={(e) => setBookForm({ ...bookForm, rackNumber: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#990000]"
                 placeholder="RACK-03"
               />
             </div>
@@ -487,7 +487,7 @@ export const LibraryClient: React.FC<{
                 required
                 value={bookForm.totalCopies}
                 onChange={(e) => setBookForm({ ...bookForm, totalCopies: parseInt(e.target.value) || 1 })}
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#086A92]"
+                className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#990000]"
               />
             </div>
           </div>
@@ -511,7 +511,7 @@ export const LibraryClient: React.FC<{
             <select
               value={issueForm.bookId}
               onChange={(e) => setIssueForm({ ...issueForm, bookId: e.target.value })}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#086A92]"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#990000]"
             >
               {books.map((b) => (
                 <option key={b.id} value={b.id} disabled={b.availableCopies <= 0}>
@@ -526,7 +526,7 @@ export const LibraryClient: React.FC<{
             <select
               value={issueForm.studentId}
               onChange={(e) => setIssueForm({ ...issueForm, studentId: e.target.value })}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#086A92]"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#990000]"
             >
               {students.map((s) => (
                 <option key={s.id} value={s.id}>
@@ -544,7 +544,7 @@ export const LibraryClient: React.FC<{
               max="60"
               value={issueForm.days}
               onChange={(e) => setIssueForm({ ...issueForm, days: parseInt(e.target.value) || 14 })}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#086A92]"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-[#990000]"
             />
           </div>
 

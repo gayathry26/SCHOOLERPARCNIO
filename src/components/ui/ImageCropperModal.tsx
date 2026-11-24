@@ -223,14 +223,14 @@ export const ImageCropperModal: React.FC<ImageCropperModalProps> = ({
             onDragOver={(e) => e.preventDefault()}
             onDrop={handleDrop}
             onClick={() => fileInputRef.current?.click()}
-            className="border-2 border-dashed border-[#E4EAEC] hover:border-[#086A92] bg-[#F7FAFA] hover:bg-[#EAF5F8]/40 rounded-2xl p-10 flex flex-col items-center justify-center text-center cursor-pointer transition-colors space-y-3"
+            className="border-2 border-dashed border-[#E5E5E5] hover:border-[#990000] bg-[#F5F5F5] hover:bg-[#FEF2F2]/40 rounded-2xl p-10 flex flex-col items-center justify-center text-center cursor-pointer transition-colors space-y-3"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#EAF5F8] text-[#086A92] flex items-center justify-center shadow-2xs">
+            <div className="w-12 h-12 rounded-2xl bg-[#FEF2F2] text-[#990000] flex items-center justify-center shadow-2xs">
               <Upload className="w-6 h-6" />
             </div>
             <div>
-              <p className="text-xs font-bold text-[#17313A]">Click to upload or drag photo here</p>
-              <p className="text-[11px] text-[#6B7C83] mt-0.5">JPEG, PNG, or WebP up to {maxSizeMb}MB</p>
+              <p className="text-xs font-bold text-[#171717]">Click to upload or drag photo here</p>
+              <p className="text-[11px] text-[#737373] mt-0.5">JPEG, PNG, or WebP up to {maxSizeMb}MB</p>
             </div>
             <Button variant="outline" size="xs" type="button">
               Browse Local Files
@@ -273,17 +273,17 @@ export const ImageCropperModal: React.FC<ImageCropperModalProps> = ({
             </div>
 
             {/* Slider Controls */}
-            <div className="bg-[#F7FAFA] p-3.5 rounded-xl border border-[#E4EAEC] space-y-3">
+            <div className="bg-[#F5F5F5] p-3.5 rounded-xl border border-[#E5E5E5] space-y-3">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold text-[#17313A] flex items-center gap-1.5">
-                  <ZoomIn className="w-3.5 h-3.5 text-[#086A92]" />
+                <span className="font-semibold text-[#171717] flex items-center gap-1.5">
+                  <ZoomIn className="w-3.5 h-3.5 text-[#990000]" />
                   <span>Zoom Level ({Math.round(zoom * 100)}%)</span>
                 </span>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => setZoom((prev) => Math.max(0.5, prev - 0.2))}
-                    className="p-1 rounded-md text-[#6B7C83] hover:bg-white hover:text-[#17313A]"
+                    className="p-1 rounded-md text-[#737373] hover:bg-white hover:text-[#171717]"
                     title="Zoom Out"
                   >
                     <ZoomOut className="w-4 h-4" />
@@ -295,12 +295,12 @@ export const ImageCropperModal: React.FC<ImageCropperModalProps> = ({
                     step="0.05"
                     value={zoom}
                     onChange={(e) => setZoom(parseFloat(e.target.value))}
-                    className="w-32 accent-[#086A92] cursor-pointer"
+                    className="w-32 accent-[#990000] cursor-pointer"
                   />
                   <button
                     type="button"
                     onClick={() => setZoom((prev) => Math.min(3, prev + 0.2))}
-                    className="p-1 rounded-md text-[#6B7C83] hover:bg-white hover:text-[#17313A]"
+                    className="p-1 rounded-md text-[#737373] hover:bg-white hover:text-[#171717]"
                     title="Zoom In"
                   >
                     <ZoomIn className="w-4 h-4" />
@@ -308,7 +308,7 @@ export const ImageCropperModal: React.FC<ImageCropperModalProps> = ({
                   <button
                     type="button"
                     onClick={() => setRotation((prev) => (prev + 90) % 360)}
-                    className="p-1 rounded-md text-[#6B7C83] hover:bg-white hover:text-[#17313A] ml-2"
+                    className="p-1 rounded-md text-[#737373] hover:bg-white hover:text-[#171717] ml-2"
                     title="Rotate 90 degrees"
                   >
                     <RotateCw className="w-4 h-4" />
@@ -322,7 +322,7 @@ export const ImageCropperModal: React.FC<ImageCropperModalProps> = ({
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="text-[#086A92] hover:underline font-semibold flex items-center gap-1.5 cursor-pointer"
+                className="text-[#990000] hover:underline font-semibold flex items-center gap-1.5 cursor-pointer"
               >
                 <ImageIcon className="w-3.5 h-3.5" />
                 <span>Choose Different Photo</span>
@@ -354,11 +354,11 @@ export const ImageCropperModal: React.FC<ImageCropperModalProps> = ({
         {/* Upload Progress Bar (when saving) */}
         {isUploading && (
           <div className="space-y-1.5">
-            <div className="flex justify-between text-[11px] font-semibold text-[#086A92]">
+            <div className="flex justify-between text-[11px] font-semibold text-[#990000]">
               <span>Uploading &amp; Securing Photo...</span>
               <span>{uploadProgress}%</span>
             </div>
-            <div className="w-full bg-[#E4EAEC] h-2 rounded-full overflow-hidden">
+            <div className="w-full bg-[#E5E5E5] h-2 rounded-full overflow-hidden">
               <div
                 className="bg-[#35B84A] h-full transition-all duration-300 rounded-full"
                 style={{ width: `${uploadProgress}%` }}
@@ -368,7 +368,7 @@ export const ImageCropperModal: React.FC<ImageCropperModalProps> = ({
         )}
 
         {/* Modal Action Buttons */}
-        <div className="flex items-center justify-end gap-2.5 pt-4 border-t border-[#E4EAEC]">
+        <div className="flex items-center justify-end gap-2.5 pt-4 border-t border-[#E5E5E5]">
           <Button variant="outline" size="sm" onClick={onClose} disabled={isUploading}>
             Cancel
           </Button>

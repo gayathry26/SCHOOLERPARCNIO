@@ -30,10 +30,10 @@ const THEME_STYLES: Record<
   { iconBg: string; iconColor: string; barBg: string; borderHover: string }
 > = {
   ocean: {
-    iconBg: 'bg-[#EAF5F8]',
-    iconColor: 'text-[#086A92]',
-    barBg: 'bg-[#086A92]',
-    borderHover: 'hover:border-[#086A92]',
+    iconBg: 'bg-[#FEF2F2]',
+    iconColor: 'text-[#990000]',
+    barBg: 'bg-[#990000]',
+    borderHover: 'hover:border-[#990000]',
   },
   emerald: {
     iconBg: 'bg-emerald-50',

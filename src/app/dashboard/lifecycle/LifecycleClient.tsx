@@ -490,13 +490,13 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs">
         <div>
           <div className="flex items-center gap-2">
-            <span className="p-2 rounded-xl bg-[#EAF5F8] text-[#086A92]">
+            <span className="p-2 rounded-xl bg-[#FEF2F2] text-[#990000]">
               <RefreshCw className="w-6 h-6 animate-[spin_6s_linear_infinite]" />
             </span>
             <div>
               <h1 className="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-3">
                 Academic Year &amp; School Lifecycle
-                <Badge variant="blue" className="bg-[#086A92] text-white text-xs px-2.5 py-0.5">
+                <Badge variant="blue" className="bg-[#990000] text-white text-xs px-2.5 py-0.5">
                   CBSE / ICSE Compliant
                 </Badge>
               </h1>
@@ -510,7 +510,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
         <div className="flex flex-wrap items-center gap-3">
           {/* Session Selector */}
           <div className="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
-            <Calendar className="w-4 h-4 text-[#086A92]" />
+            <Calendar className="w-4 h-4 text-[#990000]" />
             <span className="text-xs font-semibold text-slate-600">Viewing Session:</span>
             <select
               value={selectedYearId}
@@ -538,7 +538,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
             <Button
               size="sm"
               onClick={() => setShowNewYearModal(true)}
-              className="bg-[#086A92] hover:bg-[#065475] text-white text-xs font-semibold shadow-xs"
+              className="bg-[#990000] hover:bg-[#065475] text-white text-xs font-semibold shadow-xs"
             >
               <Plus className="w-3.5 h-3.5 mr-1.5" /> New Session
             </Button>
@@ -592,7 +592,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
                   hoverEffect
                   className={`border-2 transition-all ${
                     isCurr
-                      ? 'border-[#086A92] shadow-sm bg-gradient-to-br from-white to-[#F0F8FA]'
+                      ? 'border-[#990000] shadow-sm bg-gradient-to-br from-white to-[#F0F8FA]'
                       : isClosed
                       ? 'border-slate-200 bg-slate-50/70'
                       : 'border-slate-200 bg-white'
@@ -656,7 +656,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
                             variant="outline"
                             onClick={() => handleActivateYear(yr.id)}
                             disabled={isLoading}
-                            className="w-full text-xs font-semibold text-[#086A92] border-[#086A92]/30 hover:bg-[#EAF5F8]"
+                            className="w-full text-xs font-semibold text-[#990000] border-[#990000]/30 hover:bg-[#FEF2F2]"
                           >
                             <Unlock className="w-3.5 h-3.5 mr-1" /> Make Active Session
                           </Button>
@@ -830,7 +830,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
           {/* Controls Bar */}
           <Card className="p-6 border-slate-200">
             <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
-              <TrendingUp className="w-5 h-5 text-[#086A92]" />
+              <TrendingUp className="w-5 h-5 text-[#990000]" />
               Automated Class Promotion Matrix
             </h3>
             <p className="text-xs text-slate-500 mb-6 font-medium">
@@ -1100,7 +1100,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
                 size="sm"
                 onClick={() => setShowAllocateModal(true)}
                 disabled={isSelectedYearLocked}
-                className="bg-[#086A92] hover:bg-[#065475] text-white text-xs font-semibold"
+                className="bg-[#990000] hover:bg-[#065475] text-white text-xs font-semibold"
               >
                 <Plus className="w-3.5 h-3.5 mr-1" /> Allocate Faculty
               </Button>
@@ -1350,7 +1350,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
           <div className="bg-white rounded-2xl p-6 w-full max-w-md shadow-xl border border-slate-200">
             <h3 className="text-lg font-bold text-slate-900 mb-1 flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-[#086A92]" />
+              <Calendar className="w-5 h-5 text-[#990000]" />
               Create New Academic Session
             </h3>
             <p className="text-xs text-slate-500 mb-4">
@@ -1366,7 +1366,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
                   placeholder="e.g. 2026–2027"
                   value={newYearForm.name}
                   onChange={(e) => setNewYearForm({ ...newYearForm, name: e.target.value })}
-                  className="w-full text-xs border border-slate-200 rounded-lg py-2 px-3 outline-none focus:border-[#086A92]"
+                  className="w-full text-xs border border-slate-200 rounded-lg py-2 px-3 outline-none focus:border-[#990000]"
                 />
               </div>
 
@@ -1419,7 +1419,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
                   type="submit"
                   size="sm"
                   disabled={isLoading}
-                  className="bg-[#086A92] hover:bg-[#065475] text-white text-xs font-bold"
+                  className="bg-[#990000] hover:bg-[#065475] text-white text-xs font-bold"
                 >
                   Create Session
                 </Button>
@@ -1436,7 +1436,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
           <div className="bg-white rounded-2xl p-6 w-full max-w-md shadow-xl border border-slate-200">
             <h3 className="text-lg font-bold text-slate-900 mb-1 flex items-center gap-2">
-              <Users className="w-5 h-5 text-[#086A92]" />
+              <Users className="w-5 h-5 text-[#990000]" />
               Allocate Faculty Member
             </h3>
             <p className="text-xs text-slate-500 mb-4">
@@ -1558,7 +1558,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
                   type="submit"
                   size="sm"
                   disabled={isLoading}
-                  className="bg-[#086A92] hover:bg-[#065475] text-white text-xs font-bold"
+                  className="bg-[#990000] hover:bg-[#065475] text-white text-xs font-bold"
                 >
                   Confirm Allocation
                 </Button>
@@ -1575,7 +1575,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
           <div className="bg-white rounded-2xl p-6 w-full max-w-md shadow-xl border border-slate-200">
             <h3 className="text-lg font-bold text-slate-900 mb-1 flex items-center gap-2">
-              <Shuffle className="w-5 h-5 text-[#086A92]" />
+              <Shuffle className="w-5 h-5 text-[#990000]" />
               Transfer Student Section
             </h3>
             <p className="text-xs text-slate-500 mb-4">
@@ -1625,7 +1625,7 @@ export const LifecycleClient: React.FC<LifecycleClientProps> = ({
                   type="submit"
                   size="sm"
                   disabled={isLoading}
-                  className="bg-[#086A92] hover:bg-[#065475] text-white text-xs font-bold"
+                  className="bg-[#990000] hover:bg-[#065475] text-white text-xs font-bold"
                 >
                   Save Transfer
                 </Button>

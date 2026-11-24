@@ -3,7 +3,7 @@ import './globals.css';
 import { PwaProvider } from '@/components/pwa/PwaProvider';
 
 export const viewport: Viewport = {
-  themeColor: '#086A92',
+  themeColor: '#990000',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,

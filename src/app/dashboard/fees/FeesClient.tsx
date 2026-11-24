@@ -431,7 +431,7 @@ export const FeesClient: React.FC<FeesClientProps> = ({
       header: 'Invoice #',
       render: (row) => (
         <div>
-          <span className="font-mono font-bold text-[#086A92]">{row.invoiceNumber}</span>
+          <span className="font-mono font-bold text-[#990000]">{row.invoiceNumber}</span>
           <span className="block text-[11px] text-slate-400 font-medium">{formatDate(row.createdAt)}</span>
         </div>
       ),
@@ -441,11 +441,11 @@ export const FeesClient: React.FC<FeesClientProps> = ({
       header: 'Student & Class',
       render: (row) => (
         <div>
-          <span className="font-bold text-[#17313A]">
+          <span className="font-bold text-[#171717]">
             {row.student?.user?.firstName} {row.student?.user?.lastName}
           </span>
           <div className="flex items-center gap-1.5 mt-0.5">
-            <span className="text-[11px] text-[#6B7C83] font-mono">{row.student?.admissionNumber}</span>
+            <span className="text-[11px] text-[#737373] font-mono">{row.student?.admissionNumber}</span>
             {row.student?.enrollments?.[0]?.class && (
               <span className="text-[10px] bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded font-medium">
                 {row.student.enrollments[0].class.name}
@@ -460,7 +460,7 @@ export const FeesClient: React.FC<FeesClientProps> = ({
       header: 'Fee Title',
       render: (row) => (
         <div>
-          <span className="font-semibold text-[#17313A]">{row.title}</span>
+          <span className="font-semibold text-[#171717]">{row.title}</span>
           {row.concessionAmount > 0 && (
             <span className="block text-[11px] text-emerald-600 font-medium">
               Concession: -{formatCurrency(row.concessionAmount)}
@@ -486,7 +486,7 @@ export const FeesClient: React.FC<FeesClientProps> = ({
       header: 'Total Fee',
       render: (row) => (
         <div>
-          <span className="font-bold text-[#17313A]">{formatCurrency(row.totalAmount)}</span>
+          <span className="font-bold text-[#171717]">{formatCurrency(row.totalAmount)}</span>
           {row.lateFeeAmount > 0 && (
             <span className="block text-[10.5px] text-rose-600 font-bold">
               + Late Fee: {formatCurrency(row.lateFeeAmount)}
@@ -699,7 +699,7 @@ export const FeesClient: React.FC<FeesClientProps> = ({
         <StatCard
           title="Total Expected Revenue"
           value={formatCurrency(totalExpected)}
-          icon={<DollarSign className="w-5 h-5 text-[#086A92]" />}
+          icon={<DollarSign className="w-5 h-5 text-[#990000]" />}
           change={`${invoices.length} active invoices`}
           trend="neutral"
         />
@@ -743,7 +743,7 @@ export const FeesClient: React.FC<FeesClientProps> = ({
                   <input
                     type="text"
                     placeholder="Search student, adm #, inv #..."
-                    className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-md focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#086A92]"
+                    className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-md focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#990000]"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
@@ -950,7 +950,7 @@ export const FeesClient: React.FC<FeesClientProps> = ({
                 <div className="text-3xl font-black text-slate-900 mt-2">{collectionPercentage}%</div>
                 <div className="w-full bg-slate-100 rounded-full h-2.5 mt-3 overflow-hidden">
                   <div
-                    className="bg-[#086A92] h-2.5 rounded-full transition-all duration-500"
+                    className="bg-[#990000] h-2.5 rounded-full transition-all duration-500"
                     style={{ width: `${Math.min(100, collectionPercentage)}%` }}
                   />
                 </div>
@@ -1178,7 +1178,7 @@ export const FeesClient: React.FC<FeesClientProps> = ({
             <div className="flex justify-between items-center bg-slate-50 p-2.5 rounded border border-slate-200">
               <div>
                 <span className="text-slate-500 block text-[10.5px]">RECEIPT NUMBER</span>
-                <span className="font-mono font-bold text-sm text-[#086A92]">{viewReceipt.receiptNumber}</span>
+                <span className="font-mono font-bold text-sm text-[#990000]">{viewReceipt.receiptNumber}</span>
               </div>
               <div className="text-right">
                 <span className="text-slate-500 block text-[10.5px]">PAYMENT DATE</span>

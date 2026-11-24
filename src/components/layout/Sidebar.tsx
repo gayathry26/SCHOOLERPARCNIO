@@ -84,7 +84,7 @@ const NAVIGATION_GROUPS: NavCategory[] = [
       { label: 'Homework & Tasks', href: '/dashboard/homework', icon: BookOpen, module: 'ACADEMICS', description: 'Publish assignments, collect homework, and record marks' },
       { label: 'Examinations & Marks', href: '/dashboard/exams', icon: FileCheck2, module: 'EXAMINATIONS', description: 'Term exams, mark entry, and CBSE report cards' },
       { label: 'Academic Intelligence', href: '/dashboard/academic-intelligence', icon: BarChart3, module: 'ACADEMIC_INTELLIGENCE', description: 'Predictive performance analytics and benchmarks' },
-      { label: 'AI Study Assistant', href: '/dashboard/ai-learning', icon: Sparkles, module: 'AI_LEARNING', badge: 'AI', badgeColor: 'bg-[#EAF8EC] text-[#16A34A] border-[#bbf0c5]', description: 'Curriculum-grounded doubt solver and spaced revision' },
+      { label: 'AI Study Assistant', href: '/dashboard/ai-learning', icon: Sparkles, module: 'AI_LEARNING', badge: 'AI', badgeColor: 'bg-red-50 text-[#990000] border-red-200', description: 'Curriculum-grounded doubt solver and spaced revision' },
       { label: 'Question Bank & Mocks', href: '/dashboard/question-bank', icon: Boxes, module: 'QUESTION_BANK', description: 'Chapter question repository and automated paper generator' },
     ],
   },
@@ -94,7 +94,7 @@ const NAVIGATION_GROUPS: NavCategory[] = [
       { label: 'Admissions CRM', href: '/dashboard/admissions', icon: UserPlus, module: 'ADMISSIONS', description: 'Enquiry pipeline and online application tracking' },
       { label: 'Student Directory', href: '/dashboard/students', icon: GraduationCap, module: 'STUDENTS', description: 'Student profiles, admission details, and parent contacts' },
       { label: 'Staff Directory & HR', href: '/dashboard/hr', icon: Users, module: 'HR_MANAGEMENT', description: 'Faculty directory, payroll slips, and leave management' },
-      { label: 'Staff Lifecycle', href: '/dashboard/lifecycle', icon: RefreshCw, module: 'LIFECYCLE', badge: 'Pro', badgeColor: 'bg-[#EAF5F8] text-[#086A92] border-[#c0e3ed]', description: 'Permanent profiles, year-wise teaching allocations and audit trail' },
+      { label: 'Staff Lifecycle', href: '/dashboard/lifecycle', icon: RefreshCw, module: 'LIFECYCLE', badge: 'Pro', badgeColor: 'bg-red-50 text-[#990000] border-red-200', description: 'Permanent profiles, year-wise teaching allocations and audit trail' },
       { label: 'ID Card Studio', href: '/dashboard/id-cards', icon: Contact, roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN'], description: 'Print student, faculty, and visitor smart ID cards' },
       { label: 'Certificates & TC', href: '/dashboard/certificates', icon: Award, module: 'CERTIFICATES', description: 'Transfer Certificates and bonafide letters' },
     ],
@@ -121,7 +121,7 @@ const NAVIGATION_GROUPS: NavCategory[] = [
     items: [
       { label: 'Parent Portal', href: '/dashboard/parent-portal', icon: HeartHandshake, module: 'PARENT_PORTAL', roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PARENT'], description: 'Wards academic progress, fee receipts, and bus alerts' },
       { label: 'Student Portfolio', href: '/dashboard/portfolio', icon: Compass, module: 'STUDENT_PORTFOLIO', description: 'Co-curricular awards, athletic merits, and skill badges' },
-      { label: 'PTM & Appointments', href: '/dashboard/ptm', icon: Users, module: 'PTM_MANAGEMENT', badge: 'Active', badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200', description: 'Parent-teacher conferences, slot booking, and follow-up notes' },
+      { label: 'PTM & Appointments', href: '/dashboard/ptm', icon: Users, module: 'PTM_MANAGEMENT', badge: 'Active', badgeColor: 'bg-red-50 text-[#990000] border-red-200', description: 'Parent-teacher conferences, slot booking, and follow-up notes' },
       { label: 'Digital Library', href: '/dashboard/library', icon: Library, module: 'LIBRARY', description: 'Book catalog, ISBN lookup, and borrowing records' },
     ],
   },
@@ -130,7 +130,7 @@ const NAVIGATION_GROUPS: NavCategory[] = [
     items: [
       { label: 'Executive Reports', href: '/dashboard/reports', icon: BarChart3, module: 'REPORTS', description: 'Annual regulatory reports, audits, and exports' },
       { label: 'System Audit Trail', href: '/dashboard/audit-logs', icon: ShieldCheck, module: 'AUDIT_LOGS', description: 'Security audit logs and compliance history' },
-      { label: 'Command Centre HQ', href: '/dashboard/command-centre', icon: Compass, module: 'COMMAND_CENTRE', badge: 'HQ', badgeColor: 'bg-[#FEF3C7] text-[#D97706] border-[#FDE68A]', description: 'Executive operational cockpit and campus health' },
+      { label: 'Command Centre HQ', href: '/dashboard/command-centre', icon: Compass, module: 'COMMAND_CENTRE', badge: 'HQ', badgeColor: 'bg-red-50 text-[#990000] border-red-200', description: 'Executive operational cockpit and campus health' },
       { label: 'Multi-Campus Network', href: '/dashboard/multi-campus', icon: Building2, module: 'MULTI_CAMPUS', description: 'Inter-branch synchronization and network reporting' },
     ],
   },
@@ -138,9 +138,9 @@ const NAVIGATION_GROUPS: NavCategory[] = [
     name: 'SETTINGS',
     items: [
       { label: 'School Settings', href: '/dashboard/settings', icon: Settings, module: 'SETTINGS', description: 'School profile, CBSE affiliation, and grading rules' },
-      { label: 'Onboarding Wizard', href: '/dashboard/onboarding', icon: Sparkles, module: 'SETTINGS', roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL'], badge: 'Setup', badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200', description: 'Guided 10-step institutional lifecycle setup wizard' },
-      { label: 'Platform SaaS Admin', href: '/dashboard/platform-admin', icon: Building2, module: 'PLATFORM_ADMIN', roles: ['SUPER_ADMIN'], badge: 'SaaS', badgeColor: 'bg-purple-100 text-purple-700 border-purple-200', description: 'Tenant management and subscription configurations' },
-      { label: 'UI Component Library', href: '/dashboard/components-showcase', icon: Layers, module: 'SETTINGS', badge: 'Design System', badgeColor: 'bg-sky-100 text-[#086A92] border-sky-200', description: 'Design system primitives and interactive showcase' },
+      { label: 'Onboarding Wizard', href: '/dashboard/onboarding', icon: Sparkles, module: 'SETTINGS', roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL'], badge: 'Setup', badgeColor: 'bg-red-50 text-[#990000] border-red-200', description: 'Guided 10-step institutional lifecycle setup wizard' },
+      { label: 'Platform SaaS Admin', href: '/dashboard/platform-admin', icon: Building2, module: 'PLATFORM_ADMIN', roles: ['SUPER_ADMIN'], badge: 'SaaS', badgeColor: 'bg-red-50 text-[#990000] border-red-200', description: 'Tenant management and subscription configurations' },
+      { label: 'UI Component Library', href: '/dashboard/components-showcase', icon: Layers, module: 'SETTINGS', badge: 'Design System', badgeColor: 'bg-red-50 text-[#990000] border-red-200', description: 'Design system primitives and interactive showcase' },
     ],
   },
 ];
@@ -161,7 +161,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
     const initial: Record<string, boolean> = {};
     NAVIGATION_GROUPS.forEach((g) => {
       const hasActiveChild = g.items.some((item) => item.href === pathname);
-      // Keep OVERVIEW and whichever group contains the active route expanded; collapse others to prevent 40-item clutter
       if (g.name !== 'OVERVIEW' && !hasActiveChild) {
         initial[g.name] = true;
       }
@@ -169,7 +168,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
     return initial;
   });
 
-  // Automatically expand group when active route changes
   useEffect(() => {
     NAVIGATION_GROUPS.forEach((g) => {
       if (g.items.some((item) => item.href === pathname)) {
@@ -180,19 +178,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   const [filterQuery, setFilterQuery] = useState('');
   const [favorites, setFavorites] = useState<string[]>(['/dashboard', '/dashboard/attendance']);
-  const [recentPages, setRecentPages] = useState<RecentPage[]>([]);
 
-  // Load saved favorites & recent pages from localStorage
   useEffect(() => {
     try {
       const savedFavs = localStorage.getItem('edvonest_pinned_nav');
       if (savedFavs) setFavorites(JSON.parse(savedFavs));
-
-      const savedRecent = localStorage.getItem('edvonest_recent_pages');
-      if (savedRecent) setRecentPages(JSON.parse(savedRecent));
-    } catch (e) {
-      // ignore
-    }
+    } catch (e) { }
   }, []);
 
   const toggleFavorite = (href: string, e: React.MouseEvent) => {
@@ -214,7 +205,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
     }));
   };
 
-  // Filter groups and items by user role and module permissions
   const authorizedGroups = useMemo(() => {
     return NAVIGATION_GROUPS.map((group) => {
       const visibleItems = group.items.filter((item) => {
@@ -238,7 +228,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
     }).filter((group) => group.items.length > 0);
   }, [currentRole, filterQuery]);
 
-  // Pinned favorite items list
   const favoriteItems = useMemo(() => {
     const allItems = NAVIGATION_GROUPS.flatMap((g) => g.items);
     return allItems.filter(
@@ -252,11 +241,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <aside
-      className={`bg-white border-r border-[#E4EAEC] h-screen flex flex-col fixed left-0 top-0 z-30 shadow-2xs select-none transition-all duration-300 ${isCollapsed ? 'w-18' : 'w-60 md:w-64'
-        }`}
+      className={`bg-white border-r border-[#E5E5E5] h-screen flex flex-col fixed left-0 top-0 z-30 shadow-2xs select-none transition-all duration-300 ${
+        isCollapsed ? 'w-18' : 'w-60 md:w-64'
+      }`}
     >
       {/* Brand Header */}
-      <div className={`border-b border-[#E4EAEC] bg-white flex shrink-0 ${isCollapsed ? 'p-3 flex-col items-center justify-center' : 'p-4 flex-col gap-1'}`}>
+      <div className={`border-b border-[#E5E5E5] bg-white flex shrink-0 ${isCollapsed ? 'p-3 flex-col items-center justify-center' : 'p-4 flex-col gap-1'}`}>
         <div className="flex items-center justify-between w-full">
           {isCollapsed ? (
             <EdvoNestLogo variant="icon-only" size="sm" />
@@ -267,7 +257,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           {onToggleCollapse && (
             <button
               onClick={onToggleCollapse}
-              className="p-1 text-[#6B7C83] hover:text-[#086A92] hover:bg-[#EAF5F8] rounded-lg transition-colors cursor-pointer"
+              className="p-1 text-[#525252] hover:text-[#990000] hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
               title={isCollapsed ? 'Expand Sidebar Navigation' : 'Collapse to compact rail'}
               aria-label={isCollapsed ? 'Expand Sidebar Navigation' : 'Collapse to compact rail'}
             >
@@ -277,74 +267,59 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {!isCollapsed && (
-          <div className="flex items-center justify-between text-[10px] text-[#6B7C83] mt-1 pt-1.5 border-t border-[#E4EAEC]/60">
-            <span className="font-semibold text-[#086A92]">Learn • Grow • Succeed</span>
-            <span className="px-1.5 py-0.5 rounded bg-[#EAF8EC] text-[#16A34A] font-bold border border-[#bbf0c5]">
+          <div className="flex items-center justify-between text-[10px] text-[#525252] mt-1 pt-1.5 border-t border-[#E5E5E5]">
+            <span className="font-semibold text-[#990000]">Learn • Grow • Succeed</span>
+            <span className="px-1.5 py-0.5 rounded bg-red-50 text-[#990000] font-bold border border-red-200">
               v2.4 Active
             </span>
           </div>
         )}
       </div>
 
-      {/* Quick Search in Nav (when expanded) */}
+      {/* Quick Search in Nav */}
       {!isCollapsed && (
-        <div className="p-2.5 border-b border-[#E4EAEC]/80 bg-[#F7FAFA] shrink-0">
+        <div className="p-2.5 border-b border-[#E5E5E5] bg-[#F5F5F5] shrink-0">
           <div className="relative">
-            <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[#6B7C83]" />
+            <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[#525252]" />
             <input
               type="text"
               placeholder="Quick filter menu..."
               value={filterQuery}
               onChange={(e) => setFilterQuery(e.target.value)}
-              className="w-full pl-8 pr-2.5 py-1.5 text-xs bg-white border border-[#E4EAEC] rounded-lg text-[#17313A] placeholder:text-[#6B7C83] focus:outline-none focus:ring-1 focus:ring-[#086A92]"
+              className="w-full pl-8 pr-2.5 py-1.5 text-xs bg-white border border-[#E5E5E5] rounded-lg text-[#171717] placeholder:text-[#525252] focus:outline-none focus:ring-1 focus:ring-[#990000] focus:border-[#990000]"
             />
           </div>
         </div>
       )}
 
       {/* Navigation Scrollable Body */}
-      <div className={`flex-1 overflow-y-auto space-y-4 ${isCollapsed ? 'p-2' : 'px-2.5 py-3'}`}>
+      <div className={`flex-1 overflow-y-auto space-y-3 ${isCollapsed ? 'p-2' : 'px-2.5 py-3'}`}>
         {/* Quick Action Launcher Button */}
         {!isCollapsed && !filterQuery && (
           <button
             onClick={() => triggerQuickAction('LAUNCHER')}
-            className="w-full flex items-center justify-between p-2 rounded-xl bg-gradient-to-r from-[#EAF5F8] to-[#F7FAFA] border border-[#c0e3ed] text-[#086A92] hover:bg-[#086A92] hover:text-white transition-all text-xs font-bold group cursor-pointer shadow-2xs"
+            className="w-full flex items-center justify-between p-2 rounded-lg bg-red-50 border border-red-200 text-[#990000] hover:bg-[#990000] hover:text-white transition-all text-xs font-bold group cursor-pointer shadow-2xs"
             title="Launch quick actions from anywhere"
           >
             <div className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-[#35B84A] group-hover:text-yellow-300" />
+              <Zap className="w-4 h-4 text-[#990000] group-hover:text-white" />
               <span>Quick Actions</span>
             </div>
-            <kbd className="px-1.5 py-0.5 bg-white group-hover:bg-white/20 border border-[#E4EAEC] group-hover:border-transparent text-[10px] rounded font-mono text-[#17313A] group-hover:text-white">
+            <kbd className="px-1.5 py-0.5 bg-white group-hover:bg-white/20 border border-red-200 group-hover:border-transparent text-[10px] rounded font-mono text-[#990000] group-hover:text-white">
               ⚡
             </kbd>
           </button>
         )}
 
-        {/* Collapsed Mode Quick Action Icon */}
-        {isCollapsed && (
-          <button
-            onClick={() => triggerQuickAction('LAUNCHER')}
-            className="w-full flex items-center justify-center p-2 rounded-xl bg-[#EAF5F8] text-[#086A92] hover:bg-[#086A92] hover:text-white transition-all relative group cursor-pointer"
-            title="Quick Action Launcher"
-          >
-            <Zap className="w-5 h-5 text-[#35B84A]" />
-            <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 hidden group-hover:flex flex-col w-48 p-2.5 bg-slate-900 text-white rounded-xl shadow-2xl z-50 pointer-events-none animate-in fade-in zoom-in-95">
-              <span className="font-bold text-xs">⚡ Quick Actions</span>
-              <span className="text-[10px] text-slate-300 mt-0.5">Perform instant operations without switching pages</span>
-            </div>
-          </button>
-        )}
-
         {/* Pinned Quick Access Favorites */}
         {!filterQuery && favoriteItems.length > 0 && !isCollapsed && (
-          <div className="space-y-1 pb-2 border-b border-[#E4EAEC]">
-            <div className="px-2 flex items-center justify-between text-[10px] font-bold tracking-wider text-[#6B7C83] uppercase mb-1">
-              <span className="flex items-center gap-1.5 text-[#086A92]">
-                <Pin className="w-3 h-3 text-[#086A92]" />
+          <div className="space-y-1 pb-2 border-b border-[#E5E5E5]">
+            <div className="px-2 flex items-center justify-between text-[10px] font-bold tracking-wider text-[#525252] uppercase mb-1">
+              <span className="flex items-center gap-1.5 text-[#990000]">
+                <Pin className="w-3 h-3 text-[#990000]" />
                 <span>Pinned Favorites</span>
               </span>
-              <span className="text-[9px] bg-[#EAF5F8] text-[#086A92] px-1.5 rounded-full font-bold">
+              <span className="text-[9px] bg-red-50 text-[#990000] px-1.5 rounded-full font-bold">
                 {favoriteItems.length}
               </span>
             </div>
@@ -355,14 +330,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <Link
                   key={`fav-${item.href}`}
                   href={item.href}
-                  className={`flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all group ${isActive
-                    ? 'bg-[#086A92] text-white shadow-xs'
-                    : 'text-[#17313A] hover:bg-[#EAF5F8] hover:text-[#086A92]'
-                    }`}
+                  className={`flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all group ${
+                    isActive
+                      ? 'bg-[#990000] text-white shadow-xs'
+                      : 'text-[#171717] hover:bg-red-50 hover:text-[#990000]'
+                  }`}
                   title={item.description}
                 >
                   <div className="flex items-center gap-2 truncate">
-                    <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : 'text-[#086A92]'}`} />
+                    <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : 'text-[#990000]'}`} />
                     <span className="truncate">{item.label}</span>
                   </div>
                   <button
@@ -384,31 +360,29 @@ export const Sidebar: React.FC<SidebarProps> = ({
           const hasActiveChild = group.items.some((item) => pathname === item.href);
 
           return (
-            <div key={group.name} className="space-y-1">
-              {/* Category Group Header (Expanded mode only) */}
+            <div key={group.name} className="space-y-0.5">
               {!isCollapsed && (
                 <button
                   onClick={() => toggleGroup(group.name)}
-                  className="w-full flex items-center justify-between px-2 py-1 text-[10px] font-black tracking-wider text-[#6B7C83] hover:text-[#17313A] transition-colors uppercase group cursor-pointer"
+                  className="w-full flex items-center justify-between px-2 py-1 text-[10px] font-black tracking-wider text-[#525252] hover:text-[#171717] transition-colors uppercase group cursor-pointer"
                 >
                   <div className="flex items-center gap-1.5">
-                    <span className={hasActiveChild ? 'text-[#086A92]' : ''}>{group.name}</span>
+                    <span className={hasActiveChild ? 'text-[#990000]' : ''}>{group.name}</span>
                     {hasActiveChild && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#086A92]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#990000]" />
                     )}
                   </div>
-                  <div className="flex items-center gap-1 text-[9px] text-[#6B7C83]">
+                  <div className="flex items-center gap-1 text-[9px] text-[#525252]">
                     <span>{group.items.length}</span>
                     {isGroupCollapsed ? (
-                      <ChevronRight className="w-3 h-3 text-[#6B7C83]" />
+                      <ChevronRight className="w-3 h-3 text-[#525252]" />
                     ) : (
-                      <ChevronDown className="w-3 h-3 text-[#6B7C83]" />
+                      <ChevronDown className="w-3 h-3 text-[#525252]" />
                     )}
                   </div>
                 </button>
               )}
 
-              {/* Group Items */}
               {(!isGroupCollapsed || isCollapsed) && (
                 <div className={`space-y-0.5 ${isCollapsed ? '' : 'pl-1'}`}>
                   {group.items.map((item) => {
@@ -421,22 +395,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         <Link
                           key={item.href}
                           href={item.href}
-                          className={`flex items-center justify-center p-2.5 rounded-xl transition-all relative group ${isActive
-                            ? 'bg-[#086A92] text-white shadow-xs'
-                            : 'text-[#6B7C83] hover:bg-[#EAF5F8] hover:text-[#086A92]'
-                            }`}
+                          className={`flex items-center justify-center p-2.5 rounded-lg transition-all relative group ${
+                            isActive
+                              ? 'bg-[#990000] text-white shadow-xs'
+                              : 'text-[#525252] hover:bg-red-50 hover:text-[#990000]'
+                          }`}
                         >
-                          <Icon className="w-5 h-5 shrink-0" />
-                          {/* Helpful Floating Tooltip */}
-                          <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 hidden group-hover:flex flex-col w-56 p-2.5 bg-slate-900 text-white rounded-xl shadow-2xl z-50 pointer-events-none animate-in fade-in zoom-in-95">
-                            <div className="flex items-center justify-between">
-                              <span className="font-bold text-xs">{item.label}</span>
-                              {item.badge && (
-                                <span className="text-[9px] bg-cyan-500/20 text-cyan-300 px-1.5 py-0.5 rounded font-mono">
-                                  {item.badge}
-                                </span>
-                              )}
-                            </div>
+                          <Icon className="w-4 h-4 shrink-0" />
+                          <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 hidden group-hover:flex flex-col w-56 p-2.5 bg-[#171717] text-white rounded-lg shadow-xl z-50 pointer-events-none animate-in fade-in zoom-in-95">
+                            <span className="font-bold text-xs">{item.label}</span>
                             <span className="text-[10px] text-slate-300 mt-1 leading-snug">
                               {item.description}
                             </span>
@@ -450,15 +417,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         key={item.href}
                         href={item.href}
                         title={item.description}
-                        className={`flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all group relative ${isActive
-                          ? 'bg-[#086A92] text-white font-bold shadow-xs'
-                          : 'text-[#17313A] hover:bg-[#EAF5F8] hover:text-[#086A92]'
-                          }`}
+                        className={`flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all group relative ${
+                          isActive
+                            ? 'bg-[#990000] text-white shadow-xs'
+                            : 'text-[#171717] hover:bg-red-50 hover:text-[#990000]'
+                        }`}
                       >
                         <div className="flex items-center gap-2.5 truncate">
                           <Icon
-                            className={`w-3.5 h-3.5 shrink-0 transition-colors ${isActive ? 'text-white' : 'text-[#6B7C83] group-hover:text-[#086A92]'
-                              }`}
+                            className={`w-3.5 h-3.5 shrink-0 transition-colors ${
+                              isActive ? 'text-white' : 'text-[#525252] group-hover:text-[#990000]'
+                            }`}
                           />
                           <span className="truncate">{item.label}</span>
                         </div>
@@ -466,10 +435,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         <div className="flex items-center gap-1.5 shrink-0">
                           {item.badge && (
                             <span
-                              className={`text-[9px] font-bold px-1.5 py-0.5 rounded border ${isActive
-                                ? 'bg-white text-[#086A92] border-white'
-                                : item.badgeColor || 'bg-slate-100 text-slate-700 border-slate-200'
-                                }`}
+                              className={`text-[9px] font-bold px-1.5 py-0.5 rounded border ${
+                                isActive
+                                  ? 'bg-white text-[#990000] border-white'
+                                  : 'bg-red-50 text-[#990000] border-red-200'
+                              }`}
                             >
                               {item.badge}
                             </span>
@@ -477,8 +447,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
                           <button
                             onClick={(e) => toggleFavorite(item.href, e)}
-                            className={`opacity-0 group-hover:opacity-100 p-0.5 transition-all cursor-pointer ${isPinned ? 'opacity-100 text-amber-500' : 'text-slate-400 hover:text-amber-500'
-                              }`}
+                            className={`opacity-0 group-hover:opacity-100 p-0.5 transition-all cursor-pointer ${
+                              isPinned ? 'opacity-100 text-amber-500' : 'text-slate-300 hover:text-amber-500'
+                            }`}
                             title={isPinned ? 'Unpin' : 'Pin to favorites'}
                           >
                             <Star
@@ -496,12 +467,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
         })}
       </div>
 
-      {/* Footer User Role Pill */}
-      <div className={`border-t border-[#E4EAEC] bg-[#F7FAFA] shrink-0 flex items-center ${isCollapsed ? 'p-2 justify-center' : 'p-3 justify-between text-xs'}`}>
+      {/* Footer User Role Info */}
+      <div className={`border-t border-[#E5E5E5] bg-[#F5F5F5] shrink-0 flex items-center ${isCollapsed ? 'p-2 justify-center' : 'p-3 justify-between text-xs'}`}>
         {isCollapsed ? (
           <Link
             href="/dashboard/settings"
-            className="p-2 rounded-lg text-[#6B7C83] hover:text-[#086A92] hover:bg-white transition-colors"
+            className="p-2 rounded-lg text-[#525252] hover:text-[#990000] hover:bg-white transition-colors"
             title="School Settings"
           >
             <Settings className="w-4 h-4" />
@@ -509,15 +480,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
         ) : (
           <>
             <div className="flex items-center gap-2 min-w-0">
-              <div className="w-2 h-2 rounded-full bg-[#35B84A] shrink-0" />
+              <div className="w-2 h-2 rounded-full bg-[#990000] shrink-0" />
               <div className="truncate">
-                <p className="text-[11px] font-bold text-[#17313A] truncate">{currentRole.replace(/_/g, ' ')}</p>
-                <p className="text-[9px] text-[#6B7C83] truncate">EdvoNest Unified OS</p>
+                <p className="text-[11px] font-bold text-[#171717] truncate">{currentRole.replace(/_/g, ' ')}</p>
+                <p className="text-[9px] text-[#525252] truncate">EdvoNest Unified OS</p>
               </div>
             </div>
             <Link
               href="/dashboard/settings"
-              className="p-1 rounded-md text-[#6B7C83] hover:text-[#086A92] hover:bg-white transition-colors"
+              className="p-1.5 rounded-lg text-[#525252] hover:text-[#990000] hover:bg-white transition-colors"
               title="Settings"
             >
               <Settings className="w-3.5 h-3.5" />

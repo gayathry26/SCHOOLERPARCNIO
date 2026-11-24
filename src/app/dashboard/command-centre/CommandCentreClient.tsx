@@ -65,7 +65,7 @@ export const CommandCentreClient: React.FC<{
   return (
     <div className="space-y-6">
       {/* Executive Command Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-[#086A92] to-[#043A52] text-white p-6 rounded-2xl shadow-lg flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-slate-900 via-[#990000] to-[#171717] text-white p-6 rounded-2xl shadow-lg flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative overflow-hidden">
         <div className="flex items-center gap-5 z-10">
           <div className="hidden sm:flex p-2 bg-white/10 rounded-2xl border border-white/15 backdrop-blur-xs shrink-0">
             <Illustration variant="campus-welcome" size={82} />
@@ -127,7 +127,7 @@ export const CommandCentreClient: React.FC<{
           value={`${totalStudents} Enrolled`}
           change="96.2% Present Today"
           trend="up"
-          icon={<GraduationCap className="w-5 h-5 text-[#086A92]" />}
+          icon={<GraduationCap className="w-5 h-5 text-[#990000]" />}
         />
         <StatCard
           title="Staff & Faculty on Duty"
@@ -227,7 +227,7 @@ export const CommandCentreClient: React.FC<{
                     </div>
                     <div className="w-full h-2 rounded-full bg-slate-200 overflow-hidden">
                       <div
-                        className="h-full rounded-full bg-[#086A92]"
+                        className="h-full rounded-full bg-[#990000]"
                         style={{ width: `${pct}%` }}
                       />
                     </div>
@@ -277,7 +277,7 @@ export const CommandCentreClient: React.FC<{
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
-                  <Bus className="w-4 h-4 text-[#086A92]" />
+                  <Bus className="w-4 h-4 text-[#990000]" />
                   <span>Transport &amp; Bus Fleet Tracking</span>
                 </CardTitle>
                 <Badge variant="emerald" size="sm">Live GPS</Badge>
@@ -302,7 +302,7 @@ export const CommandCentreClient: React.FC<{
           <Card>
             <CardHeader>
               <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
-                <Shield className="w-4 h-4 text-[#086A92]" />
+                <Shield className="w-4 h-4 text-[#990000]" />
                 <span>Campus Safety &amp; Gate Watch</span>
               </CardTitle>
             </CardHeader>

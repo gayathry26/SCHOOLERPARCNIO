@@ -245,13 +245,13 @@ export const ExamsClient: React.FC<{
   return (
     <div className="space-y-5">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white border border-[#E4EAEC] rounded-xl p-5 shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white border border-[#E5E5E5] rounded-xl p-5 shadow-2xs">
         <div>
-          <h2 className="text-lg sm:text-xl font-bold text-[#17313A] tracking-tight flex items-center gap-2">
-            <FileCheck2 className="w-5 h-5 text-[#086A92]" />
+          <h2 className="text-lg sm:text-xl font-bold text-[#171717] tracking-tight flex items-center gap-2">
+            <FileCheck2 className="w-5 h-5 text-[#990000]" />
             <span>Examinations &amp; Marks Entry</span>
           </h2>
-          <p className="text-xs text-[#6B7C83] mt-0.5">
+          <p className="text-xs text-[#737373] mt-0.5">
             Manage exam schedules, enter subject marks fast, and finalize report cards.
           </p>
         </div>
@@ -274,7 +274,7 @@ export const ExamsClient: React.FC<{
       {/* Exam Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {filteredExams.length === 0 ? (
-          <div className="col-span-3 p-8 bg-white border border-[#E4EAEC] rounded-xl text-center text-xs text-[#6B7C83]">
+          <div className="col-span-3 p-8 bg-white border border-[#E5E5E5] rounded-xl text-center text-xs text-[#737373]">
             No exams in this category.
           </div>
         ) : (
@@ -285,12 +285,12 @@ export const ExamsClient: React.FC<{
                 key={ex.id}
                 onClick={() => setSelectedExam(ex)}
                 className={`cursor-pointer p-4 rounded-xl border transition-all ${isSelected
-                  ? 'bg-[#EAF5F8] border-[#086A92] shadow-xs'
-                  : 'bg-white border-[#E4EAEC] hover:border-[#cbd7da]'
+                  ? 'bg-[#FEF2F2] border-[#990000] shadow-xs'
+                  : 'bg-white border-[#E5E5E5] hover:border-[#E5E5E5]'
                   }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold text-[#086A92] uppercase bg-[#EAF5F8] px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-bold text-[#990000] uppercase bg-[#FEF2F2] px-2 py-0.5 rounded">
                     {ex.term || 'TERM 1'}
                   </span>
                   <Badge variant={ex.isLocked ? 'rose' : 'green'} size="xs">
@@ -298,16 +298,16 @@ export const ExamsClient: React.FC<{
                   </Badge>
                 </div>
 
-                <h4 className="text-sm font-bold text-[#17313A] mt-2">
+                <h4 className="text-sm font-bold text-[#171717] mt-2">
                   {ex.name}
                 </h4>
-                <p className="text-xs text-[#6B7C83] mt-0.5">
+                <p className="text-xs text-[#737373] mt-0.5">
                   Class 10 • {formatDate(ex.startDate, 'dd MMM')} – {formatDate(ex.endDate, 'dd MMM')}
                 </p>
 
-                <div className="mt-3 pt-2 border-t border-[#E4EAEC] flex justify-between items-center text-xs">
-                  <span className="text-[#6B7C83]">{ex.schedules?.length || 0} Subjects</span>
-                  <span className="font-bold text-[#086A92]">View &rarr;</span>
+                <div className="mt-3 pt-2 border-t border-[#E5E5E5] flex justify-between items-center text-xs">
+                  <span className="text-[#737373]">{ex.schedules?.length || 0} Subjects</span>
+                  <span className="font-bold text-[#990000]">View &rarr;</span>
                 </div>
               </div>
             );
@@ -326,7 +326,7 @@ export const ExamsClient: React.FC<{
                   {selectedExam.isLocked ? 'Locked' : 'Marks Entry Open'}
                 </Badge>
               </div>
-              <p className="text-xs text-[#6B7C83] mt-0.5">
+              <p className="text-xs text-[#737373] mt-0.5">
                 {selectedExam.isLocked
                   ? 'Locked & finalized by Principal'
                   : 'Fast keyboard-friendly subject marks entry'}
@@ -367,20 +367,20 @@ export const ExamsClient: React.FC<{
           </CardHeader>
 
           {/* Mobile Cards for Exam Schedules (< sm) */}
-          <div className="sm:hidden divide-y divide-[#E4EAEC]">
+          <div className="sm:hidden divide-y divide-[#E5E5E5]">
             {selectedExam.schedules?.map((sched: any) => (
               <div key={sched.id} className="p-3.5 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-[#17313A] text-sm">{sched.subject?.name}</span>
+                  <span className="font-bold text-[#171717] text-sm">{sched.subject?.name}</span>
                   <Badge variant={selectedExam.isLocked ? 'rose' : 'green'} size="xs">
                     {formatDate(sched.examDate)}
                   </Badge>
                 </div>
-                <div className="flex items-center justify-between text-xs text-[#6B7C83]">
+                <div className="flex items-center justify-between text-xs text-[#737373]">
                   <span>Timing: {sched.startTime} - {sched.endTime}</span>
                   <span>Room: {sched.roomNumber || 'Main Hall'}</span>
                 </div>
-                <div className="flex items-center justify-between text-xs pt-1 border-t border-dashed border-[#E4EAEC]">
+                <div className="flex items-center justify-between text-xs pt-1 border-t border-dashed border-[#E5E5E5]">
                   <span className="font-mono">
                     Max: {sched.maxTheoryMarks} Th + {sched.maxPracticalMarks} Pr (Pass: {sched.passingMarks})
                   </span>
@@ -401,7 +401,7 @@ export const ExamsClient: React.FC<{
           {/* Desktop Table for Exam Schedules (>= sm) */}
           <div className="hidden sm:block overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-[#F7FAFA] text-[#6B7C83] font-bold border-b border-[#E4EAEC]">
+              <thead className="bg-[#F5F5F5] text-[#737373] font-bold border-b border-[#E5E5E5]">
                 <tr>
                   <th className="p-3">Exam Date</th>
                   <th className="p-3">Subject</th>
@@ -413,17 +413,17 @@ export const ExamsClient: React.FC<{
                   <th className="p-3 text-right">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E4EAEC]">
+              <tbody className="divide-y divide-[#E5E5E5]">
                 {selectedExam.schedules?.map((sched: any) => (
-                  <tr key={sched.id} className="hover:bg-[#F7FAFA]">
-                    <td className="p-3 font-semibold text-[#17313A]">{formatDate(sched.examDate)}</td>
-                    <td className="p-3 font-bold text-[#17313A]">{sched.subject?.name}</td>
-                    <td className="p-3 text-[#6B7C83]">{sched.startTime} - {sched.endTime}</td>
-                    <td className="p-3 text-[#6B7C83]">{sched.roomNumber || 'Room 1001'}</td>
-                    <td className="p-3 font-mono text-[#17313A]">
+                  <tr key={sched.id} className="hover:bg-[#F5F5F5]">
+                    <td className="p-3 font-semibold text-[#171717]">{formatDate(sched.examDate)}</td>
+                    <td className="p-3 font-bold text-[#171717]">{sched.subject?.name}</td>
+                    <td className="p-3 text-[#737373]">{sched.startTime} - {sched.endTime}</td>
+                    <td className="p-3 text-[#737373]">{sched.roomNumber || 'Room 1001'}</td>
+                    <td className="p-3 font-mono text-[#171717]">
                       {sched.maxTheoryMarks} Th + {sched.maxPracticalMarks} Pr
                     </td>
-                    <td className="p-3 font-mono font-bold text-[#17313A]">{sched.passingMarks}</td>
+                    <td className="p-3 font-mono font-bold text-[#171717]">{sched.passingMarks}</td>
                     <td className="p-3">
                       <span className="text-[10.5px] bg-[#EAF8EC] text-[#16A34A] px-2 py-0.5 rounded font-bold border border-[#bbf0c5]">
                         {sched.markEntries?.length || 0} Recorded
@@ -460,19 +460,19 @@ export const ExamsClient: React.FC<{
       >
         {activeSchedule && (
           <form onSubmit={handleSaveMarks} className="space-y-4 text-xs">
-            <div className="p-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl flex items-center justify-between">
+            <div className="p-3 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl flex items-center justify-between">
               <div>
-                <p className="font-bold text-[#17313A]">{activeSchedule.subject?.name}</p>
-                <p className="text-[11px] text-[#6B7C83]">
+                <p className="font-bold text-[#171717]">{activeSchedule.subject?.name}</p>
+                <p className="text-[11px] text-[#737373]">
                   Passing: {activeSchedule.passingMarks} / {activeSchedule.maxTheoryMarks + activeSchedule.maxPracticalMarks}
                 </p>
               </div>
               <Badge variant="blue" size="xs">Keyboard-friendly</Badge>
             </div>
 
-            <div className="max-h-[60vh] overflow-y-auto border border-[#E4EAEC] rounded-xl">
+            <div className="max-h-[60vh] overflow-y-auto border border-[#E5E5E5] rounded-xl">
               <table className="w-full text-left text-xs">
-                <thead className="bg-[#F7FAFA] font-bold text-[#6B7C83] border-b border-[#E4EAEC] sticky top-0">
+                <thead className="bg-[#F5F5F5] font-bold text-[#737373] border-b border-[#E5E5E5] sticky top-0">
                   <tr>
                     <th className="p-2.5">Roll</th>
                     <th className="p-2.5">Student</th>
@@ -482,7 +482,7 @@ export const ExamsClient: React.FC<{
                     <th className="p-2.5">Feedback</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#E4EAEC]">
+                <tbody className="divide-y divide-[#E5E5E5]">
                   {students.map((st) => {
                     const theory = marksState[st.id]?.theory || 0;
                     const practical = marksState[st.id]?.practical || 0;
@@ -490,9 +490,9 @@ export const ExamsClient: React.FC<{
                     const gradeInfo = calculateGrade(total, 100);
 
                     return (
-                      <tr key={st.id} className="hover:bg-[#F7FAFA]">
-                        <td className="p-2.5 font-mono font-bold text-[#17313A]">{st.rollNumber || '01'}</td>
-                        <td className="p-2.5 font-bold text-[#17313A]">{st.name}</td>
+                      <tr key={st.id} className="hover:bg-[#F5F5F5]">
+                        <td className="p-2.5 font-mono font-bold text-[#171717]">{st.rollNumber || '01'}</td>
+                        <td className="p-2.5 font-bold text-[#171717]">{st.name}</td>
                         <td className="p-2.5">
                           <input
                             type="number"
@@ -507,7 +507,7 @@ export const ExamsClient: React.FC<{
                                 [st.id]: { ...prev[st.id], theory: val },
                               }));
                             }}
-                            className="w-16 px-2 py-1 border border-[#E4EAEC] rounded font-mono font-bold text-[#17313A] focus:outline-none focus:border-[#086A92]"
+                            className="w-16 px-2 py-1 border border-[#E5E5E5] rounded font-mono font-bold text-[#171717] focus:outline-none focus:border-[#990000]"
                           />
                         </td>
                         <td className="p-2.5">
@@ -524,11 +524,11 @@ export const ExamsClient: React.FC<{
                                 [st.id]: { ...prev[st.id], practical: val },
                               }));
                             }}
-                            className="w-16 px-2 py-1 border border-[#E4EAEC] rounded font-mono font-bold text-[#17313A] focus:outline-none focus:border-[#086A92]"
+                            className="w-16 px-2 py-1 border border-[#E5E5E5] rounded font-mono font-bold text-[#171717] focus:outline-none focus:border-[#990000]"
                           />
                         </td>
                         <td className="p-2.5">
-                          <span className="font-bold text-[#17313A] mr-1.5">{total}</span>
+                          <span className="font-bold text-[#171717] mr-1.5">{total}</span>
                           <span className="font-bold text-[#16A34A]">({gradeInfo.grade})</span>
                         </td>
                         <td className="p-2.5">
@@ -544,7 +544,7 @@ export const ExamsClient: React.FC<{
                                 [st.id]: { ...prev[st.id], remarks: val },
                               }));
                             }}
-                            className="w-full px-2 py-1 border border-[#E4EAEC] rounded text-xs focus:outline-none focus:border-[#086A92]"
+                            className="w-full px-2 py-1 border border-[#E5E5E5] rounded text-xs focus:outline-none focus:border-[#990000]"
                           />
                         </td>
                       </tr>
@@ -554,7 +554,7 @@ export const ExamsClient: React.FC<{
               </table>
             </div>
 
-            <div className="pt-3 border-t border-[#E4EAEC] flex justify-end gap-2">
+            <div className="pt-3 border-t border-[#E5E5E5] flex justify-end gap-2">
               <Button
                 type="button"
                 variant="outline"
@@ -581,7 +581,7 @@ export const ExamsClient: React.FC<{
       >
         <form onSubmit={handleCreateExam} className="space-y-4">
           <div>
-            <label className="block text-xs font-bold text-[#17313A] mb-1">
+            <label className="block text-xs font-bold text-[#171717] mb-1">
               Examination Name *
             </label>
             <input
@@ -590,19 +590,19 @@ export const ExamsClient: React.FC<{
               placeholder="e.g. CBSE Term 2 Pre-Board Exam"
               value={newExamForm.name}
               onChange={(e) => setNewExamForm({ ...newExamForm, name: e.target.value })}
-              className="w-full px-3 py-2 text-xs border border-[#E4EAEC] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#086A92]"
+              className="w-full px-3 py-2 text-xs border border-[#E5E5E5] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#990000]"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-[#17313A] mb-1">
+              <label className="block text-xs font-bold text-[#171717] mb-1">
                 Term
               </label>
               <select
                 value={newExamForm.term}
                 onChange={(e) => setNewExamForm({ ...newExamForm, term: e.target.value })}
-                className="w-full px-3 py-2 text-xs border border-[#E4EAEC] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#086A92]"
+                className="w-full px-3 py-2 text-xs border border-[#E5E5E5] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#990000]"
               >
                 <option value="TERM 1">TERM 1</option>
                 <option value="TERM 2">TERM 2</option>
@@ -613,13 +613,13 @@ export const ExamsClient: React.FC<{
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#17313A] mb-1">
+              <label className="block text-xs font-bold text-[#171717] mb-1">
                 Primary Subject
               </label>
               <select
                 value={newExamForm.subjectId}
                 onChange={(e) => setNewExamForm({ ...newExamForm, subjectId: e.target.value })}
-                className="w-full px-3 py-2 text-xs border border-[#E4EAEC] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#086A92]"
+                className="w-full px-3 py-2 text-xs border border-[#E5E5E5] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#990000]"
               >
                 {subjects.length === 0 && <option value="">No subjects found</option>}
                 {subjects.map((sub: any) => (
@@ -633,7 +633,7 @@ export const ExamsClient: React.FC<{
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-[#17313A] mb-1">
+              <label className="block text-xs font-bold text-[#171717] mb-1">
                 Start Date *
               </label>
               <input
@@ -641,13 +641,13 @@ export const ExamsClient: React.FC<{
                 required
                 value={newExamForm.startDate}
                 onChange={(e) => setNewExamForm({ ...newExamForm, startDate: e.target.value })}
-                className="w-full px-3 py-2 text-xs border border-[#E4EAEC] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#086A92]"
+                className="w-full px-3 py-2 text-xs border border-[#E5E5E5] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#990000]"
               >
               </input>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#17313A] mb-1">
+              <label className="block text-xs font-bold text-[#171717] mb-1">
                 End Date *
               </label>
               <input
@@ -655,7 +655,7 @@ export const ExamsClient: React.FC<{
                 required
                 value={newExamForm.endDate}
                 onChange={(e) => setNewExamForm({ ...newExamForm, endDate: e.target.value })}
-                className="w-full px-3 py-2 text-xs border border-[#E4EAEC] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#086A92]"
+                className="w-full px-3 py-2 text-xs border border-[#E5E5E5] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#990000]"
               >
               </input>
             </div>
@@ -663,7 +663,7 @@ export const ExamsClient: React.FC<{
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-[#17313A] mb-1">
+              <label className="block text-xs font-bold text-[#171717] mb-1">
                 Max Marks
               </label>
               <input
@@ -672,12 +672,12 @@ export const ExamsClient: React.FC<{
                 max={200}
                 value={newExamForm.maxMarks}
                 onChange={(e) => setNewExamForm({ ...newExamForm, maxMarks: Number(e.target.value) })}
-                className="w-full px-3 py-2 text-xs border border-[#E4EAEC] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#086A92]"
+                className="w-full px-3 py-2 text-xs border border-[#E5E5E5] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#990000]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#17313A] mb-1">
+              <label className="block text-xs font-bold text-[#171717] mb-1">
                 Passing Marks
               </label>
               <input
@@ -686,12 +686,12 @@ export const ExamsClient: React.FC<{
                 max={100}
                 value={newExamForm.passMarks}
                 onChange={(e) => setNewExamForm({ ...newExamForm, passMarks: Number(e.target.value) })}
-                className="w-full px-3 py-2 text-xs border border-[#E4EAEC] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#086A92]"
+                className="w-full px-3 py-2 text-xs border border-[#E5E5E5] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#990000]"
               />
             </div>
           </div>
 
-          <div className="pt-3 border-t border-[#E4EAEC] flex justify-end gap-2">
+          <div className="pt-3 border-t border-[#E5E5E5] flex justify-end gap-2">
             <Button
               type="button"
               variant="outline"

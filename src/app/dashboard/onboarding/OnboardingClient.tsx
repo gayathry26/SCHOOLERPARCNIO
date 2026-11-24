@@ -607,7 +607,7 @@ export const OnboardingClient: React.FC<{
       )}
 
       {/* Main Header Banner */}
-      <div className="bg-gradient-to-r from-[#086A92] via-[#065A7D] to-slate-900 text-white p-6 rounded-2xl shadow-sm relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#990000] via-[#800000] to-slate-900 text-white p-6 rounded-2xl shadow-sm relative overflow-hidden">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
@@ -659,7 +659,7 @@ export const OnboardingClient: React.FC<{
                   onClick={() => setCurrentStep(s.id)}
                   className={`flex items-center gap-2 px-3 py-2 rounded-xl text-left transition shrink-0 ${
                     isCurrent
-                      ? 'bg-[#086A92] text-white shadow-2xs'
+                      ? 'bg-[#990000] text-white shadow-2xs'
                       : isCompleted
                       ? 'bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200'
                       : 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200'
@@ -668,7 +668,7 @@ export const OnboardingClient: React.FC<{
                   <div
                     className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${
                       isCurrent
-                        ? 'bg-white text-[#086A92]'
+                        ? 'bg-white text-[#990000]'
                         : isCompleted
                         ? 'bg-emerald-600 text-white'
                         : 'bg-slate-200 text-slate-700'
@@ -711,7 +711,7 @@ export const OnboardingClient: React.FC<{
               <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
                 <div>
                   <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                    <Building2 className="w-5 h-5 text-[#086A92]" />
+                    <Building2 className="w-5 h-5 text-[#990000]" />
                     <span>Step 1: School Identity &amp; Affiliation</span>
                   </h3>
                   <p className="text-xs text-slate-500 mt-0.5">
@@ -729,7 +729,7 @@ export const OnboardingClient: React.FC<{
                     required
                     value={profileForm.name}
                     onChange={(e) => setProfileForm({ ...profileForm, name: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -740,7 +740,7 @@ export const OnboardingClient: React.FC<{
                     required
                     value={profileForm.affiliationNo}
                     onChange={(e) => setProfileForm({ ...profileForm, affiliationNo: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -749,7 +749,7 @@ export const OnboardingClient: React.FC<{
                   <select
                     value={profileForm.board}
                     onChange={(e) => setProfileForm({ ...profileForm, board: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   >
                     <option value="CBSE">CBSE (Central Board of Secondary Education)</option>
                     <option value="ICSE">CISCE / ICSE / ISC</option>
@@ -766,7 +766,7 @@ export const OnboardingClient: React.FC<{
                     required
                     value={profileForm.email}
                     onChange={(e) => setProfileForm({ ...profileForm, email: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -776,7 +776,7 @@ export const OnboardingClient: React.FC<{
                     type="text"
                     value={profileForm.phone}
                     onChange={(e) => setProfileForm({ ...profileForm, phone: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -789,7 +789,7 @@ export const OnboardingClient: React.FC<{
                     step="0.5"
                     value={profileForm.attendanceThreshold}
                     onChange={(e) => setProfileForm({ ...profileForm, attendanceThreshold: parseFloat(e.target.value) })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -799,7 +799,7 @@ export const OnboardingClient: React.FC<{
                     type="text"
                     value={profileForm.address}
                     onChange={(e) => setProfileForm({ ...profileForm, address: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -809,7 +809,7 @@ export const OnboardingClient: React.FC<{
                     type="text"
                     value={profileForm.city}
                     onChange={(e) => setProfileForm({ ...profileForm, city: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -819,7 +819,7 @@ export const OnboardingClient: React.FC<{
                     type="text"
                     value={profileForm.state}
                     onChange={(e) => setProfileForm({ ...profileForm, state: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
               </div>
@@ -831,7 +831,7 @@ export const OnboardingClient: React.FC<{
                   variant="primary"
                   disabled={isSubmitting}
                   onClick={handleSaveProfile}
-                  className="bg-[#086A92] text-white flex items-center gap-1.5"
+                  className="bg-[#990000] text-white flex items-center gap-1.5"
                 >
                   <span>{isSubmitting ? 'Saving...' : 'Save & Continue'}</span>
                   <ChevronRight className="w-4 h-4" />
@@ -846,7 +846,7 @@ export const OnboardingClient: React.FC<{
               <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
                 <div>
                   <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                    <Calendar className="w-5 h-5 text-[#086A92]" />
+                    <Calendar className="w-5 h-5 text-[#990000]" />
                     <span>Step 2: Academic Session Configuration</span>
                   </h3>
                   <p className="text-xs text-slate-500 mt-0.5">
@@ -865,7 +865,7 @@ export const OnboardingClient: React.FC<{
                     placeholder="e.g. 2026-2027"
                     value={academicForm.name}
                     onChange={(e) => setAcademicForm({ ...academicForm, name: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -875,7 +875,7 @@ export const OnboardingClient: React.FC<{
                     id="isCurr"
                     checked={academicForm.isCurrent}
                     onChange={(e) => setAcademicForm({ ...academicForm, isCurrent: e.target.checked })}
-                    className="w-4 h-4 text-[#086A92] rounded"
+                    className="w-4 h-4 text-[#990000] rounded"
                   />
                   <label htmlFor="isCurr" className="font-semibold text-slate-800 cursor-pointer">
                     Set as Currently Active Academic Session
@@ -889,7 +889,7 @@ export const OnboardingClient: React.FC<{
                     required
                     value={academicForm.startDate}
                     onChange={(e) => setAcademicForm({ ...academicForm, startDate: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -900,12 +900,12 @@ export const OnboardingClient: React.FC<{
                     required
                     value={academicForm.endDate}
                     onChange={(e) => setAcademicForm({ ...academicForm, endDate: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
               </div>
 
-              <div className="p-3 bg-sky-50 rounded-xl border border-sky-200 text-xs text-[#086A92] flex items-start gap-2">
+              <div className="p-3 bg-sky-50 rounded-xl border border-sky-200 text-xs text-[#990000] flex items-start gap-2">
                 <HelpCircle className="w-4 h-4 shrink-0 mt-0.5" />
                 <span>
                   In accordance with CBSE academic regulations, a standard session spans 12 months with Term 1 (April–September) and Term 2 (October–March).
@@ -921,7 +921,7 @@ export const OnboardingClient: React.FC<{
                   variant="primary"
                   disabled={isSubmitting}
                   onClick={handleSaveAcademicYear}
-                  className="bg-[#086A92] text-white flex items-center gap-1.5"
+                  className="bg-[#990000] text-white flex items-center gap-1.5"
                 >
                   <span>{isSubmitting ? 'Saving...' : 'Save & Continue'}</span>
                   <ChevronRight className="w-4 h-4" />
@@ -936,7 +936,7 @@ export const OnboardingClient: React.FC<{
               <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
                 <div>
                   <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                    <Layers className="w-5 h-5 text-[#086A92]" />
+                    <Layers className="w-5 h-5 text-[#990000]" />
                     <span>Step 3: Grade Levels &amp; Section Allocation</span>
                   </h3>
                   <p className="text-xs text-slate-500 mt-0.5">
@@ -954,7 +954,7 @@ export const OnboardingClient: React.FC<{
                     className="p-3 rounded-xl border border-slate-200 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="w-7 h-7 rounded-lg bg-sky-100 text-[#086A92] font-bold flex items-center justify-center shrink-0">
+                      <span className="w-7 h-7 rounded-lg bg-sky-100 text-[#990000] font-bold flex items-center justify-center shrink-0">
                         {cls.gradeOrder}
                       </span>
                       <div>
@@ -976,7 +976,7 @@ export const OnboardingClient: React.FC<{
                             setCustomClasses(updated);
                           }
                         }}
-                        className="px-2.5 py-1 text-[11px] font-semibold text-[#086A92] bg-sky-50 rounded-lg hover:bg-sky-100 border border-sky-200 transition"
+                        className="px-2.5 py-1 text-[11px] font-semibold text-[#990000] bg-sky-50 rounded-lg hover:bg-sky-100 border border-sky-200 transition"
                       >
                         + Add Section
                       </button>
@@ -1003,7 +1003,7 @@ export const OnboardingClient: React.FC<{
                       { name: `Class ${nextNum}`, gradeOrder: nextNum, sections: ['A', 'B'] },
                     ]);
                   }}
-                  className="w-full py-2.5 border-2 border-dashed border-slate-300 rounded-xl text-xs font-semibold text-[#086A92] hover:border-[#086A92] hover:bg-sky-50/50 transition flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 border-2 border-dashed border-slate-300 rounded-xl text-xs font-semibold text-[#990000] hover:border-[#990000] hover:bg-sky-50/50 transition flex items-center justify-center gap-1.5"
                 >
                   <Plus className="w-4 h-4" /> Add Grade Level
                 </button>
@@ -1018,7 +1018,7 @@ export const OnboardingClient: React.FC<{
                   variant="primary"
                   disabled={isSubmitting}
                   onClick={handleSaveClasses}
-                  className="bg-[#086A92] text-white flex items-center gap-1.5"
+                  className="bg-[#990000] text-white flex items-center gap-1.5"
                 >
                   <span>{isSubmitting ? 'Saving...' : 'Save & Continue'}</span>
                   <ChevronRight className="w-4 h-4" />
@@ -1033,7 +1033,7 @@ export const OnboardingClient: React.FC<{
               <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
                 <div>
                   <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-[#086A92]" />
+                    <BookOpen className="w-5 h-5 text-[#990000]" />
                     <span>Step 4: Academic Subjects &amp; Mark Blueprint</span>
                   </h3>
                   <p className="text-xs text-slate-500 mt-0.5">
@@ -1078,7 +1078,7 @@ export const OnboardingClient: React.FC<{
                       { name: 'Physics & Chemistry Lab', code: `LAB-${Date.now().toString().slice(-3)}`, type: 'PRACTICAL', maxTheory: 40, maxPractical: 60 },
                     ]);
                   }}
-                  className="w-full py-2 border-2 border-dashed border-slate-200 rounded-xl text-xs font-semibold text-slate-600 hover:text-[#086A92] hover:border-[#086A92] transition flex items-center justify-center gap-1.5"
+                  className="w-full py-2 border-2 border-dashed border-slate-200 rounded-xl text-xs font-semibold text-slate-600 hover:text-[#990000] hover:border-[#990000] transition flex items-center justify-center gap-1.5"
                 >
                   <Plus className="w-3.5 h-3.5" /> Add Additional Subject
                 </button>
@@ -1093,7 +1093,7 @@ export const OnboardingClient: React.FC<{
                   variant="primary"
                   disabled={isSubmitting}
                   onClick={handleSaveSubjects}
-                  className="bg-[#086A92] text-white flex items-center gap-1.5"
+                  className="bg-[#990000] text-white flex items-center gap-1.5"
                 >
                   <span>{isSubmitting ? 'Saving...' : 'Save & Continue'}</span>
                   <ChevronRight className="w-4 h-4" />
@@ -1144,7 +1144,7 @@ export const OnboardingClient: React.FC<{
                   placeholder="firstName,lastName,email,phone,employeeId,department,designation&#10;Ananya,Sharma,ananya.sharma@edvonest.edu.in,+91 98765 43210,EMP-101,Mathematics,Senior PGT"
                   value={teacherCsvText}
                   onChange={(e) => parseTeacherCsv(e.target.value)}
-                  className="w-full text-xs font-mono border border-slate-300 rounded-lg p-3 focus:border-[#086A92] outline-none"
+                  className="w-full text-xs font-mono border border-slate-300 rounded-lg p-3 focus:border-[#990000] outline-none"
                 />
               </div>
 
@@ -1187,7 +1187,7 @@ export const OnboardingClient: React.FC<{
                     variant="primary"
                     disabled={isSubmitting || parsedTeachers.length === 0}
                     onClick={handleImportTeachers}
-                    className="bg-[#086A92] text-white flex items-center gap-1.5"
+                    className="bg-[#990000] text-white flex items-center gap-1.5"
                   >
                     <span>{isSubmitting ? 'Importing...' : 'Import & Continue'}</span>
                     <ChevronRight className="w-4 h-4" />
@@ -1239,7 +1239,7 @@ export const OnboardingClient: React.FC<{
                   placeholder="firstName,lastName,admissionNumber,rollNumber,className,sectionName,gender,dateOfBirth,parentName,parentPhone,parentEmail&#10;Aarav,Patel,EDV-2026-001,1,Class 10,A,MALE,2010-05-14,Vikram Patel,+91 98111 22334,vikram.patel@gmail.com"
                   value={studentCsvText}
                   onChange={(e) => parseStudentCsv(e.target.value)}
-                  className="w-full text-xs font-mono border border-slate-300 rounded-lg p-3 focus:border-[#086A92] outline-none"
+                  className="w-full text-xs font-mono border border-slate-300 rounded-lg p-3 focus:border-[#990000] outline-none"
                 />
               </div>
 
@@ -1282,7 +1282,7 @@ export const OnboardingClient: React.FC<{
                     variant="primary"
                     disabled={isSubmitting || parsedStudents.length === 0}
                     onClick={handleImportStudents}
-                    className="bg-[#086A92] text-white flex items-center gap-1.5"
+                    className="bg-[#990000] text-white flex items-center gap-1.5"
                   >
                     <span>{isSubmitting ? 'Importing...' : 'Enroll Students'}</span>
                     <ChevronRight className="w-4 h-4" />
@@ -1316,7 +1316,7 @@ export const OnboardingClient: React.FC<{
                     step="500"
                     value={feeForm.baseTuitionFee}
                     onChange={(e) => setFeeForm({ ...feeForm, baseTuitionFee: Number(e.target.value) })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -1325,7 +1325,7 @@ export const OnboardingClient: React.FC<{
                   <select
                     value={feeForm.frequency}
                     onChange={(e) => setFeeForm({ ...feeForm, frequency: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   >
                     <option value="MONTHLY">Monthly (12 Invoices)</option>
                     <option value="QUARTERLY">Quarterly (4 Terms - Recommended)</option>
@@ -1342,7 +1342,7 @@ export const OnboardingClient: React.FC<{
                     max="28"
                     value={feeForm.dueDateDay}
                     onChange={(e) => setFeeForm({ ...feeForm, dueDateDay: Number(e.target.value) })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -1353,7 +1353,7 @@ export const OnboardingClient: React.FC<{
                     min="0"
                     value={feeForm.lateFeePerDay}
                     onChange={(e) => setFeeForm({ ...feeForm, lateFeePerDay: Number(e.target.value) })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
               </div>
@@ -1395,7 +1395,7 @@ export const OnboardingClient: React.FC<{
                     variant="primary"
                     disabled={isSubmitting}
                     onClick={handleSaveFees}
-                    className="bg-[#086A92] text-white flex items-center gap-1.5"
+                    className="bg-[#990000] text-white flex items-center gap-1.5"
                   >
                     <span>{isSubmitting ? 'Saving...' : 'Save & Continue'}</span>
                     <ChevronRight className="w-4 h-4" />
@@ -1430,7 +1430,7 @@ export const OnboardingClient: React.FC<{
                     max="10"
                     value={timetableForm.periodsCount}
                     onChange={(e) => setTimetableForm({ ...timetableForm, periodsCount: Number(e.target.value) })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -1440,7 +1440,7 @@ export const OnboardingClient: React.FC<{
                     type="time"
                     value={timetableForm.startTime}
                     onChange={(e) => setTimetableForm({ ...timetableForm, startTime: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -1453,7 +1453,7 @@ export const OnboardingClient: React.FC<{
                     step="5"
                     value={timetableForm.periodDuration}
                     onChange={(e) => setTimetableForm({ ...timetableForm, periodDuration: Number(e.target.value) })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
 
@@ -1466,7 +1466,7 @@ export const OnboardingClient: React.FC<{
                     step="5"
                     value={timetableForm.recessDuration}
                     onChange={(e) => setTimetableForm({ ...timetableForm, recessDuration: Number(e.target.value) })}
-                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                    className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                   />
                 </div>
               </div>
@@ -1503,7 +1503,7 @@ export const OnboardingClient: React.FC<{
                     variant="primary"
                     disabled={isSubmitting}
                     onClick={handleSaveTimetable}
-                    className="bg-[#086A92] text-white flex items-center gap-1.5"
+                    className="bg-[#990000] text-white flex items-center gap-1.5"
                   >
                     <span>{isSubmitting ? 'Saving...' : 'Save & Continue'}</span>
                     <ChevronRight className="w-4 h-4" />
@@ -1533,10 +1533,10 @@ export const OnboardingClient: React.FC<{
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
                   <strong className="text-slate-900 font-bold block">CBSE &amp; FERPA Data Privacy Safeguards:</strong>
                   <p className="text-slate-600">
-                    • Multi-tenant tenant identifier (<code className="text-[#086A92]">schoolId</code>) strictly isolates all queries.
+                    • Multi-tenant tenant identifier (<code className="text-[#990000]">schoolId</code>) strictly isolates all queries.
                   </p>
                   <p className="text-slate-600">
-                    • Passwords hashed with standard <code className="text-[#086A92]">bcryptjs</code> (salt rounds: 10).
+                    • Passwords hashed with standard <code className="text-[#990000]">bcryptjs</code> (salt rounds: 10).
                   </p>
                   <p className="text-slate-600">
                     • Immutable audit logging actively records all fee updates, marks entry, and student records.
@@ -1571,7 +1571,7 @@ export const OnboardingClient: React.FC<{
                   size="sm"
                   variant="primary"
                   onClick={handleCompletePermissions}
-                  className="bg-[#086A92] text-white flex items-center gap-1.5"
+                  className="bg-[#990000] text-white flex items-center gap-1.5"
                 >
                   <span>Confirm &amp; Proceed to Launch</span>
                   <ChevronRight className="w-4 h-4" />
@@ -1718,7 +1718,7 @@ export const OnboardingClient: React.FC<{
           {/* Quick Guide Card */}
           <Card className="p-4 space-y-3">
             <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-[#086A92]" />
+              <Sparkles className="w-4 h-4 text-[#990000]" />
               <span>Onboarding Checklist</span>
             </h4>
 
@@ -1733,7 +1733,7 @@ export const OnboardingClient: React.FC<{
                     onClick={() => setCurrentStep(s.id)}
                     className={`p-2 rounded-lg flex items-center justify-between cursor-pointer transition ${
                       isCurrent
-                        ? 'bg-sky-50 border border-sky-200 text-[#086A92] font-bold'
+                        ? 'bg-sky-50 border border-sky-200 text-[#990000] font-bold'
                         : isCompleted
                         ? 'text-slate-800 hover:bg-slate-50'
                         : 'text-slate-400 hover:bg-slate-50'
@@ -1745,7 +1745,7 @@ export const OnboardingClient: React.FC<{
                           isCompleted
                             ? 'bg-emerald-600 text-white'
                             : isCurrent
-                            ? 'bg-[#086A92] text-white'
+                            ? 'bg-[#990000] text-white'
                             : 'bg-slate-200 text-slate-600'
                         }`}
                       >
@@ -1770,7 +1770,7 @@ export const OnboardingClient: React.FC<{
           {/* User Tour Trigger Card */}
           <Card className="p-4 space-y-2.5 bg-gradient-to-br from-slate-50 to-sky-50/50 border border-sky-100">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-[#086A92] text-white flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-[#990000] text-white flex items-center justify-center shrink-0">
                 <HelpCircle className="w-4 h-4" />
               </div>
               <div>
@@ -1787,7 +1787,7 @@ export const OnboardingClient: React.FC<{
               size="xs"
               variant="outline"
               onClick={() => window.dispatchEvent(new CustomEvent('start-walkthrough'))}
-              className="w-full text-[#086A92] bg-white hover:bg-sky-50 border-sky-200 flex items-center justify-center gap-1.5"
+              className="w-full text-[#990000] bg-white hover:bg-sky-50 border-sky-200 flex items-center justify-center gap-1.5"
             >
               <span>Start Guided Tour</span>
               <ArrowRight className="w-3.5 h-3.5" />

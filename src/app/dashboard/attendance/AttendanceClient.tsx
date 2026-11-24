@@ -156,13 +156,13 @@ export const AttendanceClient: React.FC<{
   return (
     <div className="space-y-4">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white border border-[#E4EAEC] rounded-xl p-4 sm:p-5 shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white border border-[#E5E5E5] rounded-xl p-4 sm:p-5 shadow-2xs">
         <div>
-          <h2 className="text-base sm:text-xl font-bold text-[#17313A] tracking-tight flex items-center gap-2">
+          <h2 className="text-base sm:text-xl font-bold text-[#171717] tracking-tight flex items-center gap-2">
             <CalendarCheck className="w-5 h-5 text-[#35B84A]" />
             <span>Mobile-First Class Attendance</span>
           </h2>
-          <p className="text-xs text-[#6B7C83] mt-0.5">
+          <p className="text-xs text-[#737373] mt-0.5">
             1-tap fast attendance marking with offline background sync for teachers.
           </p>
         </div>
@@ -195,10 +195,10 @@ export const AttendanceClient: React.FC<{
       </div>
 
       {/* Class, Section, Date Pickers */}
-      <div className="bg-white p-3.5 rounded-xl border border-[#E4EAEC] shadow-2xs flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div className="bg-white p-3.5 rounded-xl border border-[#E5E5E5] shadow-2xs flex flex-wrap items-center justify-between gap-3 text-xs">
         <div className="grid grid-cols-2 sm:flex sm:items-center gap-2.5 w-full sm:w-auto">
           <div className="flex flex-col sm:flex-row sm:items-center gap-1">
-            <label className="font-bold text-[#17313A]">Class:</label>
+            <label className="font-bold text-[#171717]">Class:</label>
             <select
               value={selectedClassId}
               onChange={(e) => {
@@ -207,7 +207,7 @@ export const AttendanceClient: React.FC<{
                 setSelectedClassId(cId);
                 setSelectedSectionId(c?.sections[0]?.id || '');
               }}
-              className="px-2.5 py-1.5 bg-[#F7FAFA] border border-[#E4EAEC] rounded-lg text-xs font-bold text-[#17313A]"
+              className="px-2.5 py-1.5 bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg text-xs font-bold text-[#171717]"
             >
               {classes.map((c) => (
                 <option key={c.id} value={c.id}>
@@ -218,11 +218,11 @@ export const AttendanceClient: React.FC<{
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-1">
-            <label className="font-bold text-[#17313A]">Section:</label>
+            <label className="font-bold text-[#171717]">Section:</label>
             <select
               value={selectedSectionId}
               onChange={(e) => setSelectedSectionId(e.target.value)}
-              className="px-2.5 py-1.5 bg-[#F7FAFA] border border-[#E4EAEC] rounded-lg text-xs font-bold text-[#17313A]"
+              className="px-2.5 py-1.5 bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg text-xs font-bold text-[#171717]"
             >
               {currentClass?.sections.map((s) => (
                 <option key={s.id} value={s.id}>
@@ -233,12 +233,12 @@ export const AttendanceClient: React.FC<{
           </div>
 
           <div className="col-span-2 sm:col-span-1 flex flex-col sm:flex-row sm:items-center gap-1">
-            <label className="font-bold text-[#17313A]">Date:</label>
+            <label className="font-bold text-[#171717]">Date:</label>
             <input
               type="date"
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
-              className="px-2.5 py-1.5 bg-[#F7FAFA] border border-[#E4EAEC] rounded-lg text-xs font-bold text-[#17313A]"
+              className="px-2.5 py-1.5 bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg text-xs font-bold text-[#171717]"
             />
           </div>
         </div>
@@ -279,7 +279,7 @@ export const AttendanceClient: React.FC<{
         </div>
         <div className="bg-white p-3 rounded-xl border border-slate-200">
           <span className="text-[11px] text-slate-500 font-medium">Realized Attendance</span>
-          <div className="text-xl font-black text-[#086A92] mt-1">{presentPercentage}%</div>
+          <div className="text-xl font-black text-[#990000] mt-1">{presentPercentage}%</div>
         </div>
       </div>
 
@@ -291,7 +291,7 @@ export const AttendanceClient: React.FC<{
           value={studentFilter}
           onChange={(e) => setStudentFilter(e.target.value)}
           placeholder={`Fast search ${initialStudents.length} students by name, roll number, or admission ID...`}
-          className="w-full pl-9 pr-4 py-2 bg-white border border-[#E4EAEC] rounded-xl text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#086A92] shadow-2xs"
+          className="w-full pl-9 pr-4 py-2 bg-white border border-[#E5E5E5] rounded-xl text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#990000] shadow-2xs"
         />
         {studentFilter && (
           <button
@@ -378,7 +378,7 @@ export const AttendanceClient: React.FC<{
                       type="button"
                       onClick={() => handleStatusChange(s.id, 'LATE')}
                       className={`h-11 rounded-lg text-xs font-bold transition-all cursor-pointer ${currentStatus === 'LATE'
-                        ? 'bg-[#086A92] text-white shadow-md'
+                        ? 'bg-[#990000] text-white shadow-md'
                         : 'bg-slate-100 text-slate-700'
                         }`}
                     >
@@ -393,7 +393,7 @@ export const AttendanceClient: React.FC<{
         {/* DESKTOP TABLE VIEW (Screen >= sm) */}
         <div className="hidden sm:block overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-[#F7FAFA] text-[#6B7C83] uppercase tracking-wider font-semibold border-b border-[#E4EAEC]">
+            <thead className="bg-[#F5F5F5] text-[#737373] uppercase tracking-wider font-semibold border-b border-[#E5E5E5]">
               <tr>
                 <th className="p-3 w-16">Roll #</th>
                 <th className="p-3">Student Name</th>
@@ -402,7 +402,7 @@ export const AttendanceClient: React.FC<{
                 <th className="p-3">Remarks</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#E4EAEC]">
+            <tbody className="divide-y divide-[#E5E5E5]">
               {visibleStudents.length === 0 ? (
                 <tr>
                   <td colSpan={5} className="p-6 text-center text-xs text-slate-500">
@@ -414,13 +414,13 @@ export const AttendanceClient: React.FC<{
                   const currentStatus = attendanceState[s.id]?.status || 'PRESENT';
 
                   return (
-                    <tr key={s.id} className="hover:bg-[#F7FAFA] transition-colors">
-                      <td className="p-3 font-mono font-bold text-[#17313A]">{s.rollNumber || '01'}</td>
+                    <tr key={s.id} className="hover:bg-[#F5F5F5] transition-colors">
+                      <td className="p-3 font-mono font-bold text-[#171717]">{s.rollNumber || '01'}</td>
                       <td className="p-3">
-                        <span className="font-bold text-[#17313A] block">{s.name}</span>
-                        <span className="text-[10.5px] text-[#6B7C83]">{s.email}</span>
+                        <span className="font-bold text-[#171717] block">{s.name}</span>
+                        <span className="text-[10.5px] text-[#737373]">{s.email}</span>
                       </td>
-                      <td className="p-3 font-mono text-[#6B7C83]">{s.admissionNumber}</td>
+                      <td className="p-3 font-mono text-[#737373]">{s.admissionNumber}</td>
                       <td className="p-3">
                         <div className="flex items-center justify-center gap-1.5">
                           <button
@@ -428,7 +428,7 @@ export const AttendanceClient: React.FC<{
                             onClick={() => handleStatusChange(s.id, 'PRESENT')}
                             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${currentStatus === 'PRESENT'
                               ? 'bg-[#35B84A] text-white shadow-2xs'
-                              : 'bg-[#F1F5F7] text-[#6B7C83] hover:bg-[#EAF8EC] hover:text-[#16A34A]'
+                              : 'bg-[#F1F5F7] text-[#737373] hover:bg-[#EAF8EC] hover:text-[#16A34A]'
                               }`}
                           >
                             Present
@@ -438,7 +438,7 @@ export const AttendanceClient: React.FC<{
                             onClick={() => handleStatusChange(s.id, 'ABSENT')}
                             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${currentStatus === 'ABSENT'
                               ? 'bg-[#DC2626] text-white shadow-2xs'
-                              : 'bg-[#F1F5F7] text-[#6B7C83] hover:bg-[#FEE2E2] hover:text-[#DC2626]'
+                              : 'bg-[#F1F5F7] text-[#737373] hover:bg-[#FEE2E2] hover:text-[#DC2626]'
                               }`}
                           >
                             Absent
@@ -448,7 +448,7 @@ export const AttendanceClient: React.FC<{
                             onClick={() => handleStatusChange(s.id, 'LEAVE')}
                             className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${currentStatus === 'LEAVE'
                               ? 'bg-[#D97706] text-white shadow-2xs'
-                              : 'bg-[#F1F5F7] text-[#6B7C83] hover:bg-[#FEF3C7] hover:text-[#B45309]'
+                              : 'bg-[#F1F5F7] text-[#737373] hover:bg-[#FEF3C7] hover:text-[#B45309]'
                               }`}
                           >
                             Leave
@@ -457,8 +457,8 @@ export const AttendanceClient: React.FC<{
                             type="button"
                             onClick={() => handleStatusChange(s.id, 'LATE')}
                             className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${currentStatus === 'LATE'
-                              ? 'bg-[#086A92] text-white shadow-2xs'
-                              : 'bg-[#F1F5F7] text-[#6B7C83] hover:bg-[#EAF5F8] hover:text-[#086A92]'
+                              ? 'bg-[#990000] text-white shadow-2xs'
+                              : 'bg-[#F1F5F7] text-[#737373] hover:bg-[#FEF2F2] hover:text-[#990000]'
                               }`}
                           >
                             Late
@@ -477,7 +477,7 @@ export const AttendanceClient: React.FC<{
                               [s.id]: { ...prev[s.id], remarks: val },
                             }));
                           }}
-                          className="w-full px-2.5 py-1 text-xs border border-[#E4EAEC] rounded-md focus:outline-none focus:border-[#086A92]"
+                          className="w-full px-2.5 py-1 text-xs border border-[#E5E5E5] rounded-md focus:outline-none focus:border-[#990000]"
                         />
                       </td>
                     </tr>

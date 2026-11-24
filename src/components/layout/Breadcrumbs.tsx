@@ -199,14 +199,14 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   if (customItems && customItems.length > 0) {
     return (
       <div className={`flex items-center justify-between text-xs py-1 gap-3 flex-wrap ${className}`}>
-        <nav aria-label="Breadcrumb" className="flex items-center text-[#6B7C83]">
+        <nav aria-label="Breadcrumb" className="flex items-center text-[#737373]">
           <ol className="flex items-center gap-1.5 flex-wrap">
             <li className="flex items-center gap-1">
               <Link
                 href="/dashboard"
-                className="flex items-center gap-1 text-[#6B7C83] hover:text-[#086A92] transition-colors"
+                className="flex items-center gap-1 text-[#737373] hover:text-[#990000] transition-colors"
               >
-                <Home className="w-3.5 h-3.5 text-[#086A92]" />
+                <Home className="w-3.5 h-3.5 text-[#990000]" />
                 <span className="hidden sm:inline">Home</span>
               </Link>
             </li>
@@ -218,12 +218,12 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                   {item.href && !isLast ? (
                     <Link
                       href={item.href}
-                      className="text-[#6B7C83] hover:text-[#086A92] transition-colors"
+                      className="text-[#737373] hover:text-[#990000] transition-colors"
                     >
                       {item.label}
                     </Link>
                   ) : (
-                    <span className="font-semibold text-[#17313A] truncate max-w-[200px] sm:max-w-none">
+                    <span className="font-semibold text-[#171717] truncate max-w-[200px] sm:max-w-none">
                       {item.label}
                     </span>
                   )}
@@ -238,7 +238,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
           {contextualAction && (
             <button
               onClick={contextualAction.onClick}
-              className="flex items-center gap-1.5 px-2.5 py-1 bg-[#086A92] hover:bg-[#086A92]/90 text-white rounded-lg text-xs font-bold transition-all shadow-2xs cursor-pointer"
+              className="flex items-center gap-1.5 px-2.5 py-1 bg-[#990000] hover:bg-[#990000]/90 text-white rounded-lg text-xs font-bold transition-all shadow-2xs cursor-pointer"
             >
               <contextualAction.icon className="w-3.5 h-3.5" />
               <span>{contextualAction.label}</span>
@@ -250,11 +250,11 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
             className={`flex items-center gap-1 px-2 py-1 rounded-lg border text-xs font-semibold transition-all cursor-pointer ${
               isPinned
                 ? 'bg-amber-50 text-amber-800 border-amber-200'
-                : 'bg-white text-[#6B7C83] border-[#E4EAEC] hover:text-[#086A92]'
+                : 'bg-white text-[#737373] border-[#E5E5E5] hover:text-[#990000]'
             }`}
             title={isPinned ? 'Remove from Pinned Modules' : 'Pin module to navigation sidebar'}
           >
-            <Star className={`w-3.5 h-3.5 ${isPinned ? 'fill-amber-400 text-amber-500' : 'text-[#6B7C83]'}`} />
+            <Star className={`w-3.5 h-3.5 ${isPinned ? 'fill-amber-400 text-amber-500' : 'text-[#737373]'}`} />
             <span className="hidden sm:inline">{isPinned ? 'Pinned' : 'Pin'}</span>
           </button>
         </div>
@@ -269,21 +269,21 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   if (segments.length <= 1) {
     return (
       <div className={`flex items-center justify-between text-xs py-1 gap-3 flex-wrap ${className}`}>
-        <nav aria-label="Breadcrumb" className="flex items-center text-[#6B7C83]">
-          <div className="flex items-center gap-1.5 text-xs text-[#6B7C83]">
-            <span className="flex items-center gap-1 font-semibold text-[#086A92]">
+        <nav aria-label="Breadcrumb" className="flex items-center text-[#737373]">
+          <div className="flex items-center gap-1.5 text-xs text-[#737373]">
+            <span className="flex items-center gap-1 font-semibold text-[#990000]">
               <Home className="w-3.5 h-3.5" />
               <span>Dashboard</span>
             </span>
             <ChevronRight className="w-3 h-3 text-[#c8d5d9]" />
-            <span className="font-semibold text-[#17313A]">Overview &amp; Executive Cockpit</span>
+            <span className="font-semibold text-[#171717]">Overview &amp; Executive Cockpit</span>
           </div>
         </nav>
 
         <div className="flex items-center gap-2">
           <button
             onClick={() => triggerQuickAction('LAUNCHER')}
-            className="flex items-center gap-1.5 px-2.5 py-1 bg-[#EAF5F8] hover:bg-[#086A92] text-[#086A92] hover:text-white rounded-lg text-xs font-bold transition-all shadow-2xs border border-[#c0e3ed] cursor-pointer"
+            className="flex items-center gap-1.5 px-2.5 py-1 bg-[#FEF2F2] hover:bg-[#990000] text-[#990000] hover:text-white rounded-lg text-xs font-bold transition-all shadow-2xs border border-[#FECACA] cursor-pointer"
           >
             <Zap className="w-3.5 h-3.5 text-[#35B84A]" />
             <span>Quick Actions</span>
@@ -306,14 +306,14 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   return (
     <div className={`flex items-center justify-between text-xs py-1 gap-3 flex-wrap ${className}`}>
       {/* Left side: Hierarchical Breadcrumbs Trail */}
-      <nav aria-label="Breadcrumb" className="flex items-center text-[#6B7C83]">
+      <nav aria-label="Breadcrumb" className="flex items-center text-[#737373]">
         <ol className="flex items-center gap-1.5 flex-wrap">
           <li className="flex items-center gap-1">
             <Link
               href="/dashboard"
-              className="flex items-center gap-1 text-[#6B7C83] hover:text-[#086A92] transition-colors"
+              className="flex items-center gap-1 text-[#737373] hover:text-[#990000] transition-colors"
             >
-              <Home className="w-3.5 h-3.5 text-[#086A92]" />
+              <Home className="w-3.5 h-3.5 text-[#990000]" />
               <span className="hidden sm:inline">Home</span>
             </Link>
           </li>
@@ -321,13 +321,13 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
             <li key={b.href} className="flex items-center gap-1.5">
               <ChevronRight className="w-3 h-3 text-[#c8d5d9]" />
               {b.isLast ? (
-                <span className="font-bold text-[#17313A] truncate max-w-[200px] sm:max-w-none">
+                <span className="font-bold text-[#171717] truncate max-w-[200px] sm:max-w-none">
                   {b.label}
                 </span>
               ) : (
                 <Link
                   href={b.href}
-                  className="text-[#6B7C83] hover:text-[#086A92] transition-colors truncate max-w-[150px] sm:max-w-none"
+                  className="text-[#737373] hover:text-[#990000] transition-colors truncate max-w-[150px] sm:max-w-none"
                 >
                   {b.label}
                 </Link>
@@ -342,7 +342,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
         {contextualAction && (
           <button
             onClick={contextualAction.onClick}
-            className="flex items-center gap-1.5 px-2.5 py-1 bg-[#086A92] hover:bg-[#086A92]/90 text-white rounded-lg text-xs font-bold transition-all shadow-2xs cursor-pointer"
+            className="flex items-center gap-1.5 px-2.5 py-1 bg-[#990000] hover:bg-[#990000]/90 text-white rounded-lg text-xs font-bold transition-all shadow-2xs cursor-pointer"
           >
             <contextualAction.icon className="w-3.5 h-3.5" />
             <span>{contextualAction.label}</span>
@@ -354,11 +354,11 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
           className={`flex items-center gap-1 px-2.5 py-1 rounded-lg border text-xs font-semibold transition-all cursor-pointer ${
             isPinned
               ? 'bg-amber-50 text-amber-800 border-amber-200'
-              : 'bg-white text-[#6B7C83] border-[#E4EAEC] hover:text-[#086A92]'
+              : 'bg-white text-[#737373] border-[#E5E5E5] hover:text-[#990000]'
           }`}
           title={isPinned ? 'Remove from Pinned Modules' : 'Pin module to navigation sidebar'}
         >
-          <Star className={`w-3.5 h-3.5 ${isPinned ? 'fill-amber-400 text-amber-500' : 'text-[#6B7C83]'}`} />
+          <Star className={`w-3.5 h-3.5 ${isPinned ? 'fill-amber-400 text-amber-500' : 'text-[#737373]'}`} />
           <span className="hidden sm:inline">{isPinned ? 'Pinned' : 'Pin'}</span>
         </button>
       </div>

@@ -22,23 +22,23 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed select-none cursor-pointer';
+    'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed select-none cursor-pointer';
 
   const variants = {
     primary:
-      'bg-[#086A92] text-white hover:bg-[#065575] focus:ring-[#086A92]/40 shadow-xs active:scale-[0.99]',
+      'bg-[#990000] text-white hover:bg-[#800000] focus:ring-[#990000]/40 shadow-xs active:scale-[0.99]',
     teal:
-      'bg-[#008C91] text-white hover:bg-[#007377] focus:ring-[#008C91]/40 shadow-xs active:scale-[0.99]',
+      'bg-[#C00000] text-white hover:bg-[#A00000] focus:ring-[#C00000]/40 shadow-xs active:scale-[0.99]',
     success:
-      'bg-[#35B84A] text-white hover:bg-[#2da040] focus:ring-[#35B84A]/40 shadow-xs active:scale-[0.99]',
+      'bg-[#C00000] text-white hover:bg-[#A00000] focus:ring-[#C00000]/40 shadow-xs active:scale-[0.99]',
     secondary:
-      'bg-[#EAF5F8] text-[#086A92] hover:bg-[#d8ecf2] focus:ring-[#086A92]/30',
+      'bg-[#F5F5F5] text-[#171717] hover:bg-[#E5E5E5] focus:ring-[#990000]/20 border border-[#E5E5E5]',
     outline:
-      'border border-[#E4EAEC] text-[#17313A] bg-white hover:bg-[#F7FAFA] hover:border-[#cbd7da] focus:ring-[#086A92]/20 shadow-2xs',
+      'border border-[#E5E5E5] text-[#171717] bg-white hover:bg-[#F5F5F5] hover:border-[#D4D4D4] focus:ring-[#990000]/20 shadow-2xs',
     danger:
-      'bg-[#DC2626] text-white hover:bg-[#b91c1c] focus:ring-[#DC2626]/40 shadow-xs',
+      'bg-[#990000] text-white hover:bg-[#800000] focus:ring-[#990000]/40 shadow-xs',
     ghost:
-      'text-[#6B7C83] hover:bg-[#EAF5F8] hover:text-[#086A92] focus:ring-[#086A92]/20',
+      'text-[#525252] hover:bg-red-50 hover:text-[#990000] focus:ring-[#990000]/20',
   };
 
   const sizes = {

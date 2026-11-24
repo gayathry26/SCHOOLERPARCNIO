@@ -185,7 +185,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
             id: 'admin-overview',
             label: 'School PTM Overview & Events',
             count: events.length,
-            icon: <Building className="w-4 h-4 text-[#086A92]" />,
+            icon: <Building className="w-4 h-4 text-[#990000]" />,
           },
           {
             id: 'master-schedule',
@@ -207,7 +207,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
             id: 'slot-manager',
             label: 'My Availability Slots',
             count: slots.filter((s) => s.teacherId === teacherProfile?.id).length,
-            icon: <Clock className="w-4 h-4 text-[#086A92]" />,
+            icon: <Clock className="w-4 h-4 text-[#990000]" />,
           },
         ]
       : []),
@@ -217,7 +217,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
             id: 'my-appointments',
             label: 'My Booked Consultations',
             count: bookings.length,
-            icon: <Calendar className="w-4 h-4 text-[#086A92]" />,
+            icon: <Calendar className="w-4 h-4 text-[#990000]" />,
           },
           {
             id: 'book-slot',
@@ -469,9 +469,9 @@ export const PtmClient: React.FC<PtmClientProps> = ({
   return (
     <div className="space-y-6">
       {/* HEADER BANNER */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-6 rounded-2xl shadow-2xs">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-6 rounded-2xl shadow-2xs">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF5F8] text-[#086A92] flex items-center justify-center font-bold">
+          <div className="w-10 h-10 rounded-xl bg-[#FEF2F2] text-[#990000] flex items-center justify-center font-bold">
             <CalendarCheck className="w-5 h-5" />
           </div>
           <div>
@@ -495,7 +495,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
             <Button
               size="sm"
               variant="primary"
-              className="bg-[#086A92] text-white flex items-center gap-1.5"
+              className="bg-[#990000] text-white flex items-center gap-1.5"
               onClick={() => setIsEventModalOpen(true)}
             >
               <Plus className="w-3.5 h-3.5" />
@@ -507,7 +507,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
             <Button
               size="sm"
               variant="primary"
-              className="bg-[#086A92] text-white flex items-center gap-1.5"
+              className="bg-[#990000] text-white flex items-center gap-1.5"
               onClick={() => {
                 setActiveTab('book-slot');
               }}
@@ -524,7 +524,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
               onClick={() => setIsSlotConfigModalOpen(true)}
               className="flex items-center gap-1.5"
             >
-              <Clock className="w-3.5 h-3.5 text-[#086A92]" />
+              <Clock className="w-3.5 h-3.5 text-[#990000]" />
               Add Custom Availability
             </Button>
           )}
@@ -564,7 +564,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
           subtitle="Open for parent bookings"
           trend="neutral"
           variant="blue"
-          icon={<Calendar className="w-5 h-5 text-[#086A92]" />}
+          icon={<Calendar className="w-5 h-5 text-[#990000]" />}
         />
         <StatCard
           title="Confirmed Appointments"
@@ -614,7 +614,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 <Button
                   size="sm"
                   variant="primary"
-                  className="bg-[#086A92] text-white"
+                  className="bg-[#990000] text-white"
                   onClick={() => setIsEventModalOpen(true)}
                 >
                   <Plus className="w-3.5 h-3.5 mr-1" /> New Event
@@ -626,7 +626,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
               {events.map((ev) => (
                 <div
                   key={ev.id}
-                  className="p-5 rounded-2xl border border-slate-200 bg-white space-y-3 transition-colors hover:border-[#086A92]/40"
+                  className="p-5 rounded-2xl border border-slate-200 bg-white space-y-3 transition-colors hover:border-[#990000]/40"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div>
@@ -644,11 +644,11 @@ export const PtmClient: React.FC<PtmClientProps> = ({
 
                   <div className="grid grid-cols-2 gap-2 text-xs font-mono text-slate-600 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
                     <div className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-[#086A92]" />
+                      <Calendar className="w-3.5 h-3.5 text-[#990000]" />
                       <span>{formatDate(ev.eventDate)}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-[#086A92]" />
+                      <Clock className="w-3.5 h-3.5 text-[#990000]" />
                       <span>
                         {ev.startTime} - {ev.endTime}
                       </span>
@@ -667,7 +667,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                     <span className="text-slate-500">
                       Slots: <strong>{ev._count?.slots || 0}</strong> • Bookings: <strong>{ev._count?.bookings || 0}</strong>
                     </span>
-                    <span className="text-[#086A92] font-bold">
+                    <span className="text-[#990000] font-bold">
                       {ev.slotDuration} min consultations
                     </span>
                   </div>
@@ -699,7 +699,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 <select
                   value={selectedTeacherFilter}
                   onChange={(e) => setSelectedTeacherFilter(e.target.value)}
-                  className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 outline-none focus:border-[#086A92]"
+                  className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 outline-none focus:border-[#990000]"
                 >
                   <option value="ALL">All Faculty ({teachers.length})</option>
                   {teachers.map((t) => (
@@ -712,7 +712,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
-                  className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 outline-none focus:border-[#086A92]"
+                  className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 outline-none focus:border-[#990000]"
                 >
                   <option value="ALL">All Statuses</option>
                   <option value="CONFIRMED">CONFIRMED</option>
@@ -732,11 +732,11 @@ export const PtmClient: React.FC<PtmClientProps> = ({
               .map((b) => (
                 <div
                   key={b.id}
-                  className="p-4 rounded-xl border border-slate-200 bg-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs transition-colors hover:border-[#086A92]/40"
+                  className="p-4 rounded-xl border border-slate-200 bg-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs transition-colors hover:border-[#990000]/40"
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono font-bold text-[#086A92]">{b.timeSlot}</span>
+                      <span className="font-mono font-bold text-[#990000]">{b.timeSlot}</span>
                       <span className="font-mono text-slate-400">• {formatDate(b.scheduledDate)}</span>
                       <Badge
                         variant={
@@ -829,11 +829,11 @@ export const PtmClient: React.FC<PtmClientProps> = ({
               {bookings.map((b) => (
                 <div
                   key={b.id}
-                  className="p-5 rounded-2xl border border-slate-200 bg-white space-y-3 transition-colors hover:border-[#086A92]/40"
+                  className="p-5 rounded-2xl border border-slate-200 bg-white space-y-3 transition-colors hover:border-[#990000]/40"
                 >
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono font-bold text-base text-[#086A92]">{b.timeSlot}</span>
+                      <span className="font-mono font-bold text-base text-[#990000]">{b.timeSlot}</span>
                       <span className="font-mono text-xs text-slate-400">• {formatDate(b.scheduledDate)}</span>
                       <Badge
                         variant={
@@ -869,7 +869,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                       <Button
                         size="xs"
                         variant="primary"
-                        className="bg-[#086A92] text-white flex items-center gap-1"
+                        className="bg-[#990000] text-white flex items-center gap-1"
                         onClick={() => {
                           setSelectedBooking(b);
                           setNotesForm({
@@ -995,7 +995,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
               <Button
                 size="sm"
                 variant="primary"
-                className="bg-[#086A92] text-white"
+                className="bg-[#990000] text-white"
                 onClick={() => setIsSlotConfigModalOpen(true)}
               >
                 <Plus className="w-3.5 h-3.5 mr-1" /> Add Slots
@@ -1066,7 +1066,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 <Button
                   size="sm"
                   variant="primary"
-                  className="bg-[#086A92] text-white"
+                  className="bg-[#990000] text-white"
                   onClick={() => setActiveTab('book-slot')}
                 >
                   <Plus className="w-3.5 h-3.5 mr-1" /> Book New Slot
@@ -1078,11 +1078,11 @@ export const PtmClient: React.FC<PtmClientProps> = ({
               {bookings.map((b) => (
                 <div
                   key={b.id}
-                  className="p-5 rounded-2xl border border-slate-200 bg-white space-y-3 transition-colors hover:border-[#086A92]/40"
+                  className="p-5 rounded-2xl border border-slate-200 bg-white space-y-3 transition-colors hover:border-[#990000]/40"
                 >
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono font-bold text-base text-[#086A92]">{b.timeSlot}</span>
+                      <span className="font-mono font-bold text-base text-[#990000]">{b.timeSlot}</span>
                       <span className="font-mono text-xs text-slate-400">• {formatDate(b.scheduledDate)}</span>
                       <Badge
                         variant={
@@ -1150,7 +1150,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                       <span className="font-bold text-slate-900 block">
                         {b.teacher?.user?.firstName} {b.teacher?.user?.lastName || ''}
                       </span>
-                      <span className="text-[11px] text-[#086A92] font-mono">
+                      <span className="text-[11px] text-[#990000] font-mono">
                         {b.teacher?.designation || 'Faculty'} ({b.teacher?.specialization})
                       </span>
                     </div>
@@ -1220,7 +1220,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                   <Button
                     size="sm"
                     variant="primary"
-                    className="bg-[#086A92] text-white"
+                    className="bg-[#990000] text-white"
                     onClick={() => setActiveTab('book-slot')}
                   >
                     Book Your PTM Slot Now
@@ -1256,7 +1256,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 <select
                   value={bookingForm.eventId}
                   onChange={(e) => setBookingForm({ ...bookingForm, eventId: e.target.value })}
-                  className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                  className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                 >
                   {events.map((ev) => (
                     <option key={ev.id} value={ev.id}>
@@ -1271,7 +1271,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 <select
                   value={bookingForm.studentId}
                   onChange={(e) => setBookingForm({ ...bookingForm, studentId: e.target.value })}
-                  className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                  className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
                 >
                   {parentProfile?.students?.map((s: any) => (
                     <option key={s.student.id} value={s.student.id}>
@@ -1294,14 +1294,14 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                       onClick={() => setBookingForm({ ...bookingForm, teacherId: t.id, slotId: '' })}
                       className={`p-3 rounded-xl border cursor-pointer transition-all ${
                         isSelected
-                          ? 'border-[#086A92] bg-[#EAF5F8]/40 ring-1 ring-[#086A92]'
+                          ? 'border-[#990000] bg-[#FEF2F2]/40 ring-1 ring-[#990000]'
                           : 'border-slate-200 bg-white hover:border-slate-300'
                       }`}
                     >
                       <span className="font-bold text-slate-900 text-xs block">
                         {t.user.firstName} {t.user.lastName || ''}
                       </span>
-                      <span className="text-[11px] text-[#086A92] font-mono block mt-0.5">
+                      <span className="text-[11px] text-[#990000] font-mono block mt-0.5">
                         {t.specialization} • {t.designation}
                       </span>
                     </div>
@@ -1332,7 +1332,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                       className={`p-3 rounded-xl border text-left transition-all ${
                         isSelected
                           ? 'border-emerald-600 bg-emerald-50 text-emerald-950 ring-2 ring-emerald-500'
-                          : 'border-slate-200 bg-white hover:border-[#086A92] text-slate-800'
+                          : 'border-slate-200 bg-white hover:border-[#990000] text-slate-800'
                       }`}
                     >
                       <div className="font-bold font-mono text-xs">{s.startTime} - {s.endTime}</div>
@@ -1370,7 +1370,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 rows={2}
                 value={bookingForm.notes}
                 onChange={(e) => setBookingForm({ ...bookingForm, notes: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               />
             </div>
 
@@ -1411,7 +1411,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
               placeholder="e.g. Term 2 Academic & Behavioral Review PTM"
               value={eventForm.title}
               onChange={(e) => setEventForm({ ...eventForm, title: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -1423,7 +1423,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 required
                 value={eventForm.eventDate}
                 onChange={(e) => setEventForm({ ...eventForm, eventDate: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -1432,7 +1432,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 type="date"
                 value={eventForm.bookingDeadline}
                 onChange={(e) => setEventForm({ ...eventForm, bookingDeadline: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -1444,7 +1444,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 type="text"
                 value={eventForm.startTime}
                 onChange={(e) => setEventForm({ ...eventForm, startTime: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded p-1.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded p-1.5 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -1453,7 +1453,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 type="text"
                 value={eventForm.endTime}
                 onChange={(e) => setEventForm({ ...eventForm, endTime: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded p-1.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded p-1.5 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -1462,7 +1462,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 type="number"
                 value={eventForm.slotDuration}
                 onChange={(e) => setEventForm({ ...eventForm, slotDuration: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded p-1.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded p-1.5 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -1471,7 +1471,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 type="number"
                 value={eventForm.bufferTime}
                 onChange={(e) => setEventForm({ ...eventForm, bufferTime: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded p-1.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded p-1.5 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -1482,7 +1482,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
               <select
                 value={eventForm.meetingMode}
                 onChange={(e) => setEventForm({ ...eventForm, meetingMode: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="HYBRID">HYBRID (Physical &amp; Online)</option>
                 <option value="IN_PERSON">IN_PERSON (On Campus)</option>
@@ -1495,7 +1495,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
                 type="text"
                 value={eventForm.locationRoom}
                 onChange={(e) => setEventForm({ ...eventForm, locationRoom: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -1518,7 +1518,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
             <Button size="sm" variant="outline" type="button" onClick={() => setIsEventModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" disabled={loading} className="bg-[#990000] text-white">
               {loading ? 'Creating...' : 'Publish PTM Event'}
             </Button>
           </div>
@@ -1586,7 +1586,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
             {notesForm.followUps.map((t, idx) => (
               <div key={idx} className="p-2.5 rounded-lg bg-white border border-slate-200 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
-                  <CheckSquare className="w-3.5 h-3.5 text-[#086A92]" />
+                  <CheckSquare className="w-3.5 h-3.5 text-[#990000]" />
                   <span className="font-semibold text-slate-900">{t.title}</span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -1671,7 +1671,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
             <select
               value={rescheduleSlotId}
               onChange={(e) => setRescheduleSlotId(e.target.value)}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               <option value="">-- Choose New Slot --</option>
               {availableSlotsForReschedule.map((s) => (
@@ -1693,7 +1693,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
               type="text"
               value={rescheduleReason}
               onChange={(e) => setRescheduleReason(e.target.value)}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -1706,7 +1706,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
               variant="primary"
               type="submit"
               disabled={loading || !rescheduleSlotId}
-              className="bg-[#086A92] text-white"
+              className="bg-[#990000] text-white"
             >
               {loading ? 'Rescheduling...' : 'Confirm Reschedule'}
             </Button>
@@ -1740,7 +1740,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
               required
               value={cancellationReason}
               onChange={(e) => setCancellationReason(e.target.value)}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -1771,7 +1771,7 @@ export const PtmClient: React.FC<PtmClientProps> = ({
           <div className="space-y-4 text-xs">
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-mono font-bold text-[#086A92] text-sm">{selectedBooking.timeSlot}</span>
+                <span className="font-mono font-bold text-[#990000] text-sm">{selectedBooking.timeSlot}</span>
                 <Badge variant="blue" size="sm">{selectedBooking.status}</Badge>
               </div>
               <div className="text-slate-600">

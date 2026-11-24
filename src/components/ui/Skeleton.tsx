@@ -31,14 +31,14 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     <div
       aria-hidden="true"
       style={style}
-      className={`animate-pulse bg-[#E4EAEC]/70 ${shapeClass} ${className}`}
+      className={`animate-pulse bg-[#E5E5E5]/70 ${shapeClass} ${className}`}
     />
   );
 };
 
 export const CardSkeleton: React.FC<{ className?: string }> = ({ className = '' }) => {
   return (
-    <div className={`p-5 bg-white border border-[#E4EAEC] rounded-2xl space-y-3 shadow-2xs ${className}`}>
+    <div className={`p-5 bg-white border border-[#E5E5E5] rounded-2xl space-y-3 shadow-2xs ${className}`}>
       <div className="flex items-center justify-between">
         <Skeleton variant="text" className="w-24" />
         <Skeleton variant="circle" className="w-8 h-8" />
@@ -55,9 +55,9 @@ export const TableSkeleton: React.FC<{ rows?: number; columns?: number; classNam
   className = '',
 }) => {
   return (
-    <div className={`bg-white border border-[#E4EAEC] rounded-2xl overflow-hidden shadow-2xs ${className}`}>
+    <div className={`bg-white border border-[#E5E5E5] rounded-2xl overflow-hidden shadow-2xs ${className}`}>
       {/* Table Header */}
-      <div className="p-4 border-b border-[#E4EAEC] bg-[#F7FAFA] flex items-center justify-between gap-4">
+      <div className="p-4 border-b border-[#E5E5E5] bg-[#F5F5F5] flex items-center justify-between gap-4">
         <Skeleton variant="text" className="w-48 h-8 rounded-lg" />
         <div className="flex gap-2">
           <Skeleton variant="rect" className="w-24 h-8" />
@@ -65,7 +65,7 @@ export const TableSkeleton: React.FC<{ rows?: number; columns?: number; classNam
         </div>
       </div>
       {/* Table Rows */}
-      <div className="divide-y divide-[#E4EAEC]">
+      <div className="divide-y divide-[#E5E5E5]">
         {Array.from({ length: rows }).map((_, rIdx) => (
           <div key={rIdx} className="p-4 flex items-center gap-4">
             {Array.from({ length: columns }).map((_, cIdx) => (
@@ -85,7 +85,7 @@ export const ChartSkeleton: React.FC<{ height?: number; className?: string }> = 
   className = '',
 }) => {
   return (
-    <div className={`p-5 bg-white border border-[#E4EAEC] rounded-2xl space-y-4 shadow-2xs ${className}`}>
+    <div className={`p-5 bg-white border border-[#E5E5E5] rounded-2xl space-y-4 shadow-2xs ${className}`}>
       <div className="flex items-center justify-between">
         <div className="space-y-1.5">
           <Skeleton variant="text" className="w-36 h-4" />
@@ -95,7 +95,7 @@ export const ChartSkeleton: React.FC<{ height?: number; className?: string }> = 
       </div>
       <div
         style={{ height }}
-        className="flex items-end justify-between gap-3 pt-6 border-b border-[#E4EAEC]"
+        className="flex items-end justify-between gap-3 pt-6 border-b border-[#E5E5E5]"
       >
         {Array.from({ length: 7 }).map((_, idx) => (
           <Skeleton
@@ -112,7 +112,7 @@ export const ChartSkeleton: React.FC<{ height?: number; className?: string }> = 
 
 export const ProfileSkeleton: React.FC<{ className?: string }> = ({ className = '' }) => {
   return (
-    <div className={`p-6 bg-white border border-[#E4EAEC] rounded-2xl flex items-center gap-4 shadow-2xs ${className}`}>
+    <div className={`p-6 bg-white border border-[#E5E5E5] rounded-2xl flex items-center gap-4 shadow-2xs ${className}`}>
       <Skeleton variant="circle" className="w-16 h-16 shrink-0" />
       <div className="flex-1 space-y-2">
         <Skeleton variant="text" className="w-48 h-5" />

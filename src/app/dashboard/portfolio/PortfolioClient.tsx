@@ -116,7 +116,7 @@ export const PortfolioClient: React.FC<{
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
@@ -136,7 +136,7 @@ export const PortfolioClient: React.FC<{
           <Button
             size="sm"
             variant="primary"
-            className="bg-[#086A92] hover:bg-[#065A7D] text-white flex items-center gap-1.5"
+            className="bg-[#990000] hover:bg-[#800000] text-white flex items-center gap-1.5"
             onClick={() => setIsAddModalOpen(true)}
           >
             <Plus className="w-3.5 h-3.5" />
@@ -185,7 +185,7 @@ export const PortfolioClient: React.FC<{
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${selectedCategory === cat.id
-                ? 'bg-[#086A92] text-white shadow-xs'
+                ? 'bg-[#990000] text-white shadow-xs'
                 : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
                 }`}
             >
@@ -199,7 +199,7 @@ export const PortfolioClient: React.FC<{
           <select
             value={selectedStudentFilter}
             onChange={(e) => setSelectedStudentFilter(e.target.value)}
-            className="text-xs border border-slate-200 rounded-xl px-3 py-1.5 bg-white text-slate-700 outline-none focus:border-[#086A92]"
+            className="text-xs border border-slate-200 rounded-xl px-3 py-1.5 bg-white text-slate-700 outline-none focus:border-[#990000]"
           >
             <option value="ALL">All Students ({students.length})</option>
             {students.map((s) => (
@@ -241,7 +241,7 @@ export const PortfolioClient: React.FC<{
               </div>
 
               <div>
-                <span className="text-[11px] font-mono text-[#086A92] font-semibold uppercase tracking-wider block">
+                <span className="text-[11px] font-mono text-[#990000] font-semibold uppercase tracking-wider block">
                   {item.category} • {formatDate(item.achievementDate)}
                 </span>
                 <h4 className="text-base font-bold text-slate-900 mt-1 leading-snug">{item.title}</h4>
@@ -271,7 +271,7 @@ export const PortfolioClient: React.FC<{
                   size="xs"
                   variant="outline"
                   onClick={() => setSelectedAchievement(item)}
-                  className="flex items-center gap-1 text-[#086A92]"
+                  className="flex items-center gap-1 text-[#990000]"
                 >
                   <QrCode className="w-3.5 h-3.5" />
                   View Badge
@@ -313,7 +313,7 @@ export const PortfolioClient: React.FC<{
             <select
               value={form.studentId}
               onChange={(e) => setForm({ ...form, studentId: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {students.map((s) => (
                 <option key={s.id} value={s.id}>
@@ -331,7 +331,7 @@ export const PortfolioClient: React.FC<{
               placeholder="e.g. National Cyber Olympiad Gold Medal"
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -341,7 +341,7 @@ export const PortfolioClient: React.FC<{
               <select
                 value={form.category}
                 onChange={(e) => setForm({ ...form, category: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               >
                 <option value="ACADEMIC">Academic &amp; Science</option>
                 <option value="SPORTS">Sports &amp; Athletics</option>
@@ -358,7 +358,7 @@ export const PortfolioClient: React.FC<{
                 required
                 value={form.achievementDate}
                 onChange={(e) => setForm({ ...form, achievementDate: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -372,7 +372,7 @@ export const PortfolioClient: React.FC<{
                 placeholder="e.g. 1st Place / State Rank 3"
                 value={form.rankOrPosition}
                 onChange={(e) => setForm({ ...form, rankOrPosition: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -383,7 +383,7 @@ export const PortfolioClient: React.FC<{
                 placeholder="e.g. Science Olympiad Foundation"
                 value={form.issuingAuthority}
                 onChange={(e) => setForm({ ...form, issuingAuthority: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -392,7 +392,7 @@ export const PortfolioClient: React.FC<{
             <Button size="sm" variant="outline" type="button" onClick={() => setIsAddModalOpen(false)}>
               Cancel
             </Button>
-            <Button size="sm" variant="primary" type="submit" className="bg-[#086A92] text-white">
+            <Button size="sm" variant="primary" type="submit" className="bg-[#990000] text-white">
               Save Achievement
             </Button>
           </div>
@@ -422,7 +422,7 @@ export const PortfolioClient: React.FC<{
                 <Trophy className="w-12 h-12 text-amber-500 mx-auto mb-2" />
                 <h3 className="text-lg font-bold text-slate-900">{selectedAchievement.title}</h3>
                 <p className="text-xs text-slate-600 mt-1">Conferred upon</p>
-                <div className="text-base font-bold text-[#086A92] mt-0.5">
+                <div className="text-base font-bold text-[#990000] mt-0.5">
                   {selectedAchievement.student?.user?.firstName} {selectedAchievement.student?.user?.lastName || ''}
                 </div>
                 <p className="text-xs text-slate-500">
@@ -452,7 +452,7 @@ export const PortfolioClient: React.FC<{
               <Button
                 size="sm"
                 variant="primary"
-                className="bg-[#086A92] text-white"
+                className="bg-[#990000] text-white"
                 onClick={() => alert('Certificate downloaded as tamper-proof PDF with embedded QR token.')}
               >
                 Download PDF

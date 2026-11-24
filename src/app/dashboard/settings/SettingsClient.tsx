@@ -100,17 +100,17 @@ export const SettingsClient: React.FC<{ school: any }> = ({ school }) => {
           </CardHeader>
 
           {/* Institutional Brand Header Card */}
-          <div className="mx-6 mb-5 flex flex-col sm:flex-row items-center gap-4 p-4 bg-gradient-to-r from-[#EAF5F8] to-[#F7FAFA] border border-[#E4EAEC] rounded-2xl">
+          <div className="mx-6 mb-5 flex flex-col sm:flex-row items-center gap-4 p-4 bg-gradient-to-r from-[#FEF2F2] to-[#F5F5F5] border border-[#E5E5E5] rounded-2xl">
             <Illustration variant="campus-welcome" size={68} />
             <div className="text-center sm:text-left flex-1">
               <div className="flex items-center justify-center sm:justify-start gap-2">
-                <h3 className="text-sm font-bold text-[#17313A]">{formData.name}</h3>
+                <h3 className="text-sm font-bold text-[#171717]">{formData.name}</h3>
                 <Badge variant="blue" size="xs">{formData.board} Accredited</Badge>
               </div>
-              <p className="text-[11px] text-[#6B7C83] mt-0.5">
-                Affiliation: <span className="font-mono font-semibold text-[#086A92]">{formData.affiliationNo}</span> • EdvoNest Unified School OS
+              <p className="text-[11px] text-[#737373] mt-0.5">
+                Affiliation: <span className="font-mono font-semibold text-[#990000]">{formData.affiliationNo}</span> • EdvoNest Unified School OS
               </p>
-              <p className="text-[10px] text-[#008C91] font-semibold mt-1">
+              <p className="text-[10px] text-[#C00000] font-semibold mt-1">
                 Learn • Grow • Succeed
               </p>
             </div>

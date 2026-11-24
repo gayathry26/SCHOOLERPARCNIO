@@ -40,7 +40,7 @@ export const DashboardShell: React.FC<DashboardShellProps> = ({ user, children }
   };
 
   return (
-    <div className="min-h-screen bg-[#F7FAFA] flex flex-col md:flex-row">
+    <div className="min-h-screen bg-[#F5F5F5] flex flex-col md:flex-row">
       {/* Desktop Fixed Left Navigation Sidebar */}
       <div className="hidden md:block">
         <Sidebar

@@ -47,7 +47,7 @@ export const Timeline: React.FC<TimelineProps> = ({
           {/* Timeline node icon / bullet */}
           <div
             className="absolute -left-6 top-0.5 w-5 h-5 rounded-full border-2 border-white shadow-xs flex items-center justify-center text-white"
-            style={{ backgroundColor: item.iconBgColor || '#086A92' }}
+            style={{ backgroundColor: item.iconBgColor || '#990000' }}
           >
             {item.icon ? (
               <span className="w-2.5 h-2.5 flex items-center justify-center">{item.icon}</span>
@@ -57,7 +57,7 @@ export const Timeline: React.FC<TimelineProps> = ({
           </div>
 
           {/* Timeline item card */}
-          <div className="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-[#086A92] hover:shadow-2xs transition-all text-xs sm:text-sm space-y-1.5">
+          <div className="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-[#990000] hover:shadow-2xs transition-all text-xs sm:text-sm space-y-1.5">
             <div className="flex items-center justify-between gap-2 flex-wrap">
               <div className="flex items-center gap-2">
                 <span className="font-bold text-slate-900 text-sm sm:text-base">{item.title}</span>
@@ -87,7 +87,7 @@ export const Timeline: React.FC<TimelineProps> = ({
                 {item.action && (
                   <button
                     onClick={item.action.onClick}
-                    className="text-[#086A92] font-semibold hover:underline"
+                    className="text-[#990000] font-semibold hover:underline"
                   >
                     {item.action.label}
                   </button>

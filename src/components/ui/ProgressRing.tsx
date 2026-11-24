@@ -15,7 +15,7 @@ export interface ProgressRingProps {
 
 const VARIANT_COLORS: Record<string, { stroke: string; track: string; text: string }> = {
   emerald: { stroke: '#16A34A', track: '#EAF8EC', text: 'text-emerald-700' },
-  ocean: { stroke: '#086A92', track: '#EAF5F8', text: 'text-[#086A92]' },
+  ocean: { stroke: '#990000', track: '#FEF2F2', text: 'text-[#990000]' },
   purple: { stroke: '#7C3AED', track: '#FAF5FF', text: 'text-purple-700' },
   amber: { stroke: '#D97706', track: '#FEF3C7', text: 'text-amber-700' },
   rose: { stroke: '#DC2626', track: '#FEE2E2', text: 'text-rose-700' },

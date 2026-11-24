@@ -415,7 +415,7 @@ export const FinanceClient: React.FC<FinanceClientProps> = ({
         <StatCard
           title="Total Liquid Funds"
           value={formatCurrency(totalLiquidFunds)}
-          icon={<Wallet className="w-5 h-5 text-[#086A92]" />}
+          icon={<Wallet className="w-5 h-5 text-[#990000]" />}
           change={`${bankAccounts.length} active cash & bank accounts`}
           trend="up"
         />

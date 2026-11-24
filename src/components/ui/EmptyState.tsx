@@ -29,7 +29,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-col items-center justify-center text-center p-8 sm:p-12 bg-white border border-[#E4EAEC] rounded-2xl ${className}`}
+      className={`flex flex-col items-center justify-center text-center p-8 sm:p-12 bg-white border border-[#E5E5E5] rounded-2xl ${className}`}
     >
       {/* Visual illustration or icon */}
       {illustration ? (
@@ -37,7 +37,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
           <Illustration variant={illustration} size={130} />
         </div>
       ) : icon ? (
-        <div className="p-3.5 bg-[#EAF5F8] text-[#086A92] rounded-2xl mb-3 flex items-center justify-center">
+        <div className="p-3.5 bg-[#FEF2F2] text-[#990000] rounded-2xl mb-3 flex items-center justify-center">
           {icon}
         </div>
       ) : (
@@ -47,8 +47,8 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
       )}
 
       {/* Typography */}
-      <h3 className="text-sm sm:text-base font-bold text-[#17313A] mb-1.5">{title}</h3>
-      <p className="text-xs text-[#6B7C83] max-w-sm mb-5 leading-relaxed">{description}</p>
+      <h3 className="text-sm sm:text-base font-bold text-[#171717] mb-1.5">{title}</h3>
+      <p className="text-xs text-[#737373] max-w-sm mb-5 leading-relaxed">{description}</p>
 
       {/* Action buttons */}
       <div className="flex items-center gap-2.5 flex-wrap justify-center">

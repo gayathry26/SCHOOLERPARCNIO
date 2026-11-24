@@ -106,9 +106,9 @@ const CATEGORY_META: Record<
   },
   ACADEMIC: {
     label: 'Academic Event',
-    color: '#086A92',
+    color: '#990000',
     bgLight: 'bg-sky-50',
-    textDark: 'text-[#086A92]',
+    textDark: 'text-[#990000]',
     borderClass: 'border-sky-200',
     badgeVariant: 'blue',
     icon: GraduationCap,
@@ -151,7 +151,7 @@ const CATEGORY_META: Record<
   },
   EVENT: {
     label: 'Campus Event',
-    color: '#008C91',
+    color: '#C00000',
     bgLight: 'bg-teal-50',
     textDark: 'text-teal-700',
     borderClass: 'border-teal-200',
@@ -271,7 +271,7 @@ export const EventsClient: React.FC<{
     isRecurring: false,
     recurrencePattern: 'WEEKLY',
     reminderMinutes: 30,
-    color: '#086A92',
+    color: '#990000',
   });
 
   // Student Registration form
@@ -755,7 +755,7 @@ export const EventsClient: React.FC<{
       isRecurring: false,
       recurrencePattern: 'WEEKLY',
       reminderMinutes: 30,
-      color: '#086A92',
+      color: '#990000',
     });
     setIsCreateModalOpen(true);
   };
@@ -785,7 +785,7 @@ export const EventsClient: React.FC<{
       isRecurring: Boolean(raw.isRecurring),
       recurrencePattern: raw.recurrencePattern || 'WEEKLY',
       reminderMinutes: raw.reminderMinutes || 30,
-      color: raw.color || '#086A92',
+      color: raw.color || '#990000',
     });
 
     setIsDetailModalOpen(false);
@@ -963,7 +963,7 @@ export const EventsClient: React.FC<{
       id: 'calendar',
       label: 'Institutional Master Calendar & Schedule',
       count: filteredItems.length,
-      icon: <CalendarDays className="w-4 h-4 text-[#086A92]" />,
+      icon: <CalendarDays className="w-4 h-4 text-[#990000]" />,
     },
     {
       id: 'participants',
@@ -1000,11 +1000,11 @@ export const EventsClient: React.FC<{
       )}
 
       {/* Main Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E4EAEC] p-5 rounded-2xl shadow-2xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white border border-[#E5E5E5] p-5 rounded-2xl shadow-2xs">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-              <CalendarDays className="w-6 h-6 text-[#086A92]" />
+              <CalendarDays className="w-6 h-6 text-[#990000]" />
               <span>Unified Institutional Calendar</span>
             </h2>
             <Badge variant="emerald" size="sm">
@@ -1021,7 +1021,7 @@ export const EventsClient: React.FC<{
             <Button
               size="sm"
               variant="primary"
-              className="bg-[#086A92] hover:bg-[#065A7D] text-white flex items-center gap-1.5 shadow-2xs"
+              className="bg-[#990000] hover:bg-[#800000] text-white flex items-center gap-1.5 shadow-2xs"
               onClick={() => handleOpenCreateModal()}
             >
               <Plus className="w-4 h-4" />
@@ -1038,7 +1038,7 @@ export const EventsClient: React.FC<{
           value={filteredItems.length}
           change="Across all categories"
           trend="neutral"
-          icon={<CalendarDays className="w-5 h-5 text-[#086A92]" />}
+          icon={<CalendarDays className="w-5 h-5 text-[#990000]" />}
         />
         <StatCard
           title="Exams & Homework Deadlines"
@@ -1109,7 +1109,7 @@ export const EventsClient: React.FC<{
                   onClick={() => setCalendarView('month')}
                   className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
                     calendarView === 'month'
-                      ? 'bg-white text-[#086A92] shadow-2xs'
+                      ? 'bg-white text-[#990000] shadow-2xs'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
@@ -1119,7 +1119,7 @@ export const EventsClient: React.FC<{
                   onClick={() => setCalendarView('week')}
                   className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
                     calendarView === 'week'
-                      ? 'bg-white text-[#086A92] shadow-2xs'
+                      ? 'bg-white text-[#990000] shadow-2xs'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
@@ -1129,7 +1129,7 @@ export const EventsClient: React.FC<{
                   onClick={() => setCalendarView('day')}
                   className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
                     calendarView === 'day'
-                      ? 'bg-white text-[#086A92] shadow-2xs'
+                      ? 'bg-white text-[#990000] shadow-2xs'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
@@ -1139,7 +1139,7 @@ export const EventsClient: React.FC<{
                   onClick={() => setCalendarView('agenda')}
                   className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
                     calendarView === 'agenda'
-                      ? 'bg-white text-[#086A92] shadow-2xs'
+                      ? 'bg-white text-[#990000] shadow-2xs'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
@@ -1154,7 +1154,7 @@ export const EventsClient: React.FC<{
                 onClick={() => setSelectedCategory('ALL')}
                 className={`px-3 py-1.5 rounded-full font-medium whitespace-nowrap transition flex items-center gap-1.5 border ${
                   selectedCategory === 'ALL'
-                    ? 'bg-[#086A92] text-white border-[#086A92]'
+                    ? 'bg-[#990000] text-white border-[#990000]'
                     : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
                 }`}
               >
@@ -1208,7 +1208,7 @@ export const EventsClient: React.FC<{
                   placeholder="Filter events, subjects, venues..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-[#086A92] outline-none transition"
+                  className="w-full pl-9 pr-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-[#990000] outline-none transition"
                 />
                 {searchQuery && (
                   <button
@@ -1224,7 +1224,7 @@ export const EventsClient: React.FC<{
               <select
                 value={selectedClassId}
                 onChange={(e) => setSelectedClassId(e.target.value)}
-                className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-[#086A92] outline-none text-slate-700 transition"
+                className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-[#990000] outline-none text-slate-700 transition"
               >
                 <option value="ALL">All Academic Classes</option>
                 {classes.map((c) => (
@@ -1238,7 +1238,7 @@ export const EventsClient: React.FC<{
               <select
                 value={selectedAudience}
                 onChange={(e) => setSelectedAudience(e.target.value)}
-                className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-[#086A92] outline-none text-slate-700 transition"
+                className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-[#990000] outline-none text-slate-700 transition"
               >
                 <option value="ALL">All Target Audiences</option>
                 <option value="STUDENT">Students &amp; Learners</option>
@@ -1275,14 +1275,14 @@ export const EventsClient: React.FC<{
                       key={idx}
                       className={`min-h-[110px] sm:min-h-[125px] p-1.5 sm:p-2 bg-white transition flex flex-col justify-between ${
                         !cell.isCurrentMonth ? 'bg-slate-50/60 text-slate-400' : 'text-slate-800'
-                      } ${cell.isToday ? 'bg-sky-50/40 ring-1 ring-inset ring-[#086A92]' : ''}`}
+                      } ${cell.isToday ? 'bg-sky-50/40 ring-1 ring-inset ring-[#990000]' : ''}`}
                     >
                       {/* Top bar of date cell */}
                       <div className="flex items-center justify-between">
                         <span
                           className={`text-xs font-semibold rounded-full w-6 h-6 flex items-center justify-center ${
                             cell.isToday
-                              ? 'bg-[#086A92] text-white font-bold shadow-2xs'
+                              ? 'bg-[#990000] text-white font-bold shadow-2xs'
                               : cell.isCurrentMonth
                               ? 'text-slate-800'
                               : 'text-slate-400'
@@ -1295,7 +1295,7 @@ export const EventsClient: React.FC<{
                           <button
                             onClick={() => handleOpenCreateModal(cell.date)}
                             title="Schedule event on this day"
-                            className="opacity-0 hover:opacity-100 p-0.5 text-slate-400 hover:text-[#086A92] transition rounded"
+                            className="opacity-0 hover:opacity-100 p-0.5 text-slate-400 hover:text-[#990000] transition rounded"
                           >
                             <Plus className="w-3 h-3" />
                           </button>
@@ -1327,7 +1327,7 @@ export const EventsClient: React.FC<{
                               setCurrentDate(cell.date);
                               setCalendarView('day');
                             }}
-                            className="w-full text-left text-[10px] font-bold text-[#086A92] hover:underline px-1"
+                            className="w-full text-left text-[10px] font-bold text-[#990000] hover:underline px-1"
                           >
                             +{cell.items.length - 3} more events
                           </button>
@@ -1358,7 +1358,7 @@ export const EventsClient: React.FC<{
                       {/* Day Header */}
                       <div
                         className={`text-center pb-2 mb-3 border-b ${
-                          dayCol.isToday ? 'border-[#086A92]' : 'border-slate-100'
+                          dayCol.isToday ? 'border-[#990000]' : 'border-slate-100'
                         }`}
                       >
                         <span className="text-[11px] uppercase tracking-wider font-bold text-slate-500 block">
@@ -1366,7 +1366,7 @@ export const EventsClient: React.FC<{
                         </span>
                         <span
                           className={`text-base font-bold inline-block rounded-full px-2 py-0.5 mt-0.5 ${
-                            dayCol.isToday ? 'bg-[#086A92] text-white' : 'text-slate-800'
+                            dayCol.isToday ? 'bg-[#990000] text-white' : 'text-slate-800'
                           }`}
                         >
                           {dayNum}
@@ -1436,7 +1436,7 @@ export const EventsClient: React.FC<{
                   <Button
                     size="sm"
                     variant="outline"
-                    className="text-[#086A92]"
+                    className="text-[#990000]"
                     onClick={() => handleOpenCreateModal(currentDate)}
                   >
                     <Plus className="w-3.5 h-3.5 mr-1" /> Add Entry
@@ -1503,7 +1503,7 @@ export const EventsClient: React.FC<{
                           <div className="flex items-center gap-3 text-xs text-slate-600 shrink-0 self-end sm:self-auto">
                             {item.venue && (
                               <div className="flex items-center gap-1">
-                                <MapPin className="w-3.5 h-3.5 text-[#086A92]" />
+                                <MapPin className="w-3.5 h-3.5 text-[#990000]" />
                                 <span>{item.venue}</span>
                               </div>
                             )}
@@ -1558,7 +1558,7 @@ export const EventsClient: React.FC<{
                       <div
                         key={item.id}
                         onClick={() => handleItemClick(item)}
-                        className="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-[#086A92] hover:shadow-sm transition flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer"
+                        className="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-[#990000] hover:shadow-sm transition flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer"
                       >
                         {/* Date badge */}
                         <div className="flex items-center gap-3">
@@ -1580,7 +1580,7 @@ export const EventsClient: React.FC<{
                               )}
                               {item.venue && (
                                 <span className="text-[11px] text-slate-500 flex items-center gap-1">
-                                  <MapPin className="w-3 h-3 text-[#086A92]" /> {item.venue}
+                                  <MapPin className="w-3 h-3 text-[#990000]" /> {item.venue}
                                 </span>
                               )}
                             </div>
@@ -1603,7 +1603,7 @@ export const EventsClient: React.FC<{
                           >
                             <Download className="w-3 h-3 mr-1" /> Sync
                           </Button>
-                          <Button size="xs" variant="primary" className="bg-[#086A92] text-white">
+                          <Button size="xs" variant="primary" className="bg-[#990000] text-white">
                             Details
                           </Button>
                         </div>
@@ -1766,7 +1766,7 @@ export const EventsClient: React.FC<{
               <div className="pt-2">
                 <Link
                   href={selectedItem.link}
-                  className="w-full py-2 px-3 text-xs font-semibold text-[#086A92] bg-sky-50 border border-sky-200 rounded-lg flex items-center justify-center gap-1.5 hover:bg-sky-100 transition"
+                  className="w-full py-2 px-3 text-xs font-semibold text-[#990000] bg-sky-50 border border-sky-200 rounded-lg flex items-center justify-center gap-1.5 hover:bg-sky-100 transition"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   <span>Open Dedicated Module</span>
@@ -1790,7 +1790,7 @@ export const EventsClient: React.FC<{
                   <Button
                     size="sm"
                     variant="outline"
-                    className="text-[#086A92]"
+                    className="text-[#990000]"
                     onClick={() => {
                       setSelectedEventForReg(selectedItem.rawEvent);
                       setIsDetailModalOpen(false);
@@ -1849,7 +1849,7 @@ export const EventsClient: React.FC<{
               placeholder="e.g. Science Exhibition, Winter Break, Athletics Meet"
               value={eventForm.title}
               onChange={(e) => setEventForm({ ...eventForm, title: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -1859,7 +1859,7 @@ export const EventsClient: React.FC<{
               <select
                 value={eventForm.category}
                 onChange={(e) => setEventForm({ ...eventForm, category: e.target.value as CalendarCategory })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 <option value="EVENT">Campus Event</option>
                 <option value="HOLIDAY">School Holiday</option>
@@ -1876,7 +1876,7 @@ export const EventsClient: React.FC<{
               <select
                 value={eventForm.targetRole}
                 onChange={(e) => setEventForm({ ...eventForm, targetRole: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 <option value="ALL">Entire Campus (All)</option>
                 <option value="STUDENT">Students &amp; Parents</option>
@@ -1894,7 +1894,7 @@ export const EventsClient: React.FC<{
                 required
                 value={eventForm.startDate}
                 onChange={(e) => setEventForm({ ...eventForm, startDate: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -1903,7 +1903,7 @@ export const EventsClient: React.FC<{
                 type="time"
                 value={eventForm.startTime}
                 onChange={(e) => setEventForm({ ...eventForm, startTime: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -1915,7 +1915,7 @@ export const EventsClient: React.FC<{
                 type="date"
                 value={eventForm.endDate}
                 onChange={(e) => setEventForm({ ...eventForm, endDate: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -1924,7 +1924,7 @@ export const EventsClient: React.FC<{
                 type="time"
                 value={eventForm.endTime}
                 onChange={(e) => setEventForm({ ...eventForm, endTime: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -1937,7 +1937,7 @@ export const EventsClient: React.FC<{
                 placeholder="e.g. Auditorium, Sports Track, Lab 2"
                 value={eventForm.venue}
                 onChange={(e) => setEventForm({ ...eventForm, venue: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               />
             </div>
 
@@ -1946,7 +1946,7 @@ export const EventsClient: React.FC<{
               <select
                 value={eventForm.classId}
                 onChange={(e) => setEventForm({ ...eventForm, classId: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 <option value="ALL">All Classes</option>
                 {classes.map((c) => (
@@ -1964,7 +1964,7 @@ export const EventsClient: React.FC<{
               <select
                 value={eventForm.reminderMinutes}
                 onChange={(e) => setEventForm({ ...eventForm, reminderMinutes: Number(e.target.value) })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
               >
                 <option value={15}>15 minutes before</option>
                 <option value={30}>30 minutes before</option>
@@ -1979,7 +1979,7 @@ export const EventsClient: React.FC<{
                 id="isRec"
                 checked={eventForm.isRecurring}
                 onChange={(e) => setEventForm({ ...eventForm, isRecurring: e.target.checked })}
-                className="w-4 h-4 text-[#086A92] rounded"
+                className="w-4 h-4 text-[#990000] rounded"
               />
               <label htmlFor="isRec" className="text-xs font-semibold text-slate-700 cursor-pointer">
                 Recurring Event (Weekly / Monthly)
@@ -1994,7 +1994,7 @@ export const EventsClient: React.FC<{
               placeholder="Provide instructions, equipment requirements, or agenda points..."
               value={eventForm.description}
               onChange={(e) => setEventForm({ ...eventForm, description: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2007,7 +2007,7 @@ export const EventsClient: React.FC<{
               variant="primary"
               type="submit"
               disabled={isSubmitting}
-              className="bg-[#086A92] text-white"
+              className="bg-[#990000] text-white"
             >
               {isSubmitting ? 'Scheduling...' : 'Schedule & Broadcast Notice'}
             </Button>
@@ -2027,7 +2027,7 @@ export const EventsClient: React.FC<{
               required
               value={eventForm.title}
               onChange={(e) => setEventForm({ ...eventForm, title: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2039,7 +2039,7 @@ export const EventsClient: React.FC<{
                 required
                 value={eventForm.startDate}
                 onChange={(e) => setEventForm({ ...eventForm, startDate: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
             <div>
@@ -2048,7 +2048,7 @@ export const EventsClient: React.FC<{
                 type="date"
                 value={eventForm.endDate}
                 onChange={(e) => setEventForm({ ...eventForm, endDate: e.target.value })}
-                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#086A92] outline-none"
+                className="w-full text-xs border border-slate-300 rounded-lg p-2 focus:border-[#990000] outline-none"
               />
             </div>
           </div>
@@ -2059,7 +2059,7 @@ export const EventsClient: React.FC<{
               type="text"
               value={eventForm.venue}
               onChange={(e) => setEventForm({ ...eventForm, venue: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2069,7 +2069,7 @@ export const EventsClient: React.FC<{
               rows={2}
               value={eventForm.description}
               onChange={(e) => setEventForm({ ...eventForm, description: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2082,7 +2082,7 @@ export const EventsClient: React.FC<{
               variant="primary"
               type="submit"
               disabled={isSubmitting}
-              className="bg-[#086A92] text-white"
+              className="bg-[#990000] text-white"
             >
               {isSubmitting ? 'Saving...' : 'Save Changes'}
             </Button>
@@ -2134,7 +2134,7 @@ export const EventsClient: React.FC<{
             <select
               value={registerForm.studentId}
               onChange={(e) => setRegisterForm({ ...registerForm, studentId: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             >
               {students.map((s) => (
                 <option key={s.id} value={s.id}>
@@ -2153,7 +2153,7 @@ export const EventsClient: React.FC<{
               placeholder="e.g. 100m Sprint, Debate Lead, Robot Pilot"
               value={registerForm.roleOrCategory}
               onChange={(e) => setRegisterForm({ ...registerForm, roleOrCategory: e.target.value })}
-              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#086A92] outline-none"
+              className="w-full text-xs border border-slate-300 rounded-lg p-2.5 focus:border-[#990000] outline-none"
             />
           </div>
 
@@ -2187,7 +2187,7 @@ export const EventsClient: React.FC<{
               variant="primary"
               type="submit"
               disabled={isSubmitting}
-              className="bg-[#086A92] text-white"
+              className="bg-[#990000] text-white"
             >
               {isSubmitting ? 'Registering...' : 'Confirm Registration'}
             </Button>

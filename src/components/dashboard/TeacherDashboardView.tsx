@@ -37,7 +37,7 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
   return (
     <div className="space-y-6">
       {/* Teacher Profile & Greeting Banner */}
-      <div className="bg-gradient-to-r from-[#086A92] to-[#043A52] text-white rounded-2xl p-5 sm:p-6 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="bg-gradient-to-r from-[#990000] to-[#171717] text-white rounded-2xl p-5 sm:p-6 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <Avatar
             name="Teacher Faculty"
@@ -53,10 +53,10 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
                 Active Session
               </span>
             </div>
-            <p className="text-sm text-[#EAF5F8] mt-0.5">
+            <p className="text-sm text-[#FEF2F2] mt-0.5">
               Form Tutor • Class 10-A • Mathematics &amp; Science Department
             </p>
-            <p className="text-xs text-[#A2E2F8] mt-0.5 font-medium">
+            <p className="text-xs text-[#FFFFFF] mt-0.5 font-medium">
               Academic Session 2026–2027 • CBSE Curriculum Grounded
             </p>
           </div>
@@ -94,12 +94,12 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
       </div>
 
       {/* Teacher Quick Action Bar */}
-      <div className="bg-white border border-[#E4EAEC] rounded-2xl p-4 shadow-2xs">
+      <div className="bg-white border border-[#E5E5E5] rounded-2xl p-4 shadow-2xs">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xs font-bold text-[#17313A] uppercase tracking-wider">
+          <h3 className="text-xs font-bold text-[#171717] uppercase tracking-wider">
             Teacher Everyday Workflows
           </h3>
-          <span className="text-[11px] text-[#6B7C83]">Fast Action Bar</span>
+          <span className="text-[11px] text-[#737373]">Fast Action Bar</span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <Link href="/dashboard/attendance">
@@ -132,7 +132,7 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-[#086A92]" />
+                <Clock className="w-4 h-4 text-[#990000]" />
                 <span>Today&apos;s Class Periods</span>
               </CardTitle>
               <Link href="/dashboard/timetable">
@@ -148,32 +148,32 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
                     </span>
                     <Badge variant="green" size="xs">Current / Active</Badge>
                   </div>
-                  <h4 className="text-xs font-bold text-[#17313A] mt-1">Mathematics • Class 10-A</h4>
-                  <p className="text-[11px] text-[#6B7C83]">Room 1001 • Class Form Teacher</p>
+                  <h4 className="text-xs font-bold text-[#171717] mt-1">Mathematics • Class 10-A</h4>
+                  <p className="text-[11px] text-[#737373]">Room 1001 • Class Form Teacher</p>
                 </div>
                 <Link href="/dashboard/attendance">
                   <Button variant="success" size="xs">Mark Done</Button>
                 </Link>
               </div>
 
-              <div className="p-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl flex items-center justify-between text-xs">
+              <div className="p-3 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl flex items-center justify-between text-xs">
                 <div className="space-y-1">
-                  <span className="text-[10px] bg-[#F1F5F7] text-[#6B7C83] font-bold px-2 py-0.5 rounded-full">
+                  <span className="text-[10px] bg-[#F1F5F7] text-[#737373] font-bold px-2 py-0.5 rounded-full">
                     10:15 – 11:00 AM
                   </span>
-                  <h4 className="text-xs font-bold text-[#17313A] mt-1">Algebraic Proofs • Class 9-B</h4>
-                  <p className="text-[11px] text-[#6B7C83]">Room 902 • Subject Teacher</p>
+                  <h4 className="text-xs font-bold text-[#171717] mt-1">Algebraic Proofs • Class 9-B</h4>
+                  <p className="text-[11px] text-[#737373]">Room 902 • Subject Teacher</p>
                 </div>
                 <Badge variant="slate" size="xs">Upcoming</Badge>
               </div>
 
-              <div className="p-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl flex items-center justify-between text-xs">
+              <div className="p-3 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl flex items-center justify-between text-xs">
                 <div className="space-y-1">
-                  <span className="text-[10px] bg-[#F1F5F7] text-[#6B7C83] font-bold px-2 py-0.5 rounded-full">
+                  <span className="text-[10px] bg-[#F1F5F7] text-[#737373] font-bold px-2 py-0.5 rounded-full">
                     11:30 – 12:15 PM
                   </span>
-                  <h4 className="text-xs font-bold text-[#17313A] mt-1">Trigonometry Lab • Class 10-B</h4>
-                  <p className="text-[11px] text-[#6B7C83]">Math Lab 2</p>
+                  <h4 className="text-xs font-bold text-[#171717] mt-1">Trigonometry Lab • Class 10-B</h4>
+                  <p className="text-[11px] text-[#737373]">Math Lab 2</p>
                 </div>
                 <Badge variant="slate" size="xs">Upcoming</Badge>
               </div>
@@ -186,7 +186,7 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <ClipboardList className="w-4 h-4 text-[#008C91]" />
+                <ClipboardList className="w-4 h-4 text-[#C00000]" />
                 <span>Active Lesson Plans</span>
               </CardTitle>
               <Link href="/dashboard/lesson-plans">
@@ -194,26 +194,26 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
               </Link>
             </CardHeader>
             <div className="space-y-3 text-xs">
-              <div className="p-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl space-y-2">
+              <div className="p-3 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-[#17313A]">Class 10-A: Coordinate Geometry</span>
+                  <span className="font-bold text-[#171717]">Class 10-A: Coordinate Geometry</span>
                   <span className="text-[10px] text-emerald-700 font-bold">85% Complete</span>
                 </div>
-                <div className="w-full bg-[#E4EAEC] h-2 rounded-full overflow-hidden">
+                <div className="w-full bg-[#E5E5E5] h-2 rounded-full overflow-hidden">
                   <div className="bg-[#35B84A] h-full rounded-full" style={{ width: '85%' }} />
                 </div>
-                <p className="text-[10px] text-[#6B7C83]">Next: Section Formula &amp; Distance Problems</p>
+                <p className="text-[10px] text-[#737373]">Next: Section Formula &amp; Distance Problems</p>
               </div>
 
-              <div className="p-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl space-y-2">
+              <div className="p-3 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-[#17313A]">Class 9-B: Polynomials</span>
-                  <span className="text-[10px] text-[#086A92] font-bold">70% Complete</span>
+                  <span className="font-bold text-[#171717]">Class 9-B: Polynomials</span>
+                  <span className="text-[10px] text-[#990000] font-bold">70% Complete</span>
                 </div>
-                <div className="w-full bg-[#E4EAEC] h-2 rounded-full overflow-hidden">
-                  <div className="bg-[#086A92] h-full rounded-full" style={{ width: '70%' }} />
+                <div className="w-full bg-[#E5E5E5] h-2 rounded-full overflow-hidden">
+                  <div className="bg-[#990000] h-full rounded-full" style={{ width: '70%' }} />
                 </div>
-                <p className="text-[10px] text-[#6B7C83]">Next: Remainder Theorem &amp; Factorization</p>
+                <p className="text-[10px] text-[#737373]">Next: Remainder Theorem &amp; Factorization</p>
               </div>
             </div>
           </Card>
@@ -229,7 +229,7 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
             <div className="space-y-2 text-xs">
               <div className="p-2.5 bg-amber-50/50 border border-amber-100 rounded-lg flex items-center justify-between">
                 <div>
-                  <p className="font-bold text-[#17313A]">Rohan Joshi (Roll #14)</p>
+                  <p className="font-bold text-[#171717]">Rohan Joshi (Roll #14)</p>
                   <p className="text-[10px] text-amber-800">Missed 3 consecutive days without leave letter</p>
                 </div>
                 <Link href="/dashboard/students">
@@ -238,7 +238,7 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
               </div>
               <div className="p-2.5 bg-amber-50/50 border border-amber-100 rounded-lg flex items-center justify-between">
                 <div>
-                  <p className="font-bold text-[#17313A]">Sneha Patel (Roll #22)</p>
+                  <p className="font-bold text-[#171717]">Sneha Patel (Roll #22)</p>
                   <p className="text-[10px] text-amber-800">2 Homework assignments unsubmitted</p>
                 </div>
                 <Link href="/dashboard/homework">
@@ -255,7 +255,7 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <FileCheck2 className="w-4 h-4 text-[#086A92]" />
+              <FileCheck2 className="w-4 h-4 text-[#990000]" />
               <span>Upcoming Exams &amp; Marks Entry</span>
             </CardTitle>
             <Link href="/dashboard/exams">
@@ -264,10 +264,10 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
           </CardHeader>
           <div className="space-y-2.5">
             {recentExams.map((ex) => (
-              <div key={ex.id} className="p-3 bg-[#F7FAFA] border border-[#E4EAEC] rounded-xl flex items-center justify-between text-xs">
+              <div key={ex.id} className="p-3 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl flex items-center justify-between text-xs">
                 <div>
-                  <h4 className="font-bold text-[#17313A]">{ex.name}</h4>
-                  <p className="text-[10px] text-[#6B7C83]">
+                  <h4 className="font-bold text-[#171717]">{ex.name}</h4>
+                  <p className="text-[10px] text-[#737373]">
                     {formatDate(ex.startDate)} to {formatDate(ex.endDate)}
                   </p>
                 </div>
@@ -291,13 +291,13 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
           </CardHeader>
           <div className="space-y-2.5">
             {announcements.slice(0, 3).map((ann) => (
-              <div key={ann.id} className="p-2.5 bg-[#F7FAFA] rounded-xl border border-[#E4EAEC] text-xs">
-                <div className="flex items-center justify-between text-[10px] text-[#6B7C83]">
-                  <span className="font-bold text-[#086A92]">{ann.targetAudience}</span>
+              <div key={ann.id} className="p-2.5 bg-[#F5F5F5] rounded-xl border border-[#E5E5E5] text-xs">
+                <div className="flex items-center justify-between text-[10px] text-[#737373]">
+                  <span className="font-bold text-[#990000]">{ann.targetAudience}</span>
                   <span>{formatDate(ann.publishedAt, 'dd MMM')}</span>
                 </div>
-                <p className="font-bold text-[#17313A] mt-0.5">{ann.title}</p>
-                <p className="text-[11px] text-[#6B7C83] line-clamp-1">{ann.content}</p>
+                <p className="font-bold text-[#171717] mt-0.5">{ann.title}</p>
+                <p className="text-[11px] text-[#737373] line-clamp-1">{ann.content}</p>
               </div>
             ))}
           </div>
