@@ -65,8 +65,9 @@ export default async function EventsPage() {
       },
     }),
     prisma.class.findMany({
-      include: { sections: true },
-      orderBy: { name: 'asc' },
+      where: { isActive: true },
+      include: { sections: { where: { isActive: true } } },
+      orderBy: { numericOrder: 'asc' },
     }),
     prisma.studentProfile.findMany({
       include: {

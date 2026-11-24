@@ -12,7 +12,8 @@ export default async function TimetablePage() {
 
   const [classesData, teachersData, subjectsData, timetableData] = await Promise.all([
     prisma.class.findMany({
-      include: { sections: true },
+      where: { isActive: true },
+      include: { sections: { where: { isActive: true } } },
       orderBy: { numericOrder: 'asc' },
     }),
     prisma.teacherProfile.findMany({

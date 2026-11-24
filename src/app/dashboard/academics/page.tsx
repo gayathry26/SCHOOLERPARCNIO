@@ -13,8 +13,10 @@ export default async function AcademicsPage() {
   const [yearsData, classesData, subjectsData, materialsData, teachersData] = await Promise.all([
     prisma.academicYear.findMany({ orderBy: { startDate: 'desc' } }),
     prisma.class.findMany({
+      where: { isActive: true },
       include: {
         sections: {
+          where: { isActive: true },
           include: {
             classTeacher: { include: { user: true } },
             _count: { select: { enrollments: true } },

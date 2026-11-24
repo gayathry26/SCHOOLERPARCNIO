@@ -57,7 +57,8 @@ export default async function PtmPage() {
       orderBy: { user: { firstName: 'asc' } },
     }),
     prisma.class.findMany({
-      include: { sections: true },
+      where: { isActive: true },
+      include: { sections: { where: { isActive: true } } },
       orderBy: { numericOrder: 'asc' },
     }),
     prisma.ptmBooking.findMany({

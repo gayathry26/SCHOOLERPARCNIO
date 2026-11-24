@@ -45,7 +45,8 @@ export default async function AcademicIntelligencePage() {
       orderBy: { detectedDate: 'desc' },
     }),
     prisma.class.findMany({
-      include: { sections: true },
+      where: { isActive: true },
+      include: { sections: { where: { isActive: true } } },
       orderBy: { numericOrder: 'asc' },
     }),
     prisma.chapter.findMany({

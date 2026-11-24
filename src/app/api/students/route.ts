@@ -176,14 +176,40 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // 3. Create Enrollment in Current Academic Year
-    if (classId && sectionId) {
+    // 3. Resolve Class & Section (supports ID or Name from Quick Actions)
+    let targetClassId = classId;
+    let targetSectionId = sectionId;
+
+    if (!targetClassId && body.className) {
+      const cls = await prisma.class.findFirst({
+        where: {
+          name: body.className,
+          isActive: true,
+        },
+        include: { sections: { where: { isActive: true }, orderBy: { name: 'asc' } } },
+      });
+      if (cls) {
+        targetClassId = cls.id;
+        // Section allocation is only assigned if admin or if sectionName provided by admin
+        if (!targetSectionId && (user.role === 'SCHOOL_ADMIN' || user.role === 'SUPER_ADMIN')) {
+          if (body.sectionName) {
+            const sec = cls.sections.find((s) => s.name === body.sectionName);
+            if (sec) targetSectionId = sec.id;
+          }
+          if (!targetSectionId && cls.sections[0]) {
+            targetSectionId = cls.sections[0].id;
+          }
+        }
+      }
+    }
+
+    if (targetClassId) {
       await prisma.studentEnrollment.create({
         data: {
           studentId: studentProfile.id,
           academicYearId: currentYear.id,
-          classId,
-          sectionId,
+          classId: targetClassId,
+          sectionId: targetSectionId || null,
           rollNumber: rollNumber || 'TBD',
           status: 'ACTIVE',
         },

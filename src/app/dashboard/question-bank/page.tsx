@@ -32,7 +32,7 @@ export default async function QuestionBankPage() {
         orderBy: { createdAt: 'desc' },
       }),
       prisma.subject.findMany({ orderBy: { name: 'asc' } }),
-      prisma.class.findMany({ orderBy: { numericOrder: 'asc' } }),
+      prisma.class.findMany({ where: { isActive: true }, orderBy: { numericOrder: 'asc' } }),
       prisma.chapter.findMany({ orderBy: { chapterNumber: 'asc' } }),
     ]);
 

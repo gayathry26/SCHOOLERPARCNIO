@@ -54,6 +54,20 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [classesList, setClassesList] = useState<
+    Array<{ id: string; name: string; stream?: string; sections: Array<{ id: string; name: string }> }>
+  >([]);
+
+  useEffect(() => {
+    fetch('/api/classes?lookup=true')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.classes && data.classes.length > 0) {
+          setClassesList(data.classes);
+        }
+      })
+      .catch((err) => console.warn('Could not fetch classes for quick actions:', err));
+  }, []);
 
   // Form states
   const [studentForm, setStudentForm] = useState({
@@ -146,6 +160,8 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
         body: JSON.stringify({
           firstName: studentForm.firstName,
           lastName: studentForm.lastName,
+          className: studentForm.className,
+          sectionName: studentForm.sectionName,
           gender: studentForm.gender,
           emergencyContact: studentForm.parentPhone,
           parentPhone: studentForm.parentPhone,
@@ -328,7 +344,7 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       icon: DollarSign,
       roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'ACCOUNTANT', 'PRINCIPAL'],
       badge: 'Finance',
-      color: 'text-emerald-700',
+      color: 'text-[#990000]',
     },
     {
       key: 'SEND_ANNOUNCEMENT' as QuickActionKey,
@@ -417,8 +433,8 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       >
         <form onSubmit={handleSubmitStudent} className="space-y-3 text-xs">
           {successMessage && (
-            <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <div className="p-3 bg-red-50 border border-red-200 text-[#990000] rounded-xl flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0" />
               <span className="font-semibold">{successMessage}</span>
             </div>
           )}
@@ -460,13 +476,34 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
               <select
                 value={studentForm.className}
                 onChange={(e) => setStudentForm({ ...studentForm, className: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000] font-medium"
               >
-                <option value="Class 10">Class 10 (Secondary)</option>
-                <option value="Class 9">Class 9 (Secondary)</option>
-                <option value="Class 8">Class 8 (Middle)</option>
-                <option value="Class 7">Class 7 (Middle)</option>
-                <option value="Class 6">Class 6 (Middle)</option>
+                {(classesList.length > 0
+                  ? classesList.map((c) => ({
+                      value: c.name,
+                      label: `${c.name}${c.stream ? ` (${c.stream})` : ''}`,
+                    }))
+                  : [
+                      { value: 'LKG', label: 'LKG (Kindergarten)' },
+                      { value: 'UKG', label: 'UKG (Kindergarten)' },
+                      { value: 'Class 1', label: 'Class 1 (Primary)' },
+                      { value: 'Class 2', label: 'Class 2 (Primary)' },
+                      { value: 'Class 3', label: 'Class 3 (Primary)' },
+                      { value: 'Class 4', label: 'Class 4 (Primary)' },
+                      { value: 'Class 5', label: 'Class 5 (Primary)' },
+                      { value: 'Class 6', label: 'Class 6 (Middle)' },
+                      { value: 'Class 7', label: 'Class 7 (Middle)' },
+                      { value: 'Class 8', label: 'Class 8 (Middle)' },
+                      { value: 'Class 9', label: 'Class 9 (Secondary)' },
+                      { value: 'Class 10', label: 'Class 10 (Secondary)' },
+                      { value: 'Class 11', label: 'Class 11 (Senior Secondary)' },
+                      { value: 'Class 12', label: 'Class 12 (Senior Secondary)' },
+                    ]
+                ).map((c) => (
+                  <option key={c.value} value={c.value}>
+                    {c.label}
+                  </option>
+                ))}
               </select>
             </div>
             <div>
@@ -481,6 +518,32 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
                 <option value="OTHER">Other</option>
               </select>
             </div>
+          </div>
+
+          {/* Section Allocation - Restricted to Admin */}
+          <div>
+            <div className="flex items-center justify-between mb-1">
+              <label className="block font-semibold text-[#171717]">Section Allocation *</label>
+              <span className="text-[10px] font-bold text-[#990000] bg-red-50 border border-red-200 px-2 py-0.5 rounded-full">
+                Admin Only
+              </span>
+            </div>
+            {currentRole === 'SUPER_ADMIN' || currentRole === 'SCHOOL_ADMIN' ? (
+              <select
+                value={studentForm.sectionName}
+                onChange={(e) => setStudentForm({ ...studentForm, sectionName: e.target.value })}
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000] font-medium"
+              >
+                <option value="A">Section A</option>
+                <option value="B">Section B</option>
+                <option value="C">Section C</option>
+                <option value="D">Section D</option>
+              </select>
+            ) : (
+              <div className="p-2.5 bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg text-xs text-[#737373] font-medium">
+                Section allocation is managed exclusively by the School Administrator.
+              </div>
+            )}
           </div>
 
           <div className="grid grid-cols-2 gap-3">
@@ -526,8 +589,8 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       >
         <form onSubmit={handleSubmitPayment} className="space-y-3 text-xs">
           {successMessage && (
-            <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <div className="p-3 bg-red-50 border border-red-200 text-[#990000] rounded-xl flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0" />
               <span className="font-semibold">{successMessage}</span>
             </div>
           )}
@@ -614,8 +677,8 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       >
         <form onSubmit={handleSubmitHomework} className="space-y-3 text-xs">
           {successMessage && (
-            <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <div className="p-3 bg-red-50 border border-red-200 text-[#990000] rounded-xl flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0" />
               <span className="font-semibold">{successMessage}</span>
             </div>
           )}
@@ -626,13 +689,26 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
               <select
                 value={homeworkForm.className}
                 onChange={(e) => setHomeworkForm({ ...homeworkForm, className: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000] font-medium"
               >
-                <option value="Class 10-A">Class 10-A</option>
-                <option value="Class 10-B">Class 10-B</option>
-                <option value="Class 9-A">Class 9-A</option>
-                <option value="Class 9-B">Class 9-B</option>
-                <option value="Class 8-A">Class 8-A</option>
+                {[
+                  'LKG-A', 'LKG-B',
+                  'UKG-A', 'UKG-B',
+                  'Class 1-A', 'Class 1-B',
+                  'Class 2-A', 'Class 2-B',
+                  'Class 3-A', 'Class 3-B',
+                  'Class 4-A', 'Class 4-B',
+                  'Class 5-A', 'Class 5-B',
+                  'Class 6-A', 'Class 6-B',
+                  'Class 7-A', 'Class 7-B',
+                  'Class 8-A', 'Class 8-B',
+                  'Class 9-A', 'Class 9-B',
+                  'Class 10-A', 'Class 10-B',
+                  'Class 11-A', 'Class 11-B',
+                  'Class 12-A', 'Class 12-B',
+                ].map((c) => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
               </select>
             </div>
             <div>
@@ -704,8 +780,8 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       >
         <form onSubmit={handleSubmitExam} className="space-y-3 text-xs">
           {successMessage && (
-            <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <div className="p-3 bg-red-50 border border-red-200 text-[#990000] rounded-xl flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0" />
               <span className="font-semibold">{successMessage}</span>
             </div>
           )}
@@ -728,12 +804,26 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
               <select
                 value={examForm.className}
                 onChange={(e) => setExamForm({ ...examForm, className: e.target.value })}
-                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000]"
+                className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000] font-medium"
               >
-                <option value="Class 10">Class 10</option>
-                <option value="Class 9">Class 9</option>
-                <option value="Class 8">Class 8</option>
-                <option value="Class 7">Class 7</option>
+                {[
+                  'LKG',
+                  'UKG',
+                  'Class 1',
+                  'Class 2',
+                  'Class 3',
+                  'Class 4',
+                  'Class 5',
+                  'Class 6',
+                  'Class 7',
+                  'Class 8',
+                  'Class 9',
+                  'Class 10',
+                  'Class 11',
+                  'Class 12',
+                ].map((c) => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
               </select>
             </div>
             <div>
@@ -801,8 +891,8 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       >
         <form onSubmit={handleSubmitAnnouncement} className="space-y-3 text-xs">
           {successMessage && (
-            <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <div className="p-3 bg-red-50 border border-red-200 text-[#990000] rounded-xl flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0" />
               <span className="font-semibold">{successMessage}</span>
             </div>
           )}
@@ -877,8 +967,8 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       >
         <form onSubmit={handleSubmitTeacher} className="space-y-3 text-xs">
           {successMessage && (
-            <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <div className="p-3 bg-red-50 border border-red-200 text-[#990000] rounded-xl flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0" />
               <span className="font-semibold">{successMessage}</span>
             </div>
           )}
@@ -965,8 +1055,8 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       >
         <form onSubmit={handleSubmitReport} className="space-y-3 text-xs">
           {successMessage && (
-            <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <div className="p-3 bg-red-50 border border-red-200 text-[#990000] rounded-xl flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-[#990000] shrink-0" />
               <span className="font-semibold">{successMessage}</span>
             </div>
           )}
@@ -1024,3 +1114,4 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
     </>
   );
 };
+

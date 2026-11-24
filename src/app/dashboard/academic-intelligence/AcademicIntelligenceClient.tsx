@@ -163,7 +163,7 @@ export const AcademicIntelligenceClient: React.FC<{
               <BrainCircuit className="w-6 h-6 text-[#990000]" />
               <span>Advanced Academic Intelligence &amp; Intervention</span>
             </h2>
-            <Badge variant="blue" size="sm">
+            <Badge variant="rose" size="sm">
               CBSE / ICSE AI-Audit
             </Badge>
           </div>
@@ -198,28 +198,28 @@ export const AcademicIntelligenceClient: React.FC<{
           subtitle="Board Grade: Exemplary (A1)"
           icon={<TrendingUp className="w-5 h-5" />}
           trend={{ value: '+2.8%', isPositive: true }}
-          variant="blue"
+          variant="red"
         />
         <StatCard
           title="Syllabus Completion"
           value="72%"
           subtitle="Mid-Term Pacing on Schedule"
           icon={<Layers className="w-5 h-5" />}
-          variant="teal"
+          variant="red"
         />
         <StatCard
           title="Academic Alerts"
           value={alerts.length}
           subtitle="Students Requiring Support"
           icon={<AlertTriangle className="w-5 h-5" />}
-          variant={alerts.length > 0 ? 'amber' : 'green'}
+          variant={alerts.length > 0 ? 'amber' : 'slate'}
         />
         <StatCard
           title="Top Subject"
           value="English (88%)"
           subtitle="Weakest: Mathematics (76%)"
           icon={<Target className="w-5 h-5" />}
-          variant="green"
+          variant="slate"
         />
       </div>
 
@@ -255,7 +255,7 @@ export const AcademicIntelligenceClient: React.FC<{
                     <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
                       <div
                         className={`h-full rounded-full transition-all duration-500 ${
-                          sub.average >= 85 ? 'bg-emerald-500' : sub.average >= 75 ? 'bg-blue-600' : 'bg-amber-500'
+                          sub.average >= 85 ? 'bg-[#990000]' : sub.average >= 75 ? 'bg-[#C00000]' : 'bg-amber-600'
                         }`}
                         style={{ width: `${sub.average}%` }}
                       />
@@ -269,16 +269,16 @@ export const AcademicIntelligenceClient: React.FC<{
             <Card>
               <CardHeader>
                 <CardTitle className="text-sm flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-[#35B84A]" />
+                  <Sparkles className="w-4 h-4 text-[#990000]" />
                   <span>Explainable Academic Risk Insights</span>
                 </CardTitle>
               </CardHeader>
               <div className="space-y-3">
-                <div className="p-3.5 bg-blue-50/70 border border-blue-100 rounded-xl space-y-1">
-                  <span className="text-[11px] font-bold text-blue-900 uppercase tracking-wider">
+                <div className="p-3.5 bg-red-50/60 border border-red-100 rounded-xl space-y-1">
+                  <span className="text-[11px] font-bold text-[#990000] uppercase tracking-wider">
                     Core Correlation Discovered
                   </span>
-                  <p className="text-xs text-blue-950 leading-relaxed">
+                  <p className="text-xs text-neutral-800 leading-relaxed">
                     Students with attendance below <strong>80%</strong> show a <strong>24% drop</strong> in Class 10 Trigonometry and Science practical scores compared to peers with 90%+ attendance.
                   </p>
                 </div>
@@ -292,11 +292,11 @@ export const AcademicIntelligenceClient: React.FC<{
                   </p>
                 </div>
 
-                <div className="p-3.5 bg-emerald-50/70 border border-emerald-100 rounded-xl space-y-1">
-                  <span className="text-[11px] font-bold text-emerald-900 uppercase tracking-wider">
+                <div className="p-3.5 bg-neutral-50 border border-neutral-200 rounded-xl space-y-1">
+                  <span className="text-[11px] font-bold text-neutral-800 uppercase tracking-wider">
                     Board Exam Preparedness
                   </span>
-                  <p className="text-xs text-emerald-950 leading-relaxed">
+                  <p className="text-xs text-neutral-700 leading-relaxed">
                     Class 10-A is projected to achieve a <strong>98.5% first-division pass rate</strong> on the upcoming CBSE Pre-Board examinations based on current assessment trajectories.
                   </p>
                 </div>
@@ -369,7 +369,7 @@ export const AcademicIntelligenceClient: React.FC<{
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center space-y-1">
               <span className="text-xs text-slate-500 font-bold uppercase">Class 10 - Section A</span>
               <p className="text-2xl font-black text-[#990000]">86.4%</p>
-              <span className="text-xs text-emerald-600 font-semibold">+3.1% over school avg</span>
+              <span className="text-xs text-[#990000] font-semibold">+3.1% over school avg</span>
             </div>
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center space-y-1">
               <span className="text-xs text-slate-500 font-bold uppercase">Class 10 - Section B</span>
@@ -379,7 +379,7 @@ export const AcademicIntelligenceClient: React.FC<{
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center space-y-1">
               <span className="text-xs text-slate-500 font-bold uppercase">Class 9 - Section A</span>
               <p className="text-2xl font-black text-[#C00000]">84.8%</p>
-              <span className="text-xs text-emerald-600 font-semibold">+1.5% over school avg</span>
+              <span className="text-xs text-[#990000] font-semibold">+1.5% over school avg</span>
             </div>
           </div>
         </Card>

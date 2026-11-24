@@ -29,13 +29,16 @@ export default async function CommandCentrePage() {
     prisma.teacherProfile.count(),
     prisma.staffProfile.count(),
     prisma.class.findMany({
+      where: { isActive: true },
       include: {
         sections: {
+          where: { isActive: true },
           include: {
             enrollments: true,
           },
         },
       },
+      orderBy: { numericOrder: 'asc' },
     }),
     prisma.studentFeeInvoice.findMany({
       include: { payments: true },

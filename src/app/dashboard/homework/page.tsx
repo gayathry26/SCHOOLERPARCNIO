@@ -21,7 +21,8 @@ export default async function HomeworkPage() {
       orderBy: { dueDate: 'desc' },
     }),
     prisma.class.findMany({
-      include: { sections: true },
+      where: { isActive: true },
+      include: { sections: { where: { isActive: true } } },
       orderBy: { numericOrder: 'asc' },
     }),
     prisma.subject.findMany({

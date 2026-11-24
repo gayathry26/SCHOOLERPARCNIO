@@ -112,8 +112,8 @@ export default async function FeesPage() {
       orderBy: { name: 'asc' },
     }),
     prisma.class.findMany({
-      where: { schoolId },
-      include: { sections: true },
+      where: { schoolId, isActive: true },
+      include: { sections: { where: { isActive: true } } },
       orderBy: { numericOrder: 'asc' },
     }),
     prisma.studentProfile.findMany({

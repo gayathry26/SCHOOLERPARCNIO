@@ -25,7 +25,8 @@ export default async function LessonPlansPage() {
       orderBy: { scheduledDate: 'desc' },
     }),
     prisma.class.findMany({
-      include: { sections: true },
+      where: { isActive: true },
+      include: { sections: { where: { isActive: true } } },
       orderBy: { numericOrder: 'asc' },
     }),
     prisma.subject.findMany({
