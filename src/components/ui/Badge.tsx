@@ -20,8 +20,8 @@ export const Badge: React.FC<BadgeProps> = ({
     slate: 'bg-[#F5F5F5] text-[#171717] border-[#E5E5E5]',
     red: 'bg-red-50 text-[#990000] border-red-200',
     'dark-red': 'bg-[#990000] text-white border-[#800000]',
-    green: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-    emerald: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    green: 'bg-red-50 text-[#990000] border-red-200',
+    emerald: 'bg-red-50 text-[#990000] border-red-200',
     teal: 'bg-red-50 text-[#990000] border-red-200', // Redirected from teal to brand red
     blue: 'bg-red-50 text-[#990000] border-red-200', // Redirected from blue to brand red
     amber: 'bg-amber-50 text-amber-800 border-amber-200',

@@ -317,7 +317,7 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       icon: CalendarCheck,
       roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL', 'TEACHER', 'CLASS_TEACHER'],
       badge: 'Daily',
-      color: 'text-[#35B84A]',
+      color: 'text-[#990000]',
     },
     {
       key: 'CREATE_HOMEWORK' as QuickActionKey,
@@ -335,7 +335,7 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       icon: FileCheck2,
       roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL', 'VICE_PRINCIPAL', 'TEACHER'],
       badge: 'Assessment',
-      color: 'text-[#D97706]',
+      color: 'text-[#C00000]',
     },
     {
       key: 'RECORD_PAYMENT' as QuickActionKey,
@@ -362,7 +362,7 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       icon: FileDown,
       roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL', 'ACCOUNTANT', 'HR_MANAGER'],
       badge: 'Analytics',
-      color: 'text-indigo-600',
+      color: 'text-[#990000]',
     },
     {
       key: 'ADD_TEACHER' as QuickActionKey,
@@ -371,7 +371,7 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
       icon: Users,
       roles: ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL', 'HR_MANAGER'],
       badge: 'HR Staff',
-      color: 'text-purple-600',
+      color: 'text-[#C00000]',
     },
   ].filter((item) => item.roles.includes(currentRole));
 
@@ -475,7 +475,12 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
               <label className="block font-semibold text-[#171717] mb-1">Class *</label>
               <select
                 value={studentForm.className}
-                onChange={(e) => setStudentForm({ ...studentForm, className: e.target.value })}
+                onChange={(e) => {
+                  const newClassName = e.target.value;
+                  const targetCls = classesList.find((c) => c.name === newClassName || c.id === newClassName);
+                  const firstSec = targetCls?.sections?.[0]?.name || 'A';
+                  setStudentForm({ ...studentForm, className: newClassName, sectionName: firstSec });
+                }}
                 className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000] font-medium"
               >
                 {(classesList.length > 0
@@ -534,10 +539,20 @@ export const QuickActionLauncher: React.FC<QuickActionLauncherProps> = ({ curren
                 onChange={(e) => setStudentForm({ ...studentForm, sectionName: e.target.value })}
                 className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg bg-white focus:outline-none focus:border-[#990000] font-medium"
               >
-                <option value="A">Section A</option>
-                <option value="B">Section B</option>
-                <option value="C">Section C</option>
-                <option value="D">Section D</option>
+                {(() => {
+                  const selectedClassObj = classesList.find(
+                    (c) => c.name === studentForm.className || c.id === studentForm.className
+                  );
+                  const sections =
+                    selectedClassObj?.sections && selectedClassObj.sections.length > 0
+                      ? selectedClassObj.sections
+                      : [{ id: 'A', name: 'A' }, { id: 'B', name: 'B' }, { id: 'C', name: 'C' }];
+                  return sections.map((sec) => (
+                    <option key={sec.id || sec.name} value={sec.name}>
+                      Section {sec.name}
+                    </option>
+                  ));
+                })()}
               </select>
             ) : (
               <div className="p-2.5 bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg text-xs text-[#737373] font-medium">

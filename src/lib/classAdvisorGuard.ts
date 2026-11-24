@@ -76,7 +76,7 @@ export async function getTeacherAuthorizedSections(userId: string) {
     },
   });
 
-  if (!teacher) return { advisorSections: [], subjectSections: [], allSectionIds: [] };
+  if (!teacher) return { advisorSections: [] as any[], subjectSections: [] as any[], allSections: [] as any[], allSectionIds: [] as string[] };
 
   const advisorSections = teacher.sections;
   const subjectSections = teacher.teacherAllocations.map((a) => a.section).filter(Boolean);
@@ -89,8 +89,8 @@ export async function getTeacherAuthorizedSections(userId: string) {
     }
   }
 
-  const allSections = Array.from(sectionMap.values());
-  const allSectionIds = Array.from(sectionMap.keys());
+  const allSections: any[] = Array.from(sectionMap.values());
+  const allSectionIds: string[] = Array.from(sectionMap.keys());
 
   return {
     teacherProfileId: teacher.id,

@@ -42,6 +42,10 @@ import {
   MessageSquare,
   DollarSign,
   X,
+  Plus,
+  Upload,
+  Shuffle,
+  Check,
 } from 'lucide-react';
 import { Tabs, TabItem } from '@/components/ui/Tabs';
 import { Card, CardHeader, CardTitle } from '@/components/ui/Card';
@@ -124,7 +128,99 @@ export const StudentProfileClient: React.FC<{
   // Homework metrics
   const totalSubmissions = student.submissions?.length || 0;
 
-  // 12 Tabs Definition
+  // ----------------------------------------------------
+  // STUDENT INFORMATION SYSTEM (SIS) ENHANCED STATES
+  // ----------------------------------------------------
+  const studentDocumentsInitial = [
+    {
+      id: 'doc-1',
+      title: 'Official Birth Certificate',
+      category: 'Identity Proof',
+      fileSize: '1.4 MB',
+      uploadDate: '2023-04-10',
+      format: 'PDF',
+      verified: true,
+      url: '/docs/birth_certificate_sample.pdf',
+    },
+    {
+      id: 'doc-2',
+      title: 'Previous School Transfer Certificate (TC)',
+      category: 'Academic Record',
+      fileSize: '820 KB',
+      uploadDate: '2023-04-10',
+      format: 'PDF',
+      verified: true,
+      url: '/docs/transfer_certificate_sample.pdf',
+    },
+    {
+      id: 'doc-3',
+      title: 'Class 9 CBSE Annual Marksheet',
+      category: 'Grade Sheet',
+      fileSize: '2.1 MB',
+      uploadDate: '2024-03-28',
+      format: 'PDF',
+      verified: true,
+      url: '/docs/marksheet_class9_sample.pdf',
+    },
+  ];
+
+  const [documentsList, setDocumentsList] = useState<any[]>(
+    student.documents?.length > 0 ? student.documents : studentDocumentsInitial
+  );
+  const [isUploadDocOpen, setIsUploadDocOpen] = useState(false);
+  const [uploadDocLoading, setUploadDocLoading] = useState(false);
+  const [newDocForm, setNewDocForm] = useState({
+    title: '',
+    documentType: 'BIRTH_CERTIFICATE',
+    fileUrl: '/docs/sample_document.pdf',
+    notes: '',
+  });
+
+  const [parentState, setParentState] = useState({
+    fatherName: student.fatherName || (parent?.user ? `${parent.user.firstName} ${parent.user.lastName}` : ''),
+    fatherPhone: student.fatherPhone || parent?.phone || student.emergencyContact || '',
+    fatherEmail: student.fatherEmail || parent?.user?.email || '',
+    fatherOccupation: student.fatherOccupation || parent?.occupation || '',
+    motherName: student.motherName || '',
+    motherPhone: student.motherPhone || '',
+    motherEmail: student.motherEmail || '',
+    motherOccupation: student.motherOccupation || '',
+    guardianName: student.guardianName || '',
+    guardianPhone: student.guardianPhone || '',
+    guardianRelation: student.guardianRelation || '',
+    guardianOccupation: student.guardianOccupation || '',
+  });
+  const [isEditParentOpen, setIsEditParentOpen] = useState(false);
+  const [saveParentLoading, setSaveParentLoading] = useState(false);
+
+  const [isIssueTcModalOpen, setIsIssueTcModalOpen] = useState(false);
+  const [isPrintTcModalOpen, setIsPrintTcModalOpen] = useState(false);
+  const [tcFormData, setTcFormData] = useState({
+    reasonForLeaving: student.leavingReason || 'Parent Relocation / Transferred',
+    conduct: 'EXCELLENT',
+    duesCleared: true,
+    remarks: 'Good character and diligent student. All school property returned in good standing.',
+  });
+  const [tcLoading, setTcLoading] = useState(false);
+  const [activeTc, setActiveTc] = useState<any | null>(
+    student.transferCertificates?.[0] ||
+      (student.tcNumber
+        ? {
+            tcNumber: student.tcNumber,
+            studentName: `${student.user.firstName} ${student.user.lastName}`,
+            admissionNumber: student.admissionNumber,
+            classLeaving: currentEnrollment?.class?.name || 'Class 10',
+            academicYear: currentEnrollment?.academicYear?.name || '2026-2027',
+            leavingDate: student.tcDate || new Date(),
+            reasonForLeaving: student.leavingReason || 'Parent Transfer',
+            conduct: 'EXCELLENT',
+            duesCleared: true,
+            remarks: 'All school dues cleared.',
+          }
+        : null)
+  );
+
+  // 13 Tabs Definition with Lifecycle
   const tabs: TabItem[] = [
     { id: 'overview', label: 'Overview', icon: <User className="w-3.5 h-3.5" /> },
     { id: 'personal', label: 'Personal Information', icon: <Contact className="w-3.5 h-3.5" /> },
@@ -133,11 +229,12 @@ export const StudentProfileClient: React.FC<{
     { id: 'exams', label: 'Examination Results', count: student.markEntries?.length, icon: <FileCheck2 className="w-3.5 h-3.5" /> },
     { id: 'homework', label: 'Homework', count: totalSubmissions, icon: <ClipboardList className="w-3.5 h-3.5" /> },
     { id: 'fees', label: 'Fees & Billing', count: student.invoices?.length, icon: <CreditCard className="w-3.5 h-3.5" /> },
-    { id: 'documents', label: 'Documents', count: 5, icon: <FileText className="w-3.5 h-3.5" /> },
+    { id: 'documents', label: 'Documents', count: documentsList.length, icon: <FileText className="w-3.5 h-3.5" /> },
+    { id: 'parents', label: 'Parent Information', count: 2, icon: <Users className="w-3.5 h-3.5" /> },
+    { id: 'lifecycle', label: 'Lifecycle & TC', count: activeTc ? 1 : 0, icon: <History className="w-3.5 h-3.5" /> },
     { id: 'medical', label: 'Medical Information', count: student.clinicVisits?.length, icon: <HeartPulse className="w-3.5 h-3.5" /> },
     { id: 'achievements', label: 'Achievements', count: student.achievements?.length, icon: <Award className="w-3.5 h-3.5" /> },
-    { id: 'parents', label: 'Parent Information', count: student.parents?.length, icon: <Users className="w-3.5 h-3.5" /> },
-    { id: 'timeline', label: 'Activity Timeline', icon: <History className="w-3.5 h-3.5" /> },
+    { id: 'timeline', label: 'Activity Timeline', icon: <Clock className="w-3.5 h-3.5" /> },
   ];
 
   // Document Vault Sample Records
@@ -305,6 +402,124 @@ export const StudentProfileClient: React.FC<{
       setAvatarUrl(data.url || croppedDataUrl);
     } catch (err) {
       setAvatarUrl(croppedDataUrl);
+    }
+  };
+
+  const handleUploadDocument = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setUploadDocLoading(true);
+    try {
+      const res = await fetch(`/api/students/${student.id}/documents`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newDocForm),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setDocumentsList((prev) => [data.document, ...prev]);
+        setIsUploadDocOpen(false);
+        setNewDocForm({
+          title: '',
+          documentType: 'BIRTH_CERTIFICATE',
+          fileUrl: '/docs/sample_document.pdf',
+          notes: '',
+        });
+        alert('Document uploaded successfully!');
+      } else {
+        alert(data.error || 'Failed to upload document');
+      }
+    } catch (err: any) {
+      alert(err.message);
+    } finally {
+      setUploadDocLoading(false);
+    }
+  };
+
+  const handleVerifyDocument = async (docId: string, status: 'VERIFIED' | 'REJECTED') => {
+    try {
+      const res = await fetch(`/api/students/${student.id}/documents`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ documentId: docId, status }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setDocumentsList((prev) =>
+          prev.map((d) => (d.id === docId ? { ...d, status, verified: status === 'VERIFIED' } : d))
+        );
+        alert(`Document marked as ${status}`);
+      } else {
+        alert(data.error || 'Failed to update verification status');
+      }
+    } catch (err: any) {
+      alert(err.message);
+    }
+  };
+
+  const handleDeleteDocument = async (docId: string) => {
+    if (!confirm('Are you sure you want to remove this document?')) return;
+    try {
+      const res = await fetch(`/api/students/${student.id}/documents?documentId=${docId}`, {
+        method: 'DELETE',
+      });
+      if (res.ok) {
+        setDocumentsList((prev) => prev.filter((d) => d.id !== docId));
+        alert('Document removed.');
+      }
+    } catch (err: any) {
+      alert(err.message);
+    }
+  };
+
+  const handleSaveParent = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSaveParentLoading(true);
+    try {
+      const res = await fetch(`/api/students/${student.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(parentState),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setIsEditParentOpen(false);
+        alert('Parent details updated successfully!');
+      } else {
+        alert(data.error || 'Failed to update parent details');
+      }
+    } catch (err: any) {
+      alert(err.message);
+    } finally {
+      setSaveParentLoading(false);
+    }
+  };
+
+  const handleIssueTc = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setTcLoading(true);
+    try {
+      const res = await fetch('/api/students/lifecycle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'GENERATE_TC',
+          studentId: student.id,
+          ...tcFormData,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setActiveTc(data.tc);
+        setIsIssueTcModalOpen(false);
+        setIsPrintTcModalOpen(true);
+        alert(data.message);
+      } else {
+        alert(data.error || 'Failed to issue TC');
+      }
+    } catch (err: any) {
+      alert(err.message);
+    } finally {
+      setTcLoading(false);
     }
   };
 
@@ -1179,50 +1394,100 @@ export const StudentProfileClient: React.FC<{
       {/* ==================================================== */}
       {activeTab === 'documents' && (
         <Card className="p-6 space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
             <div>
-              <h4 className="text-base font-bold text-slate-900">Verified Student Document Vault</h4>
-              <p className="text-xs text-slate-500">Government identity certificates, TC, and academic records.</p>
+              <h4 className="text-base font-bold text-slate-900">Student Document Vault</h4>
+              <p className="text-xs text-slate-500">Official certificates, transfer letters, marks cards, and identification documents.</p>
             </div>
-            <Badge variant="blue">5 Verified Records</Badge>
+            <div className="flex items-center gap-2">
+              <Badge variant="rose">{documentsList.length} Records</Badge>
+              {isAdminOrPrincipal && (
+                <Button
+                  size="xs"
+                  variant="primary"
+                  onClick={() => setIsUploadDocOpen(true)}
+                  leftIcon={<Plus className="w-3 h-3" />}
+                >
+                  Upload Document
+                </Button>
+              )}
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {studentDocuments.map((doc) => (
-              <div
-                key={doc.id}
-                className="p-4 rounded-xl border border-slate-200 bg-white hover:border-[#990000] hover:shadow-xs transition space-y-3 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400 bg-slate-100 px-2 py-0.5 rounded">
-                      {doc.category}
+            {documentsList.map((doc) => {
+              const isVerified = doc.status === 'VERIFIED' || doc.verified;
+              const isRejected = doc.status === 'REJECTED';
+              return (
+                <div
+                  key={doc.id}
+                  className="p-4 rounded-xl border border-slate-200 bg-white hover:border-[#990000] hover:shadow-xs transition space-y-3 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono font-bold uppercase text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
+                        {doc.documentType?.replace('_', ' ') || doc.category || 'DOCUMENT'}
+                      </span>
+                      <Badge
+                        variant={isVerified ? 'rose' : isRejected ? 'slate' : 'amber'}
+                        size="xs"
+                      >
+                        {isVerified ? 'Verified' : isRejected ? 'Rejected' : 'Pending'}
+                      </Badge>
+                    </div>
+                    <h5 className="font-bold text-slate-900 text-xs mt-2 line-clamp-1">{doc.title}</h5>
+                    <span className="text-[11px] text-slate-500 block mt-0.5">
+                      {doc.format || 'PDF'} • {doc.fileSize || '1.2 MB'} • Uploaded {formatDate(doc.createdAt || doc.uploadDate || new Date())}
                     </span>
-                    <Badge variant="emerald" size="xs">
-                      Verified
-                    </Badge>
+                    {doc.notes && (
+                      <p className="text-[10.5px] text-slate-400 mt-1 italic line-clamp-1">{doc.notes}</p>
+                    )}
                   </div>
-                  <h5 className="font-bold text-slate-900 text-xs mt-2 line-clamp-1">{doc.title}</h5>
-                  <span className="text-[11px] text-slate-500 block mt-0.5">
-                    {doc.format} • {doc.fileSize} • Uploaded {formatDate(doc.uploadDate)}
-                  </span>
-                </div>
 
-                <div className="flex items-center gap-2 pt-2 border-t border-slate-100">
-                  <Button
-                    size="xs"
-                    variant="outline"
-                    className="flex-1 text-[#990000]"
-                    onClick={() => setPreviewDoc(doc)}
-                  >
-                    <Eye className="w-3 h-3 mr-1" /> Preview
-                  </Button>
-                  <Button size="xs" variant="outline" className="text-slate-600">
-                    <Download className="w-3 h-3" />
-                  </Button>
+                  <div className="space-y-2 pt-2 border-t border-slate-100">
+                    <div className="flex items-center gap-2">
+                      <Button
+                        size="xs"
+                        variant="outline"
+                        className="flex-1 text-[#990000]"
+                        onClick={() => setPreviewDoc(doc)}
+                      >
+                        <Eye className="w-3 h-3 mr-1" /> Preview
+                      </Button>
+                      <Button size="xs" variant="outline" className="text-slate-600">
+                        <Download className="w-3 h-3" />
+                      </Button>
+                    </div>
+                    {isAdminOrPrincipal && (
+                      <div className="flex items-center gap-1.5 pt-1">
+                        {!isVerified && (
+                          <button
+                            onClick={() => handleVerifyDocument(doc.id, 'VERIFIED')}
+                            className="text-[10.5px] font-bold text-[#990000] hover:underline cursor-pointer"
+                          >
+                            Mark Verified
+                          </button>
+                        )}
+                        {!isRejected && (
+                          <button
+                            onClick={() => handleVerifyDocument(doc.id, 'REJECTED')}
+                            className="text-[10.5px] font-semibold text-slate-500 hover:text-slate-800 ml-auto cursor-pointer"
+                          >
+                            Reject
+                          </button>
+                        )}
+                        <button
+                          onClick={() => handleDeleteDocument(doc.id)}
+                          className="text-[10.5px] font-semibold text-rose-600 hover:underline ml-auto cursor-pointer"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </Card>
       )}
@@ -1339,38 +1604,95 @@ export const StudentProfileClient: React.FC<{
       {activeTab === 'parents' && (
         <div className="space-y-5">
           <Card className="p-6">
-            <h4 className="text-base font-bold text-slate-900 pb-3 border-b border-slate-100 flex items-center gap-2">
-              <Users className="w-5 h-5 text-[#990000]" />
-              <span>Primary Parent / Guardian Contact</span>
-            </h4>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+              <h4 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Users className="w-5 h-5 text-[#990000]" />
+                <span>Parents &amp; Guardian Profile Records</span>
+              </h4>
+              {isAdminOrPrincipal && (
+                <Button
+                  size="xs"
+                  variant="outline"
+                  onClick={() => setIsEditParentOpen(true)}
+                >
+                  Edit Parent Information
+                </Button>
+              )}
+            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 text-xs pt-4">
-              <div>
-                <span className="text-slate-400 block font-semibold">Guardian Name</span>
-                <span className="font-bold text-slate-800 text-sm">
-                  {parent?.user ? `${parent.user.firstName} ${parent.user.lastName}` : 'Guardian on file'}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-4">
+              {/* Father Information Card */}
+              <div className="p-4 rounded-xl border border-slate-200 bg-[#F5F5F5] space-y-3">
+                <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+                  <span className="font-bold text-slate-900 text-sm">Father Details</span>
+                  <Badge variant="rose" size="xs">Primary Parent</Badge>
+                </div>
+                <div className="space-y-1.5 text-xs">
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Full Name:</span>
+                    <strong className="text-slate-800">{parentState.fatherName || 'Not recorded'}</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Phone Number:</span>
+                    <strong className="text-[#990000] font-mono">{parentState.fatherPhone || 'Not recorded'}</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Email Address:</span>
+                    <strong className="text-slate-800">{parentState.fatherEmail || 'Not recorded'}</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Occupation:</span>
+                    <strong className="text-slate-800">{parentState.fatherOccupation || 'Professional'}</strong>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mother Information Card */}
+              <div className="p-4 rounded-xl border border-slate-200 bg-[#F5F5F5] space-y-3">
+                <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+                  <span className="font-bold text-slate-900 text-sm">Mother Details</span>
+                  <Badge variant="slate" size="xs">Co-Guardian</Badge>
+                </div>
+                <div className="space-y-1.5 text-xs">
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Full Name:</span>
+                    <strong className="text-slate-800">{parentState.motherName || 'Not recorded'}</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Phone Number:</span>
+                    <strong className="text-slate-800 font-mono">{parentState.motherPhone || 'Not recorded'}</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Email Address:</span>
+                    <strong className="text-slate-800">{parentState.motherEmail || 'Not recorded'}</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Occupation:</span>
+                    <strong className="text-slate-800">{parentState.motherOccupation || 'Educator / Professional'}</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Emergency & Guardian Contact */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs pt-4 border-t border-slate-100 mt-4">
+              <div className="p-3 bg-white rounded-xl border border-slate-200">
+                <span className="text-slate-400 block font-semibold text-[11px]">Emergency Contact</span>
+                <span className="font-bold text-[#990000] text-sm font-mono mt-0.5 block">
+                  {student.emergencyContact || parentState.fatherPhone || '-'}
                 </span>
               </div>
-              <div>
-                <span className="text-slate-400 block font-semibold">Relationship</span>
-                <span className="font-bold text-slate-800">{parent?.relation || 'Father'}</span>
+              <div className="p-3 bg-white rounded-xl border border-slate-200">
+                <span className="text-slate-400 block font-semibold text-[11px]">Residential Address</span>
+                <span className="font-medium text-slate-800 text-xs mt-0.5 block line-clamp-1">
+                  {student.address || 'Campus Neighborhood'}, {student.city || 'Noida'}
+                </span>
               </div>
-              <div>
-                <span className="text-slate-400 block font-semibold">Occupation</span>
-                <span className="font-bold text-slate-800">{parent?.occupation || 'Chartered Accountant'}</span>
-              </div>
-
-              <div>
-                <span className="text-slate-400 block font-semibold">Mobile Phone</span>
-                <span className="font-bold text-[#16A34A]">{parent?.phone || student.emergencyContact}</span>
-              </div>
-              <div>
-                <span className="text-slate-400 block font-semibold">Email Address</span>
-                <span className="font-bold text-[#990000]">{parent?.user?.email || 'parent.guardian@edvonest.edu'}</span>
-              </div>
-              <div>
-                <span className="text-slate-400 block font-semibold">Emergency Pickup Permitted</span>
-                <Badge variant="emerald" size="xs">Authorized</Badge>
+              <div className="p-3 bg-white rounded-xl border border-slate-200">
+                <span className="text-slate-400 block font-semibold text-[11px]">Parent Portal Account</span>
+                <Badge variant="rose" size="xs" className="mt-1">
+                  Active &amp; Linked
+                </Badge>
               </div>
             </div>
           </Card>
@@ -1388,13 +1710,210 @@ export const StudentProfileClient: React.FC<{
                     <strong className="text-slate-900 block font-semibold">{p.guardianName}</strong>
                     <span className="text-slate-500 text-[11px]">Relation: {p.relationship} • Phone: {p.phone}</span>
                   </div>
-                  <Badge variant="emerald" size="sm">
+                  <Badge variant="slate" size="sm">
                     {p.idProofType} Verified
                   </Badge>
                 </div>
               ))}
             </div>
           </Card>
+        </div>
+      )}
+
+      {/* ==================================================== */}
+      {/* TAB: STUDENT LIFECYCLE & TRANSFER CERTIFICATE (TC) */}
+      {/* ==================================================== */}
+      {activeTab === 'lifecycle' && (
+        <div className="space-y-5">
+          {/* 1. Current Lifecycle Stage Card */}
+          <Card className="p-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+              <div>
+                <h4 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                  <History className="w-5 h-5 text-[#990000]" />
+                  <span>Student Lifecycle &amp; Academic Progression</span>
+                </h4>
+                <p className="text-xs text-slate-500">Audit trail of admissions, annual promotions, section transfers, and exit credentials.</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <Badge variant={student.isArchived ? 'slate' : 'rose'}>
+                  Stage: {student.lifecycleStage?.replace('_', ' ') || 'ACTIVE ENROLLMENT'}
+                </Badge>
+                {isAdminOrPrincipal && !activeTc && (
+                  <Button
+                    size="xs"
+                    variant="primary"
+                    onClick={() => setIsIssueTcModalOpen(true)}
+                    leftIcon={<FileText className="w-3.5 h-3.5" />}
+                  >
+                    Issue Transfer Certificate
+                  </Button>
+                )}
+                {activeTc && (
+                  <Button
+                    size="xs"
+                    variant="outline"
+                    onClick={() => setIsPrintTcModalOpen(true)}
+                    leftIcon={<Printer className="w-3.5 h-3.5 text-[#990000]" />}
+                  >
+                    Print Official TC
+                  </Button>
+                )}
+              </div>
+            </div>
+
+            {/* Lifecycle Stages Bar */}
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 pt-4 text-xs">
+              {[
+                { stage: 'ADMISSION', label: '1. Registered & Enrolled', done: true, date: formatDate(student.admissionDate) },
+                { stage: 'ACTIVE', label: '2. Active Student', done: !student.isArchived, date: 'Current' },
+                { stage: 'PROMOTED', label: '3. Class Promotions', done: (student.promotionLogs || []).length > 0, date: `${(student.promotionLogs || []).length} Logged` },
+                { stage: 'TRANSFERRED', label: '4. Section Transfers', done: (student.sectionTransfers || []).length > 0, date: `${(student.sectionTransfers || []).length} Logged` },
+                { stage: 'TC_ALUMNI', label: '5. TC / Alumni Exit', done: Boolean(activeTc || student.alumniRecord), date: activeTc ? 'TC Issued' : student.alumniRecord ? 'Alumni' : 'Pending' },
+              ].map((step, idx) => (
+                <div
+                  key={idx}
+                  className={`p-3 rounded-xl border ${
+                    step.done
+                      ? 'bg-red-50/50 border-red-200 text-[#990000]'
+                      : 'bg-[#F5F5F5] border-[#E5E5E5] text-neutral-400'
+                  }`}
+                >
+                  <div className="flex items-center justify-between font-bold text-[11px]">
+                    <span>{step.label}</span>
+                    {step.done && <CheckCircle2 className="w-3.5 h-3.5 text-[#990000]" />}
+                  </div>
+                  <span className="text-[10px] block mt-1 opacity-80">{step.date}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* 2. Official Transfer Certificate (TC) Card (if issued) */}
+          {activeTc && (
+            <Card className="p-6 border-[#990000]/30 bg-white shadow-xs">
+              <div className="flex items-center justify-between pb-3 border-b border-[#E5E5E5]">
+                <div>
+                  <h4 className="text-base font-bold text-[#990000] flex items-center gap-2">
+                    <FileText className="w-5 h-5 text-[#990000]" />
+                    <span>Official Transfer Certificate Record</span>
+                  </h4>
+                  <p className="text-xs text-[#737373]">Legally validated school leaving certificate.</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-mono font-bold text-sm text-[#171717]">{activeTc.tcNumber}</span>
+                  <Button size="xs" variant="outline" onClick={() => setIsPrintTcModalOpen(true)} leftIcon={<Printer className="w-3 h-3" />}>
+                    View &amp; Print TC
+                  </Button>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs pt-4">
+                <div className="p-3 bg-[#F5F5F5] rounded-xl border border-[#E5E5E5]">
+                  <span className="text-[#737373] block text-[11px]">Class at Leaving</span>
+                  <strong className="text-[#171717] text-sm">{activeTc.classLeaving}</strong>
+                </div>
+                <div className="p-3 bg-[#F5F5F5] rounded-xl border border-[#E5E5E5]">
+                  <span className="text-[#737373] block text-[11px]">Leaving Reason</span>
+                  <strong className="text-[#171717] text-sm">{activeTc.reasonForLeaving}</strong>
+                </div>
+                <div className="p-3 bg-[#F5F5F5] rounded-xl border border-[#E5E5E5]">
+                  <span className="text-[#737373] block text-[11px]">General Conduct</span>
+                  <strong className="text-[#171717] text-sm">{activeTc.conduct}</strong>
+                </div>
+                <div className="p-3 bg-[#F5F5F5] rounded-xl border border-[#E5E5E5]">
+                  <span className="text-[#737373] block text-[11px]">Fee Dues Clearance</span>
+                  <strong className="text-[#990000] text-sm">{activeTc.duesCleared ? 'Full Cleared' : 'Pending'}</strong>
+                </div>
+              </div>
+            </Card>
+          )}
+
+          {/* 3. Academic Year Enrollment History Table */}
+          <Card className="p-6">
+            <h4 className="text-base font-bold text-slate-900 pb-3 border-b border-slate-100">
+              Academic Year Enrollment History
+            </h4>
+            <div className="overflow-x-auto pt-2">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-[#F5F5F5] text-slate-700 font-bold border-b border-[#E5E5E5]">
+                  <tr>
+                    <th className="p-3">Academic Session</th>
+                    <th className="p-3">Class</th>
+                    <th className="p-3">Section</th>
+                    <th className="p-3">Roll Number</th>
+                    <th className="p-3">Enrollment Status</th>
+                    <th className="p-3">Enrolled On</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#E5E5E5]">
+                  {(student.enrollments || []).map((enr: any) => (
+                    <tr key={enr.id} className="hover:bg-slate-50/50">
+                      <td className="p-3 font-semibold text-[#171717]">{enr.academicYear?.name || 'Session'}</td>
+                      <td className="p-3 font-bold text-[#990000]">{enr.class?.name || 'Class'}</td>
+                      <td className="p-3 font-semibold text-slate-700">Section {enr.section?.name || '-'}</td>
+                      <td className="p-3 font-mono font-semibold text-slate-800">{enr.rollNumber || '-'}</td>
+                      <td className="p-3">
+                        <Badge variant={enr.status === 'ACTIVE' ? 'rose' : enr.status === 'PROMOTED' ? 'amber' : 'slate'} size="xs">
+                          {enr.status}
+                        </Badge>
+                      </td>
+                      <td className="p-3 text-slate-500">{formatDate(enr.createdAt)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Card>
+
+          {/* 4. Section Transfers & Promotions Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            {/* Section Transfers */}
+            <Card className="p-6">
+              <h4 className="text-sm font-bold text-slate-900 pb-2 border-b border-slate-100 flex items-center justify-between">
+                <span>Section Reallocation Logs</span>
+                <Badge variant="slate" size="xs">{(student.sectionTransfers || []).length} Transfers</Badge>
+              </h4>
+              <div className="space-y-2 pt-3 text-xs">
+                {(student.sectionTransfers || []).length === 0 ? (
+                  <p className="text-slate-400 py-4 text-center">No intra-class section transfers recorded.</p>
+                ) : (
+                  (student.sectionTransfers || []).map((st: any) => (
+                    <div key={st.id} className="p-3 rounded-lg bg-[#F5F5F5] border border-[#E5E5E5] space-y-1">
+                      <div className="flex justify-between font-semibold">
+                        <span className="text-[#171717]">Reallocated Section</span>
+                        <span className="text-[10px] text-slate-400">{formatDate(st.transferredAt)}</span>
+                      </div>
+                      <p className="text-slate-600 text-[11px]">{st.reason || 'Administrative adjustment'}</p>
+                    </div>
+                  ))
+                )}
+              </div>
+            </Card>
+
+            {/* Promotion Logs */}
+            <Card className="p-6">
+              <h4 className="text-sm font-bold text-slate-900 pb-2 border-b border-slate-100 flex items-center justify-between">
+                <span>Annual Promotion Audit Logs</span>
+                <Badge variant="slate" size="xs">{(student.promotionLogs || []).length} Promotions</Badge>
+              </h4>
+              <div className="space-y-2 pt-3 text-xs">
+                {(student.promotionLogs || []).length === 0 ? (
+                  <p className="text-slate-400 py-4 text-center">No historical promotion records recorded.</p>
+                ) : (
+                  (student.promotionLogs || []).map((pl: any) => (
+                    <div key={pl.id} className="p-3 rounded-lg bg-[#F5F5F5] border border-[#E5E5E5] space-y-1">
+                      <div className="flex justify-between font-semibold">
+                        <span className="text-[#990000]">Status: {pl.status}</span>
+                        <span className="text-[10px] text-slate-400">{formatDate(pl.createdAt)}</span>
+                      </div>
+                      <p className="text-slate-600 text-[11px]">{pl.eligibilityNotes || 'Annual academic clearance'}</p>
+                    </div>
+                  ))
+                )}
+              </div>
+            </Card>
+          </div>
         </div>
       )}
 
@@ -1584,7 +2103,7 @@ export const StudentProfileClient: React.FC<{
             <Button
               size="sm"
               variant="primary"
-              className="bg-[#16A34A] text-white"
+              className="bg-[#990000] text-white hover:bg-[#C00000]"
               onClick={() => {
                 setIsMessageModalOpen(false);
                 alert('Notice dispatched to guardian!');
@@ -1595,6 +2114,327 @@ export const StudentProfileClient: React.FC<{
           </div>
         </div>
       </Modal>
+
+      {/* ==================================================== */}
+      {/* MODAL 5: UPLOAD NEW STUDENT DOCUMENT */}
+      {/* ==================================================== */}
+      <Modal
+        isOpen={isUploadDocOpen}
+        onClose={() => setIsUploadDocOpen(false)}
+        title="Upload Student Document"
+        subtitle={`Upload verified academic or civil record for ${student.user.firstName}`}
+      >
+        <form onSubmit={handleUploadDocument} className="space-y-4 text-xs">
+          <div>
+            <label className="block font-bold text-slate-700 mb-1">Document Title *</label>
+            <input
+              type="text"
+              required
+              value={newDocForm.title}
+              onChange={(e) => setNewDocForm({ ...newDocForm, title: e.target.value })}
+              placeholder="e.g. CBSE Class 10 Board Marksheet"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-[#990000]"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block font-bold text-slate-700 mb-1">Document Category *</label>
+              <select
+                value={newDocForm.documentType}
+                onChange={(e) => setNewDocForm({ ...newDocForm, documentType: e.target.value })}
+                className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:outline-none focus:border-[#990000]"
+              >
+                <option value="BIRTH_CERTIFICATE">Birth Certificate</option>
+                <option value="TRANSFER_CERTIFICATE">Transfer Certificate (TC)</option>
+                <option value="PREVIOUS_MARKSHEET">Previous Academic Records</option>
+                <option value="ADDRESS_PROOF">Address Proof</option>
+                <option value="STUDENT_PHOTO">Student Photograph</option>
+                <option value="NATIONAL_ID">Aadhaar / National ID</option>
+                <option value="MEDICAL_RECORD">Medical Fitness Certificate</option>
+                <option value="OTHER">Other Institutional Record</option>
+              </select>
+            </div>
+            <div>
+              <label className="block font-bold text-slate-700 mb-1">Document Path / URL *</label>
+              <input
+                type="text"
+                required
+                value={newDocForm.fileUrl}
+                onChange={(e) => setNewDocForm({ ...newDocForm, fileUrl: e.target.value })}
+                placeholder="/docs/student_doc.pdf"
+                className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-[#990000]"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block font-bold text-slate-700 mb-1">Verification Notes</label>
+            <textarea
+              rows={2}
+              value={newDocForm.notes}
+              onChange={(e) => setNewDocForm({ ...newDocForm, notes: e.target.value })}
+              placeholder="e.g. Original physically inspected and attested by registrar"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-[#990000]"
+            />
+          </div>
+
+          <div className="pt-2 flex justify-end gap-2 border-t border-slate-100">
+            <Button size="sm" variant="outline" type="button" onClick={() => setIsUploadDocOpen(false)}>
+              Cancel
+            </Button>
+            <Button size="sm" variant="primary" type="submit" isLoading={uploadDocLoading}>
+              Upload &amp; Save
+            </Button>
+          </div>
+        </form>
+      </Modal>
+
+      {/* ==================================================== */}
+      {/* MODAL 6: EDIT PARENT & GUARDIAN DETAILS */}
+      {/* ==================================================== */}
+      <Modal
+        isOpen={isEditParentOpen}
+        onClose={() => setIsEditParentOpen(false)}
+        title="Edit Parent & Guardian Details"
+        subtitle={`Update contact and family records for ${student.user.firstName}`}
+        maxWidth="lg"
+      >
+        <form onSubmit={handleSaveParent} className="space-y-4 text-xs">
+          <div className="p-3 bg-[#F5F5F5] rounded-xl border border-slate-200 space-y-2">
+            <span className="font-bold text-[#990000] text-sm block">Father Details</span>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label className="block text-slate-600 mb-0.5">Full Name</label>
+                <input
+                  type="text"
+                  value={parentState.fatherName}
+                  onChange={(e) => setParentState({ ...parentState, fatherName: e.target.value })}
+                  className="w-full px-2.5 py-1.5 border border-slate-300 bg-white rounded-md focus:border-[#990000]"
+                />
+              </div>
+              <div>
+                <label className="block text-slate-600 mb-0.5">Phone Number</label>
+                <input
+                  type="tel"
+                  value={parentState.fatherPhone}
+                  onChange={(e) => setParentState({ ...parentState, fatherPhone: e.target.value })}
+                  className="w-full px-2.5 py-1.5 border border-slate-300 bg-white rounded-md focus:border-[#990000]"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label className="block text-slate-600 mb-0.5">Email Address</label>
+                <input
+                  type="email"
+                  value={parentState.fatherEmail}
+                  onChange={(e) => setParentState({ ...parentState, fatherEmail: e.target.value })}
+                  className="w-full px-2.5 py-1.5 border border-slate-300 bg-white rounded-md focus:border-[#990000]"
+                />
+              </div>
+              <div>
+                <label className="block text-slate-600 mb-0.5">Occupation</label>
+                <input
+                  type="text"
+                  value={parentState.fatherOccupation}
+                  onChange={(e) => setParentState({ ...parentState, fatherOccupation: e.target.value })}
+                  className="w-full px-2.5 py-1.5 border border-slate-300 bg-white rounded-md focus:border-[#990000]"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="p-3 bg-[#F5F5F5] rounded-xl border border-slate-200 space-y-2">
+            <span className="font-bold text-slate-900 text-sm block">Mother Details</span>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label className="block text-slate-600 mb-0.5">Full Name</label>
+                <input
+                  type="text"
+                  value={parentState.motherName}
+                  onChange={(e) => setParentState({ ...parentState, motherName: e.target.value })}
+                  className="w-full px-2.5 py-1.5 border border-slate-300 bg-white rounded-md focus:border-[#990000]"
+                />
+              </div>
+              <div>
+                <label className="block text-slate-600 mb-0.5">Phone Number</label>
+                <input
+                  type="tel"
+                  value={parentState.motherPhone}
+                  onChange={(e) => setParentState({ ...parentState, motherPhone: e.target.value })}
+                  className="w-full px-2.5 py-1.5 border border-slate-300 bg-white rounded-md focus:border-[#990000]"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-2 flex justify-end gap-2 border-t border-slate-100">
+            <Button size="sm" variant="outline" type="button" onClick={() => setIsEditParentOpen(false)}>
+              Cancel
+            </Button>
+            <Button size="sm" variant="primary" type="submit" isLoading={saveParentLoading}>
+              Save Details
+            </Button>
+          </div>
+        </form>
+      </Modal>
+
+      {/* ==================================================== */}
+      {/* MODAL 7: ISSUE TRANSFER CERTIFICATE (TC) */}
+      {/* ==================================================== */}
+      <Modal
+        isOpen={isIssueTcModalOpen}
+        onClose={() => setIsIssueTcModalOpen(false)}
+        title="Issue Official Transfer Certificate (TC)"
+        subtitle={`Generate school leaving credentials for ${student.user.firstName}`}
+      >
+        <form onSubmit={handleIssueTc} className="space-y-4 text-xs">
+          <div className="p-3 bg-red-50 border border-red-200 text-[#990000] rounded-xl space-y-1">
+            <span className="font-bold block">Permanent Withdrawal Notice</span>
+            <p className="text-[11px] leading-relaxed">
+              Generating an official TC permanently marks this student as <strong>TC_ISSUED</strong> and archives their active session enrollment.
+            </p>
+          </div>
+
+          <div>
+            <label className="block font-bold text-slate-700 mb-1">Reason for Leaving *</label>
+            <input
+              type="text"
+              required
+              value={tcFormData.reasonForLeaving}
+              onChange={(e) => setTcFormData({ ...tcFormData, reasonForLeaving: e.target.value })}
+              placeholder="e.g. Parent Relocation, Completed Studies"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-[#990000]"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block font-bold text-slate-700 mb-1">Student Conduct Rating</label>
+              <select
+                value={tcFormData.conduct}
+                onChange={(e) => setTcFormData({ ...tcFormData, conduct: e.target.value })}
+                className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:outline-none focus:border-[#990000]"
+              >
+                <option value="EXCELLENT">Excellent</option>
+                <option value="VERY_GOOD">Very Good</option>
+                <option value="GOOD">Good</option>
+                <option value="SATISFACTORY">Satisfactory</option>
+              </select>
+            </div>
+            <div className="flex flex-col justify-end">
+              <label className="flex items-center gap-2 cursor-pointer font-bold text-slate-800">
+                <input
+                  type="checkbox"
+                  checked={tcFormData.duesCleared}
+                  onChange={(e) => setTcFormData({ ...tcFormData, duesCleared: e.target.checked })}
+                  className="w-4 h-4 text-[#990000] rounded focus:ring-[#990000]"
+                />
+                <span>All School Dues Cleared</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label className="block font-bold text-slate-700 mb-1">General Remarks</label>
+            <textarea
+              rows={2}
+              value={tcFormData.remarks}
+              onChange={(e) => setTcFormData({ ...tcFormData, remarks: e.target.value })}
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-[#990000]"
+            />
+          </div>
+
+          <div className="pt-2 flex justify-end gap-2 border-t border-slate-100">
+            <Button size="sm" variant="outline" type="button" onClick={() => setIsIssueTcModalOpen(false)}>
+              Cancel
+            </Button>
+            <Button size="sm" variant="primary" type="submit" isLoading={tcLoading}>
+              Issue TC
+            </Button>
+          </div>
+        </form>
+      </Modal>
+
+      {/* ==================================================== */}
+      {/* MODAL 8: PRINTABLE OFFICIAL TRANSFER CERTIFICATE */}
+      {/* ==================================================== */}
+      {activeTc && (
+        <Modal
+          isOpen={isPrintTcModalOpen}
+          onClose={() => setIsPrintTcModalOpen(false)}
+          title="Official Transfer Certificate Preview"
+          maxWidth="2xl"
+        >
+          <div className="space-y-5 text-xs text-slate-800">
+            {/* Printable Certificate Template */}
+            <div className="p-8 border-4 border-double border-[#990000] rounded-xl bg-white space-y-5 shadow-xs">
+              {/* Header */}
+              <div className="text-center space-y-1 border-b-2 border-[#990000] pb-4">
+                <h2 className="text-xl font-black text-[#990000] tracking-wider uppercase">
+                  EDVONEST ACADEMY
+                </h2>
+                <p className="text-[11px] text-slate-600 uppercase font-semibold">
+                  Recognized &amp; Affiliated to Central Board of Secondary Education (CBSE)
+                </p>
+                <p className="text-[10px] text-slate-400 font-mono">
+                  Affiliation No. 2130892 • School Code: 71029 • Institutional Reg. #EDV-9921
+                </p>
+                <div className="inline-block px-3 py-1 bg-red-50 border border-red-200 text-[#990000] font-black rounded-md text-xs mt-2 uppercase">
+                  TRANSFER CERTIFICATE
+                </div>
+              </div>
+
+              {/* Certificate Metadata */}
+              <div className="flex justify-between font-mono text-[11px] border-b pb-2">
+                <span>TC Number: <strong className="text-[#990000]">{activeTc.tcNumber}</strong></span>
+                <span>Admission No: <strong className="text-slate-900">{student.admissionNumber}</strong></span>
+                <span>Date: <strong>{formatDate(activeTc.leavingDate || new Date())}</strong></span>
+              </div>
+
+              {/* Body particulars */}
+              <div className="space-y-2.5 text-xs leading-relaxed">
+                <p>1. Name of the Pupil: <strong>{student.user.firstName} {student.user.lastName}</strong></p>
+                <p>2. Father’s / Guardian’s Name: <strong>{parentState.fatherName || 'On Institutional File'}</strong></p>
+                <p>3. Mother’s Name: <strong>{parentState.motherName || 'On Institutional File'}</strong></p>
+                <p>4. Nationality: <strong>Indian</strong> • Religion: <strong>General</strong></p>
+                <p>5. Date of First Admission to the School: <strong>{formatDate(student.admissionDate)}</strong></p>
+                <p>6. Date of Birth (in figures): <strong>{formatDate(student.dob)}</strong></p>
+                <p>7. Class in which the pupil last studied: <strong>{activeTc.classLeaving || currentEnrollment?.class?.name}</strong></p>
+                <p>8. School / Board Annual Examination last taken: <strong>Passed with Distinction</strong></p>
+                <p>9. Whether qualified for promotion to higher class: <strong>Yes, Promoted</strong></p>
+                <p>10. Month up to which school dues have been paid: <strong>Full Cleared ({activeTc.duesCleared ? 'No Outstanding' : 'Pending'})</strong></p>
+                <p>11. Reason for leaving the school: <strong>{activeTc.reasonForLeaving}</strong></p>
+                <p>12. General Conduct: <strong>{activeTc.conduct}</strong></p>
+                <p>13. Remarks: <strong>{activeTc.remarks || 'Diligent and well-behaved student.'}</strong></p>
+              </div>
+
+              {/* Signatures */}
+              <div className="grid grid-cols-3 gap-6 pt-10 text-center text-[11px] font-bold text-slate-700">
+                <div className="border-t border-slate-300 pt-2">
+                  <span>Class Teacher</span>
+                </div>
+                <div className="border-t border-slate-300 pt-2">
+                  <span>Checked by (Registrar)</span>
+                </div>
+                <div className="border-t border-slate-300 pt-2">
+                  <span className="text-[#990000]">Principal (Seal &amp; Sign)</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-end gap-2 pt-2">
+              <Button size="sm" variant="outline" onClick={() => setIsPrintTcModalOpen(false)}>
+                Close Preview
+              </Button>
+              <Button size="sm" variant="primary" onClick={() => window.print()} leftIcon={<Printer className="w-3.5 h-3.5" />}>
+                Print Certificate
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
     </div>
   );
 };

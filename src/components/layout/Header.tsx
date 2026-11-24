@@ -96,11 +96,11 @@ export const Header: React.FC<HeaderProps> = ({ user, onOpenDrawer }) => {
 
         {/* Real-time Network Indicator */}
         <div
-          className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold ${online ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-red-50 text-[#990000] border border-red-200'
+          className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold ${online ? 'bg-[#F5F5F5] text-[#171717] border border-[#E5E5E5]' : 'bg-red-50 text-[#990000] border border-red-200'
             }`}
           title={online ? 'Connected to Institutional Cloud OS' : 'Offline mode active (Local Queue)'}
         >
-          {online ? <Wifi className="w-3 h-3 text-emerald-600" /> : <WifiOff className="w-3 h-3 text-[#990000]" />}
+          {online ? <Wifi className="w-3 h-3 text-[#990000]" /> : <WifiOff className="w-3 h-3 text-[#990000]" />}
           <span className="hidden sm:inline">{online ? 'Cloud Synced' : 'Offline Mode'}</span>
         </div>
 

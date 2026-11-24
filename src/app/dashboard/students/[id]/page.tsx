@@ -74,6 +74,19 @@ export default async function StudentProfilePage({
         authorizedPickups: true,
         concessions: true,
         digitalConsents: true,
+        documents: {
+          orderBy: { createdAt: 'desc' },
+        },
+        transferCertificates: {
+          orderBy: { createdAt: 'desc' },
+        },
+        promotionLogs: {
+          orderBy: { createdAt: 'desc' },
+        },
+        sectionTransfers: {
+          orderBy: { transferredAt: 'desc' },
+        },
+        alumniRecord: true,
       },
     }),
     prisma.examSchedule.findMany({

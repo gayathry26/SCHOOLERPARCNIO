@@ -289,6 +289,22 @@ model StudentProfile {
   tcNumber         String?
   tcDate           DateTime?
   leavingReason    String?
+
+  // Parent & Guardian Details
+  fatherName         String?
+  fatherPhone        String?
+  fatherEmail        String?
+  fatherOccupation   String?
+  motherName         String?
+  motherPhone        String?
+  motherEmail        String?
+  motherOccupation   String?
+  guardianName       String?
+  guardianPhone      String?
+  guardianEmail      String?
+  guardianRelation   String?
+  guardianOccupation String?
+
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
@@ -304,25 +320,70 @@ model StudentProfile {
   certificates    IssuedCertificate[]
 
   // Next-Gen Upgrades
-  academicAlerts     AcademicAlert[]
-  healthProfile      StudentHealthProfile?
-  clinicVisits       ClinicVisit[]
-  achievements       StudentAchievement[]
-  authorizedPickups  AuthorizedPickup[]
-  digitalConsents    DigitalConsent[]
-  eventRegistrations EventRegistration[]
-  learningPaths      LearningPath[]
-  revisionSchedules  RevisionSchedule[]
-  mockSubmissions    MockTestSubmission[]
-  promotionLogs      StudentPromotionLog[]
-  sectionTransfers   SectionTransferLog[]
-  alumniRecord       AlumniRecord?
-  concessions        StudentFeeConcession[]
-  feeReminders       FeeReminderLog[]
-  ptmBookings        PtmBooking[]
-  hostelAllocations  HostelBedAllocation[]
-  hostelAttendances  HostelAttendance[]
-  hostelOutpasses    HostelOutpass[]
+  academicAlerts       AcademicAlert[]
+  healthProfile        StudentHealthProfile?
+  clinicVisits         ClinicVisit[]
+  achievements         StudentAchievement[]
+  authorizedPickups    AuthorizedPickup[]
+  digitalConsents      DigitalConsent[]
+  eventRegistrations   EventRegistration[]
+  learningPaths        LearningPath[]
+  revisionSchedules    RevisionSchedule[]
+  mockSubmissions      MockTestSubmission[]
+  promotionLogs        StudentPromotionLog[]
+  sectionTransfers     SectionTransferLog[]
+  alumniRecord         AlumniRecord?
+  concessions          StudentFeeConcession[]
+  feeReminders         FeeReminderLog[]
+  ptmBookings          PtmBooking[]
+  hostelAllocations    HostelBedAllocation[]
+  hostelAttendances    HostelAttendance[]
+  hostelOutpasses      HostelOutpass[]
+  documents            StudentDocument[]
+  transferCertificates TransferCertificateRecord[]
+}
+
+model StudentDocument {
+  id              String    @id @default(cuid())
+  studentId       String
+  title           String
+  documentType    String    // BIRTH_CERTIFICATE, TRANSFER_CERTIFICATE, PREVIOUS_MARKSHEET, ADDRESS_PROOF, STUDENT_PHOTO, NATIONAL_ID, MEDICAL_RECORD, OTHER
+  fileUrl         String    @db.Text
+  fileSize        String?   @default("1.2 MB")
+  format          String?   @default("PDF")
+  status          String    @default("PENDING") // PENDING, VERIFIED, REJECTED
+  verifiedById    String?
+  verifiedAt      DateTime?
+  rejectionReason String?
+  notes           String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  student StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+model TransferCertificateRecord {
+  id               String   @id @default(cuid())
+  tcNumber         String   @unique
+  studentId        String
+  bookNumber       String?  @default("TC-2026/A")
+  admissionNumber  String
+  studentName      String
+  classLeaving     String
+  academicYear     String
+  leavingDate      DateTime @default(now())
+  reasonForLeaving String
+  conduct          String   @default("EXCELLENT") // EXCELLENT, GOOD, SATISFACTORY
+  duesCleared      Boolean  @default(true)
+  attendanceRate   Float?   @default(92.5)
+  issuedById       String?
+  issuedAt         DateTime @default(now())
+  status           String   @default("ISSUED") // DRAFT, ISSUED, CANCELLED
+  remarks          String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  student StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
 }
 
 model TeacherProfile {

@@ -2,8 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { getCurrentUser, hashPassword } from '@/lib/auth';
 import { logAudit } from '@/lib/audit';
-import { verifySectionAccess, getTeacherAuthorizedSections } from '@/lib/classAdvisorGuard';
+import { getTeacherAuthorizedSections } from '@/lib/classAdvisorGuard';
 
+export const dynamic = 'force-dynamic';
+
+/**
+ * GET /api/students
+ * Retrieves students with multi-filter and strict role-based access control.
+ */
 export async function GET(req: NextRequest) {
   try {
     const user = await getCurrentUser();
@@ -12,15 +18,31 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const classId = searchParams.get('classId');
     const sectionId = searchParams.get('sectionId');
-    const status = searchParams.get('status') || 'ACTIVE';
+    const academicYearId = searchParams.get('academicYearId');
+    const status = searchParams.get('status') || 'ACTIVE'; // ACTIVE, ARCHIVED, PROMOTED, TC_ISSUED, ALUMNI, ALL
+    const search = searchParams.get('search')?.toLowerCase().trim() || '';
 
-    // If teacher, resolve their authorized sections
+    // Role-specific filtering
+    let parentStudentIds: string[] | null = null;
+    let selfStudentId: string | null = null;
     let teacherSectionIds: string[] | null = null;
-    if (user.role === 'TEACHER') {
+
+    if (user.role === 'PARENT') {
+      const parentProfile = await prisma.parentProfile.findUnique({
+        where: { userId: user.id },
+        include: { students: true },
+      });
+      parentStudentIds = parentProfile?.students.map((m) => m.studentId) || [];
+    } else if (user.role === 'STUDENT') {
+      const studentProfile = await prisma.studentProfile.findUnique({
+        where: { userId: user.id },
+      });
+      selfStudentId = studentProfile?.id || '__NONE__';
+    } else if (user.role === 'TEACHER') {
       const authSections = await getTeacherAuthorizedSections(user.id);
       teacherSectionIds = authSections.allSectionIds;
 
-      // If querying a specific section, check access
+      // If querying a specific section outside authorization
       if (sectionId && !teacherSectionIds.includes(sectionId)) {
         return NextResponse.json(
           { error: 'Forbidden: You are not authorized to view students in this class section.' },
@@ -29,19 +51,51 @@ export async function GET(req: NextRequest) {
       }
     }
 
-    const whereClause: any = {
-      isArchived: status === 'ARCHIVED',
-    };
+    // Build base where clause
+    const whereClause: any = {};
+
+    if (selfStudentId) {
+      whereClause.id = selfStudentId;
+    } else if (parentStudentIds !== null) {
+      whereClause.id = { in: parentStudentIds };
+    }
+
+    if (status === 'ARCHIVED') {
+      whereClause.isArchived = true;
+    } else if (status === 'TC_ISSUED') {
+      whereClause.lifecycleStage = 'TC_ISSUED';
+    } else if (status === 'ALUMNI') {
+      whereClause.lifecycleStage = 'ALUMNI';
+    } else if (status === 'PROMOTED') {
+      whereClause.lifecycleStage = 'PROMOTED';
+    } else if (status === 'ACTIVE') {
+      whereClause.isArchived = false;
+      whereClause.lifecycleStage = { in: ['ACTIVE_ENROLLMENT', 'ENQUIRY', 'APPLICATION', 'ADMISSION'] };
+    }
+
+    // Academic Year filter on enrollments
+    const enrollmentWhere: any = {};
+    if (academicYearId) {
+      enrollmentWhere.academicYearId = academicYearId;
+    } else {
+      enrollmentWhere.academicYear = { isCurrent: true };
+    }
+    if (status === 'ACTIVE') {
+      enrollmentWhere.status = 'ACTIVE';
+    }
 
     const students = await prisma.studentProfile.findMany({
       where: whereClause,
       include: {
         user: true,
         enrollments: {
-          where: { academicYear: { isCurrent: true } },
-          include: { class: true, section: true },
+          where: enrollmentWhere,
+          include: { class: true, section: true, academicYear: true },
+          orderBy: { createdAt: 'desc' },
         },
         parents: { include: { parent: { include: { user: true } } } },
+        documents: { select: { id: true, documentType: true, status: true } },
+        transferCertificates: { select: { id: true, tcNumber: true, status: true, issuedAt: true } },
         transportAssign: { include: { route: true, stop: true } },
       },
       orderBy: { createdAt: 'desc' },
@@ -50,15 +104,33 @@ export async function GET(req: NextRequest) {
     const formatted = students
       .filter((s) => {
         const currentEnrollment = s.enrollments[0];
+
         // Enforce teacher section boundary
         if (teacherSectionIds && currentEnrollment) {
           if (!teacherSectionIds.includes(currentEnrollment.sectionId)) {
             return false;
           }
         }
-        if (!classId && !sectionId) return true;
+
         if (classId && currentEnrollment?.classId !== classId) return false;
         if (sectionId && currentEnrollment?.sectionId !== sectionId) return false;
+
+        // Search filter
+        if (search) {
+          const fullName = `${s.user.firstName} ${s.user.lastName}`.toLowerCase();
+          const admNo = s.admissionNumber.toLowerCase();
+          const roll = (s.rollNumber || s.enrollments[0]?.rollNumber || '').toLowerCase();
+          const email = (s.user.email || '').toLowerCase();
+          if (
+            !fullName.includes(search) &&
+            !admNo.includes(search) &&
+            !roll.includes(search) &&
+            !email.includes(search)
+          ) {
+            return false;
+          }
+        }
+
         return true;
       })
       .map((s) => ({
@@ -68,36 +140,61 @@ export async function GET(req: NextRequest) {
         name: `${s.user.firstName} ${s.user.lastName}`,
         email: s.user.email,
         gender: s.gender,
+        dob: s.dob.toISOString().split('T')[0],
         bloodGroup: s.bloodGroup || '-',
         className: s.enrollments[0]?.class?.name || 'Unassigned',
         sectionName: s.enrollments[0]?.section?.name || '-',
         classId: s.enrollments[0]?.classId,
         sectionId: s.enrollments[0]?.sectionId,
-        parentName: s.parents[0]?.parent?.user
-          ? `${s.parents[0].parent.user.firstName} ${s.parents[0].parent.user.lastName}`
-          : 'Parent Info On File',
-        parentPhone: s.parents[0]?.parent?.phone || s.emergencyContact,
-        house: s.house || 'General',
+        academicYearName: s.enrollments[0]?.academicYear?.name || 'Current Year',
+        parentName:
+          s.fatherName ||
+          (s.parents[0]?.parent?.user
+            ? `${s.parents[0].parent.user.firstName} ${s.parents[0].parent.user.lastName}`
+            : 'Guardian On File'),
+        parentPhone: s.fatherPhone || s.parents[0]?.parent?.phone || s.emergencyContact || '-',
+        fatherName: s.fatherName,
+        fatherPhone: s.fatherPhone,
+        motherName: s.motherName,
+        motherPhone: s.motherPhone,
+        guardianName: s.guardianName,
+        guardianPhone: s.guardianPhone,
+        address: s.address,
         city: s.city,
+        state: s.state,
+        pincode: s.pincode,
+        house: s.house || 'General',
+        lifecycleStage: s.lifecycleStage,
         isArchived: s.isArchived,
+        tcNumber: s.tcNumber || s.transferCertificates[0]?.tcNumber || null,
+        documentsCount: s.documents.length,
+        verifiedDocsCount: s.documents.filter((d) => d.status === 'VERIFIED').length,
+        admissionDate: s.admissionDate.toISOString().split('T')[0],
       }));
 
-    return NextResponse.json({ students: formatted });
+    return NextResponse.json({
+      students: formatted,
+      totalCount: formatted.length,
+    });
   } catch (error: any) {
     console.error('Error fetching students:', error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
+/**
+ * POST /api/students
+ * Registers a new student with section capacity check, parent linking, and audit logging.
+ */
 export async function POST(req: NextRequest) {
   try {
     const user = await getCurrentUser();
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const ALLOWED_STAFF = ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL', 'VICE_PRINCIPAL', 'RECEPTIONIST', 'TEACHER'];
+    const ALLOWED_STAFF = ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL', 'VICE_PRINCIPAL', 'RECEPTIONIST'];
     if (!ALLOWED_STAFF.includes(user.role)) {
       return NextResponse.json(
-        { error: 'Forbidden: Only authorized administrative staff and class advisors can enroll students.' },
+        { error: 'Forbidden: Only authorized administrative staff can enroll students.' },
         { status: 403 }
       );
     }
@@ -117,11 +214,29 @@ export async function POST(req: NextRequest) {
       emergencyContact,
       classId,
       sectionId,
+      className,
+      sectionName,
       rollNumber,
+      admissionDate,
+      previousSchool,
+      house,
+      // Parent details
       parentName,
       parentPhone,
       parentEmail,
-      house,
+      fatherName,
+      fatherPhone,
+      fatherEmail,
+      fatherOccupation,
+      motherName,
+      motherPhone,
+      motherEmail,
+      motherOccupation,
+      guardianName,
+      guardianPhone,
+      guardianEmail,
+      guardianRelation,
+      guardianOccupation,
     } = body;
 
     // Strict Rule: Section allocation is restricted exclusively to School Administrator
@@ -139,10 +254,58 @@ export async function POST(req: NextRequest) {
     const currentYear = await prisma.academicYear.findFirst({
       where: { isCurrent: true },
     });
-    if (!currentYear) return NextResponse.json({ error: 'No active academic year found' }, { status: 400 });
+    if (!currentYear) return NextResponse.json({ error: 'No active academic year found in the system' }, { status: 400 });
+
+    // Resolve target class and section
+    let targetClassId = classId;
+    let targetSectionId = sectionId;
+
+    if (!targetClassId && className) {
+      const cls = await prisma.class.findFirst({
+        where: { name: className, isActive: true },
+        include: { sections: { where: { isActive: true }, orderBy: { name: 'asc' } } },
+      });
+      if (cls) {
+        targetClassId = cls.id;
+        if (!targetSectionId && (user.role === 'SCHOOL_ADMIN' || user.role === 'SUPER_ADMIN')) {
+          if (sectionName) {
+            const sec = cls.sections.find((s) => s.name === sectionName);
+            if (sec) targetSectionId = sec.id;
+          }
+          if (!targetSectionId && cls.sections[0]) {
+            targetSectionId = cls.sections[0].id;
+          }
+        }
+      }
+    }
+
+    // Validate section capacity availability if section is selected
+    if (targetSectionId) {
+      const targetSec = await prisma.section.findUnique({
+        where: { id: targetSectionId },
+        include: {
+          class: true,
+          _count: {
+            select: { enrollments: { where: { status: 'ACTIVE', academicYearId: currentYear.id } } },
+          },
+        },
+      });
+
+      if (targetSec) {
+        if (targetSec._count.enrollments >= targetSec.capacity) {
+          return NextResponse.json(
+            {
+              error: `Section ${targetSec.class.name} - ${targetSec.name} has reached maximum capacity (${targetSec.capacity} students). Please allocate another section.`,
+            },
+            { status: 400 }
+          );
+        }
+      }
+    }
 
     const defaultPassword = await hashPassword('password123');
-    const admissionNo = `EDV-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+    const admissionNo = `EDV-${new Date().getFullYear()}-${randomSuffix}`;
 
     // 1. Create Student User Account
     const studentUser = await prisma.user.create({
@@ -154,7 +317,7 @@ export async function POST(req: NextRequest) {
         role: 'STUDENT',
         firstName,
         lastName,
-        phone: emergencyContact,
+        phone: emergencyContact || fatherPhone || parentPhone,
       },
     });
 
@@ -171,38 +334,29 @@ export async function POST(req: NextRequest) {
         city: city || 'Noida',
         state: state || 'Uttar Pradesh',
         pincode: pincode || '201301',
-        emergencyContact: emergencyContact || parentPhone || '+91 98000 00000',
-        house: house || 'Emerald',
+        emergencyContact: emergencyContact || fatherPhone || parentPhone || '+91 98000 00000',
+        admissionDate: admissionDate ? new Date(admissionDate) : new Date(),
+        previousSchool: previousSchool || null,
+        house: house || 'Ruby',
+        lifecycleStage: 'ACTIVE_ENROLLMENT',
+        // Parent details
+        fatherName: fatherName || parentName || null,
+        fatherPhone: fatherPhone || parentPhone || null,
+        fatherEmail: fatherEmail || parentEmail || null,
+        fatherOccupation: fatherOccupation || null,
+        motherName: motherName || null,
+        motherPhone: motherPhone || null,
+        motherEmail: motherEmail || null,
+        motherOccupation: motherOccupation || null,
+        guardianName: guardianName || null,
+        guardianPhone: guardianPhone || null,
+        guardianEmail: guardianEmail || null,
+        guardianRelation: guardianRelation || null,
+        guardianOccupation: guardianOccupation || null,
       },
     });
 
-    // 3. Resolve Class & Section (supports ID or Name from Quick Actions)
-    let targetClassId = classId;
-    let targetSectionId = sectionId;
-
-    if (!targetClassId && body.className) {
-      const cls = await prisma.class.findFirst({
-        where: {
-          name: body.className,
-          isActive: true,
-        },
-        include: { sections: { where: { isActive: true }, orderBy: { name: 'asc' } } },
-      });
-      if (cls) {
-        targetClassId = cls.id;
-        // Section allocation is only assigned if admin or if sectionName provided by admin
-        if (!targetSectionId && (user.role === 'SCHOOL_ADMIN' || user.role === 'SUPER_ADMIN')) {
-          if (body.sectionName) {
-            const sec = cls.sections.find((s) => s.name === body.sectionName);
-            if (sec) targetSectionId = sec.id;
-          }
-          if (!targetSectionId && cls.sections[0]) {
-            targetSectionId = cls.sections[0].id;
-          }
-        }
-      }
-    }
-
+    // 3. Create Student Enrollment in Current Academic Year
     if (targetClassId) {
       await prisma.studentEnrollment.create({
         data: {
@@ -217,21 +371,25 @@ export async function POST(req: NextRequest) {
     }
 
     // 4. Create or Link Parent Account
-    if (parentName) {
-      const pEmail = parentEmail || `parent.${admissionNo.toLowerCase()}@edvonest.com`;
-      let pUser = await prisma.user.findUnique({ where: { email: pEmail } });
+    const resolvedParentName = fatherName || parentName;
+    const resolvedParentPhone = fatherPhone || parentPhone || emergencyContact;
+    const resolvedParentEmail =
+      fatherEmail || parentEmail || `parent.${admissionNo.toLowerCase()}@edvonest.com`;
+
+    if (resolvedParentName) {
+      let pUser = await prisma.user.findUnique({ where: { email: resolvedParentEmail } });
       if (!pUser) {
-        const [pFirst, ...pRest] = parentName.split(' ');
+        const [pFirst, ...pRest] = resolvedParentName.split(' ');
         pUser = await prisma.user.create({
           data: {
             schoolId: user.schoolId,
-            email: pEmail,
+            email: resolvedParentEmail,
             username: `parent.${admissionNo.toLowerCase()}`,
             passwordHash: defaultPassword,
             role: 'PARENT',
             firstName: pFirst || 'Parent',
             lastName: pRest.join(' ') || 'Guardian',
-            phone: parentPhone || emergencyContact,
+            phone: resolvedParentPhone,
           },
         });
       }
@@ -241,7 +399,9 @@ export async function POST(req: NextRequest) {
         pProfile = await prisma.parentProfile.create({
           data: {
             userId: pUser.id,
-            phone: parentPhone || emergencyContact || '+91 98000 00000',
+            relation: fatherName ? 'Father' : guardianRelation || 'Guardian',
+            occupation: fatherOccupation || guardianOccupation || 'Professional',
+            phone: resolvedParentPhone || '+91 98000 00000',
             address: address || 'School Neighborhood',
           },
         });
@@ -263,10 +423,16 @@ export async function POST(req: NextRequest) {
       action: 'CREATE_STUDENT_ENROLLMENT',
       module: 'STUDENTS',
       recordId: studentProfile.id,
-      newValue: `Created student ${firstName} ${lastName} (Adm #${admissionNo}) in Class & Section`,
+      newValue: `Enrolled student ${firstName} ${lastName} (Adm #${admissionNo}) in Class/Section`,
     });
 
-    return NextResponse.json({ success: true, student: studentProfile });
+    return NextResponse.json({
+      success: true,
+      student: {
+        ...studentProfile,
+        admissionNumber: admissionNo,
+      },
+    });
   } catch (error: any) {
     console.error('Error creating student:', error);
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -275,7 +441,7 @@ export async function POST(req: NextRequest) {
 
 /**
  * PUT /api/students
- * Admin-only: Allocate or update a student's section and enrollment.
+ * Updates student profile, section allocation, or status.
  */
 export async function PUT(req: NextRequest) {
   try {
@@ -283,7 +449,35 @@ export async function PUT(req: NextRequest) {
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const body = await req.json();
-    const { studentId, sectionId, classId, rollNumber, isArchived } = body;
+    const {
+      studentId,
+      sectionId,
+      classId,
+      rollNumber,
+      isArchived,
+      lifecycleStage,
+      bloodGroup,
+      house,
+      emergencyContact,
+      address,
+      city,
+      state,
+      pincode,
+      fatherName,
+      fatherPhone,
+      fatherEmail,
+      fatherOccupation,
+      motherName,
+      motherPhone,
+      motherEmail,
+      motherOccupation,
+      guardianName,
+      guardianPhone,
+      guardianEmail,
+      guardianRelation,
+      guardianOccupation,
+      previousSchool,
+    } = body;
 
     if (!studentId) {
       return NextResponse.json({ error: 'Student ID is required.' }, { status: 400 });
@@ -301,6 +495,28 @@ export async function PUT(req: NextRequest) {
       where: { isCurrent: true },
     });
 
+    // Check capacity if updating section
+    if (sectionId && (user.role === 'SCHOOL_ADMIN' || user.role === 'SUPER_ADMIN')) {
+      const targetSec = await prisma.section.findUnique({
+        where: { id: sectionId },
+        include: {
+          class: true,
+          _count: {
+            select: { enrollments: { where: { status: 'ACTIVE', academicYearId: currentYear?.id } } },
+          },
+        },
+      });
+
+      if (targetSec && targetSec._count.enrollments >= targetSec.capacity) {
+        return NextResponse.json(
+          {
+            error: `Section ${targetSec.class.name} - ${targetSec.name} is at maximum capacity (${targetSec.capacity} students).`,
+          },
+          { status: 400 }
+        );
+      }
+    }
+
     if (sectionId || classId) {
       const activeEnrollment = await prisma.studentEnrollment.findFirst({
         where: { studentId, status: 'ACTIVE' },
@@ -308,6 +524,20 @@ export async function PUT(req: NextRequest) {
       });
 
       if (activeEnrollment) {
+        // If section is changing, log section transfer
+        if (sectionId && sectionId !== activeEnrollment.sectionId && currentYear) {
+          await prisma.sectionTransferLog.create({
+            data: {
+              studentId,
+              academicYearId: currentYear.id,
+              fromSectionId: activeEnrollment.sectionId,
+              toSectionId: sectionId,
+              reason: 'Administrative Section Reallocation',
+              transferredById: user.id,
+            },
+          });
+        }
+
         await prisma.studentEnrollment.update({
           where: { id: activeEnrollment.id },
           data: {
@@ -330,28 +560,54 @@ export async function PUT(req: NextRequest) {
       }
     }
 
-    if (rollNumber !== undefined || isArchived !== undefined) {
+    // Update Profile fields
+    const updateData: any = {};
+    if (rollNumber !== undefined) updateData.rollNumber = rollNumber;
+    if (isArchived !== undefined) updateData.isArchived = isArchived;
+    if (lifecycleStage !== undefined) updateData.lifecycleStage = lifecycleStage;
+    if (bloodGroup !== undefined) updateData.bloodGroup = bloodGroup;
+    if (house !== undefined) updateData.house = house;
+    if (emergencyContact !== undefined) updateData.emergencyContact = emergencyContact;
+    if (address !== undefined) updateData.address = address;
+    if (city !== undefined) updateData.city = city;
+    if (state !== undefined) updateData.state = state;
+    if (pincode !== undefined) updateData.pincode = pincode;
+    if (previousSchool !== undefined) updateData.previousSchool = previousSchool;
+
+    // Parent details
+    if (fatherName !== undefined) updateData.fatherName = fatherName;
+    if (fatherPhone !== undefined) updateData.fatherPhone = fatherPhone;
+    if (fatherEmail !== undefined) updateData.fatherEmail = fatherEmail;
+    if (fatherOccupation !== undefined) updateData.fatherOccupation = fatherOccupation;
+    if (motherName !== undefined) updateData.motherName = motherName;
+    if (motherPhone !== undefined) updateData.motherPhone = motherPhone;
+    if (motherEmail !== undefined) updateData.motherEmail = motherEmail;
+    if (motherOccupation !== undefined) updateData.motherOccupation = motherOccupation;
+    if (guardianName !== undefined) updateData.guardianName = guardianName;
+    if (guardianPhone !== undefined) updateData.guardianPhone = guardianPhone;
+    if (guardianEmail !== undefined) updateData.guardianEmail = guardianEmail;
+    if (guardianRelation !== undefined) updateData.guardianRelation = guardianRelation;
+    if (guardianOccupation !== undefined) updateData.guardianOccupation = guardianOccupation;
+
+    if (Object.keys(updateData).length > 0) {
       await prisma.studentProfile.update({
         where: { id: studentId },
-        data: {
-          rollNumber: rollNumber !== undefined ? rollNumber : undefined,
-          isArchived: isArchived !== undefined ? isArchived : undefined,
-        },
+        data: updateData,
       });
     }
 
     await logAudit({
       schoolId: user.schoolId,
       userId: user.id,
-      action: 'UPDATE_STUDENT_SECTION_ALLOCATION',
+      action: 'UPDATE_STUDENT_PROFILE',
       module: 'STUDENTS',
       recordId: studentId,
-      newValue: `Updated section allocation to ${sectionId} for student ${studentId}`,
+      newValue: `Updated student ${studentId} records`,
     });
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error('Error updating student section allocation:', error);
+    console.error('Error updating student:', error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

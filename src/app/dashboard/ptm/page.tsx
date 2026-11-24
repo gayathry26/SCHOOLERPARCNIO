@@ -66,8 +66,8 @@ export default async function PtmPage() {
         isParent && parentProfile
           ? { parentId: parentProfile.id }
           : isTeacher && teacherProfile
-          ? { teacherId: teacherProfile.id }
-          : {},
+            ? { teacherId: teacherProfile.id }
+            : {},
       include: {
         ptmEvent: true,
         slot: true,
