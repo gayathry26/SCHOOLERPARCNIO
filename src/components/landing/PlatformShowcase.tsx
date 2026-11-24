@@ -75,7 +75,7 @@ export const PlatformShowcase: React.FC = () => {
           {activeTab === 'admin' && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-5 space-y-4">
-                <Badge variant="blue" size="md">
+                <Badge variant="red" size="md">
                   Institutional Governance
                 </Badge>
                 <h3 className="text-2xl sm:text-3xl font-black text-[#171717]">
@@ -87,15 +87,15 @@ export const PlatformShowcase: React.FC = () => {
 
                 <div className="space-y-3 pt-2 text-sm sm:text-base">
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>Real-time morning student &amp; faculty headcount (94.8% Present)</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>Automated AES-256 cloud disaster recovery backups</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>1-click finalize &amp; lock CBSE board examination gradebooks</span>
                   </div>
                 </div>
@@ -116,20 +116,20 @@ export const PlatformShowcase: React.FC = () => {
                     <h4 className="font-bold text-[#171717] text-sm sm:text-base">Campus Vitals Live Stream</h4>
                     <span className="text-xs text-slate-500 font-medium">CBSE Affiliation #89410 • 1,248 Active Students</span>
                   </div>
-                  <span className="px-2.5 py-1 rounded-full bg-[#EAF8EC] text-[#16A34A] font-bold text-xs border border-[#bbf0c5]">
-                    Healthy
+                  <span className="px-2.5 py-1 rounded-full bg-red-50 text-[#990000] font-bold text-xs border border-red-200">
+                    Live Synced
                   </span>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3.5 text-sm">
                   <div className="p-3.5 bg-[#F5F5F5] rounded-xl border border-[#E5E5E5]">
                     <span className="text-xs text-slate-500 font-medium">Student Attendance</span>
-                    <div className="text-2xl font-black text-emerald-700 mt-1">94.8%</div>
+                    <div className="text-2xl font-black text-[#990000] mt-1">94.8%</div>
                     <div className="text-xs text-slate-500 font-medium mt-0.5">1,184 Present Today</div>
                   </div>
                   <div className="p-3.5 bg-[#F5F5F5] rounded-xl border border-[#E5E5E5]">
                     <span className="text-xs text-slate-500 font-medium">Q3 Fee Realized</span>
-                    <div className="text-2xl font-black text-[#990000] mt-1">₹ 48.5L</div>
+                    <div className="text-2xl font-black text-[#C00000] mt-1">₹ 48.5L</div>
                     <div className="text-xs text-slate-500 font-medium mt-0.5">82.5% Target Achieved</div>
                   </div>
                 </div>
@@ -149,7 +149,7 @@ export const PlatformShowcase: React.FC = () => {
           {activeTab === 'teacher' && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-5 space-y-4">
-                <Badge variant="green" size="md">
+                <Badge variant="red" size="md">
                   Classroom Efficiency
                 </Badge>
                 <h3 className="text-2xl sm:text-3xl font-black text-[#171717]">
@@ -161,15 +161,15 @@ export const PlatformShowcase: React.FC = () => {
 
                 <div className="space-y-3 pt-2 text-sm sm:text-base">
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>&ldquo;Mark All Present&rdquo; button with fast absence toggles</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>Offline queue keeps working during Wi-Fi drops</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>Direct substitute teacher coverage when on leave</span>
                   </div>
                 </div>
@@ -190,7 +190,7 @@ export const PlatformShowcase: React.FC = () => {
                     <h4 className="font-bold text-[#171717] text-sm sm:text-base">Class 10-A Attendance Register</h4>
                     <span className="text-xs text-slate-500 font-medium">Form Tutor: Mr. Vikram Verma • Today&apos;s Session</span>
                   </div>
-                  <span className="px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 text-xs font-bold">
+                  <span className="px-2.5 py-1 rounded bg-red-50 text-[#990000] text-xs font-bold border border-red-200">
                     43/45 Present
                   </span>
                 </div>
@@ -201,7 +201,7 @@ export const PlatformShowcase: React.FC = () => {
                       <span className="font-bold text-slate-900 block text-sm sm:text-base">01. Aarav Sharma</span>
                       <span className="text-xs text-slate-500 font-mono">EDV-2025-0101</span>
                     </div>
-                    <span className="px-3 py-1.5 rounded bg-[#35B84A] text-white font-bold text-xs sm:text-sm">
+                    <span className="px-3 py-1.5 rounded bg-[#990000] text-white font-bold text-xs sm:text-sm">
                       Present
                     </span>
                   </div>
@@ -210,7 +210,7 @@ export const PlatformShowcase: React.FC = () => {
                       <span className="font-bold text-slate-900 block text-sm sm:text-base">02. Ananya Deshmukh</span>
                       <span className="text-xs text-slate-500 font-mono">EDV-2025-0102</span>
                     </div>
-                    <span className="px-3 py-1.5 rounded bg-[#35B84A] text-white font-bold text-xs sm:text-sm">
+                    <span className="px-3 py-1.5 rounded bg-[#990000] text-white font-bold text-xs sm:text-sm">
                       Present
                     </span>
                   </div>
@@ -219,7 +219,7 @@ export const PlatformShowcase: React.FC = () => {
                       <span className="font-bold text-slate-900 block text-sm sm:text-base">03. Devansh Bhatia</span>
                       <span className="text-xs text-slate-500 font-mono">EDV-2025-0103</span>
                     </div>
-                    <span className="px-3 py-1.5 rounded bg-rose-600 text-white font-bold text-xs sm:text-sm">
+                    <span className="px-3 py-1.5 rounded bg-[#171717] text-white font-bold text-xs sm:text-sm">
                       Absent (SMS Sent)
                     </span>
                   </div>
@@ -232,7 +232,7 @@ export const PlatformShowcase: React.FC = () => {
           {activeTab === 'parent' && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-5 space-y-4">
-                <Badge variant="amber" size="md">
+                <Badge variant="red" size="md">
                   Parent Peace of Mind
                 </Badge>
                 <h3 className="text-2xl sm:text-3xl font-black text-[#171717]">
@@ -244,15 +244,15 @@ export const PlatformShowcase: React.FC = () => {
 
                 <div className="space-y-3 pt-2 text-sm sm:text-base">
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>Real-time bus arrival notifications &amp; driver contact</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>Instant fee payments via UPI with official print receipts</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>Multi-child ward switcher for families with multiple students</span>
                   </div>
                 </div>
@@ -270,25 +270,25 @@ export const PlatformShowcase: React.FC = () => {
               <div className="lg:col-span-7 bg-white rounded-2xl border border-[#E5E5E5] p-5 sm:p-6 shadow-sm space-y-4">
                 <div className="bg-[#990000] text-white p-4 sm:p-5 rounded-xl flex items-center justify-between">
                   <div>
-                    <span className="text-xs uppercase font-bold text-cyan-200">Student Ward</span>
+                    <span className="text-xs uppercase font-bold text-red-200">Student Ward</span>
                     <h4 className="text-base sm:text-lg font-bold mt-0.5">Aarav Sharma • Class 10-A</h4>
-                    <p className="text-xs sm:text-sm text-cyan-100">Attendance: 94.8% (Eligible for CBSE Exams)</p>
+                    <p className="text-xs sm:text-sm text-red-100">Attendance: 94.8% (Eligible for CBSE Exams)</p>
                   </div>
                   <div className="text-right">
-                    <span className="text-xs text-cyan-200 uppercase font-bold block">Term Dues</span>
-                    <span className="text-base sm:text-lg font-black text-amber-300">₹ 0 (Paid)</span>
+                    <span className="text-xs text-red-200 uppercase font-bold block">Term Dues</span>
+                    <span className="text-base sm:text-lg font-bold text-white font-mono">₹ 0 (Paid)</span>
                   </div>
                 </div>
 
-                <div className="p-3.5 bg-[#FEF3C7] border border-[#FDE68A] rounded-xl flex items-center justify-between text-sm">
+                <div className="p-3.5 bg-[#F5F5F5] border border-[#E5E5E5] rounded-xl flex items-center justify-between text-sm">
                   <div className="flex items-center gap-2.5">
-                    <Bus className="w-5 h-5 text-amber-800 shrink-0" />
+                    <Bus className="w-5 h-5 text-[#990000] shrink-0" />
                     <div>
-                      <span className="font-bold text-amber-900 block text-sm sm:text-base">Bus Route #4 North Express</span>
-                      <span className="text-xs text-amber-700">Driver: Mr. Ramesh Yadav (+91 98765 43210)</span>
+                      <span className="font-bold text-[#171717] block text-sm sm:text-base">Bus Route #4 North Express</span>
+                      <span className="text-xs text-[#525252]">Driver: Mr. Ramesh Yadav (+91 98765 43210)</span>
                     </div>
                   </div>
-                  <span className="px-2.5 py-1 rounded bg-white text-amber-800 font-bold text-xs shadow-2xs shrink-0">
+                  <span className="px-2.5 py-1 rounded bg-red-50 text-[#990000] font-bold text-xs border border-red-200 shrink-0">
                     ETA 10 Mins
                   </span>
                 </div>
@@ -300,7 +300,7 @@ export const PlatformShowcase: React.FC = () => {
           {activeTab === 'student' && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-5 space-y-4">
-                <Badge variant="purple" size="md">
+                <Badge variant="red" size="md">
                   Active Learning
                 </Badge>
                 <h3 className="text-2xl sm:text-3xl font-black text-[#171717]">
@@ -312,15 +312,15 @@ export const PlatformShowcase: React.FC = () => {
 
                 <div className="space-y-3 pt-2 text-sm sm:text-base">
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>Period timetable with room numbers and teacher names</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>Homework submission with photo or document attachment</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>AI Study Assistant grounded in textbook curriculum</span>
                   </div>
                 </div>
@@ -342,13 +342,13 @@ export const PlatformShowcase: React.FC = () => {
                 </div>
 
                 <div className="space-y-2.5 text-sm">
-                  <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-between">
+                  <div className="p-3 bg-red-50 border border-red-200 rounded-xl flex items-center justify-between">
                     <div>
-                      <span className="text-xs font-bold text-emerald-800">08:30 – 09:15 AM</span>
+                      <span className="text-xs font-bold text-[#990000]">08:30 – 09:15 AM</span>
                       <h5 className="font-bold text-slate-900 mt-0.5 text-sm sm:text-base">Mathematics (Quadratic Equations)</h5>
                       <p className="text-xs text-slate-500">Mr. Vikram Verma • Room 1001</p>
                     </div>
-                    <span className="px-2.5 py-1 bg-emerald-600 text-white font-bold text-xs rounded">
+                    <span className="px-2.5 py-1 bg-[#990000] text-white font-bold text-xs rounded">
                       In Progress
                     </span>
                   </div>
@@ -372,7 +372,7 @@ export const PlatformShowcase: React.FC = () => {
           {activeTab === 'finance' && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-5 space-y-4">
-                <Badge variant="blue" size="md">
+                <Badge variant="red" size="md">
                   Accounting Rigor
                 </Badge>
                 <h3 className="text-2xl sm:text-3xl font-black text-[#171717]">
@@ -384,15 +384,15 @@ export const PlatformShowcase: React.FC = () => {
 
                 <div className="space-y-3 pt-2 text-sm sm:text-base">
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>Instant printable receipts with school affiliation headers</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>Idempotent payment processing with bank reference tags</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-slate-800 font-semibold">
-                    <CheckCircle2 className="w-5 h-5 text-[#35B84A] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#990000] shrink-0" />
                     <span>One-click CSV financial exports for annual audits</span>
                   </div>
                 </div>
@@ -413,7 +413,7 @@ export const PlatformShowcase: React.FC = () => {
                     <h4 className="font-bold text-[#171717] text-sm sm:text-base">Fee Counter Ledger</h4>
                     <span className="text-xs text-slate-500 font-medium">Cash, Cheque, and Online UPI Inflow</span>
                   </div>
-                  <span className="font-mono text-xs sm:text-sm font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">
+                  <span className="font-mono text-xs sm:text-sm font-bold text-[#990000] bg-red-50 px-2.5 py-1 rounded border border-red-200">
                     Counter: Open
                   </span>
                 </div>
@@ -426,7 +426,7 @@ export const PlatformShowcase: React.FC = () => {
                   </div>
                   <div className="text-right">
                     <div className="text-xl sm:text-2xl font-black text-slate-900 font-mono">₹ 18,000</div>
-                    <span className="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">
+                    <span className="text-xs bg-red-50 text-[#990000] border border-red-200 font-bold px-2 py-0.5 rounded">
                       PAID
                     </span>
                   </div>

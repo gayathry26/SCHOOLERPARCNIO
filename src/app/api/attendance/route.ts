@@ -3,12 +3,27 @@ import { prisma } from '@/lib/db';
 import { getCurrentUser } from '@/lib/auth';
 import { canAccessModule } from '@/lib/permissions';
 import { logAudit } from '@/lib/audit';
+import { verifySectionAccess } from '@/lib/classAdvisorGuard';
 
 export async function GET(req: NextRequest) {
   try {
+    const user = await getCurrentUser();
+    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
     const { searchParams } = new URL(req.url);
     const sectionId = searchParams.get('sectionId');
     const dateStr = searchParams.get('date') || new Date().toISOString().slice(0, 10);
+
+    // If teacher provided a sectionId, check authorization
+    if (user.role === 'TEACHER' && sectionId) {
+      const access = await verifySectionAccess(user, sectionId);
+      if (!access.authorized) {
+        return NextResponse.json(
+          { error: 'Forbidden: You are not authorized to view attendance for this section.' },
+          { status: 403 }
+        );
+      }
+    }
 
     const date = new Date(dateStr);
     date.setHours(0, 0, 0, 0);
@@ -50,6 +65,17 @@ export async function POST(req: NextRequest) {
 
     if (!sectionId || !records || !Array.isArray(records)) {
       return NextResponse.json({ error: 'Invalid attendance payload' }, { status: 400 });
+    }
+
+    // RBAC check: verify section access for teacher
+    if (user.role === 'TEACHER') {
+      const access = await verifySectionAccess(user, sectionId);
+      if (!access.authorized) {
+        return NextResponse.json(
+          { error: 'Forbidden: You are not authorized to mark attendance for this class section.' },
+          { status: 403 }
+        );
+      }
     }
 
     const currentYear = await prisma.academicYear.findFirst({ where: { isCurrent: true } });

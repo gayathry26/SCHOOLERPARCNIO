@@ -270,7 +270,7 @@ export const PrincipalDashboardView: React.FC<PrincipalDashboardProps> = ({
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#35B84A]" />
+              <Sparkles className="w-4 h-4 text-[#990000]" />
               <span>Upcoming School Events &amp; Inspections</span>
             </CardTitle>
             <Link href="/dashboard/events">
@@ -295,3 +295,4 @@ export const PrincipalDashboardView: React.FC<PrincipalDashboardProps> = ({
     </div>
   );
 };
+

@@ -61,14 +61,14 @@ export const StudentDashboardView: React.FC<StudentDashboardProps> = ({
               <h2 className="text-base sm:text-lg font-bold">
                 {studentData?.user?.firstName || 'Student'} {studentData?.user?.lastName || ''}
               </h2>
-              <span className="text-[10px] bg-emerald-500/20 text-[#35B84A] px-2 py-0.5 rounded-full font-bold border border-emerald-400/30">
+              <span className="text-[10px] bg-emerald-500/20 text-[#990000] px-2 py-0.5 rounded-full font-bold border border-emerald-400/30">
                 Active
               </span>
             </div>
             <p className="text-xs text-[#FEF2F2]">
               Admission #{studentData?.admissionNumber || 'EDV-2025-0101'} • Roll No: {studentData?.rollNumber || '01'}
             </p>
-            <p className="text-xs text-[#35B84A] font-bold mt-0.5">
+            <p className="text-xs text-[#990000] font-bold mt-0.5">
               Class 10 - Section A • House: {studentData?.house || 'Emerald'}
             </p>
           </div>
@@ -76,7 +76,7 @@ export const StudentDashboardView: React.FC<StudentDashboardProps> = ({
 
         <div className="bg-white/10 p-3 rounded-xl border border-white/20">
           <p className="text-[10px] text-[#FEF2F2] uppercase tracking-wider font-semibold">Attendance Rate</p>
-          <p className="text-xl font-black text-[#35B84A] mt-0.5">94.2%</p>
+          <p className="text-xl font-black text-[#990000] mt-0.5">94.2%</p>
           <p className="text-[10px] text-[#FEF2F2]">CBSE Board Exam Eligible</p>
         </div>
 
@@ -90,15 +90,15 @@ export const StudentDashboardView: React.FC<StudentDashboardProps> = ({
       </div>
 
       {/* AI Study Assistant Quick Doubt Bar */}
-      <div className="bg-gradient-to-r from-[#EAF8EC] via-[#FEF2F2] to-[#FEF2F2] border border-[#bbf0c5] rounded-2xl p-4 sm:p-5 shadow-2xs">
+      <div className="bg-gradient-to-r from-[#FEF2F2] via-[#FEF2F2] to-[#FEF2F2] border border-[#FECACA] rounded-2xl p-4 sm:p-5 shadow-2xs">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-[#16A34A]" />
+            <Sparkles className="w-4 h-4 text-[#990000]" />
             <h3 className="text-xs font-bold text-[#171717] uppercase tracking-wider">
               AI Study Assistant — Instant Doubt Solver
             </h3>
           </div>
-          <span className="text-[10px] font-bold text-[#16A34A] bg-white px-2 py-0.5 rounded-full border border-[#bbf0c5]">
+          <span className="text-[10px] font-bold text-[#990000] bg-white px-2 py-0.5 rounded-full border border-[#FECACA]">
             Powered by Gemini
           </span>
         </div>
@@ -156,9 +156,9 @@ export const StudentDashboardView: React.FC<StudentDashboardProps> = ({
               </Link>
             </CardHeader>
             <div className="space-y-2.5">
-              <div className="p-3 bg-[#EAF8EC] border border-[#bbf0c5] rounded-xl flex items-center justify-between text-xs">
+              <div className="p-3 bg-[#FEF2F2] border border-[#FECACA] rounded-xl flex items-center justify-between text-xs">
                 <div>
-                  <span className="text-[10px] bg-[#35B84A] text-white font-bold px-2 py-0.5 rounded-full">
+                  <span className="text-[10px] bg-[#990000] text-white font-bold px-2 py-0.5 rounded-full">
                     08:30 – 09:15 AM
                   </span>
                   <h4 className="text-xs font-bold text-[#171717] mt-1.5">Mathematics (Algebra)</h4>
@@ -239,7 +239,7 @@ export const StudentDashboardView: React.FC<StudentDashboardProps> = ({
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <BellRing className="w-4 h-4 text-[#35B84A]" />
+            <BellRing className="w-4 h-4 text-[#990000]" />
             <span>School Announcements</span>
           </CardTitle>
           <Link href="/dashboard/communication">
@@ -262,3 +262,4 @@ export const StudentDashboardView: React.FC<StudentDashboardProps> = ({
     </div>
   );
 };
+

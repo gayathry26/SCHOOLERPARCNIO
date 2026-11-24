@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
-  UserCheck,
+  ShieldCheck,
   GraduationCap,
   BookOpen,
   DollarSign,
-  User,
   HeartHandshake,
+  User,
   Lock,
   ArrowRight,
   ArrowLeft,
@@ -19,7 +19,6 @@ import {
   Layers,
   FileCheck2,
   AlertCircle,
-  ShieldCheck,
 } from 'lucide-react';
 import { EdvoNestLogo } from '@/components/ui/EdvoNestLogo';
 
@@ -31,13 +30,14 @@ interface DemoAccount {
   icon: React.ComponentType<{ className?: string }>;
 }
 
+// Student login is excluded as explicitly requested: "students login dont need"
 const DEMO_ACCOUNTS: DemoAccount[] = [
   {
     role: 'Admin',
     roleKey: 'SCHOOL_ADMIN',
     email: 'admin@edvonest.com',
     pass: 'password123',
-    icon: UserCheck,
+    icon: ShieldCheck,
   },
   {
     role: 'Principal',
@@ -47,7 +47,7 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     icon: GraduationCap,
   },
   {
-    role: 'Teacher',
+    role: 'Faculty',
     roleKey: 'TEACHER',
     email: 'teacher.math@edvonest.com',
     pass: 'password123',
@@ -136,7 +136,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-[#0A0A0A] font-sans selection:bg-[#990000] selection:text-white">
       {/* =========================================================================
-          LEFT SIDE: Solid Dark / Pitch Black Presentation (Matches CampusCorpo Reference)
+          LEFT SIDE: Solid Dark / Pitch Black Presentation (Exact CampusCorpo Style)
           ========================================================================= */}
       <div className="bg-[#0A0A0A] text-white flex flex-col justify-between p-8 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-[#262626] relative overflow-hidden">
         {/* Top: Logo & Institution Meta */}
@@ -165,22 +165,22 @@ export default function LoginPage() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.14]">
-            Empowering Connected School Operations
+            Empowering Campus Careers &amp; Academics
           </h1>
 
           <p className="text-sm sm:text-base text-[#A3A3A3] leading-relaxed font-normal">
-            Unified operating system for school management, educators, accountants, and parents connecting academics, classroom registers, fees, and safety pipelines.
+            Unified platform for school administration, faculty coordinators, accountants, and parents connecting academics, classroom registers, fees, and safety pipelines.
           </p>
 
           {/* 2 Minimal Cards on Solid Dark Background */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
             <div className="p-4 rounded-xl bg-[#141414] border border-[#262626] flex items-center gap-3 text-white">
-              <Layers className="w-5 h-5 text-[#990000] shrink-0" />
+              <Layers className="w-5 h-5 text-white/80 shrink-0" />
               <span className="text-sm font-semibold tracking-tight">16+ Core ERP Modules</span>
             </div>
 
             <div className="p-4 rounded-xl bg-[#141414] border border-[#262626] flex items-center gap-3 text-white">
-              <FileCheck2 className="w-5 h-5 text-[#990000] shrink-0" />
+              <FileCheck2 className="w-5 h-5 text-white/80 shrink-0" />
               <span className="text-sm font-semibold tracking-tight">CBSE Examination &amp; Gradebooks</span>
             </div>
           </div>
@@ -191,14 +191,14 @@ export default function LoginPage() {
           <Link href="/" className="hover:text-white transition-colors flex items-center gap-1.5 font-medium">
             <span>&larr; Public Website</span>
           </Link>
-          <span className="hidden sm:inline font-mono">
-            CBSE Affiliation #89410
+          <span className="hover:text-white transition-colors font-medium">
+            Platform Admin Console &rarr;
           </span>
         </div>
       </div>
 
       {/* =========================================================================
-          RIGHT SIDE: Pure White Minimalist Login Form (50% Split)
+          RIGHT SIDE: Pure White Minimalist Login Form (50% Split - Exact CampusCorpo Style)
           ========================================================================= */}
       <div className="bg-white text-[#171717] min-h-full flex flex-col justify-center px-8 sm:px-14 lg:px-16 xl:px-24 py-12">
         <div className="w-full max-w-md mx-auto space-y-6">
@@ -206,7 +206,7 @@ export default function LoginPage() {
           <div>
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#525252] hover:text-[#990000] transition-colors"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#737373] hover:text-[#171717] transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to EdvoNest Website</span>
@@ -215,11 +215,11 @@ export default function LoginPage() {
 
           {/* Role Experience Switcher */}
           <div>
-            <label className="block text-[11px] font-bold text-[#525252] uppercase tracking-wider mb-2">
+            <label className="block text-[11px] font-bold text-[#737373] uppercase tracking-wider mb-2.5">
               PORTAL EXPERIENCE
             </label>
 
-            <div className="bg-[#F5F5F5] p-1 rounded-xl grid grid-cols-3 sm:grid-cols-5 gap-1 border border-[#E5E5E5]">
+            <div className="bg-[#F5F5F5] p-1 rounded-xl flex items-center gap-1 border border-[#E5E5E5] overflow-x-auto">
               {DEMO_ACCOUNTS.map((acc) => {
                 const Icon = acc.icon;
                 const isActive = selectedRole === acc.role;
@@ -228,14 +228,14 @@ export default function LoginPage() {
                     key={acc.role}
                     type="button"
                     onClick={() => selectDemoAccount(acc, false)}
-                    className={`flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                    className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-lg text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
                       isActive
-                        ? 'bg-[#990000] text-white shadow-xs'
-                        : 'text-[#171717] hover:bg-white hover:text-[#990000]'
+                        ? 'bg-[#0A0A0A] text-white shadow-xs'
+                        : 'text-[#525252] hover:text-[#171717] hover:bg-white'
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5 shrink-0" />
-                    <span className="truncate">{acc.role}</span>
+                    <span>{acc.role}</span>
                   </button>
                 );
               })}
@@ -243,11 +243,11 @@ export default function LoginPage() {
           </div>
 
           {/* Heading */}
-          <div className="pt-2">
+          <div className="pt-1">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#171717] tracking-tight">
               Sign In to EdvoNest
             </h2>
-            <p className="text-xs sm:text-sm text-[#525252] mt-1">
+            <p className="text-xs sm:text-sm text-[#737373] mt-1 font-normal">
               Enter your credentials to access your account.
             </p>
           </div>
@@ -273,14 +273,14 @@ export default function LoginPage() {
                 EMAIL OR USERNAME
               </label>
               <div className="relative">
-                <User className="w-4 h-4 text-[#525252] absolute left-4 top-1/2 -translate-y-1/2" />
+                <User className="w-4 h-4 text-[#737373] absolute left-4 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full h-12 pl-11 pr-4 rounded-xl border border-[#E5E5E5] bg-white text-sm text-[#171717] placeholder-slate-400 font-medium focus:border-[#990000] focus:ring-1 focus:ring-[#990000] focus:outline-none transition-all"
-                  placeholder="name@school.edu"
+                  className="w-full h-12 pl-11 pr-4 rounded-xl border border-[#E5E5E5] bg-white text-sm text-[#171717] placeholder-slate-400 font-medium focus:border-[#171717] focus:ring-1 focus:ring-[#171717] focus:outline-none transition-all"
+                  placeholder="admin@edvonest.com"
                 />
               </div>
             </div>
@@ -291,19 +291,19 @@ export default function LoginPage() {
                 PASSWORD
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-[#525252] absolute left-4 top-1/2 -translate-y-1/2" />
+                <Lock className="w-4 h-4 text-[#737373] absolute left-4 top-1/2 -translate-y-1/2" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full h-12 pl-11 pr-11 rounded-xl border border-[#E5E5E5] bg-white text-sm text-[#171717] placeholder-slate-400 font-medium focus:border-[#990000] focus:ring-1 focus:ring-[#990000] focus:outline-none transition-all"
+                  className="w-full h-12 pl-11 pr-11 rounded-xl border border-[#E5E5E5] bg-white text-sm text-[#171717] placeholder-slate-400 font-medium focus:border-[#171717] focus:ring-1 focus:ring-[#171717] focus:outline-none transition-all"
                   placeholder="••••••••••••"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#990000] cursor-pointer p-0.5"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#171717] cursor-pointer p-0.5"
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -317,7 +317,7 @@ export default function LoginPage() {
                 <input
                   type="checkbox"
                   defaultChecked
-                  className="w-4 h-4 rounded border-[#E5E5E5] text-[#990000] focus:ring-[#990000] cursor-pointer"
+                  className="w-4 h-4 rounded border-[#E5E5E5] text-[#0A0A0A] focus:ring-[#0A0A0A] cursor-pointer"
                 />
                 <span>Remember me</span>
               </label>
@@ -329,17 +329,17 @@ export default function LoginPage() {
                   setPassword('password123');
                   setSelectedRole('Admin');
                 }}
-                className="text-xs font-semibold text-[#525252] hover:text-[#990000] hover:underline cursor-pointer"
+                className="text-xs font-semibold text-[#525252] hover:text-[#171717] hover:underline cursor-pointer"
               >
                 Need help?
               </button>
             </div>
 
-            {/* Sign In Button */}
+            {/* Sign In Button - Solid Black matching CampusCorpo */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full h-12 bg-[#990000] hover:bg-[#800000] text-white font-semibold text-sm rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-sm transition-all disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+              className="w-full h-12 bg-[#0A0A0A] hover:bg-[#171717] text-white font-semibold text-sm rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-sm transition-all disabled:opacity-70 disabled:cursor-not-allowed mt-2"
             >
               {loading ? (
                 <span className="inline-flex items-center gap-2">
@@ -356,7 +356,7 @@ export default function LoginPage() {
           </form>
 
           {/* Institutional Compliance Tagline */}
-          <div className="pt-4 text-center text-xs text-[#525252] flex items-center justify-center gap-1.5">
+          <div className="pt-4 text-center text-xs text-[#737373] flex items-center justify-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5 text-[#990000] shrink-0" />
             <span>Institutional Cloud OS • CBSE Affiliation #89410</span>
           </div>

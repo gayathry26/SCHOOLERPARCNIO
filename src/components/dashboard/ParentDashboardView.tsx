@@ -76,7 +76,7 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
             <p className="text-xs text-[#FEF2F2]">
               {currentChild.class} • Admission #{currentChild.admissionNo} • Roll #{currentChild.rollNo}
             </p>
-            <p className="text-xs text-[#35B84A] font-bold mt-0.5">
+            <p className="text-xs text-[#990000] font-bold mt-0.5">
               Attendance: {currentChild.attendance}% (Eligible for Board Exams)
             </p>
           </div>
@@ -89,7 +89,7 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
             <p className="text-lg font-black text-[#FDE68A]">{formatCurrency(currentChild.feeDue)}</p>
           </div>
           <Link href="/dashboard/fees">
-            <Button variant="secondary" size="sm" className="bg-[#35B84A] text-white hover:bg-[#35B84A]/90 border-transparent font-bold">
+            <Button variant="secondary" size="sm" className="bg-[#990000] text-white hover:bg-[#990000]/90 border-transparent font-bold">
               Pay Online
             </Button>
           </Link>
@@ -155,7 +155,7 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
                 <Badge variant="amber" size="xs">Pending</Badge>
               </div>
 
-              <div className="p-3 bg-[#EAF8EC] border border-[#bbf0c5] rounded-xl flex items-center justify-between text-xs">
+              <div className="p-3 bg-[#FEF2F2] border border-[#FECACA] rounded-xl flex items-center justify-between text-xs">
                 <div>
                   <div className="flex items-center gap-2">
                     <h4 className="font-bold text-[#171717]">Light Ray Reflection Diagrams</h4>
@@ -164,7 +164,7 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
                   <p className="text-[10px] text-[#737373] mt-0.5">Science Lab • Class 10-A • Submitted on 17 Nov</p>
                   <p className="text-[10px] text-emerald-700 font-semibold mt-1">Teacher Grade: A+ (Well done)</p>
                 </div>
-                <CheckCircle2 className="w-4 h-4 text-[#35B84A]" />
+                <CheckCircle2 className="w-4 h-4 text-[#990000]" />
               </div>
             </div>
           </Card>
@@ -221,7 +221,7 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <BellRing className="w-4 h-4 text-[#35B84A]" />
+            <BellRing className="w-4 h-4 text-[#990000]" />
             <span>School Circulars &amp; Announcements</span>
           </CardTitle>
           <Link href="/dashboard/communication">
@@ -244,3 +244,4 @@ export const ParentDashboardView: React.FC<ParentDashboardProps> = ({
     </div>
   );
 };
+

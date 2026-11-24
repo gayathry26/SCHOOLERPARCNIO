@@ -120,7 +120,7 @@ export const AccountantDashboardView: React.FC<AccountantDashboardProps> = ({
             </CardHeader>
             <div className="space-y-3 text-xs">
               {[
-                { mode: 'UPI & QR Terminal', amount: 285000, share: 51, color: 'bg-[#35B84A]' },
+                { mode: 'UPI & QR Terminal', amount: 285000, share: 51, color: 'bg-[#990000]' },
                 { mode: 'Net Banking / NEFT / IMPS', amount: 142000, share: 25, color: 'bg-[#990000]' },
                 { mode: 'Credit / Debit Cards', amount: 80000, share: 14, color: 'bg-[#C00000]' },
                 { mode: 'Cash Counter Deposits', amount: 53000, share: 10, color: 'bg-amber-500' },
@@ -224,3 +224,4 @@ export const AccountantDashboardView: React.FC<AccountantDashboardProps> = ({
     </div>
   );
 };
+

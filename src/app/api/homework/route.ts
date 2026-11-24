@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { getCurrentUser } from '@/lib/auth';
 import { logAudit } from '@/lib/audit';
+import { verifySectionAccess } from '@/lib/classAdvisorGuard';
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,6 +18,17 @@ export async function POST(req: NextRequest) {
 
     if (!classId || !sectionId || !subjectId || !title || !dueDate) {
       return NextResponse.json({ error: 'Class, section, subject, title, and due date are required.' }, { status: 400 });
+    }
+
+    // RBAC check: verify teacher has access to this section
+    if (user.role === 'TEACHER') {
+      const access = await verifySectionAccess(user, sectionId);
+      if (!access.authorized) {
+        return NextResponse.json(
+          { error: 'Forbidden: You are not authorized to assign homework to this class section.' },
+          { status: 403 }
+        );
+      }
     }
 
     const hw = await prisma.homework.create({

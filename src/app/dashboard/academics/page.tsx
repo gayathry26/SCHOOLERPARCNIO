@@ -10,13 +10,17 @@ export default async function AcademicsPage() {
   if (!user) redirect('/login');
   if (!canAccessModule(user.role, 'ACADEMICS')) redirect('/dashboard');
 
-  const [yearsData, classesData, subjectsData, materialsData] = await Promise.all([
+  const [yearsData, classesData, subjectsData, materialsData, teachersData] = await Promise.all([
     prisma.academicYear.findMany({ orderBy: { startDate: 'desc' } }),
     prisma.class.findMany({
       include: {
         sections: {
-          include: { classTeacher: { include: { user: true } } },
+          include: {
+            classTeacher: { include: { user: true } },
+            _count: { select: { enrollments: true } },
+          },
         },
+        _count: { select: { enrollments: true } },
       },
       orderBy: { numericOrder: 'asc' },
     }),
@@ -30,6 +34,11 @@ export default async function AcademicsPage() {
     prisma.studyMaterial.findMany({
       include: { subject: true },
     }),
+    prisma.teacherProfile.findMany({
+      where: { status: 'ACTIVE' },
+      include: { user: true },
+      orderBy: { user: { firstName: 'asc' } },
+    }),
   ]);
 
   return (
@@ -38,6 +47,8 @@ export default async function AcademicsPage() {
       classes={classesData}
       subjects={subjectsData}
       studyMaterials={materialsData}
+      teachers={teachersData}
+      userRole={user.role}
     />
   );
 }

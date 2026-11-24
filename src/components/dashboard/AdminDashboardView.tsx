@@ -124,8 +124,8 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
             </button>
           </Link>
           <Link href="/dashboard/attendance">
-            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E5E5E5] bg-[#F5F5F5] hover:bg-[#EAF8EC] hover:border-[#bbf0c5] text-xs font-semibold text-[#16A34A] transition-all cursor-pointer">
-              <CalendarCheck className="w-4 h-4 text-[#35B84A]" />
+            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E5E5E5] bg-[#F5F5F5] hover:bg-[#FEF2F2] hover:border-[#FECACA] text-xs font-semibold text-[#990000] transition-all cursor-pointer">
+              <CalendarCheck className="w-4 h-4 text-[#990000]" />
               <span>Mark Attendance</span>
             </button>
           </Link>
@@ -148,8 +148,8 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
             </button>
           </Link>
           <Link href="/dashboard/homework">
-            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E5E5E5] bg-[#F5F5F5] hover:bg-[#EAF8EC] hover:border-[#bbf0c5] text-xs font-semibold text-[#16A34A] transition-all cursor-pointer">
-              <BookMarked className="w-4 h-4 text-[#35B84A]" />
+            <button className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl border border-[#E5E5E5] bg-[#F5F5F5] hover:bg-[#FEF2F2] hover:border-[#FECACA] text-xs font-semibold text-[#990000] transition-all cursor-pointer">
+              <BookMarked className="w-4 h-4 text-[#990000]" />
               <span>Add Homework</span>
             </button>
           </Link>
@@ -227,9 +227,9 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
                 </Link>
               </div>
 
-              <div className="p-3 bg-[#EAF8EC] border border-[#bbf0c5] rounded-xl flex items-center justify-between gap-3">
+              <div className="p-3 bg-[#FEF2F2] border border-[#FECACA] rounded-xl flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="p-1.5 rounded-lg bg-[#d2f5d9] text-[#16A34A] shrink-0">
+                  <div className="p-1.5 rounded-lg bg-[#FEE2E2] text-[#990000] shrink-0">
                     <FileCheck2 className="w-4 h-4" />
                   </div>
                   <div className="truncate">
@@ -261,7 +261,7 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
             </CardHeader>
             <div className="space-y-3">
               <div className="flex items-start gap-3 text-xs">
-                <div className="w-2 h-2 rounded-full bg-[#35B84A] mt-1.5 shrink-0" />
+                <div className="w-2 h-2 rounded-full bg-[#990000] mt-1.5 shrink-0" />
                 <div className="flex-1 min-w-0">
                   <p className="font-bold text-[#171717]">Student admission completed</p>
                   <p className="text-[11px] text-[#737373]">Aarav Verma enrolled in Class 10-A (#EDV-2025-0142)</p>
@@ -297,7 +297,7 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
               </div>
 
               <div className="flex items-start gap-3 text-xs">
-                <div className="w-2 h-2 rounded-full bg-[#35B84A] mt-1.5 shrink-0" />
+                <div className="w-2 h-2 rounded-full bg-[#990000] mt-1.5 shrink-0" />
                 <div className="flex-1 min-w-0">
                   <p className="font-bold text-[#171717]">Exam results published</p>
                   <p className="text-[11px] text-[#737373]">Unit Test 1 Marks finalized for Class 9 Physics</p>
@@ -354,7 +354,7 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <CalendarCheck className="w-4 h-4 text-[#35B84A]" />
+              <CalendarCheck className="w-4 h-4 text-[#990000]" />
               <span>Upcoming Campus Events</span>
             </CardTitle>
             <Link href="/dashboard/events">
@@ -383,3 +383,4 @@ export const AdminDashboardView: React.FC<AdminDashboardProps> = ({
     </div>
   );
 };
+

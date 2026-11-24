@@ -150,6 +150,7 @@ model Class {
   name           String
   numericOrder   Int      @default(1)
   stream         String?  @default("General")
+  isActive       Boolean  @default(true)
   academicYearId String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
@@ -175,6 +176,8 @@ model Section {
   id             String   @id @default(cuid())
   name           String
   roomNo         String?  @default("Room 101")
+  capacity       Int      @default(40)
+  isActive       Boolean  @default(true)
   classId        String
   classTeacherId String?
   createdAt      DateTime @default(now())
@@ -191,6 +194,23 @@ model Section {
   lessonPlans       LessonPlan[]
   substituteSlots   SubstituteAssignment[]
   teacherAllocations TeacherAllocation[]
+  advisorLogs       ClassAdvisorAssignmentLog[]
+}
+
+model ClassAdvisorAssignmentLog {
+  id             String    @id @default(cuid())
+  sectionId      String
+  academicYearId String?
+  teacherId      String
+  assignedById   String?
+  startDate      DateTime  @default(now())
+  endDate        DateTime?
+  status         String    @default("ACTIVE") // ACTIVE, RELIEVED, TRANSFERRED
+  remarks        String?
+  createdAt      DateTime  @default(now())
+
+  section Section        @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  teacher TeacherProfile @relation(fields: [teacherId], references: [id], onDelete: Cascade)
 }
 
 model Subject {
@@ -344,6 +364,7 @@ model TeacherProfile {
   salaryHistory      StaffSalaryHistory[]
   lifecycleLogs      StaffLifecycleLog[]
   ptmSlots           PtmSlot[]
+  advisorLogs        ClassAdvisorAssignmentLog[]
 }
 
 model ParentProfile {

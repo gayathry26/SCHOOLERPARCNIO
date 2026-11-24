@@ -2,13 +2,32 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { getCurrentUser, hashPassword } from '@/lib/auth';
 import { logAudit } from '@/lib/audit';
+import { verifySectionAccess, getTeacherAuthorizedSections } from '@/lib/classAdvisorGuard';
 
 export async function GET(req: NextRequest) {
   try {
+    const user = await getCurrentUser();
+    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
     const { searchParams } = new URL(req.url);
     const classId = searchParams.get('classId');
     const sectionId = searchParams.get('sectionId');
     const status = searchParams.get('status') || 'ACTIVE';
+
+    // If teacher, resolve their authorized sections
+    let teacherSectionIds: string[] | null = null;
+    if (user.role === 'TEACHER') {
+      const authSections = await getTeacherAuthorizedSections(user.id);
+      teacherSectionIds = authSections.allSectionIds;
+
+      // If querying a specific section, check access
+      if (sectionId && !teacherSectionIds.includes(sectionId)) {
+        return NextResponse.json(
+          { error: 'Forbidden: You are not authorized to view students in this class section.' },
+          { status: 403 }
+        );
+      }
+    }
 
     const whereClause: any = {
       isArchived: status === 'ARCHIVED',
@@ -30,8 +49,14 @@ export async function GET(req: NextRequest) {
 
     const formatted = students
       .filter((s) => {
-        if (!classId && !sectionId) return true;
         const currentEnrollment = s.enrollments[0];
+        // Enforce teacher section boundary
+        if (teacherSectionIds && currentEnrollment) {
+          if (!teacherSectionIds.includes(currentEnrollment.sectionId)) {
+            return false;
+          }
+        }
+        if (!classId && !sectionId) return true;
         if (classId && currentEnrollment?.classId !== classId) return false;
         if (sectionId && currentEnrollment?.sectionId !== sectionId) return false;
         return true;
@@ -69,10 +94,10 @@ export async function POST(req: NextRequest) {
     const user = await getCurrentUser();
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const ALLOWED_STAFF = ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL', 'VICE_PRINCIPAL', 'RECEPTIONIST'];
+    const ALLOWED_STAFF = ['SUPER_ADMIN', 'SCHOOL_ADMIN', 'PRINCIPAL', 'VICE_PRINCIPAL', 'RECEPTIONIST', 'TEACHER'];
     if (!ALLOWED_STAFF.includes(user.role)) {
       return NextResponse.json(
-        { error: 'Forbidden: Only authorized administrative staff can enroll students.' },
+        { error: 'Forbidden: Only authorized administrative staff and class advisors can enroll students.' },
         { status: 403 }
       );
     }
@@ -98,6 +123,20 @@ export async function POST(req: NextRequest) {
       parentEmail,
       house,
     } = body;
+
+    // RBAC check: If teacher, verify they are the Class Advisor for target section
+    if (user.role === 'TEACHER') {
+      if (!sectionId) {
+        return NextResponse.json({ error: 'Section ID is required for student enrollment.' }, { status: 400 });
+      }
+      const access = await verifySectionAccess(user, sectionId, true);
+      if (!access.authorized) {
+        return NextResponse.json(
+          { error: 'Forbidden: As Class Advisor, you can only enroll students into your assigned class and section.' },
+          { status: 403 }
+        );
+      }
+    }
 
     if (!firstName || !lastName) {
       return NextResponse.json({ error: 'First name and last name are required.' }, { status: 400 });

@@ -23,6 +23,7 @@ import { Card, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Avatar } from '@/components/ui/Avatar';
+import { ClassAdvisorCockpit } from '@/components/dashboard/ClassAdvisorCockpit';
 import { formatDate } from '@/lib/formatters';
 
 export interface TeacherDashboardProps {
@@ -49,7 +50,7 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-lg sm:text-xl font-bold">Faculty Teaching Cockpit</h2>
-              <span className="text-xs bg-emerald-500/20 text-[#35B84A] px-2.5 py-0.5 rounded-full font-bold border border-emerald-400/30">
+              <span className="text-xs bg-emerald-500/20 text-[#990000] px-2.5 py-0.5 rounded-full font-bold border border-emerald-400/30">
                 Active Session
               </span>
             </div>
@@ -67,6 +68,9 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
           <span className="text-base font-bold text-white">4 Teaching Periods Allocated</span>
         </div>
       </div>
+
+      {/* Class Advisor Cockpit: Displays personalized student roster, attendance rate, pending homework, and exams */}
+      <ClassAdvisorCockpit />
 
       {/* 3 Teacher Daily Metrics */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -140,10 +144,10 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
               </Link>
             </CardHeader>
             <div className="space-y-2.5">
-              <div className="p-3 bg-[#EAF8EC] border border-[#bbf0c5] rounded-xl flex items-center justify-between text-xs">
+              <div className="p-3 bg-[#FEF2F2] border border-[#FECACA] rounded-xl flex items-center justify-between text-xs">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] bg-[#35B84A] text-white font-bold px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] bg-[#990000] text-white font-bold px-2 py-0.5 rounded-full">
                       08:30 – 09:15 AM
                     </span>
                     <Badge variant="green" size="xs">Current / Active</Badge>
@@ -200,7 +204,7 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
                   <span className="text-[10px] text-emerald-700 font-bold">85% Complete</span>
                 </div>
                 <div className="w-full bg-[#E5E5E5] h-2 rounded-full overflow-hidden">
-                  <div className="bg-[#35B84A] h-full rounded-full" style={{ width: '85%' }} />
+                  <div className="bg-[#990000] h-full rounded-full" style={{ width: '85%' }} />
                 </div>
                 <p className="text-[10px] text-[#737373]">Next: Section Formula &amp; Distance Problems</p>
               </div>
@@ -282,7 +286,7 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <MessageSquare className="w-4 h-4 text-[#35B84A]" />
+              <MessageSquare className="w-4 h-4 text-[#990000]" />
               <span>Staff &amp; Campus Notices</span>
             </CardTitle>
             <Link href="/dashboard/communication">
@@ -306,3 +310,4 @@ export const TeacherDashboardView: React.FC<TeacherDashboardProps> = ({
     </div>
   );
 };
+

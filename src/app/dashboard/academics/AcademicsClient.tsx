@@ -18,13 +18,16 @@ import { Card, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { formatDate } from '@/lib/formatters';
+import { ClassSectionManagementStudio } from '@/components/academics/ClassSectionManagementStudio';
 
 export const AcademicsClient: React.FC<{
   academicYears: any[];
   classes: any[];
   subjects: any[];
   studyMaterials: any[];
-}> = ({ academicYears, classes, subjects, studyMaterials }) => {
+  teachers?: any[];
+  userRole?: string;
+}> = ({ academicYears, classes, subjects, studyMaterials, teachers = [], userRole = 'SCHOOL_ADMIN' }) => {
   const [activeTab, setActiveTab] = useState('classes');
 
   const tabs: TabItem[] = [
@@ -39,12 +42,12 @@ export const AcademicsClient: React.FC<{
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-            <BookOpen className="w-6 h-6 text-emerald-600" />
-            <span>Academic Management &amp; Curriculum Matrix</span>
+          <h2 className="text-xl font-bold text-[#171717] tracking-tight flex items-center gap-2">
+            <BookOpen className="w-6 h-6 text-[#990000]" />
+            <span>Academic Management &amp; Centralized Class Architecture</span>
           </h2>
-          <p className="text-xs text-slate-500 mt-1">
-            Academic year isolation, class structure, teacher subject assignments, and digital study resources.
+          <p className="text-xs text-[#525252] mt-1">
+            Unlimited classes, section capacity, Class Advisor assignments, faculty subject allocations, and student promotions.
           </p>
         </div>
       </div>
@@ -52,49 +55,15 @@ export const AcademicsClient: React.FC<{
       <Tabs tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
 
       {/* ---------------------------------------------------- */}
-      {/* TAB 1: CLASSES & SECTIONS */}
+      {/* TAB 1: CENTRALIZED CLASSES & SECTIONS STUDIO */}
       {/* ---------------------------------------------------- */}
       {activeTab === 'classes' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {classes.map((cls) => (
-            <Card key={cls.id} hoverEffect className="space-y-3">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center font-bold text-xs">
-                    {cls.numericOrder}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 text-sm">{cls.name}</h3>
-                    <p className="text-[10px] text-slate-400 font-mono">Stream: {cls.stream || 'General'}</p>
-                  </div>
-                </div>
-                <Badge variant="emerald">{cls.sections?.length || 0} Sections</Badge>
-              </div>
-
-              <div className="space-y-2 text-xs">
-                <p className="font-semibold text-slate-700">Sections &amp; Class Teachers:</p>
-                <div className="space-y-1.5">
-                  {cls.sections?.map((sec: any) => (
-                    <div
-                      key={sec.id}
-                      className="p-2 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-between"
-                    >
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-slate-900">Sec {sec.name}</span>
-                        <span className="text-slate-400 font-mono">({sec.roomNumber || 'Room 101'})</span>
-                      </div>
-                      <span className="text-[11px] text-slate-600 font-medium">
-                        {sec.classTeacher?.user
-                          ? `${sec.classTeacher.user.firstName} ${sec.classTeacher.user.lastName}`
-                          : 'Faculty Assigned'}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
+        <ClassSectionManagementStudio
+          initialClasses={classes}
+          academicYears={academicYears}
+          teachers={teachers}
+          userRole={userRole}
+        />
       )}
 
       {/* ---------------------------------------------------- */}
