@@ -56,7 +56,8 @@ export const StudentsClient: React.FC<{
   initialStudents: StudentRow[];
   classes: ClassOption[];
   academicYears: Array<{ id: string; name: string; isCurrent: boolean }>;
-}> = ({ initialStudents, classes, academicYears }) => {
+  userRole?: string;
+}> = ({ initialStudents, classes, academicYears, userRole = 'SCHOOL_ADMIN' }) => {
   const [students, setStudents] = useState<StudentRow[]>(initialStudents);
   const [selectedClass, setSelectedClass] = useState<string>('');
   const [selectedSection, setSelectedSection] = useState<string>('');
@@ -640,11 +641,17 @@ export const StudentsClient: React.FC<{
                     </select>
                   </div>
                   <div>
-                    <label className="block font-bold text-[#171717] mb-1">Section *</label>
+                    <div className="flex items-center justify-between mb-1">
+                      <label className="block font-bold text-[#171717]">Section Allocation *</label>
+                      <span className="text-[10px] font-bold text-[#990000] bg-red-50 border border-red-200 px-2 py-0.5 rounded-full">
+                        Admin Only
+                      </span>
+                    </div>
                     <select
+                      disabled={userRole !== 'SCHOOL_ADMIN' && userRole !== 'SUPER_ADMIN'}
                       value={formData.sectionId}
                       onChange={(e) => setFormData({ ...formData, sectionId: e.target.value })}
-                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000] bg-white font-semibold"
+                      className="w-full px-3 py-2 border border-[#E5E5E5] rounded-lg focus:outline-none focus:border-[#990000] bg-white font-semibold disabled:bg-[#F5F5F5] disabled:text-[#737373] disabled:cursor-not-allowed"
                     >
                       {classes
                         .find((c) => c.id === formData.classId)
@@ -654,6 +661,11 @@ export const StudentsClient: React.FC<{
                           </option>
                         ))}
                     </select>
+                    {userRole !== 'SCHOOL_ADMIN' && userRole !== 'SUPER_ADMIN' && (
+                      <p className="text-[11px] text-[#737373] mt-1 font-medium">
+                        Section allocation is managed exclusively by the School Administrator.
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label className="block font-bold text-[#171717] mb-1">Roll Number</label>

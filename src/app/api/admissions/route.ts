@@ -150,7 +150,15 @@ export async function PUT(req: NextRequest) {
       return NextResponse.json({ error: 'Forbidden: Insufficient privileges' }, { status: 403 });
     }
 
-    const { applicationId, status, interviewDate, interviewNotes } = await req.json();
+    const { applicationId, status, interviewDate, interviewNotes, sectionName, sectionId } = await req.json();
+
+    // Strict Rule: Confirming admission and section allocation is restricted exclusively to School Administrator
+    if (status === 'ADMITTED' && user.role !== 'SCHOOL_ADMIN' && user.role !== 'SUPER_ADMIN') {
+      return NextResponse.json(
+        { error: 'Forbidden: Confirming admission and section allocation is restricted exclusively to School Administrator.' },
+        { status: 403 }
+      );
+    }
 
     const app = await prisma.admissionApplication.findUnique({
       where: { id: applicationId },
@@ -201,14 +209,19 @@ export async function PUT(req: NextRequest) {
 
       createdStudentId = sProfile.id;
 
-      // 3. Create Enrollment
-      if (currentYear && targetClass && targetClass.sections[0]) {
+      // 3. Create Enrollment with Admin-allocated section
+      let section = targetClass?.sections.find(
+        (s) => s.id === sectionId || s.name === sectionName
+      );
+      if (!section) section = targetClass?.sections[0];
+
+      if (currentYear && targetClass && section) {
         await prisma.studentEnrollment.create({
           data: {
             studentId: sProfile.id,
             academicYearId: currentYear.id,
             classId: targetClass.id,
-            sectionId: targetClass.sections[0].id,
+            sectionId: section.id,
             status: 'ACTIVE',
           },
         });

@@ -124,18 +124,12 @@ export async function POST(req: NextRequest) {
       house,
     } = body;
 
-    // RBAC check: If teacher, verify they are the Class Advisor for target section
-    if (user.role === 'TEACHER') {
-      if (!sectionId) {
-        return NextResponse.json({ error: 'Section ID is required for student enrollment.' }, { status: 400 });
-      }
-      const access = await verifySectionAccess(user, sectionId, true);
-      if (!access.authorized) {
-        return NextResponse.json(
-          { error: 'Forbidden: As Class Advisor, you can only enroll students into your assigned class and section.' },
-          { status: 403 }
-        );
-      }
+    // Strict Rule: Section allocation is restricted exclusively to School Administrator
+    if (sectionId && user.role !== 'SCHOOL_ADMIN' && user.role !== 'SUPER_ADMIN') {
+      return NextResponse.json(
+        { error: 'Forbidden: Section allocation is restricted exclusively to School Administrators.' },
+        { status: 403 }
+      );
     }
 
     if (!firstName || !lastName) {
@@ -249,6 +243,89 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true, student: studentProfile });
   } catch (error: any) {
     console.error('Error creating student:', error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
+
+/**
+ * PUT /api/students
+ * Admin-only: Allocate or update a student's section and enrollment.
+ */
+export async function PUT(req: NextRequest) {
+  try {
+    const user = await getCurrentUser();
+    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
+    const body = await req.json();
+    const { studentId, sectionId, classId, rollNumber, isArchived } = body;
+
+    if (!studentId) {
+      return NextResponse.json({ error: 'Student ID is required.' }, { status: 400 });
+    }
+
+    // Strict Rule: Section allocation can ONLY be performed by School Admin / Super Admin
+    if (sectionId && user.role !== 'SCHOOL_ADMIN' && user.role !== 'SUPER_ADMIN') {
+      return NextResponse.json(
+        { error: 'Forbidden: Section allocation is restricted exclusively to School Administrators.' },
+        { status: 403 }
+      );
+    }
+
+    const currentYear = await prisma.academicYear.findFirst({
+      where: { isCurrent: true },
+    });
+
+    if (sectionId || classId) {
+      const activeEnrollment = await prisma.studentEnrollment.findFirst({
+        where: { studentId, status: 'ACTIVE' },
+        orderBy: { createdAt: 'desc' },
+      });
+
+      if (activeEnrollment) {
+        await prisma.studentEnrollment.update({
+          where: { id: activeEnrollment.id },
+          data: {
+            classId: classId || activeEnrollment.classId,
+            sectionId: sectionId || activeEnrollment.sectionId,
+            rollNumber: rollNumber !== undefined ? rollNumber : activeEnrollment.rollNumber,
+          },
+        });
+      } else if (currentYear && classId && sectionId) {
+        await prisma.studentEnrollment.create({
+          data: {
+            studentId,
+            academicYearId: currentYear.id,
+            classId,
+            sectionId,
+            rollNumber: rollNumber || '-',
+            status: 'ACTIVE',
+          },
+        });
+      }
+    }
+
+    if (rollNumber !== undefined || isArchived !== undefined) {
+      await prisma.studentProfile.update({
+        where: { id: studentId },
+        data: {
+          rollNumber: rollNumber !== undefined ? rollNumber : undefined,
+          isArchived: isArchived !== undefined ? isArchived : undefined,
+        },
+      });
+    }
+
+    await logAudit({
+      schoolId: user.schoolId,
+      userId: user.id,
+      action: 'UPDATE_STUDENT_SECTION_ALLOCATION',
+      module: 'STUDENTS',
+      recordId: studentId,
+      newValue: `Updated section allocation to ${sectionId} for student ${studentId}`,
+    });
+
+    return NextResponse.json({ success: true });
+  } catch (error: any) {
+    console.error('Error updating student section allocation:', error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

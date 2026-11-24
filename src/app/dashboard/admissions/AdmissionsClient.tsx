@@ -36,6 +36,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
   const [selectedApp, setSelectedApp] = useState<any | null>(null);
   const [isNewModalOpen, setIsNewModalOpen] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [admitSectionName, setAdmitSectionName] = useState('A');
 
   // New Enquiry Form
   const [formData, setFormData] = useState({
@@ -105,6 +106,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
         body: JSON.stringify({
           applicationId: selectedApp.id,
           status,
+          sectionName: admitSectionName,
         }),
       });
 
@@ -234,11 +236,11 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
       render: (row) => {
         const colors: Record<string, string> = {
           ENQUIRY: 'bg-slate-100 text-slate-700',
-          UNDER_REVIEW: 'bg-indigo-50 text-indigo-700',
-          VERIFIED: 'bg-blue-50 text-blue-700',
-          INTERVIEW_SCHEDULED: 'bg-amber-50 text-amber-700',
-          APPROVED: 'bg-emerald-50 text-emerald-700',
-          ADMITTED: 'bg-emerald-600 text-white',
+          UNDER_REVIEW: 'bg-amber-50 text-amber-700',
+          VERIFIED: 'bg-[#F5F5F5] text-[#171717]',
+          INTERVIEW_SCHEDULED: 'bg-amber-50 text-amber-800',
+          APPROVED: 'bg-red-50 text-[#990000]',
+          ADMITTED: 'bg-[#990000] text-white',
           REJECTED: 'bg-rose-50 text-rose-700',
         };
         return (
@@ -314,7 +316,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
           <ArrowRight className="w-4 h-4 text-slate-400" />
           <div>
             <span className="text-slate-500 block text-[11px]">Enrolled</span>
-            <strong className="text-emerald-700 text-sm">{admittedCount}</strong>
+            <strong className="text-[#990000] text-sm">{admittedCount}</strong>
           </div>
         </div>
       </div>
@@ -337,13 +339,13 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
           title="Approved Offers"
           value={applications.filter((a) => a.status === 'APPROVED').length}
           subtitle="Awaiting fee receipt"
-          icon={<CheckCircle2 className="w-5 h-5 text-blue-600" />}
+          icon={<CheckCircle2 className="w-5 h-5 text-[#990000]" />}
         />
         <StatCard
           title="Confirmed Admitted"
           value={applications.filter((a) => a.status === 'ADMITTED').length}
           subtitle="Student logins created"
-          icon={<UserCheck className="w-5 h-5 text-emerald-600" />}
+          icon={<UserCheck className="w-5 h-5 text-[#990000]" />}
         />
       </div>
 
@@ -409,9 +411,24 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
               <select
                 value={formData.applyingForClass}
                 onChange={(e) => setFormData({ ...formData, applyingForClass: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#990000] bg-white"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#990000] bg-white font-semibold"
               >
-                {['Class 1', 'Class 5', 'Class 9', 'Class 10', 'Class 11 Science', 'Class 11 Commerce'].map((c) => (
+                {[
+                  'LKG',
+                  'UKG',
+                  'Class 1',
+                  'Class 2',
+                  'Class 3',
+                  'Class 4',
+                  'Class 5',
+                  'Class 6',
+                  'Class 7',
+                  'Class 8',
+                  'Class 9',
+                  'Class 10',
+                  'Class 11',
+                  'Class 12',
+                ].map((c) => (
                   <option key={c} value={c}>{c}</option>
                 ))}
               </select>
@@ -489,7 +506,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">Current Status:</span>
-                <Badge variant="emerald">{selectedApp.status}</Badge>
+                <Badge variant="red">{selectedApp.status}</Badge>
               </div>
             </div>
 
@@ -515,14 +532,14 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
                       <span className="block text-[10px] text-slate-400">PDF • Uploaded via Online Portal</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Badge variant={doc.status === 'VERIFIED' ? 'emerald' : 'amber'}>
+                      <Badge variant={doc.status === 'VERIFIED' ? 'red' : 'amber'}>
                         {doc.status}
                       </Badge>
                       {doc.status !== 'VERIFIED' && (
                         <Button
                           size="xs"
                           variant="outline"
-                          className="text-emerald-700 border-emerald-300"
+                          className="text-[#990000] border-red-200 hover:bg-red-50"
                           onClick={() => handleVerifyDocument(doc.id, 'VERIFIED')}
                         >
                           Verify
@@ -566,13 +583,32 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
             </div>
 
             {/* Pipeline Action Buttons */}
-            <div className="border border-slate-200 rounded-xl p-3 space-y-2">
-              <h4 className="font-bold text-slate-900">Pipeline Progression Workflow:</h4>
-              <p className="text-slate-500 text-[11px]">
-                Advancing to <strong>&ldquo;ADMITTED&rdquo;</strong> will automatically create student &amp; parent login credentials, student profile, class enrollment, and fee invoices.
+            <div className="border border-[#E5E5E5] rounded-xl p-3.5 space-y-3 bg-[#F5F5F5]">
+              <div className="flex items-center justify-between">
+                <h4 className="font-bold text-[#171717]">Section Allocation (Admin Action)</h4>
+                <span className="text-[10px] font-bold text-[#990000] bg-red-50 border border-red-200 px-2 py-0.5 rounded-full">
+                  Admin Only
+                </span>
+              </div>
+              <p className="text-[#737373] text-[11px]">
+                Section allocation is performed exclusively by the School Administrator upon student enrollment.
               </p>
 
-              <div className="grid grid-cols-2 gap-2 pt-2">
+              <div className="flex items-center gap-2 pt-1">
+                <label className="text-xs font-bold text-[#171717] whitespace-nowrap">Assign Section:</label>
+                <select
+                  value={admitSectionName}
+                  onChange={(e) => setAdmitSectionName(e.target.value)}
+                  className="px-3 py-1.5 bg-white border border-[#E5E5E5] rounded-lg text-xs font-bold text-[#171717]"
+                >
+                  <option value="A">Section A</option>
+                  <option value="B">Section B</option>
+                  <option value="C">Section C</option>
+                  <option value="D">Section D</option>
+                </select>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 pt-1">
                 <Button
                   variant="outline"
                   size="sm"
@@ -601,7 +637,7 @@ export const AdmissionsClient: React.FC<{ initialApplications: any[]; userRole?:
                 <Button
                   variant="primary"
                   size="sm"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white"
+                  className="bg-[#990000] hover:bg-[#800000] text-white"
                   onClick={() => handleUpdateStatus('ADMITTED')}
                   disabled={isUpdating}
                 >

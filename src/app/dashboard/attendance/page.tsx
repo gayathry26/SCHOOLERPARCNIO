@@ -12,7 +12,13 @@ export default async function AttendancePage() {
 
   const [classesData, studentsData] = await Promise.all([
     prisma.class.findMany({
-      include: { sections: true },
+      where: { isActive: true },
+      include: {
+        sections: {
+          where: { isActive: true },
+          orderBy: { name: 'asc' },
+        },
+      },
       orderBy: { numericOrder: 'asc' },
     }),
     prisma.studentProfile.findMany({
@@ -20,8 +26,10 @@ export default async function AttendancePage() {
       include: {
         user: true,
         enrollments: {
-          where: { academicYear: { isCurrent: true } },
+          where: { status: 'ACTIVE' },
           include: { class: true, section: true },
+          orderBy: { createdAt: 'desc' },
+          take: 1,
         },
         parents: { include: { parent: { include: { user: true } } } },
       },
@@ -32,18 +40,33 @@ export default async function AttendancePage() {
   const classes = classesData.map((c) => ({
     id: c.id,
     name: c.name,
-    sections: c.sections.map((s) => ({ id: s.id, name: s.name })),
+    numericOrder: c.numericOrder,
+    stream: c.stream,
+    sections: c.sections.map((s) => ({ id: s.id, name: s.name, capacity: s.capacity })),
   }));
 
-  const initialStudents = studentsData.map((s) => ({
-    id: s.id,
-    admissionNumber: s.admissionNumber,
-    rollNumber: s.rollNumber || s.enrollments[0]?.rollNumber || '-',
-    name: `${s.user.firstName} ${s.user.lastName}`,
-    email: s.user.email,
-    parentPhone: s.parents[0]?.parent?.phone,
-    emergencyContact: s.emergencyContact,
-  }));
+  const initialStudents = studentsData.map((s) => {
+    const enrollment = s.enrollments[0];
+    return {
+      id: s.id,
+      admissionNumber: s.admissionNumber,
+      rollNumber: s.rollNumber || enrollment?.rollNumber || '-',
+      name: `${s.user.firstName} ${s.user.lastName}`,
+      email: s.user.email,
+      parentPhone: s.parents[0]?.parent?.phone,
+      emergencyContact: s.emergencyContact,
+      classId: enrollment?.classId || null,
+      sectionId: enrollment?.sectionId || null,
+      className: enrollment?.class?.name || 'Unassigned',
+      sectionName: enrollment?.section?.name || 'Unassigned',
+    };
+  });
 
-  return <AttendanceClient classes={classes} initialStudents={initialStudents} />;
+  return (
+    <AttendanceClient
+      classes={classes}
+      initialStudents={initialStudents}
+      userRole={user.role}
+    />
+  );
 }

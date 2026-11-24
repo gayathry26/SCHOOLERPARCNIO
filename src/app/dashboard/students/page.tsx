@@ -24,7 +24,13 @@ export default async function StudentsPage() {
       orderBy: { createdAt: 'desc' },
     }),
     prisma.class.findMany({
-      include: { sections: true },
+      where: { isActive: true },
+      include: {
+        sections: {
+          where: { isActive: true },
+          orderBy: { name: 'asc' },
+        },
+      },
       orderBy: { numericOrder: 'asc' },
     }),
     prisma.academicYear.findMany({
@@ -67,6 +73,7 @@ export default async function StudentsPage() {
         name: ay.name,
         isCurrent: ay.isCurrent,
       }))}
+      userRole={user.role}
     />
   );
 }
